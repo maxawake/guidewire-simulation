@@ -4,7 +4,7 @@ import sys
 import itk
 import vtk
 import packaging.version
-
+# This python script will convert the starting data as a .mha file into a smoothed and contoured folder with files of the individual components
 
 
 def extract_connected_components(input_file, output_folder):

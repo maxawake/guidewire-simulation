@@ -14,10 +14,10 @@ def write_polydata_to_obj(polydata, obj_file):
 
     Parameters
     ----------
-    polydata : _type_
-        _description_
-    obj_file : _type_
-        _description_
+    polydata : vtk.vtkPolyData
+        The polydata to be converted.
+    obj_file : str
+        The path to the output obj file.
     """
 
     points = polydata.GetPoints()
@@ -51,18 +51,14 @@ def process_mesh(input_obj, output_obj, reduction_value):
 
     Parameters
     ----------
-    input_obj : _type_
-        _description_
-    output_obj : _type_
-        _description_
-    reduction_value : _type_
-        _description_
-
-    Returns
-    -------
-    _type_
-        _description_
+    input_obj : str
+        Path to the input OBJ file.
+    output_obj : str
+        Path to the output OBJ file.
+    reduction_value : float
+        The target reduction value for the decimation.  
     """
+    
     # First we check, if the input OBJ file exists
     if not os.path.exists(input_obj):
         print(f"Error: File {input_obj} not found.")
