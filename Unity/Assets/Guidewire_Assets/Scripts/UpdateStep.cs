@@ -32,7 +32,7 @@ public class UpdateStep : MonoBehaviour
 
 public Vector3[] UpdateSphereVelocities(Vector3[] sphereVelocities, int spheresCount, Vector3[] spherePositionPredictions, Vector3[] spherePositions)
 {
-    string debugFilePath = "/home/akreibich/TestRobinCode37/DebugVelocities.txt";
+    string debugFilePath = "/home/max/Temp/Praktikum/DebugVelocities.txt";
     using (StreamWriter writer = new StreamWriter(debugFilePath, true)) 
     {
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
@@ -70,7 +70,7 @@ public Vector3[] UpdateSpherePositions(Vector3[] spherePositions, int spheresCou
     {
         // Initialize StreamWriter to write to the specified file.
         // This will append to the file if it already exists.
-        using (StreamWriter writer = new StreamWriter("/home/akreibich/TestRobinCode37/UpdateStepDebug.txt", true))
+        using (StreamWriter writer = new StreamWriter("/home/max/Temp/Praktikum/UpdateStepDebug.txt", true))
         {
             for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
             {

@@ -105,8 +105,8 @@ public class CreationScript : MonoBehaviour
 
 private void CheckVelocityDifference()
 {
-    string debugVelocityFilePath = "/home/akreibich/TestRobinCode37/DebugVelocities.txt";
-    string positionFilePath = "/home/akreibich/TestRobinCode37/Position#N.txt";
+    string debugVelocityFilePath = "/home/max/Temp/Praktikum/DebugVelocities.txt";
+    string positionFilePath = "/home/max/Temp/Praktikum/Position#N.txt";
 
     if (spheres != null && spheres.Length > 1 && lastSphereVelocities != null) 
     {

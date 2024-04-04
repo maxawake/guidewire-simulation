@@ -317,7 +317,7 @@ public class ConstraintSolvingStep : MonoBehaviour
         deltaPositionOne = inverseMassValue * rodElementLength * factor / denominator;
         deltaPositionTwo = - inverseMassValue * rodElementLength * factor / denominator;
         deltaOrientation = quaternionScalarFactor * quaternionProduct;
-        //string debugFilePath = "/home/akreibich/TestRobinCode37/DebugConstraint.txt";
+        //string debugFilePath = "/home/max/Temp/Praktikum/DebugConstraint.txt";
     	//string content = $"inverseMassValue: {inverseMassValue}, denominator: {denominator}\n";
     	//File.AppendAllText(debugFilePath, content);
     }
@@ -384,7 +384,7 @@ private void CorrectStretchPredictions(int sphereIndex, Vector3[] spherePosition
     cylinderOrientationPredictions[sphereIndex].Normalize();
 
     Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[sphereIndex]), tolerance: 0.01f);
-            string path = "/home/akreibich/TestRobinCode37/LogConstraints.txt";
+            string path = "/home/max/Temp/Praktikum/LogConstraints.txt";
 
     	using (StreamWriter writer = new StreamWriter(path, true)) // true to append data to the file
     	{

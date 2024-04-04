@@ -240,13 +240,13 @@ private void FixedUpdate()
     long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
     UnityEngine.Debug.Log($"FixedUpdate took {elapsedMilliseconds} ms");
     
-    string filePath = "/home/akreibich/TestRobinCode37/TimeCalculationsFixedUpdate.txt";
+    string filePath = "/home/max/Temp/Praktikum/TimeCalculationsFixedUpdate.txt";
     using (StreamWriter writer = new StreamWriter(filePath, true))
     {
         //writer.WriteLine($"FixedUpdate took {elapsedMilliseconds} ms");
     }
     
-    string filePath2 = "/home/akreibich/TestRobinCode37/LogConstraints.txt";
+    string filePath2 = "/home/max/Temp/Praktikum/LogConstraints.txt";
     using (StreamWriter writer = new StreamWriter(filePath2, true))
     {
         //writer.WriteLine($"FixedUpdate took place");
@@ -255,7 +255,7 @@ private void FixedUpdate()
 
 public void SavePositionsToFile()
 {
-    string logFilePath1 = $"/home/akreibich/TestRobinCode37/Position#All.txt";
+    string logFilePath1 = $"/home/max/Temp/Praktikum/Position#All.txt";
     using (StreamWriter writer = new StreamWriter(logFilePath1, true))
     {
         for (int i = 0; i < spheres.Length; i++)
@@ -342,7 +342,7 @@ public void SavePositionsToFile()
             {
                 
                 
-                string filePath = "/home/akreibich/TestRobinCode37/LastSphereConstraintPositions";
+                string filePath = "/home/max/Temp/Praktikum/LastSphereConstraintPositions";
                 using (StreamWriter writer = new StreamWriter(filePath, true))  // 'true' parameter appends to the file
     		{
         		//writer.WriteLine($"Start of Constraint Solving - Last sphere position: {spherePositionPredictions[0]}");

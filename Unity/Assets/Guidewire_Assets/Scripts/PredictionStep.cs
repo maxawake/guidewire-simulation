@@ -68,7 +68,7 @@ public class PredictionStep : MonoBehaviour
      public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
                                         Vector3[] sphereVelocities)
      {
-     string filePath = "/home/akreibich/TestRobinCode37/debugPredictPosition"; // File path
+     string filePath = "/home/max/Temp/Praktikum/debugPredictPosition"; // File path
      for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
      {
         // If this is the first call and we are at the first sphere, apply the special offset
@@ -98,7 +98,7 @@ public class PredictionStep : MonoBehaviour
                 }
             }
         }
-            using (StreamWriter writer = new StreamWriter("/home/akreibich/TestRobinCode37/Position#N.txt", true))
+            using (StreamWriter writer = new StreamWriter("/home/max/Temp/Praktikum/Position#N.txt", true))
     {
         //writer.WriteLine("PredictSpherePositions called. firstCall: " + firstCall);
         // Add additional logging if needed
