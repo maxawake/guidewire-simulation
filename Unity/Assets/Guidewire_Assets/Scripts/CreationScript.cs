@@ -98,60 +98,59 @@ public class CreationScript : MonoBehaviour
             }
         }
     }
+
+
     public void UpdateSphereVelocities(Vector3[] velocities)
-{
-    lastSphereVelocities = velocities;
-}
-
-private void CheckVelocityDifference()
-{
-    string debugVelocityFilePath = "/home/max/Temp/Praktikum/DebugVelocities.txt";
-    string positionFilePath = "/home/max/Temp/Praktikum/Position#N.txt";
-
-    if (spheres != null && spheres.Length > 1 && lastSphereVelocities != null) 
     {
-        bool allSpheresBelowVelocityThreshold = true;
-        float epsilon = 0.000001f;
-        float velocityDifferenceThreshold = 1f; // Define your velocity threshold here
+        lastSphereVelocities = velocities;
+    }
 
-        using (StreamWriter velocityWriter = new StreamWriter(debugVelocityFilePath, true),
-                           positionWriter = new StreamWriter(positionFilePath, true))
+    private void CheckVelocityDifference()
+    {
+        string debugVelocityFilePath = "/home/max/Temp/Praktikum/DebugVelocities.txt";
+        string positionFilePath = "/home/max/Temp/Praktikum/Position#N.txt";
+
+        if (spheres != null && spheres.Length > 1 && lastSphereVelocities != null) 
         {
-            for (int i = 1; i < spheres.Length; i++) 
-            {
-                float velocityMagnitude = lastSphereVelocities[i].magnitude;
-                //velocityWriter.WriteLine("Sphere " + i + " Velocity Magnitude: " + velocityMagnitude);
+            bool allSpheresBelowVelocityThreshold = true;
+            float epsilon = 0.000001f;
+            float velocityDifferenceThreshold = 1f; // Define your velocity threshold here
 
-                if (velocityMagnitude >= velocityDifferenceThreshold + epsilon)
-                {
-                    allSpheresBelowVelocityThreshold = false;
-                    break;
-                }
-            }
-
-            if (allSpheresBelowVelocityThreshold)
+            using (StreamWriter velocityWriter = new StreamWriter(debugVelocityFilePath, true),
+                            positionWriter = new StreamWriter(positionFilePath, true))
             {
-                if (firstCallResetCounter < MaxFirstCallResets)
+                for (int i = 1; i < spheres.Length; i++) 
                 {
-                    predictionStep.ResetFirstCall();
-                    firstCallResetCounter++;
-                    DateTime now = DateTime.Now;
-                    string timestamp = now.ToString("yyyy-MM-dd HH:mm:ss.fff");
-                    velocityWriter.WriteLine($"Threshold reached at {timestamp}, triggering displacement.");
-                    positionWriter.WriteLine($"Threshold reached at {timestamp}, triggering displacement.");
+                    float velocityMagnitude = lastSphereVelocities[i].magnitude;
+                    //velocityWriter.WriteLine("Sphere " + i + " Velocity Magnitude: " + velocityMagnitude);
+
+                    if (velocityMagnitude >= velocityDifferenceThreshold + epsilon)
+                    {
+                        allSpheresBelowVelocityThreshold = false;
+                        break;
+                    }
                 }
 
-                if (firstCallResetCounter >= MaxFirstCallResets)
+                if (allSpheresBelowVelocityThreshold)
                 {
-                    Application.Quit(1);
+                    if (firstCallResetCounter < MaxFirstCallResets)
+                    {
+                        predictionStep.ResetFirstCall();
+                        firstCallResetCounter++;
+                        DateTime now = DateTime.Now;
+                        string timestamp = now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                        velocityWriter.WriteLine($"Threshold reached at {timestamp}, triggering displacement.");
+                        positionWriter.WriteLine($"Threshold reached at {timestamp}, triggering displacement.");
+                    }
+
+                    if (firstCallResetCounter >= MaxFirstCallResets)
+                    {
+                        Application.Quit(1);
+                    }
                 }
             }
         }
     }
-}
-
-
-
 
     public GameObject GetLastSphere()
     {

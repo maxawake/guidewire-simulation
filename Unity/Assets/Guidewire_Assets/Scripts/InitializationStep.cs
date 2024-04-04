@@ -72,7 +72,7 @@ namespace GuidewireSim
     public void InitSphereInverseMasses(int spheresCount, out float[] sphereInverseMasses)
     {
         sphereInverseMasses = new float[spheresCount];
-        float inverseMassValue = ((1000/rodElementLength)+1)/10f; 
+        float inverseMassValue = ((100/rodElementLength)+1)/10f; 
 
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {

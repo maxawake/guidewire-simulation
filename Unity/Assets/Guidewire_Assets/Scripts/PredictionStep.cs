@@ -57,20 +57,20 @@ public class PredictionStep : MonoBehaviour
     }
 
     /**
-     * Calculates the predictions for the sphere positions for the prediction step of the algorithm.
-     * @param spherePositionPredictions The prediction of the position at the current frame of each sphere (in this case of the last frame).
-     * @param spheresCount The count of all spheres of the guidewire. Equals the length of @p spherePositionPredictions.
-     * @param spherePositions The position at the current frame of each sphere.
-     * @param sphereVelocities The velocity of the current frame of each sphere.
-     * @return The prediction of the position at the current frame of each sphere, i.e. spherePositionPredictions.
-     */
-     private bool firstCall = true;  // Add this line to keep track of the first call
-     public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
-                                        Vector3[] sphereVelocities)
-     {
-     string filePath = "/home/max/Temp/Praktikum/debugPredictPosition"; // File path
-     for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
-     {
+    * Calculates the predictions for the sphere positions for the prediction step of the algorithm.
+    * @param spherePositionPredictions The prediction of the position at the current frame of each sphere (in this case of the last frame).
+    * @param spheresCount The count of all spheres of the guidewire. Equals the length of @p spherePositionPredictions.
+    * @param spherePositions The position at the current frame of each sphere.
+    * @param sphereVelocities The velocity of the current frame of each sphere.
+    * @return The prediction of the position at the current frame of each sphere, i.e. spherePositionPredictions.
+    */
+    private bool firstCall = true;  // Add this line to keep track of the first call
+    public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
+                                    Vector3[] sphereVelocities)
+    {
+    string filePath = "/home/max/Temp/Praktikum/debugPredictPosition"; // File path
+    for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
+    {
         // If this is the first call and we are at the first sphere, apply the special offset
         if (firstCall && sphereIndex == 0)
         {
