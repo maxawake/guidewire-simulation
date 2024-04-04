@@ -44,7 +44,7 @@ def convert_vtk_to_obj(vtk_file, obj_file):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage: python VTKTOOBJ.py <input.vtk> <output.obj>")
+        print("Usage: python vtk_to_obj.py <input.vtk> <output.obj>")
     else:
         vtk_file = sys.argv[1]
         obj_file = sys.argv[2]
