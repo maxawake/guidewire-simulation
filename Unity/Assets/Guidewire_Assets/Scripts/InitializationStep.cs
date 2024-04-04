@@ -5,33 +5,34 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using BSM = BulletSharp.Math;
-
 namespace GuidewireSim
 {
-/**
- * This class is responsible for initializing all data with their initial values of the simulation at the start of the simulation.
- */
-[RequireComponent(typeof(MathHelper))]
-public class InitializationStep : MonoBehaviour
-{
-    CollisionHandler collisionHandler; //!< The component CollisionHandler that solves all collisions.
-    MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
-
-    [Range(1000f, 10000f)] float materialDensity = 7860; /**< The density of the rod material. The value 7960 is taken from 
-                                                          *   Table 2 of the CoRdE paper.
-                                                          */
-    [Range(0.0001f, 1f)] float materialRadius = 0.001f; /**< The radius of the cross-section of the rod. Tha value 0.001 or 1mm
-                                                        *  is taken from Table 2 of the CoRdE paper.
-                                                        */
-
-    private void Awake()
+    [RequireComponent(typeof(MathHelper))]
+    public class InitializationStep : MonoBehaviour
     {
-        collisionHandler = GetComponent<CollisionHandler>();
-        Assert.IsNotNull(collisionHandler);
+        private SimulationLoop simulationLoop; // Declare simulationLoop
+        private float rodElementLength; // Declare rodElementLength
 
-        mathHelper = GetComponent<MathHelper>();
-        Assert.IsNotNull(mathHelper);
-    }
+        private CollisionHandler collisionHandler;
+        private MathHelper mathHelper;
+
+        [Range(1000f, 10000f)]
+        private float materialDensity =7600;
+
+        [Range(0.0001f, 1f)]
+        private float materialRadius = 0.001f;
+
+        private void Awake()
+        {
+            simulationLoop = GetComponent<SimulationLoop>(); // Initialize simulationLoop
+            rodElementLength = simulationLoop.GetRodElementLength(); // Initialize rodElementLength
+
+            collisionHandler = GetComponent<CollisionHandler>();
+            Assert.IsNotNull(collisionHandler);
+
+            mathHelper = GetComponent<MathHelper>();
+            Assert.IsNotNull(mathHelper);
+        }
 
     /**
      * Initializes @p spherePositions with the positions of @p spheres at the start of the simulation.
@@ -64,17 +65,18 @@ public class InitializationStep : MonoBehaviour
     }
 
     /**
-     * Initializes @p sphereInverseMasses with the default value of one at the start of the simulation.
+     * Initializes @p sphereInverseMasses with the default value of one at the start of the simulation. Edit: I (Alex Kreibich) adapt this so the total mass stays the same. The idea for how this works is described in my Bachelorthesis in the Methods Chapter
      * @param spheresCount The count of all spheres of the guidewire. Equals the length of @p spherePositionPredictions.
      * @param[out] sphereInverseMasses The constant inverse masses  of each sphere.
      */
     public void InitSphereInverseMasses(int spheresCount, out float[] sphereInverseMasses)
     {
         sphereInverseMasses = new float[spheresCount];
+        float inverseMassValue = ((1000/rodElementLength)+1)/10f; 
 
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
-            sphereInverseMasses[sphereIndex] = 1f;
+            sphereInverseMasses[sphereIndex] = inverseMassValue;
         }
     }
 
@@ -157,7 +159,7 @@ public class InitializationStep : MonoBehaviour
 
         for (int cylinderIndex = 0; cylinderIndex < cylinderCount; cylinderIndex++)
         {
-            cylinderScalarWeights[cylinderIndex] = 1f;
+            cylinderScalarWeights[cylinderIndex] = 1f; //(50/(500/rodElementLength)-1);
         }
     }
 

@@ -34,6 +34,7 @@ public class CollisionTestPerformer : MonoBehaviour
      */
     private void PerformCollisionTests()
     {
+        
         if (doCollisionTestOne) PerformCollisionTestOne();
         else if (doCollisionTestTwo) StartCoroutine(PerformCollisionTestTwo());
         else if (doCollisionTestThree) StartCoroutine(PerformCollisionTestThree());
@@ -54,18 +55,18 @@ public class CollisionTestPerformer : MonoBehaviour
     }
 
     // force gets applied for a fixed time
-    private IEnumerator PerformCollisionTestTwo(float applyForceTime = 1.5f)
+    private IEnumerator PerformCollisionTestTwo(float applyForceTime = 0.0000001f)
     {
         for (int sphereIndex = 0; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)
         {
             simulationLoop.sphereExternalForces[sphereIndex] = Vector3.zero;
         }
 
-        simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = pullForce;
+        simulationLoop.sphereExternalForces[0] = pullForce;
 
         yield return new WaitForSeconds(applyForceTime);
 
-        simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = Vector3.zero;
+        simulationLoop.sphereExternalForces[0] = Vector3.zero;
 
         float timeDiff = Time.time - startTime;
         Debug.Log("Elapsed time of collision test: " + timeDiff);
@@ -74,7 +75,7 @@ public class CollisionTestPerformer : MonoBehaviour
     }
 
     // force gets applied until a fixed velocity is reached
-    private IEnumerator PerformCollisionTestThree(float exitVelocity = 4f)
+    private IEnumerator PerformCollisionTestThree(float exitVelocity = 40f)
     {
         for (int sphereIndex = 0; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)
         {
@@ -95,7 +96,7 @@ public class CollisionTestPerformer : MonoBehaviour
     }
 
     // force gets applied for the whole time
-    private IEnumerator PerformCollisionTestFour(float pullForceFactor = 0.3f)
+    private IEnumerator PerformCollisionTestFour(float pullForceFactor = 1f)
     {
         float appliedPullForce = pullForceFactor * pullForce.z;
         
@@ -107,9 +108,10 @@ public class CollisionTestPerformer : MonoBehaviour
             simulationLoop.sphereExternalForces[sphereIndex] = Vector3.zero;
         }
 
-        simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = pullForceFactor * pullForce;
+        simulationLoop.sphereExternalForces[0] = pullForceFactor * pullForce;
 
         yield return null;
-    }
 }
 }
+}
+

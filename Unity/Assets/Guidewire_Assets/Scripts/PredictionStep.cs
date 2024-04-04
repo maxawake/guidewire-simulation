@@ -1,22 +1,34 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using BSM = BulletSharp.Math;
+using System.IO;
 
 namespace GuidewireSim
 {
 /**
  * This class implements the prediction step of the algorithm.
  */
+
 public class PredictionStep : MonoBehaviour
 {
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
+    private float zDisplacement = 0.0f;
 
+    
     private void Awake()
     {
         mathHelper = GetComponent<MathHelper>();
         Assert.IsNotNull(mathHelper);
+
+            string[] args = System.Environment.GetCommandLineArgs();
+            for (int i = 0; i < args.Length; i++)   
+            {
+                if (args[i] == "-zDisplacement")
+                {
+                    zDisplacement = float.Parse(args[i + 1]);
+                }
+            }
     }
 
     /**
@@ -27,6 +39,11 @@ public class PredictionStep : MonoBehaviour
      * @return The predictions of the positions of the spheres, i.e. @p spherePositionPredictions.
      * @note The predictions are again stored in @p sphereVelocities.
      */
+    public void ResetFirstCall()
+    {
+    	firstCall = true;
+    }
+
     public Vector3[] PredictSphereVelocities(Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
     {
         Vector3 calc = Time.deltaTime * sphereInverseMasses[1] * sphereExternalForces[1];
@@ -47,16 +64,56 @@ public class PredictionStep : MonoBehaviour
      * @param sphereVelocities The velocity of the current frame of each sphere.
      * @return The prediction of the position at the current frame of each sphere, i.e. spherePositionPredictions.
      */
-    public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
-                                            Vector3[] sphereVelocities)
-    {
-        for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
+     private bool firstCall = true;  // Add this line to keep track of the first call
+     public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
+                                        Vector3[] sphereVelocities)
+     {
+     string filePath = "/home/akreibich/TestRobinCode37/debugPredictPosition"; // File path
+     for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
+     {
+        // If this is the first call and we are at the first sphere, apply the special offset
+        if (firstCall && sphereIndex == 0)
         {
-            spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex];
+	    spherePositionPredictions[0] = spherePositions[0] + new Vector3(0, 0, zDisplacement); // Used zDisplacement here
+            using (StreamWriter writer = new StreamWriter(filePath, true))  // 'true' parameter appends to the file
+            {
+                //writer.WriteLine("First call, first sphere: special offset applied.");
+            }
         }
-
-        return spherePositionPredictions;
+        else
+        {
+            spherePositionPredictions[sphereIndex] =spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex];
+            if (firstCall && sphereIndex == 0) // This condition should never be true, but adding for completeness
+            {
+                using (StreamWriter writer = new StreamWriter(filePath, true))
+                {
+                    //writer.WriteLine("First call, first sphere: special offset NOT applied.");
+                }
+            }
+            else
+            {
+                using (StreamWriter writer = new StreamWriter(filePath, true))
+                {
+                    //writer.WriteLine($"Subsequent calls or other spheres: regular update applied for sphere {sphereIndex}.");
+                }
+            }
+        }
+            using (StreamWriter writer = new StreamWriter("/home/akreibich/TestRobinCode37/Position#N.txt", true))
+    {
+        //writer.WriteLine("PredictSpherePositions called. firstCall: " + firstCall);
+        // Add additional logging if needed
     }
+
+    }
+
+    // Update the flag so the special case won't be applied again
+    if (firstCall)
+    {
+        firstCall = false;
+    }
+
+    return spherePositionPredictions;
+}
 
     /**
      * Calculates the predictions for the angular velocities for the prediction step of the algorithm.

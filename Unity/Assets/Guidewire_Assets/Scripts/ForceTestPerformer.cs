@@ -74,7 +74,7 @@ public class ForceTestPerformer : MonoBehaviour
      */
     private void PerformForceTestTwo()
     {
-        Vector3 pullForce = new Vector3(0f, 0.3f, 0f);
+        Vector3 pullForce = new Vector3(0f, 0f, 15f);
 
         for (int sphereIndex = 0; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)
         {

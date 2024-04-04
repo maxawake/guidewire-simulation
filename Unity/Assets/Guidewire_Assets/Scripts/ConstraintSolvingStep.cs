@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using BSM = BulletSharp.Math;
+using System.IO; 
 
 namespace GuidewireSim
 {
@@ -11,6 +12,9 @@ namespace GuidewireSim
  */
 public class ConstraintSolvingStep : MonoBehaviour
 {
+    private SimulationLoop simulationLoop; // Declare simulationLoop
+    private float rodElementLength; // Declare rodElementLength
+
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
 
     Vector3 deltaPositionOne = new Vector3(); //!< The correction of @p particlePositionOne in method SolveStretchConstraint().
@@ -18,9 +22,15 @@ public class ConstraintSolvingStep : MonoBehaviour
     BSM.Quaternion deltaOrientation = new BSM.Quaternion(); //!< The correction of @p orientation in method SolveStretchConstraint().
     BSM.Quaternion deltaOrientationOne = new BSM.Quaternion(); //!< The correction of @p orientationOne in method SolveBendTwistConstraint().
     BSM.Quaternion deltaOrientationTwo = new BSM.Quaternion(); //!< The correction of @p orientationTwo in method SolveBendTwistConstraint().
+   // private List<Vector3> allDeltaPositionOnes = new List<Vector3>();
+    //private List<Vector3> allDeltaPositionTwos = new List<Vector3>();
+    //private List<BSM.Quaternion> allDeltaOrientations = new List<BSM.Quaternion>();
+    //private List<BSM.Quaternion> allDeltaOrientationOnes = new List<BSM.Quaternion>();
+   // private List<BSM.Quaternion> allDeltaOrientationTwos = new List<BSM.Quaternion>();
 
-    float stretchStiffness = 0.1f;
-    float bendStiffness = 0.1f;
+
+    float stretchStiffness = 0.9f; 
+    float bendStiffness = 0.9f;
 
     [Tooltip("Whether to solve both constraints in bilateral interleaving order. Naive order is used when false.")]
     [SerializeField] bool executeInBilateralOrder = false; //!< Whether to solve both constraints in bilateral interleaving order. Naive order is used when false.
@@ -29,6 +39,8 @@ public class ConstraintSolvingStep : MonoBehaviour
     {
         mathHelper = GetComponent<MathHelper>();
         Assert.IsNotNull(mathHelper);
+        simulationLoop = GetComponent<SimulationLoop>(); // Initialize simulationLoop
+        rodElementLength = simulationLoop.GetRodElementLength(); // Initialize rodElementLength
     }
 
     /**
@@ -284,15 +296,17 @@ public class ConstraintSolvingStep : MonoBehaviour
                                        out Vector3 deltaPositionTwo, out BSM.Quaternion deltaOrientation, float inverseMassOne = 1f,
                                        float inverseMassTwo = 1f, float inertiaWeight = 1f)
     {
-        Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(orientation), tolerance: 0.01f);
-        Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(e_3), tolerance: 0.01f);
+        float inverseMassValue = ((1000/rodElementLength)+1)/10f; 
+        
+        Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(orientation), tolerance: 0.001f);
+        Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(e_3), tolerance: 0.001f);
         Assert.IsTrue(rodElementLength > 0f);
         Assert.IsTrue(inverseMassOne >= 0f && inverseMassOne <= 1f);
         Assert.IsTrue(inverseMassTwo >= 0f && inverseMassTwo <= 1f);
         Assert.IsTrue(inertiaWeight >= 0f && inertiaWeight <= 1f);
 
         Vector3 thirdDirector = mathHelper.ImaginaryPart(orientation * e_3 * BSM.Quaternion.Conjugate(orientation));
-        float denominator = inverseMassOne + inverseMassTwo + 4 * inertiaWeight * rodElementLength * rodElementLength;
+        float denominator = inverseMassValue + inverseMassValue + 4 * inertiaWeight * rodElementLength * rodElementLength;
 
         Vector3 factor = (1f / rodElementLength) * (particlePositionTwo - particlePositionOne) - thirdDirector;
         BSM.Quaternion embeddedFactor = mathHelper.EmbeddedVector(factor);
@@ -300,9 +314,12 @@ public class ConstraintSolvingStep : MonoBehaviour
         float quaternionScalarFactor = 2f * inertiaWeight * rodElementLength * rodElementLength / denominator;
         BSM.Quaternion quaternionProduct = embeddedFactor * orientation * BSM.Quaternion.Conjugate(e_3);
 
-        deltaPositionOne = inverseMassOne * rodElementLength * factor / denominator;
-        deltaPositionTwo = - inverseMassTwo * rodElementLength * factor / denominator;
+        deltaPositionOne = inverseMassValue * rodElementLength * factor / denominator;
+        deltaPositionTwo = - inverseMassValue * rodElementLength * factor / denominator;
         deltaOrientation = quaternionScalarFactor * quaternionProduct;
+        //string debugFilePath = "/home/akreibich/TestRobinCode37/DebugConstraint.txt";
+    	//string content = $"inverseMassValue: {inverseMassValue}, denominator: {denominator}\n";
+    	//File.AppendAllText(debugFilePath, content);
     }
 
     /**
@@ -340,6 +357,9 @@ public class ConstraintSolvingStep : MonoBehaviour
 
         deltaOrientationOne = inertiaWeightOne * orientationTwo * embeddedDarbouxDifference / denominator;
         deltaOrientationTwo = - inertiaWeightTwo * orientationOne * embeddedDarbouxDifference / denominator;
+
+    	
+
     }
 
     /**
@@ -351,19 +371,28 @@ public class ConstraintSolvingStep : MonoBehaviour
      * @req The relevant entries of @p cylinderOrientationPredictions should be unit quaternions, i.e. have length approximately equal to one.
      * @req After the quaternion prediction got corrected, it should again be a unit quaternions, i.e. have length approximately equal to one.
      */
-    private void CorrectStretchPredictions(int sphereIndex, Vector3[] spherePositionPredictions, BSM.Quaternion[] cylinderOrientationPredictions)
-    {
-        Assert.IsTrue(sphereIndex >= 0);
-        Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[sphereIndex]), tolerance: 0.01f);
+private void CorrectStretchPredictions(int sphereIndex, Vector3[] spherePositionPredictions, BSM.Quaternion[] cylinderOrientationPredictions)
+{
+    Assert.IsTrue(sphereIndex >= 0);
+    Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[sphereIndex]), tolerance: 0.01f);
 
-        spherePositionPredictions[sphereIndex] += stretchStiffness * deltaPositionOne;
-        spherePositionPredictions[sphereIndex + 1] += stretchStiffness * deltaPositionTwo;
-        cylinderOrientationPredictions[sphereIndex] += stretchStiffness * deltaOrientation;
 
-        cylinderOrientationPredictions[sphereIndex].Normalize();
+    spherePositionPredictions[sphereIndex] += stretchStiffness * deltaPositionOne;
+    spherePositionPredictions[sphereIndex + 1] += stretchStiffness * deltaPositionTwo;
+    cylinderOrientationPredictions[sphereIndex] += stretchStiffness * deltaOrientation;
 
-        Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[sphereIndex]), tolerance: 0.01f);
-    }
+    cylinderOrientationPredictions[sphereIndex].Normalize();
+
+    Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[sphereIndex]), tolerance: 0.01f);
+            string path = "/home/akreibich/TestRobinCode37/LogConstraints.txt";
+
+    	using (StreamWriter writer = new StreamWriter(path, true)) // true to append data to the file
+    	{
+        // Log the deltaPositionOne and deltaPositionTwo to the file
+        //writer.WriteLine($"Delta Position One: {1000 * deltaPositionOne}");
+        //writer.WriteLine($"Delta Position Two: {1000 * deltaPositionTwo}");
+        }
+}
 
     /**
      * Corrects the predictions of the bend twist constraint by adding @p deltaOrientationOne and @p deltaOrientationTwo.
@@ -387,6 +416,13 @@ public class ConstraintSolvingStep : MonoBehaviour
 
         Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[cylinderIndex]), tolerance: 0.01f);
         Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[cylinderIndex + 1]), tolerance: 0.01f);
+        //allDeltaOrientationOnes.Add(deltaOrientationOne);
+        //allDeltaOrientationTwos.Add(deltaOrientationTwo);
     }
+       //     public List<Vector3> GetAllDeltaPositionOnes() => allDeltaPositionOnes;
+        //public List<Vector3> GetAllDeltaPositionTwos() => allDeltaPositionTwos;
+        //public List<BSM.Quaternion> GetAllDeltaOrientations() => allDeltaOrientations;
+        //public List<BSM.Quaternion> GetAllDeltaOrientationOnes() => allDeltaOrientationOnes;
+        //public List<BSM.Quaternion> GetAllDeltaOrientationTwos() => allDeltaOrientationTwos;
 }
 }
