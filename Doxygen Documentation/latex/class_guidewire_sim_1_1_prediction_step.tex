@@ -1,0 +1,145 @@
+\hypertarget{class_guidewire_sim_1_1_prediction_step}{}\doxysection{Guidewire\+Sim.\+Prediction\+Step Class Reference}
+\label{class_guidewire_sim_1_1_prediction_step}\index{GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}}
+Inheritance diagram for Guidewire\+Sim.\+Prediction\+Step\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_prediction_step}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_prediction_step_a6e8f5c488c005228845847b84fa7cda3}{Predict\+Sphere\+Velocities}} (Vector3\mbox{[}$\,$\mbox{]} sphere\+Velocities, float\mbox{[}$\,$\mbox{]} sphere\+Inverse\+Masses, Vector3\mbox{[}$\,$\mbox{]} sphere\+External\+Forces)
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_prediction_step_ac0c3a47b1c20c4aae9887bc1eaa3c508}{Predict\+Sphere\+Positions}} (Vector3\mbox{[}$\,$\mbox{]} sphere\+Position\+Predictions, int spheres\+Count, Vector3\mbox{[}$\,$\mbox{]} sphere\+Positions, Vector3\mbox{[}$\,$\mbox{]} sphere\+Velocities)
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_prediction_step_a6668a91f6535a6b70c51f58298a856f9}{Predict\+Angular\+Velocities}} (Vector3\mbox{[}$\,$\mbox{]} cylinder\+Angular\+Velocities, int cylinder\+Count, float\mbox{[},\mbox{]} inertia\+Tensor, Vector3\mbox{[}$\,$\mbox{]} cylinder\+External\+Torques, float\mbox{[},\mbox{]} inverse\+Inertia\+Tensor)
+\item 
+BSM.\+Quaternion\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_prediction_step_a5abe7c984db7385ac6b1151a2da2ed87}{Predict\+Cylinder\+Orientations}} (BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions, int cylinder\+Count, Vector3\mbox{[}$\,$\mbox{]} cylinder\+Angular\+Velocities, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientations)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_prediction_step_a9068cffd32f20d029934554f4d78bf1c}{Awake}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} \mbox{\hyperlink{class_guidewire_sim_1_1_prediction_step_af23f9adc0e3a90d230f5b8d9f61975f5}{math\+Helper}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements the prediction step of the algorithm. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_prediction_step_a9068cffd32f20d029934554f4d78bf1c}\label{class_guidewire_sim_1_1_prediction_step_a9068cffd32f20d029934554f4d78bf1c}} 
+\index{GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Prediction\+Step.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_prediction_step_a6668a91f6535a6b70c51f58298a856f9}\label{class_guidewire_sim_1_1_prediction_step_a6668a91f6535a6b70c51f58298a856f9}} 
+\index{GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}!PredictAngularVelocities@{PredictAngularVelocities}}
+\index{PredictAngularVelocities@{PredictAngularVelocities}!GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}}
+\doxysubsubsection{\texorpdfstring{PredictAngularVelocities()}{PredictAngularVelocities()}}
+{\footnotesize\ttfamily Vector3\mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Prediction\+Step.\+Predict\+Angular\+Velocities (\begin{DoxyParamCaption}\item[{Vector3\mbox{[}$\,$\mbox{]}}]{cylinder\+Angular\+Velocities,  }\item[{int}]{cylinder\+Count,  }\item[{float}]{inertia\+Tensor\mbox{[},\mbox{]},  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{cylinder\+External\+Torques,  }\item[{float}]{inverse\+Inertia\+Tensor\mbox{[},\mbox{]} }\end{DoxyParamCaption})}
+
+Calculates the predictions for the angular velocities for the prediction step of the algorithm. 
+\begin{DoxyParams}{Parameters}
+{\em cylinder\+Angular\+Velocities} & The angular velocity of the current frame of each orientation element/ cylinder. \\
+\hline
+{\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+{\em inertia\+Tensor} & The inertia tensor. Entries are approximates as in the Co\+RdE paper. \\
+\hline
+{\em cylinder\+External\+Torques} & The sum of all current external torques that are applied per orientation element/ cylinder. \\
+\hline
+{\em inverse\+Inertia\+Tensor} & The inverse of {\ttfamily inertia\+Tensor}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angular velocity of the current frame of each orientation element/ cylinder, i.\+e. {\ttfamily cylinder\+Angular\+Velocities}. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The predictions are again stored in {\ttfamily cylinder\+Angular\+Velocities}. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_prediction_step_a5abe7c984db7385ac6b1151a2da2ed87}\label{class_guidewire_sim_1_1_prediction_step_a5abe7c984db7385ac6b1151a2da2ed87}} 
+\index{GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}!PredictCylinderOrientations@{PredictCylinderOrientations}}
+\index{PredictCylinderOrientations@{PredictCylinderOrientations}!GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}}
+\doxysubsubsection{\texorpdfstring{PredictCylinderOrientations()}{PredictCylinderOrientations()}}
+{\footnotesize\ttfamily BSM.\+Quaternion\mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Prediction\+Step.\+Predict\+Cylinder\+Orientations (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions,  }\item[{int}]{cylinder\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{cylinder\+Angular\+Velocities,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientations }\end{DoxyParamCaption})}
+
+Calculates the predictions for the cylinder orientations for the prediction step of the algorithm. 
+\begin{DoxyParams}{Parameters}
+{\em cylinder\+Orientation\+Predictions} & The prediction of the orientation of each cylinder at its center of mass. \\
+\hline
+{\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+{\em cylinder\+Angular\+Velocities} & The angular velocity of the current frame of each orientation element/ cylinder. \\
+\hline
+{\em cylinder\+Orientations} & The orientation of each cylinder at its center of mass. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The prediction of the orientation of each cylinder at its center of mass, i.\+e. {\ttfamily cylinder\+Orientation\+Predictions}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_prediction_step_ac0c3a47b1c20c4aae9887bc1eaa3c508}\label{class_guidewire_sim_1_1_prediction_step_ac0c3a47b1c20c4aae9887bc1eaa3c508}} 
+\index{GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}!PredictSpherePositions@{PredictSpherePositions}}
+\index{PredictSpherePositions@{PredictSpherePositions}!GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}}
+\doxysubsubsection{\texorpdfstring{PredictSpherePositions()}{PredictSpherePositions()}}
+{\footnotesize\ttfamily Vector3\mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Prediction\+Step.\+Predict\+Sphere\+Positions (\begin{DoxyParamCaption}\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Position\+Predictions,  }\item[{int}]{spheres\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Positions,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Velocities }\end{DoxyParamCaption})}
+
+Calculates the predictions for the sphere positions for the prediction step of the algorithm. 
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Position\+Predictions} & The prediction of the position at the current frame of each sphere (in this case of the last frame). \\
+\hline
+{\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+{\em sphere\+Positions} & The position at the current frame of each sphere. \\
+\hline
+{\em sphere\+Velocities} & The velocity of the current frame of each sphere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The prediction of the position at the current frame of each sphere, i.\+e. sphere\+Position\+Predictions. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_prediction_step_a6e8f5c488c005228845847b84fa7cda3}\label{class_guidewire_sim_1_1_prediction_step_a6e8f5c488c005228845847b84fa7cda3}} 
+\index{GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}!PredictSphereVelocities@{PredictSphereVelocities}}
+\index{PredictSphereVelocities@{PredictSphereVelocities}!GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}}
+\doxysubsubsection{\texorpdfstring{PredictSphereVelocities()}{PredictSphereVelocities()}}
+{\footnotesize\ttfamily Vector3\mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Prediction\+Step.\+Predict\+Sphere\+Velocities (\begin{DoxyParamCaption}\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Velocities,  }\item[{float\mbox{[}$\,$\mbox{]}}]{sphere\+Inverse\+Masses,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+External\+Forces }\end{DoxyParamCaption})}
+
+Calculates the predictions for the sphere velocities for the prediction step of the algorithm. 
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Velocities} & The velocity of the current frame of each sphere. \\
+\hline
+{\em sphere\+Inverse\+Masses} & The constant inverse masses of each sphere. \\
+\hline
+{\em sphere\+External\+Forces} & The sum of all current external forces that are applied per particle/ sphere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The predictions of the positions of the spheres, i.\+e. {\ttfamily sphere\+Position\+Predictions}. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The predictions are again stored in {\ttfamily sphere\+Velocities}. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_prediction_step_af23f9adc0e3a90d230f5b8d9f61975f5}\label{class_guidewire_sim_1_1_prediction_step_af23f9adc0e3a90d230f5b8d9f61975f5}} 
+\index{GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}!mathHelper@{mathHelper}}
+\index{mathHelper@{mathHelper}!GuidewireSim.PredictionStep@{GuidewireSim.PredictionStep}}
+\doxysubsubsection{\texorpdfstring{mathHelper}{mathHelper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} Guidewire\+Sim.\+Prediction\+Step.\+math\+Helper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_prediction_step_8cs}{Prediction\+Step.\+cs}}\end{DoxyCompactItemize}

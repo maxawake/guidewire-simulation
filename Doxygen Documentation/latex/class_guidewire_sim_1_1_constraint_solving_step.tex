@@ -1,0 +1,437 @@
+\hypertarget{class_guidewire_sim_1_1_constraint_solving_step}{}\doxysection{Guidewire\+Sim.\+Constraint\+Solving\+Step Class Reference}
+\label{class_guidewire_sim_1_1_constraint_solving_step}\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+Inheritance diagram for Guidewire\+Sim.\+Constraint\+Solving\+Step\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_constraint_solving_step}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a53ec7b275d2ef802184f30dd7d405d4c}{Solve\+Stretch\+Constraints}} (Vector3\mbox{[}$\,$\mbox{]} sphere\+Position\+Predictions, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions, int spheres\+Count, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} world\+Space\+Basis, float rod\+Element\+Length)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_abb0819dc303fe77457f315fda13fb59e}{Solve\+Bend\+Twist\+Constraints}} (BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions, int cylinder\+Count, Vector3\mbox{[}$\,$\mbox{]} discrete\+Rest\+Darboux\+Vectors, float rod\+Element\+Length)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_aa5b56d38bd4e84257628ef413d9b464d}{Solve\+Stretch\+Constraint}} (Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, BSM.\+Quaternion orientation, BSM.\+Quaternion e\+\_\+3, float rod\+Element\+Length, out Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a52b13f9addd4247889d618ecfa5192bb}{delta\+Position\+One}}, out Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_ab4880eb9c482f0c0c5d335e3981531db}{delta\+Position\+Two}}, out BSM.\+Quaternion \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a7eeb8c299a46bb815d00eefb98ff16af}{delta\+Orientation}}, float inverse\+Mass\+One=1f, float inverse\+Mass\+Two=1f, float inertia\+Weight=1f)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_abb927153b912de1947c243c754bc7420}{Solve\+Bend\+Twist\+Constraint}} (BSM.\+Quaternion orientation\+One, BSM.\+Quaternion orientation\+Two, Vector3 discrete\+Rest\+Darboux\+Vector, float rod\+Element\+Length, out BSM.\+Quaternion \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_ad36b2a92e839d4696b639f2b60d21538}{delta\+Orientation\+One}}, out BSM.\+Quaternion \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a74e33b7225345b30db22e5b00f428256}{delta\+Orientation\+Two}}, float inertia\+Weight\+One=1f, float inertia\+Weight\+Two=1f)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_abbfc5619ec039a7e6f5b7d891f57e440}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_ac2f99613fb119ff66d0d9f630b4059b8}{Solve\+Stretch\+Constraints\+In\+Bilateral\+Order}} (Vector3\mbox{[}$\,$\mbox{]} sphere\+Position\+Predictions, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions, int spheres\+Count, float rod\+Element\+Length, BSM.\+Quaternion e\+\_\+3)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_aa31751d785d40d352c516bdd8df5f89b}{Solve\+Stretch\+Constraints\+In\+Naive\+Order}} (Vector3\mbox{[}$\,$\mbox{]} sphere\+Position\+Predictions, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions, int spheres\+Count, float rod\+Element\+Length, BSM.\+Quaternion e\+\_\+3)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a2decab310446b017cbac73fed9d62b0a}{Solve\+Bend\+Twist\+Constraints\+In\+Bilateral\+Order}} (BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions, int cylinder\+Count, Vector3\mbox{[}$\,$\mbox{]} discrete\+Rest\+Darboux\+Vectors, float rod\+Element\+Length)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a93d5ad4d8703c5ae4659f6188c608972}{Solve\+Bend\+Twist\+Constraints\+In\+Naive\+Order}} (BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions, int cylinder\+Count, Vector3\mbox{[}$\,$\mbox{]} discrete\+Rest\+Darboux\+Vectors, float rod\+Element\+Length)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_af46d12dac6f136ceb5ae96bcc2f488fa}{Correct\+Stretch\+Predictions}} (int sphere\+Index, Vector3\mbox{[}$\,$\mbox{]} sphere\+Position\+Predictions, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_ab6b120bcd38837fdbca8d65aa4887bdc}{Correct\+Bend\+Twist\+Predictions}} (int cylinder\+Index, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a6866c1e779441d82909dd72cd3caaf37}{math\+Helper}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. \end{DoxyCompactList}\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a52b13f9addd4247889d618ecfa5192bb}{delta\+Position\+One}} = new Vector3()
+\begin{DoxyCompactList}\small\item\em The correction of {\ttfamily particle\+Position\+One} in method \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_aa5b56d38bd4e84257628ef413d9b464d}{Solve\+Stretch\+Constraint()}}. \end{DoxyCompactList}\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_ab4880eb9c482f0c0c5d335e3981531db}{delta\+Position\+Two}} = new Vector3()
+\begin{DoxyCompactList}\small\item\em The correction of {\ttfamily particle\+Position\+Two} in method \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_aa5b56d38bd4e84257628ef413d9b464d}{Solve\+Stretch\+Constraint()}}. \end{DoxyCompactList}\item 
+BSM.\+Quaternion \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a7eeb8c299a46bb815d00eefb98ff16af}{delta\+Orientation}} = new BSM.\+Quaternion()
+\begin{DoxyCompactList}\small\item\em The correction of {\ttfamily orientation} in method \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_aa5b56d38bd4e84257628ef413d9b464d}{Solve\+Stretch\+Constraint()}}. \end{DoxyCompactList}\item 
+BSM.\+Quaternion \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_ad36b2a92e839d4696b639f2b60d21538}{delta\+Orientation\+One}} = new BSM.\+Quaternion()
+\begin{DoxyCompactList}\small\item\em The correction of {\ttfamily orientation\+One} in method \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_abb927153b912de1947c243c754bc7420}{Solve\+Bend\+Twist\+Constraint()}}. \end{DoxyCompactList}\item 
+BSM.\+Quaternion \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a74e33b7225345b30db22e5b00f428256}{delta\+Orientation\+Two}} = new BSM.\+Quaternion()
+\begin{DoxyCompactList}\small\item\em The correction of {\ttfamily orientation\+Two} in method \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_abb927153b912de1947c243c754bc7420}{Solve\+Bend\+Twist\+Constraint()}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a3aa06373ab3dbd77cb56733f6c8fa9d6}{stretch\+Stiffness}} = 0.\+1f
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_ae75ca59c780d4df43b1e38adc9bfb875}{bend\+Stiffness}} = 0.\+1f
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a5bfee8881a0d715c12f2b8f9cd72df89}{execute\+In\+Bilateral\+Order}} = false
+\begin{DoxyCompactList}\small\item\em Whether to solve both constraints in bilateral interleaving order. Naive order is used when false. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class executes and implements various algorithms of the constraint solving step of the algorithm and manages all coherent data. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_abbfc5619ec039a7e6f5b7d891f57e440}\label{class_guidewire_sim_1_1_constraint_solving_step_abbfc5619ec039a7e6f5b7d891f57e440}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Constraint\+Solving\+Step.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_ab6b120bcd38837fdbca8d65aa4887bdc}\label{class_guidewire_sim_1_1_constraint_solving_step_ab6b120bcd38837fdbca8d65aa4887bdc}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!CorrectBendTwistPredictions@{CorrectBendTwistPredictions}}
+\index{CorrectBendTwistPredictions@{CorrectBendTwistPredictions}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{CorrectBendTwistPredictions()}{CorrectBendTwistPredictions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Constraint\+Solving\+Step.\+Correct\+Bend\+Twist\+Predictions (\begin{DoxyParamCaption}\item[{int}]{cylinder\+Index,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Corrects the predictions of the bend twist constraint by adding {\ttfamily delta\+Orientation\+One} and {\ttfamily delta\+Orientation\+Two}. \begin{DoxyNote}{Note}
+Note that {\ttfamily delta\+Orientation\+One} and {\ttfamily delta\+Orientation\+Two} may have a length unequal one by definition. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em cylinder\+Index} & The index of the first element of {\ttfamily cylinder\+Orientation\+Predictions} that gets corrected. \\
+\hline
+{\em cylinder\+Orientation\+Predictions} & The array of orientation predictions of which two quaternions get corrected in this method. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000010}{Requirements}}]The relevant entries of {\ttfamily cylinder\+Orientation\+Predictions} should be unit quaternions, i.\+e. have length approximately equal to one. 
+
+After the quaternion predictions got corrected, they should again be unit quaternions, i.\+e. have length approximately equal to one. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_af46d12dac6f136ceb5ae96bcc2f488fa}\label{class_guidewire_sim_1_1_constraint_solving_step_af46d12dac6f136ceb5ae96bcc2f488fa}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!CorrectStretchPredictions@{CorrectStretchPredictions}}
+\index{CorrectStretchPredictions@{CorrectStretchPredictions}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{CorrectStretchPredictions()}{CorrectStretchPredictions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Constraint\+Solving\+Step.\+Correct\+Stretch\+Predictions (\begin{DoxyParamCaption}\item[{int}]{sphere\+Index,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Position\+Predictions,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Corrects the predictions of the stretch constraint by adding {\ttfamily delta\+Position\+One}, {\ttfamily delta\+Position\+Two} and {\ttfamily delta\+Orientation}. \begin{DoxyNote}{Note}
+Note that {\ttfamily delta\+Orientation} may has a length unequal one by definition. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Index} & The index of the first element of {\ttfamily sphere\+Position\+Predictions} that gets corrected. \\
+\hline
+{\em sphere\+Position\+Predictions} & The array of position predictions of which two positions get corrected in this method. \\
+\hline
+{\em cylinder\+Orientation\+Predictions} & The array of orientation predictions of which one quaternions gets corrected in this method. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000009}{Requirements}}]The relevant entries of {\ttfamily cylinder\+Orientation\+Predictions} should be unit quaternions, i.\+e. have length approximately equal to one. 
+
+After the quaternion prediction got corrected, it should again be a unit quaternions, i.\+e. have length approximately equal to one. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_abb927153b912de1947c243c754bc7420}\label{class_guidewire_sim_1_1_constraint_solving_step_abb927153b912de1947c243c754bc7420}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!SolveBendTwistConstraint@{SolveBendTwistConstraint}}
+\index{SolveBendTwistConstraint@{SolveBendTwistConstraint}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{SolveBendTwistConstraint()}{SolveBendTwistConstraint()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Constraint\+Solving\+Step.\+Solve\+Bend\+Twist\+Constraint (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion}]{orientation\+One,  }\item[{BSM.\+Quaternion}]{orientation\+Two,  }\item[{Vector3}]{discrete\+Rest\+Darboux\+Vector,  }\item[{float}]{rod\+Element\+Length,  }\item[{out BSM.\+Quaternion}]{delta\+Orientation\+One,  }\item[{out BSM.\+Quaternion}]{delta\+Orientation\+Two,  }\item[{float}]{inertia\+Weight\+One = {\ttfamily 1f},  }\item[{float}]{inertia\+Weight\+Two = {\ttfamily 1f} }\end{DoxyParamCaption})}
+
+Solves the bend twist constraint by calculating the corrections {\ttfamily delta\+Orientation\+One} and {\ttfamily delta\+Orientation\+Two}. \begin{DoxyNote}{Note}
+To be more precise, the bend twist constraint is not solved but minimized, i.\+e. the constraint will after correcting with the corrections be closer to zero. 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em orientation\+One} & The first orientation quaternion prediction of the orientation element to be corrected. \\
+\hline
+ & {\em orientation\+Two} & The second orientation quaternion prediction of the orientation element to be corrected. \\
+\hline
+ & {\em discrete\+Rest\+Darboux\+Vector} & The discrete Darboux Vector at the rest configuration, i.\+e. at frame 0. \\
+\hline
+ & {\em rod\+Element\+Length} & The distance between two spheres, also the distance between two orientations. \\
+\hline
+\mbox{\texttt{ out}}  & {\em delta\+Orientation\+One} & The correction of {\ttfamily orientation\+One}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em delta\+Orientation\+Two} & The correction of {\ttfamily orientation\+Two}. \\
+\hline
+ & {\em inertia\+Weight\+One} & The inertia weight scalar for {\ttfamily orientation\+One}. Use a value of 1 for a moving orientation and 0 for a fixed orientation. \\
+\hline
+ & {\em inertia\+Weight\+Two} & The inertia weight scalar for {\ttfamily orientation\+Two}. Use a value of 1 for a moving orientation and 0 for a fixed orientation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000008}{Requirements}}]{\ttfamily orientation\+One} and {\ttfamily orientation\+Two} should be unit quaternions, i.\+e. have length approximately equal to one. 
+
+{\ttfamily rod\+Element\+Length} should be positive. 
+
+{\ttfamily inertia\+Weight\+One} and {\ttfamily inertia\+Weight\+Two} should be values between 0 and 1. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_abb0819dc303fe77457f315fda13fb59e}\label{class_guidewire_sim_1_1_constraint_solving_step_abb0819dc303fe77457f315fda13fb59e}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!SolveBendTwistConstraints@{SolveBendTwistConstraints}}
+\index{SolveBendTwistConstraints@{SolveBendTwistConstraints}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{SolveBendTwistConstraints()}{SolveBendTwistConstraints()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Constraint\+Solving\+Step.\+Solve\+Bend\+Twist\+Constraints (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions,  }\item[{int}]{cylinder\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{discrete\+Rest\+Darboux\+Vectors,  }\item[{float}]{rod\+Element\+Length }\end{DoxyParamCaption})}
+
+Is responsible for executing one iteration of the constraint solving step for the bend twist constraint, i.\+e. corrects each orientation prediction one time. \begin{DoxyNote}{Note}
+Can be executed in naive order or bilateral interleaving order. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em cylinder\+Orientation\+Predictions} & The array of orientation predictions that get corrected in this step. \\
+\hline
+{\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+{\em discrete\+Rest\+Darboux\+Vectors} & The array of all discrete Darboux Vectors at the rest configuration, i.\+e. at frame 0. Has (n-\/1) elements, if n is the number of orientations of the guidewire, because the darboux vector is taken of two adjacent orientations. \\
+\hline
+{\em rod\+Element\+Length} & The distance between two spheres, also the distance between two orientations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000002}{Requirements}}]{\ttfamily cylinder\+Count} should be at least one. 
+
+{\ttfamily rod\+Element\+Length} should be positive. 
+
+Executes the constraint solving step in bilateral interleaving order if \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a5bfee8881a0d715c12f2b8f9cd72df89}{execute\+In\+Bilateral\+Order}} and otherwise in naive order. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_a2decab310446b017cbac73fed9d62b0a}\label{class_guidewire_sim_1_1_constraint_solving_step_a2decab310446b017cbac73fed9d62b0a}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!SolveBendTwistConstraintsInBilateralOrder@{SolveBendTwistConstraintsInBilateralOrder}}
+\index{SolveBendTwistConstraintsInBilateralOrder@{SolveBendTwistConstraintsInBilateralOrder}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{SolveBendTwistConstraintsInBilateralOrder()}{SolveBendTwistConstraintsInBilateralOrder()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Constraint\+Solving\+Step.\+Solve\+Bend\+Twist\+Constraints\+In\+Bilateral\+Order (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions,  }\item[{int}]{cylinder\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{discrete\+Rest\+Darboux\+Vectors,  }\item[{float}]{rod\+Element\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Is responsible for executing one iteration of the constraint solving step for the bend twist constraint in bilateral order, i.\+e. corrects each orientation prediction one time. \begin{DoxyNote}{Note}
+You can read more about bilateral order in the 2016 paper \char`\"{}\+Position and Orientation Based Cosserat Rods\char`\"{}. 
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+The index shifting of this algorithm is not easy to understand, but got deeply tested. 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em cylinder\+Orientation\+Predictions} & The array of orientation predictions that get corrected in this step. \\
+\hline
+{\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+{\em discrete\+Rest\+Darboux\+Vectors} & The array of all discrete Darboux Vectors at the rest configuration, i.\+e. at frame 0. Has (n-\/1) elements, if n is the number of orientations of the guidewire, because the darboux vector is taken of two adjacent orientations. \\
+\hline
+{\em rod\+Element\+Length} & The distance between two spheres, also the distance between two orientations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000005}{Requirements}}]{\ttfamily cylinder\+Count} should be at least one. 
+
+{\ttfamily rod\+Element\+Length} should be positive. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_a93d5ad4d8703c5ae4659f6188c608972}\label{class_guidewire_sim_1_1_constraint_solving_step_a93d5ad4d8703c5ae4659f6188c608972}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!SolveBendTwistConstraintsInNaiveOrder@{SolveBendTwistConstraintsInNaiveOrder}}
+\index{SolveBendTwistConstraintsInNaiveOrder@{SolveBendTwistConstraintsInNaiveOrder}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{SolveBendTwistConstraintsInNaiveOrder()}{SolveBendTwistConstraintsInNaiveOrder()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Constraint\+Solving\+Step.\+Solve\+Bend\+Twist\+Constraints\+In\+Naive\+Order (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions,  }\item[{int}]{cylinder\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{discrete\+Rest\+Darboux\+Vectors,  }\item[{float}]{rod\+Element\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Is responsible for executing one iteration of the constraint solving step for the bend twist constraint in naive order, i.\+e. corrects each orientation prediction one time. \begin{DoxyNote}{Note}
+Naive order means the predictions are updated beginning from one end of the guidewire to the other end of the guidewire. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em cylinder\+Orientation\+Predictions} & The array of orientation predictions that get corrected in this step. \\
+\hline
+{\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+{\em discrete\+Rest\+Darboux\+Vectors} & The array of all discrete Darboux Vectors at the rest configuration, i.\+e. at frame 0. Has (n-\/1) elements, if n is the number of orientations of the guidewire, because the darboux vector is taken of two adjacent orientations. \\
+\hline
+{\em rod\+Element\+Length} & The distance between two spheres, also the distance between two orientations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000006}{Requirements}}]{\ttfamily cylinder\+Count} should be at least one. 
+
+{\ttfamily rod\+Element\+Length} should be positive. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_aa5b56d38bd4e84257628ef413d9b464d}\label{class_guidewire_sim_1_1_constraint_solving_step_aa5b56d38bd4e84257628ef413d9b464d}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!SolveStretchConstraint@{SolveStretchConstraint}}
+\index{SolveStretchConstraint@{SolveStretchConstraint}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{SolveStretchConstraint()}{SolveStretchConstraint()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Constraint\+Solving\+Step.\+Solve\+Stretch\+Constraint (\begin{DoxyParamCaption}\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two,  }\item[{BSM.\+Quaternion}]{orientation,  }\item[{BSM.\+Quaternion}]{e\+\_\+3,  }\item[{float}]{rod\+Element\+Length,  }\item[{out Vector3}]{delta\+Position\+One,  }\item[{out Vector3}]{delta\+Position\+Two,  }\item[{out BSM.\+Quaternion}]{delta\+Orientation,  }\item[{float}]{inverse\+Mass\+One = {\ttfamily 1f},  }\item[{float}]{inverse\+Mass\+Two = {\ttfamily 1f},  }\item[{float}]{inertia\+Weight = {\ttfamily 1f} }\end{DoxyParamCaption})}
+
+Solves the stretch constraint by calculating the corrections {\ttfamily delta\+Position\+One} and {\ttfamily delta\+Position\+Two}, {\ttfamily delta\+Orientation}. \begin{DoxyNote}{Note}
+To be more precise, the stretch constraint is not solved but minimized, i.\+e. the constraint will after correcting with the corrections be closer to zero. 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em particle\+Position\+One} & The first particle position prediction of the centerline element to be corrected. \\
+\hline
+ & {\em particle\+Position\+Two} & The second particle position prediction of the centerline element to be corrected. \\
+\hline
+ & {\em orientation} & The orientation quaternion prediction of the orientation element between the particle positions to be corrected. \\
+\hline
+ & {\em e\+\_\+3} & The third basis vector of the world space coordinates embedded as a quaternion with scalar part 0. \\
+\hline
+ & {\em rod\+Element\+Length} & The distance between two spheres, also the distance between two orientations. \\
+\hline
+\mbox{\texttt{ out}}  & {\em delta\+Position\+One} & The correction of {\ttfamily particle\+Position\+One}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em delta\+Position\+Two} & The correction of {\ttfamily particle\+Position\+Two}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em delta\+Orientation} & The correction of {\ttfamily orientation}. \\
+\hline
+ & {\em inverse\+Mass\+One} & The inverse mass scalar for {\ttfamily particle\+Position\+One}. Use a value of 1 for a moving particle and 0 for a fixed particle. \\
+\hline
+ & {\em inverse\+Mass\+Two} & The inverse mass scalar for {\ttfamily particle\+Position\+Two}. Use a value of 1 for a moving particle and 0 for a fixed particle. \\
+\hline
+ & {\em inertia\+Weight} & The inertia weight scalar for {\ttfamily orientation}. Use a value of 1 for a moving orientation and 0 for a fixed orientation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000007}{Requirements}}]{\ttfamily orientation} should be a unit quaternions, i.\+e. have length approximately equal to one. 
+
+{\ttfamily e\+\_\+3} should be a unit quaternions, i.\+e. have length approximately equal to one. 
+
+{\ttfamily rod\+Element\+Length} should be positive. 
+
+{\ttfamily inverse\+Mass\+One}, {\ttfamily inverse\+Mass\+Two} and {\ttfamily inertia\+Weight} should be values between 0 and 1. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_a53ec7b275d2ef802184f30dd7d405d4c}\label{class_guidewire_sim_1_1_constraint_solving_step_a53ec7b275d2ef802184f30dd7d405d4c}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!SolveStretchConstraints@{SolveStretchConstraints}}
+\index{SolveStretchConstraints@{SolveStretchConstraints}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{SolveStretchConstraints()}{SolveStretchConstraints()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Constraint\+Solving\+Step.\+Solve\+Stretch\+Constraints (\begin{DoxyParamCaption}\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Position\+Predictions,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions,  }\item[{int}]{spheres\+Count,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{world\+Space\+Basis,  }\item[{float}]{rod\+Element\+Length }\end{DoxyParamCaption})}
+
+Is responsible for executing one iteration of the constraint solving step for the stretch constraint, i.\+e. corrects each particle position prediction one time and also each orientation prediction one time. \begin{DoxyNote}{Note}
+Can be executed in naive order or bilateral interleaving order. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Position\+Predictions} & The array of position predictions that get corrected in this step. \\
+\hline
+{\em cylinder\+Orientation\+Predictions} & The array of orientation predictions that get corrected in this step. \\
+\hline
+{\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+{\em world\+Space\+Basis} & The three basis vectors of the world coordinate system as embedded quaternions with scalar part 0. \\
+\hline
+{\em rod\+Element\+Length} & The distance between two spheres, also the distance between two orientations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000001}{Requirements}}]{\ttfamily spheres\+Count} should be at least one. 
+
+{\ttfamily rod\+Element\+Length} should be positive. 
+
+Executes the constraint solving step in bilateral interleaving order if \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a5bfee8881a0d715c12f2b8f9cd72df89}{execute\+In\+Bilateral\+Order}} and otherwise in naive order. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_ac2f99613fb119ff66d0d9f630b4059b8}\label{class_guidewire_sim_1_1_constraint_solving_step_ac2f99613fb119ff66d0d9f630b4059b8}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!SolveStretchConstraintsInBilateralOrder@{SolveStretchConstraintsInBilateralOrder}}
+\index{SolveStretchConstraintsInBilateralOrder@{SolveStretchConstraintsInBilateralOrder}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{SolveStretchConstraintsInBilateralOrder()}{SolveStretchConstraintsInBilateralOrder()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Constraint\+Solving\+Step.\+Solve\+Stretch\+Constraints\+In\+Bilateral\+Order (\begin{DoxyParamCaption}\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Position\+Predictions,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions,  }\item[{int}]{spheres\+Count,  }\item[{float}]{rod\+Element\+Length,  }\item[{BSM.\+Quaternion}]{e\+\_\+3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Executes one iteration of the constraint solving step for the stretch constraint in bilateral order, i.\+e. corrects each particle position prediction one time and also each orientation prediction one time. \begin{DoxyNote}{Note}
+You can read more about bilateral order in the 2016 paper \char`\"{}\+Position and Orientation Based Cosserat Rods\char`\"{}. 
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+The index shifting of this algorithm is not easy to understand, but got deeply tested. 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Position\+Predictions} & The array of position predictions that get corrected in this step. \\
+\hline
+{\em cylinder\+Orientation\+Predictions} & The array of orientation predictions that get corrected in this step. \\
+\hline
+{\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+{\em rod\+Element\+Length} & The distance between two spheres, also the distance between two orientations. \\
+\hline
+{\em e\+\_\+3} & The third basis vector of the world coordinate system as embedded quaternions with scalar part 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000003}{Requirements}}]{\ttfamily spheres\+Count} should be at least one. 
+
+{\ttfamily rod\+Element\+Length} should be positive. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_aa31751d785d40d352c516bdd8df5f89b}\label{class_guidewire_sim_1_1_constraint_solving_step_aa31751d785d40d352c516bdd8df5f89b}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!SolveStretchConstraintsInNaiveOrder@{SolveStretchConstraintsInNaiveOrder}}
+\index{SolveStretchConstraintsInNaiveOrder@{SolveStretchConstraintsInNaiveOrder}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{SolveStretchConstraintsInNaiveOrder()}{SolveStretchConstraintsInNaiveOrder()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Constraint\+Solving\+Step.\+Solve\+Stretch\+Constraints\+In\+Naive\+Order (\begin{DoxyParamCaption}\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Position\+Predictions,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions,  }\item[{int}]{spheres\+Count,  }\item[{float}]{rod\+Element\+Length,  }\item[{BSM.\+Quaternion}]{e\+\_\+3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Executes one iteration of the constraint solving step for the stretch constraint in naive order, i.\+e. corrects each particle position prediction one time and also each orientation prediction one time. \begin{DoxyNote}{Note}
+Naive order means the predictions are updated beginning from one end of the guidewire to the other end of the guidewire. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Position\+Predictions} & The array of position predictions that get corrected in this step. \\
+\hline
+{\em cylinder\+Orientation\+Predictions} & The array of orientation predictions that get corrected in this step. \\
+\hline
+{\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+{\em rod\+Element\+Length} & The distance between two spheres, also the distance between two orientations. \\
+\hline
+{\em e\+\_\+3} & The third basis vector of the world coordinate system as embedded quaternions with scalar part 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000004}{Requirements}}]{\ttfamily spheres\+Count} should be at least one. 
+
+{\ttfamily rod\+Element\+Length} should be positive. \end{DoxyRefDesc}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_ae75ca59c780d4df43b1e38adc9bfb875}\label{class_guidewire_sim_1_1_constraint_solving_step_ae75ca59c780d4df43b1e38adc9bfb875}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!bendStiffness@{bendStiffness}}
+\index{bendStiffness@{bendStiffness}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{bendStiffness}{bendStiffness}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Constraint\+Solving\+Step.\+bend\+Stiffness = 0.\+1f\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_a7eeb8c299a46bb815d00eefb98ff16af}\label{class_guidewire_sim_1_1_constraint_solving_step_a7eeb8c299a46bb815d00eefb98ff16af}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!deltaOrientation@{deltaOrientation}}
+\index{deltaOrientation@{deltaOrientation}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{deltaOrientation}{deltaOrientation}}
+{\footnotesize\ttfamily BSM.\+Quaternion Guidewire\+Sim.\+Constraint\+Solving\+Step.\+delta\+Orientation = new BSM.\+Quaternion()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The correction of {\ttfamily orientation} in method \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_aa5b56d38bd4e84257628ef413d9b464d}{Solve\+Stretch\+Constraint()}}. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_ad36b2a92e839d4696b639f2b60d21538}\label{class_guidewire_sim_1_1_constraint_solving_step_ad36b2a92e839d4696b639f2b60d21538}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!deltaOrientationOne@{deltaOrientationOne}}
+\index{deltaOrientationOne@{deltaOrientationOne}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{deltaOrientationOne}{deltaOrientationOne}}
+{\footnotesize\ttfamily BSM.\+Quaternion Guidewire\+Sim.\+Constraint\+Solving\+Step.\+delta\+Orientation\+One = new BSM.\+Quaternion()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The correction of {\ttfamily orientation\+One} in method \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_abb927153b912de1947c243c754bc7420}{Solve\+Bend\+Twist\+Constraint()}}. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_a74e33b7225345b30db22e5b00f428256}\label{class_guidewire_sim_1_1_constraint_solving_step_a74e33b7225345b30db22e5b00f428256}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!deltaOrientationTwo@{deltaOrientationTwo}}
+\index{deltaOrientationTwo@{deltaOrientationTwo}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{deltaOrientationTwo}{deltaOrientationTwo}}
+{\footnotesize\ttfamily BSM.\+Quaternion Guidewire\+Sim.\+Constraint\+Solving\+Step.\+delta\+Orientation\+Two = new BSM.\+Quaternion()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The correction of {\ttfamily orientation\+Two} in method \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_abb927153b912de1947c243c754bc7420}{Solve\+Bend\+Twist\+Constraint()}}. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_a52b13f9addd4247889d618ecfa5192bb}\label{class_guidewire_sim_1_1_constraint_solving_step_a52b13f9addd4247889d618ecfa5192bb}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!deltaPositionOne@{deltaPositionOne}}
+\index{deltaPositionOne@{deltaPositionOne}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{deltaPositionOne}{deltaPositionOne}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Constraint\+Solving\+Step.\+delta\+Position\+One = new Vector3()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The correction of {\ttfamily particle\+Position\+One} in method \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_aa5b56d38bd4e84257628ef413d9b464d}{Solve\+Stretch\+Constraint()}}. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_ab4880eb9c482f0c0c5d335e3981531db}\label{class_guidewire_sim_1_1_constraint_solving_step_ab4880eb9c482f0c0c5d335e3981531db}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!deltaPositionTwo@{deltaPositionTwo}}
+\index{deltaPositionTwo@{deltaPositionTwo}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{deltaPositionTwo}{deltaPositionTwo}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Constraint\+Solving\+Step.\+delta\+Position\+Two = new Vector3()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The correction of {\ttfamily particle\+Position\+Two} in method \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_aa5b56d38bd4e84257628ef413d9b464d}{Solve\+Stretch\+Constraint()}}. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_a5bfee8881a0d715c12f2b8f9cd72df89}\label{class_guidewire_sim_1_1_constraint_solving_step_a5bfee8881a0d715c12f2b8f9cd72df89}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!executeInBilateralOrder@{executeInBilateralOrder}}
+\index{executeInBilateralOrder@{executeInBilateralOrder}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{executeInBilateralOrder}{executeInBilateralOrder}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Constraint\+Solving\+Step.\+execute\+In\+Bilateral\+Order = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether to solve both constraints in bilateral interleaving order. Naive order is used when false. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_a6866c1e779441d82909dd72cd3caaf37}\label{class_guidewire_sim_1_1_constraint_solving_step_a6866c1e779441d82909dd72cd3caaf37}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!mathHelper@{mathHelper}}
+\index{mathHelper@{mathHelper}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{mathHelper}{mathHelper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} Guidewire\+Sim.\+Constraint\+Solving\+Step.\+math\+Helper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_constraint_solving_step_a3aa06373ab3dbd77cb56733f6c8fa9d6}\label{class_guidewire_sim_1_1_constraint_solving_step_a3aa06373ab3dbd77cb56733f6c8fa9d6}} 
+\index{GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}!stretchStiffness@{stretchStiffness}}
+\index{stretchStiffness@{stretchStiffness}!GuidewireSim.ConstraintSolvingStep@{GuidewireSim.ConstraintSolvingStep}}
+\doxysubsubsection{\texorpdfstring{stretchStiffness}{stretchStiffness}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Constraint\+Solving\+Step.\+stretch\+Stiffness = 0.\+1f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_constraint_solving_step_8cs}{Constraint\+Solving\+Step.\+cs}}\end{DoxyCompactItemize}

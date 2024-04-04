@@ -1,0 +1,124 @@
+\hypertarget{class_guidewire_sim_1_1_unit_tests}{}\doxysection{Guidewire\+Sim.\+Unit\+Tests Class Reference}
+\label{class_guidewire_sim_1_1_unit_tests}\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+Inheritance diagram for Guidewire\+Sim.\+Unit\+Tests\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_unit_tests}
+\end{center}
+\end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_tests_ad10601762ba6d88c89804e7ec1d9e14c}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_tests_ab61b963472bbfe88ae0a9db5c7116124}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_tests_ad5a1dcf19f3053e8546112a79431b1f3}{Perform\+Unit\+Tests}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_tests_ab19c873d7c9b565625716420ae01ac22}{Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint}} (int iterations, Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, BSM.\+Quaternion orientation, bool log\+Delta\+Results=true)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_tests_aa11f9f3621641e7d1c3b8b309e74381a}{Check\+Stretch\+Constraint\+Deviation}} (Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, BSM.\+Quaternion orientation, BSM.\+Quaternion e\+\_\+3, float rod\+Element\+Length)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_tests_a8dccb2d434964bea7133f1b3be1cfed5}{Check\+Rod\+Element\+Length}} (Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, float default\+Rod\+Element\+Length)
+\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_unit_tests_a459c609893cbde206102634b44b602a3}{Compute\+Stretch\+Constraint\+Deviation}} (Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, BSM.\+Quaternion orientation, BSM.\+Quaternion e\+\_\+3, float rod\+Element\+Length)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_tests_a22e1ad46c02bc9e4eb3379568208d28c}{Log\+Delta\+Results}} (in Vector3 delta\+Position\+One, in Vector3 delta\+Position\+Two, in BSM.\+Quaternion delta\+Orientation)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} \mbox{\hyperlink{class_guidewire_sim_1_1_unit_tests_a8871d15a5172e15d8fd0b1fec9936b62}{math\+Helper}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} \mbox{\hyperlink{class_guidewire_sim_1_1_unit_tests_af44c767cd3bfcab562aa6526e19fed68}{constraint\+Solving\+Step}}
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_unit_tests_aa69ba1049df9d10d539b3b3ce639fecb}{execute\+Unit\+Tests}} = false
+\begin{DoxyCompactList}\small\item\em Whether or not to perform all unit tests of this script. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_tests_ad10601762ba6d88c89804e7ec1d9e14c}\label{class_guidewire_sim_1_1_unit_tests_ad10601762ba6d88c89804e7ec1d9e14c}} 
+\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Tests.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_tests_a8dccb2d434964bea7133f1b3be1cfed5}\label{class_guidewire_sim_1_1_unit_tests_a8dccb2d434964bea7133f1b3be1cfed5}} 
+\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}!CheckRodElementLength@{CheckRodElementLength}}
+\index{CheckRodElementLength@{CheckRodElementLength}!GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+\doxysubsubsection{\texorpdfstring{CheckRodElementLength()}{CheckRodElementLength()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Tests.\+Check\+Rod\+Element\+Length (\begin{DoxyParamCaption}\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two,  }\item[{float}]{default\+Rod\+Element\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_tests_aa11f9f3621641e7d1c3b8b309e74381a}\label{class_guidewire_sim_1_1_unit_tests_aa11f9f3621641e7d1c3b8b309e74381a}} 
+\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}!CheckStretchConstraintDeviation@{CheckStretchConstraintDeviation}}
+\index{CheckStretchConstraintDeviation@{CheckStretchConstraintDeviation}!GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+\doxysubsubsection{\texorpdfstring{CheckStretchConstraintDeviation()}{CheckStretchConstraintDeviation()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Tests.\+Check\+Stretch\+Constraint\+Deviation (\begin{DoxyParamCaption}\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two,  }\item[{BSM.\+Quaternion}]{orientation,  }\item[{BSM.\+Quaternion}]{e\+\_\+3,  }\item[{float}]{rod\+Element\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_tests_a459c609893cbde206102634b44b602a3}\label{class_guidewire_sim_1_1_unit_tests_a459c609893cbde206102634b44b602a3}} 
+\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}!ComputeStretchConstraintDeviation@{ComputeStretchConstraintDeviation}}
+\index{ComputeStretchConstraintDeviation@{ComputeStretchConstraintDeviation}!GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+\doxysubsubsection{\texorpdfstring{ComputeStretchConstraintDeviation()}{ComputeStretchConstraintDeviation()}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Unit\+Tests.\+Compute\+Stretch\+Constraint\+Deviation (\begin{DoxyParamCaption}\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two,  }\item[{BSM.\+Quaternion}]{orientation,  }\item[{BSM.\+Quaternion}]{e\+\_\+3,  }\item[{float}]{rod\+Element\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_tests_a22e1ad46c02bc9e4eb3379568208d28c}\label{class_guidewire_sim_1_1_unit_tests_a22e1ad46c02bc9e4eb3379568208d28c}} 
+\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}!LogDeltaResults@{LogDeltaResults}}
+\index{LogDeltaResults@{LogDeltaResults}!GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+\doxysubsubsection{\texorpdfstring{LogDeltaResults()}{LogDeltaResults()}}
+{\footnotesize\ttfamily static void Guidewire\+Sim.\+Unit\+Tests.\+Log\+Delta\+Results (\begin{DoxyParamCaption}\item[{in Vector3}]{delta\+Position\+One,  }\item[{in Vector3}]{delta\+Position\+Two,  }\item[{in BSM.\+Quaternion}]{delta\+Orientation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_tests_ad5a1dcf19f3053e8546112a79431b1f3}\label{class_guidewire_sim_1_1_unit_tests_ad5a1dcf19f3053e8546112a79431b1f3}} 
+\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}!PerformUnitTests@{PerformUnitTests}}
+\index{PerformUnitTests@{PerformUnitTests}!GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+\doxysubsubsection{\texorpdfstring{PerformUnitTests()}{PerformUnitTests()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Tests.\+Perform\+Unit\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_tests_ab61b963472bbfe88ae0a9db5c7116124}\label{class_guidewire_sim_1_1_unit_tests_ab61b963472bbfe88ae0a9db5c7116124}} 
+\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}!Start@{Start}}
+\index{Start@{Start}!GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Tests.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_tests_ab19c873d7c9b565625716420ae01ac22}\label{class_guidewire_sim_1_1_unit_tests_ab19c873d7c9b565625716420ae01ac22}} 
+\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}!UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}}
+\index{UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}!GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+\doxysubsubsection{\texorpdfstring{UnitTest\_SolveStretchConstraint()}{UnitTest\_SolveStretchConstraint()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Tests.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint (\begin{DoxyParamCaption}\item[{int}]{iterations,  }\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two,  }\item[{BSM.\+Quaternion}]{orientation,  }\item[{bool}]{log\+Delta\+Results = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_tests_af44c767cd3bfcab562aa6526e19fed68}\label{class_guidewire_sim_1_1_unit_tests_af44c767cd3bfcab562aa6526e19fed68}} 
+\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}!constraintSolvingStep@{constraintSolvingStep}}
+\index{constraintSolvingStep@{constraintSolvingStep}!GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+\doxysubsubsection{\texorpdfstring{constraintSolvingStep}{constraintSolvingStep}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} Guidewire\+Sim.\+Unit\+Tests.\+constraint\+Solving\+Step\hspace{0.3cm}{\ttfamily [private]}}
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} that is responsible for correcting the predictions with the collision and model constraints. \mbox{\Hypertarget{class_guidewire_sim_1_1_unit_tests_aa69ba1049df9d10d539b3b3ce639fecb}\label{class_guidewire_sim_1_1_unit_tests_aa69ba1049df9d10d539b3b3ce639fecb}} 
+\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}!executeUnitTests@{executeUnitTests}}
+\index{executeUnitTests@{executeUnitTests}!GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+\doxysubsubsection{\texorpdfstring{executeUnitTests}{executeUnitTests}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Unit\+Tests.\+execute\+Unit\+Tests = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether or not to perform all unit tests of this script. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_tests_a8871d15a5172e15d8fd0b1fec9936b62}\label{class_guidewire_sim_1_1_unit_tests_a8871d15a5172e15d8fd0b1fec9936b62}} 
+\index{GuidewireSim.UnitTests@{GuidewireSim.UnitTests}!mathHelper@{mathHelper}}
+\index{mathHelper@{mathHelper}!GuidewireSim.UnitTests@{GuidewireSim.UnitTests}}
+\doxysubsubsection{\texorpdfstring{mathHelper}{mathHelper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} Guidewire\+Sim.\+Unit\+Tests.\+math\+Helper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_unit_tests_8cs}{Unit\+Tests.\+cs}}\end{DoxyCompactItemize}

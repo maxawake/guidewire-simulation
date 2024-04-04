@@ -1,0 +1,268 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Requirements Traceability}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Namespace Index}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Packages}{5}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Hierarchical Index}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Class Hierarchy}{7}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Class Index}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Class List}{9}{section.4.1}%
+\contentsline {chapter}{\numberline {5}File Index}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}File List}{11}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Namespace Documentation}{13}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim Namespace Reference}{13}{section.6.1}%
+\contentsline {chapter}{\numberline {7}Class Documentation}{15}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Constraint\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solving\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Step Class Reference}{15}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Detailed Description}{16}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Member Function Documentation}{16}{subsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.2.1}Awake()}{16}{subsubsection.7.1.2.1}%
+\contentsline {subsubsection}{\numberline {7.1.2.2}CorrectBendTwistPredictions()}{16}{subsubsection.7.1.2.2}%
+\contentsline {subsubsection}{\numberline {7.1.2.3}CorrectStretchPredictions()}{17}{subsubsection.7.1.2.3}%
+\contentsline {subsubsection}{\numberline {7.1.2.4}SolveBendTwistConstraint()}{17}{subsubsection.7.1.2.4}%
+\contentsline {subsubsection}{\numberline {7.1.2.5}SolveBendTwistConstraints()}{18}{subsubsection.7.1.2.5}%
+\contentsline {subsubsection}{\numberline {7.1.2.6}SolveBendTwistConstraintsInBilateralOrder()}{19}{subsubsection.7.1.2.6}%
+\contentsline {subsubsection}{\numberline {7.1.2.7}SolveBendTwistConstraintsInNaiveOrder()}{20}{subsubsection.7.1.2.7}%
+\contentsline {subsubsection}{\numberline {7.1.2.8}SolveStretchConstraint()}{20}{subsubsection.7.1.2.8}%
+\contentsline {subsubsection}{\numberline {7.1.2.9}SolveStretchConstraints()}{21}{subsubsection.7.1.2.9}%
+\contentsline {subsubsection}{\numberline {7.1.2.10}SolveStretchConstraintsInBilateralOrder()}{22}{subsubsection.7.1.2.10}%
+\contentsline {subsubsection}{\numberline {7.1.2.11}SolveStretchConstraintsInNaiveOrder()}{23}{subsubsection.7.1.2.11}%
+\contentsline {subsection}{\numberline {7.1.3}Member Data Documentation}{23}{subsection.7.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.3.1}deltaOrientation}{23}{subsubsection.7.1.3.1}%
+\contentsline {subsubsection}{\numberline {7.1.3.2}deltaOrientationOne}{24}{subsubsection.7.1.3.2}%
+\contentsline {subsubsection}{\numberline {7.1.3.3}deltaOrientationTwo}{24}{subsubsection.7.1.3.3}%
+\contentsline {subsubsection}{\numberline {7.1.3.4}deltaPositionOne}{24}{subsubsection.7.1.3.4}%
+\contentsline {subsubsection}{\numberline {7.1.3.5}deltaPositionTwo}{24}{subsubsection.7.1.3.5}%
+\contentsline {subsubsection}{\numberline {7.1.3.6}executeInBilateralOrder}{24}{subsubsection.7.1.3.6}%
+\contentsline {subsubsection}{\numberline {7.1.3.7}mathHelper}{24}{subsubsection.7.1.3.7}%
+\contentsline {section}{\numberline {7.2}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Directors\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Drawer Class Reference}{25}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Detailed Description}{25}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Member Function Documentation}{25}{subsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2.1}Awake()}{26}{subsubsection.7.2.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2.2}CalculateArrowHeadPositions()}{26}{subsubsection.7.2.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2.3}DrawArrowHeadConnectionLines()}{26}{subsubsection.7.2.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.2.4}DrawArrowHeadLines()}{26}{subsubsection.7.2.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.2.5}DrawDirectors()}{27}{subsubsection.7.2.2.5}%
+\contentsline {subsubsection}{\numberline {7.2.2.6}Update()}{27}{subsubsection.7.2.2.6}%
+\contentsline {subsection}{\numberline {7.2.3}Member Data Documentation}{27}{subsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.3.1}arrowHeadAngle}{27}{subsubsection.7.2.3.1}%
+\contentsline {subsubsection}{\numberline {7.2.3.2}arrowHeadPercentage}{28}{subsubsection.7.2.3.2}%
+\contentsline {subsubsection}{\numberline {7.2.3.3}directorColors}{28}{subsubsection.7.2.3.3}%
+\contentsline {subsubsection}{\numberline {7.2.3.4}directorOneColor}{28}{subsubsection.7.2.3.4}%
+\contentsline {subsubsection}{\numberline {7.2.3.5}directorThreeColor}{28}{subsubsection.7.2.3.5}%
+\contentsline {subsubsection}{\numberline {7.2.3.6}directorTwoColor}{28}{subsubsection.7.2.3.6}%
+\contentsline {subsubsection}{\numberline {7.2.3.7}scaleFactor}{29}{subsubsection.7.2.3.7}%
+\contentsline {subsubsection}{\numberline {7.2.3.8}simulationLoop}{29}{subsubsection.7.2.3.8}%
+\contentsline {section}{\numberline {7.3}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Force\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Performer Class Reference}{29}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Detailed Description}{30}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Member Function Documentation}{30}{subsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.2.1}Awake()}{30}{subsubsection.7.3.2.1}%
+\contentsline {subsubsection}{\numberline {7.3.2.2}PerformForceTestFour()}{30}{subsubsection.7.3.2.2}%
+\contentsline {subsubsection}{\numberline {7.3.2.3}PerformForceTestOne()}{30}{subsubsection.7.3.2.3}%
+\contentsline {subsubsection}{\numberline {7.3.2.4}PerformForceTests()}{30}{subsubsection.7.3.2.4}%
+\contentsline {subsubsection}{\numberline {7.3.2.5}PerformForceTestThree()}{30}{subsubsection.7.3.2.5}%
+\contentsline {subsubsection}{\numberline {7.3.2.6}PerformForceTestTwo()}{31}{subsubsection.7.3.2.6}%
+\contentsline {subsubsection}{\numberline {7.3.2.7}PerformSingleLoopTest()}{31}{subsubsection.7.3.2.7}%
+\contentsline {subsubsection}{\numberline {7.3.2.8}Start()}{31}{subsubsection.7.3.2.8}%
+\contentsline {subsection}{\numberline {7.3.3}Member Data Documentation}{31}{subsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.3.1}doForceTestFour}{31}{subsubsection.7.3.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.3.2}doForceTestOne}{31}{subsubsection.7.3.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3.3}doForceTestThree}{32}{subsubsection.7.3.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.3.4}doForceTestTwo}{32}{subsubsection.7.3.3.4}%
+\contentsline {subsubsection}{\numberline {7.3.3.5}doSingleLoopTest}{32}{subsubsection.7.3.3.5}%
+\contentsline {subsubsection}{\numberline {7.3.3.6}pullForceTestThree}{32}{subsubsection.7.3.3.6}%
+\contentsline {subsubsection}{\numberline {7.3.3.7}simulationLoop}{32}{subsubsection.7.3.3.7}%
+\contentsline {section}{\numberline {7.4}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Initialization\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Step Class Reference}{32}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Detailed Description}{33}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Member Function Documentation}{33}{subsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {7.4.2.1}Awake()}{33}{subsubsection.7.4.2.1}%
+\contentsline {subsubsection}{\numberline {7.4.2.2}InitCylinderAngularVelocities()}{33}{subsubsection.7.4.2.2}%
+\contentsline {subsubsection}{\numberline {7.4.2.3}InitCylinderExternalTorques()}{34}{subsubsection.7.4.2.3}%
+\contentsline {subsubsection}{\numberline {7.4.2.4}InitCylinderOrientationPredictions()}{34}{subsubsection.7.4.2.4}%
+\contentsline {subsubsection}{\numberline {7.4.2.5}InitCylinderOrientations()}{34}{subsubsection.7.4.2.5}%
+\contentsline {subsubsection}{\numberline {7.4.2.6}InitCylinderPositions()}{35}{subsubsection.7.4.2.6}%
+\contentsline {subsubsection}{\numberline {7.4.2.7}InitCylinderScalarWeights()}{35}{subsubsection.7.4.2.7}%
+\contentsline {subsubsection}{\numberline {7.4.2.8}InitDirectors()}{35}{subsubsection.7.4.2.8}%
+\contentsline {subsubsection}{\numberline {7.4.2.9}InitDiscreteRestDarbouxVectors()}{36}{subsubsection.7.4.2.9}%
+\contentsline {subsubsection}{\numberline {7.4.2.10}InitInertiaTensor()}{37}{subsubsection.7.4.2.10}%
+\contentsline {subsubsection}{\numberline {7.4.2.11}InitInverseInertiaTensor()}{37}{subsubsection.7.4.2.11}%
+\contentsline {subsubsection}{\numberline {7.4.2.12}InitSphereExternalForces()}{37}{subsubsection.7.4.2.12}%
+\contentsline {subsubsection}{\numberline {7.4.2.13}InitSphereInverseMasses()}{37}{subsubsection.7.4.2.13}%
+\contentsline {subsubsection}{\numberline {7.4.2.14}InitSpherePositionPredictions()}{38}{subsubsection.7.4.2.14}%
+\contentsline {subsubsection}{\numberline {7.4.2.15}InitSpherePositions()}{38}{subsubsection.7.4.2.15}%
+\contentsline {subsubsection}{\numberline {7.4.2.16}InitSphereVelocities()}{39}{subsubsection.7.4.2.16}%
+\contentsline {subsubsection}{\numberline {7.4.2.17}InitWorldSpaceBasis()}{39}{subsubsection.7.4.2.17}%
+\contentsline {subsection}{\numberline {7.4.3}Member Data Documentation}{39}{subsection.7.4.3}%
+\contentsline {subsubsection}{\numberline {7.4.3.1}materialDensity}{39}{subsubsection.7.4.3.1}%
+\contentsline {subsubsection}{\numberline {7.4.3.2}materialRadius}{39}{subsubsection.7.4.3.2}%
+\contentsline {subsubsection}{\numberline {7.4.3.3}mathHelper}{40}{subsubsection.7.4.3.3}%
+\contentsline {section}{\numberline {7.5}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Math\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helper Class Reference}{40}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Detailed Description}{41}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}Member Function Documentation}{41}{subsection.7.5.2}%
+\contentsline {subsubsection}{\numberline {7.5.2.1}BendTwistConstraintDeviation()}{41}{subsubsection.7.5.2.1}%
+\contentsline {subsubsection}{\numberline {7.5.2.2}CalculateCylinderPositions()}{41}{subsubsection.7.5.2.2}%
+\contentsline {subsubsection}{\numberline {7.5.2.3}DarbouxSignFactor()}{42}{subsubsection.7.5.2.3}%
+\contentsline {subsubsection}{\numberline {7.5.2.4}DiscreteDarbouxVector()}{42}{subsubsection.7.5.2.4}%
+\contentsline {subsubsection}{\numberline {7.5.2.5}EmbeddedVector()}{43}{subsubsection.7.5.2.5}%
+\contentsline {subsubsection}{\numberline {7.5.2.6}GetGaussianRandomNumber()}{43}{subsubsection.7.5.2.6}%
+\contentsline {subsubsection}{\numberline {7.5.2.7}ImaginaryPart()}{44}{subsubsection.7.5.2.7}%
+\contentsline {subsubsection}{\numberline {7.5.2.8}MatrixVectorMultiplication()}{44}{subsubsection.7.5.2.8}%
+\contentsline {subsubsection}{\numberline {7.5.2.9}QuaternionConversionFromBSM()}{45}{subsubsection.7.5.2.9}%
+\contentsline {subsubsection}{\numberline {7.5.2.10}QuaternionConversionToBSM()}{45}{subsubsection.7.5.2.10}%
+\contentsline {subsubsection}{\numberline {7.5.2.11}QuaternionLength()}{45}{subsubsection.7.5.2.11}%
+\contentsline {subsubsection}{\numberline {7.5.2.12}RandomUnitQuaternion()}{46}{subsubsection.7.5.2.12}%
+\contentsline {subsubsection}{\numberline {7.5.2.13}RodElementLength()}{46}{subsubsection.7.5.2.13}%
+\contentsline {subsubsection}{\numberline {7.5.2.14}RodElementLengthDeviation()}{47}{subsubsection.7.5.2.14}%
+\contentsline {subsubsection}{\numberline {7.5.2.15}SquaredNorm()}{47}{subsubsection.7.5.2.15}%
+\contentsline {subsubsection}{\numberline {7.5.2.16}StretchConstraintDeviation()}{47}{subsubsection.7.5.2.16}%
+\contentsline {subsubsection}{\numberline {7.5.2.17}UpdateDirectors()}{48}{subsubsection.7.5.2.17}%
+\contentsline {subsubsection}{\numberline {7.5.2.18}VectorLength()}{49}{subsubsection.7.5.2.18}%
+\contentsline {section}{\numberline {7.6}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Object\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Setter Class Reference}{49}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}Detailed Description}{50}{subsection.7.6.1}%
+\contentsline {subsection}{\numberline {7.6.2}Member Function Documentation}{50}{subsection.7.6.2}%
+\contentsline {subsubsection}{\numberline {7.6.2.1}Awake()}{50}{subsubsection.7.6.2.1}%
+\contentsline {subsubsection}{\numberline {7.6.2.2}SetCylinderOrientations()}{50}{subsubsection.7.6.2.2}%
+\contentsline {subsubsection}{\numberline {7.6.2.3}SetCylinderPositions()}{50}{subsubsection.7.6.2.3}%
+\contentsline {subsubsection}{\numberline {7.6.2.4}SetSpherePositions()}{52}{subsubsection.7.6.2.4}%
+\contentsline {subsection}{\numberline {7.6.3}Member Data Documentation}{52}{subsection.7.6.3}%
+\contentsline {subsubsection}{\numberline {7.6.3.1}mathHelper}{52}{subsubsection.7.6.3.1}%
+\contentsline {section}{\numberline {7.7}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Prediction\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Step Class Reference}{52}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Detailed Description}{53}{subsection.7.7.1}%
+\contentsline {subsection}{\numberline {7.7.2}Member Function Documentation}{53}{subsection.7.7.2}%
+\contentsline {subsubsection}{\numberline {7.7.2.1}Awake()}{53}{subsubsection.7.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.7.2.2}PredictAngularVelocities()}{53}{subsubsection.7.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.7.2.3}PredictCylinderOrientations()}{54}{subsubsection.7.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.7.2.4}PredictSpherePositions()}{54}{subsubsection.7.7.2.4}%
+\contentsline {subsubsection}{\numberline {7.7.2.5}PredictSphereVelocities()}{55}{subsubsection.7.7.2.5}%
+\contentsline {subsection}{\numberline {7.7.3}Member Data Documentation}{55}{subsection.7.7.3}%
+\contentsline {subsubsection}{\numberline {7.7.3.1}mathHelper}{56}{subsubsection.7.7.3.1}%
+\contentsline {section}{\numberline {7.8}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Simulation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Loop Class Reference}{56}{section.7.8}%
+\contentsline {subsection}{\numberline {7.8.1}Detailed Description}{58}{subsection.7.8.1}%
+\contentsline {subsection}{\numberline {7.8.2}Member Function Documentation}{58}{subsection.7.8.2}%
+\contentsline {subsubsection}{\numberline {7.8.2.1}AdoptCalculations()}{58}{subsubsection.7.8.2.1}%
+\contentsline {subsubsection}{\numberline {7.8.2.2}Awake()}{58}{subsubsection.7.8.2.2}%
+\contentsline {subsubsection}{\numberline {7.8.2.3}FixedUpdate()}{58}{subsubsection.7.8.2.3}%
+\contentsline {subsubsection}{\numberline {7.8.2.4}PerformConstraintSolvingStep()}{59}{subsubsection.7.8.2.4}%
+\contentsline {subsubsection}{\numberline {7.8.2.5}PerformInitializationStep()}{59}{subsubsection.7.8.2.5}%
+\contentsline {subsubsection}{\numberline {7.8.2.6}PerformPredictionStep()}{59}{subsubsection.7.8.2.6}%
+\contentsline {subsubsection}{\numberline {7.8.2.7}PerformSimulationLoop()}{60}{subsubsection.7.8.2.7}%
+\contentsline {subsubsection}{\numberline {7.8.2.8}PerformUpdateStep()}{60}{subsubsection.7.8.2.8}%
+\contentsline {subsubsection}{\numberline {7.8.2.9}Start()}{60}{subsubsection.7.8.2.9}%
+\contentsline {subsection}{\numberline {7.8.3}Member Data Documentation}{60}{subsection.7.8.3}%
+\contentsline {subsubsection}{\numberline {7.8.3.1}constraintSolvingStep}{60}{subsubsection.7.8.3.1}%
+\contentsline {subsubsection}{\numberline {7.8.3.2}cylinderAngularVelocities}{60}{subsubsection.7.8.3.2}%
+\contentsline {subsubsection}{\numberline {7.8.3.3}cylinderExternalTorques}{61}{subsubsection.7.8.3.3}%
+\contentsline {subsubsection}{\numberline {7.8.3.4}cylinderOrientationPredictions}{61}{subsubsection.7.8.3.4}%
+\contentsline {subsubsection}{\numberline {7.8.3.5}cylinderOrientations}{61}{subsubsection.7.8.3.5}%
+\contentsline {subsubsection}{\numberline {7.8.3.6}cylinderPositions}{61}{subsubsection.7.8.3.6}%
+\contentsline {subsubsection}{\numberline {7.8.3.7}cylinders}{61}{subsubsection.7.8.3.7}%
+\contentsline {subsubsection}{\numberline {7.8.3.8}cylinderScalarWeights}{62}{subsubsection.7.8.3.8}%
+\contentsline {subsubsection}{\numberline {7.8.3.9}directors}{62}{subsubsection.7.8.3.9}%
+\contentsline {subsubsection}{\numberline {7.8.3.10}discreteRestDarbouxVectors}{62}{subsubsection.7.8.3.10}%
+\contentsline {subsubsection}{\numberline {7.8.3.11}inertiaTensor}{62}{subsubsection.7.8.3.11}%
+\contentsline {subsubsection}{\numberline {7.8.3.12}initializationStep}{63}{subsubsection.7.8.3.12}%
+\contentsline {subsubsection}{\numberline {7.8.3.13}inverseInertiaTensor}{63}{subsubsection.7.8.3.13}%
+\contentsline {subsubsection}{\numberline {7.8.3.14}mathHelper}{63}{subsubsection.7.8.3.14}%
+\contentsline {subsubsection}{\numberline {7.8.3.15}objectSetter}{63}{subsubsection.7.8.3.15}%
+\contentsline {subsubsection}{\numberline {7.8.3.16}predictionStep}{63}{subsubsection.7.8.3.16}%
+\contentsline {subsubsection}{\numberline {7.8.3.17}rodElementLength}{63}{subsubsection.7.8.3.17}%
+\contentsline {subsubsection}{\numberline {7.8.3.18}solveBendTwistConstraints}{64}{subsubsection.7.8.3.18}%
+\contentsline {subsubsection}{\numberline {7.8.3.19}solveStretchConstraints}{64}{subsubsection.7.8.3.19}%
+\contentsline {subsubsection}{\numberline {7.8.3.20}sphereExternalForces}{64}{subsubsection.7.8.3.20}%
+\contentsline {subsubsection}{\numberline {7.8.3.21}sphereInverseMasses}{64}{subsubsection.7.8.3.21}%
+\contentsline {subsubsection}{\numberline {7.8.3.22}spherePositionPredictions}{64}{subsubsection.7.8.3.22}%
+\contentsline {subsubsection}{\numberline {7.8.3.23}spherePositions}{64}{subsubsection.7.8.3.23}%
+\contentsline {subsubsection}{\numberline {7.8.3.24}spheres}{65}{subsubsection.7.8.3.24}%
+\contentsline {subsubsection}{\numberline {7.8.3.25}sphereVelocities}{65}{subsubsection.7.8.3.25}%
+\contentsline {subsubsection}{\numberline {7.8.3.26}updateStep}{65}{subsubsection.7.8.3.26}%
+\contentsline {subsubsection}{\numberline {7.8.3.27}worldSpaceBasis}{65}{subsubsection.7.8.3.27}%
+\contentsline {subsection}{\numberline {7.8.4}Property Documentation}{65}{subsection.7.8.4}%
+\contentsline {subsubsection}{\numberline {7.8.4.1}ConstraintSolverSteps}{65}{subsubsection.7.8.4.1}%
+\contentsline {subsubsection}{\numberline {7.8.4.2}CylinderCount}{66}{subsubsection.7.8.4.2}%
+\contentsline {subsubsection}{\numberline {7.8.4.3}ExecuteSingleLoopTest}{66}{subsubsection.7.8.4.3}%
+\contentsline {subsubsection}{\numberline {7.8.4.4}SpheresCount}{66}{subsubsection.7.8.4.4}%
+\contentsline {section}{\numberline {7.9}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stress\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Performer Class Reference}{66}{section.7.9}%
+\contentsline {subsection}{\numberline {7.9.1}Detailed Description}{67}{subsection.7.9.1}%
+\contentsline {subsection}{\numberline {7.9.2}Member Function Documentation}{67}{subsection.7.9.2}%
+\contentsline {subsubsection}{\numberline {7.9.2.1}Awake()}{67}{subsubsection.7.9.2.1}%
+\contentsline {subsubsection}{\numberline {7.9.2.2}PerformStressTestOne()}{67}{subsubsection.7.9.2.2}%
+\contentsline {subsubsection}{\numberline {7.9.2.3}PerformStressTests()}{67}{subsubsection.7.9.2.3}%
+\contentsline {subsubsection}{\numberline {7.9.2.4}Start()}{68}{subsubsection.7.9.2.4}%
+\contentsline {subsection}{\numberline {7.9.3}Member Data Documentation}{68}{subsection.7.9.3}%
+\contentsline {subsubsection}{\numberline {7.9.3.1}doStressTestOne}{68}{subsubsection.7.9.3.1}%
+\contentsline {subsubsection}{\numberline {7.9.3.2}simulationLoop}{68}{subsubsection.7.9.3.2}%
+\contentsline {section}{\numberline {7.10}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Torque\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Performer Class Reference}{68}{section.7.10}%
+\contentsline {subsection}{\numberline {7.10.1}Detailed Description}{69}{subsection.7.10.1}%
+\contentsline {subsection}{\numberline {7.10.2}Member Function Documentation}{69}{subsection.7.10.2}%
+\contentsline {subsubsection}{\numberline {7.10.2.1}Awake()}{69}{subsubsection.7.10.2.1}%
+\contentsline {subsubsection}{\numberline {7.10.2.2}PerformTorqueTestOne()}{69}{subsubsection.7.10.2.2}%
+\contentsline {subsubsection}{\numberline {7.10.2.3}PerformTorqueTests()}{69}{subsubsection.7.10.2.3}%
+\contentsline {subsubsection}{\numberline {7.10.2.4}PerformTorqueTestThree()}{69}{subsubsection.7.10.2.4}%
+\contentsline {subsubsection}{\numberline {7.10.2.5}PerformTorqueTestTwo()}{70}{subsubsection.7.10.2.5}%
+\contentsline {subsubsection}{\numberline {7.10.2.6}Start()}{70}{subsubsection.7.10.2.6}%
+\contentsline {subsection}{\numberline {7.10.3}Member Data Documentation}{70}{subsection.7.10.3}%
+\contentsline {subsubsection}{\numberline {7.10.3.1}doTorqueTestOne}{70}{subsubsection.7.10.3.1}%
+\contentsline {subsubsection}{\numberline {7.10.3.2}doTorqueTestThree}{71}{subsubsection.7.10.3.2}%
+\contentsline {subsubsection}{\numberline {7.10.3.3}doTorqueTestTwo}{71}{subsubsection.7.10.3.3}%
+\contentsline {subsubsection}{\numberline {7.10.3.4}pullTorque}{71}{subsubsection.7.10.3.4}%
+\contentsline {subsubsection}{\numberline {7.10.3.5}simulationLoop}{71}{subsubsection.7.10.3.5}%
+\contentsline {section}{\numberline {7.11}Unit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solve\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Bend\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Twist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Constraint Class Reference}{71}{section.7.11}%
+\contentsline {subsection}{\numberline {7.11.1}Detailed Description}{72}{subsection.7.11.1}%
+\contentsline {subsection}{\numberline {7.11.2}Member Function Documentation}{72}{subsection.7.11.2}%
+\contentsline {subsubsection}{\numberline {7.11.2.1}PerformUnitTests()}{72}{subsubsection.7.11.2.1}%
+\contentsline {subsubsection}{\numberline {7.11.2.2}Test\_SolveBendTwistConstraint()}{72}{subsubsection.7.11.2.2}%
+\contentsline {subsection}{\numberline {7.11.3}Member Data Documentation}{73}{subsection.7.11.3}%
+\contentsline {subsubsection}{\numberline {7.11.3.1}constraintSolverSteps}{73}{subsubsection.7.11.3.1}%
+\contentsline {subsubsection}{\numberline {7.11.3.2}sampleSize}{73}{subsubsection.7.11.3.2}%
+\contentsline {section}{\numberline {7.12}Unit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solve\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stretch\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Constraint Class Reference}{73}{section.7.12}%
+\contentsline {subsection}{\numberline {7.12.1}Detailed Description}{74}{subsection.7.12.1}%
+\contentsline {subsection}{\numberline {7.12.2}Member Function Documentation}{74}{subsection.7.12.2}%
+\contentsline {subsubsection}{\numberline {7.12.2.1}PerformUnitTests()}{74}{subsubsection.7.12.2.1}%
+\contentsline {subsubsection}{\numberline {7.12.2.2}PickRandomPositions()}{74}{subsubsection.7.12.2.2}%
+\contentsline {subsubsection}{\numberline {7.12.2.3}Test\_SolveStretchConstraint()}{75}{subsubsection.7.12.2.3}%
+\contentsline {subsection}{\numberline {7.12.3}Member Data Documentation}{75}{subsection.7.12.3}%
+\contentsline {subsubsection}{\numberline {7.12.3.1}constraintSolverSteps}{75}{subsubsection.7.12.3.1}%
+\contentsline {subsubsection}{\numberline {7.12.3.2}maximalDistanceOffset}{76}{subsubsection.7.12.3.2}%
+\contentsline {subsubsection}{\numberline {7.12.3.3}rodElementLength}{76}{subsubsection.7.12.3.3}%
+\contentsline {subsubsection}{\numberline {7.12.3.4}sampleSize}{76}{subsubsection.7.12.3.4}%
+\contentsline {section}{\numberline {7.13}Guidewire\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sim.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Update\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Step Class Reference}{76}{section.7.13}%
+\contentsline {subsection}{\numberline {7.13.1}Detailed Description}{77}{subsection.7.13.1}%
+\contentsline {subsection}{\numberline {7.13.2}Member Function Documentation}{77}{subsection.7.13.2}%
+\contentsline {subsubsection}{\numberline {7.13.2.1}Awake()}{77}{subsubsection.7.13.2.1}%
+\contentsline {subsubsection}{\numberline {7.13.2.2}UpdateCylinderAngularVelocities()}{77}{subsubsection.7.13.2.2}%
+\contentsline {subsubsection}{\numberline {7.13.2.3}UpdateCylinderOrientations()}{78}{subsubsection.7.13.2.3}%
+\contentsline {subsubsection}{\numberline {7.13.2.4}UpdateSpherePositions()}{78}{subsubsection.7.13.2.4}%
+\contentsline {subsubsection}{\numberline {7.13.2.5}UpdateSphereVelocities()}{78}{subsubsection.7.13.2.5}%
+\contentsline {subsection}{\numberline {7.13.3}Member Data Documentation}{79}{subsection.7.13.3}%
+\contentsline {subsubsection}{\numberline {7.13.3.1}mathHelper}{79}{subsubsection.7.13.3.1}%
+\contentsline {chapter}{\numberline {8}File Documentation}{81}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Constraint\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solving\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Step.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{81}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Typedef Documentation}{81}{subsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.1.1}BSM}{81}{subsubsection.8.1.1.1}%
+\contentsline {section}{\numberline {8.2}Directors\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Drawer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{81}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Force\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Performer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{82}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Initialization\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Step.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{82}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Typedef Documentation}{82}{subsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.1.1}BSM}{82}{subsubsection.8.4.1.1}%
+\contentsline {section}{\numberline {8.5}Math\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helper.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{82}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Typedef Documentation}{83}{subsection.8.5.1}%
+\contentsline {subsubsection}{\numberline {8.5.1.1}BSM}{83}{subsubsection.8.5.1.1}%
+\contentsline {section}{\numberline {8.6}Object\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Setter.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{83}{section.8.6}%
+\contentsline {subsection}{\numberline {8.6.1}Typedef Documentation}{83}{subsection.8.6.1}%
+\contentsline {subsubsection}{\numberline {8.6.1.1}BSM}{83}{subsubsection.8.6.1.1}%
+\contentsline {section}{\numberline {8.7}Prediction\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Step.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{83}{section.8.7}%
+\contentsline {subsection}{\numberline {8.7.1}Typedef Documentation}{84}{subsection.8.7.1}%
+\contentsline {subsubsection}{\numberline {8.7.1.1}BSM}{84}{subsubsection.8.7.1.1}%
+\contentsline {section}{\numberline {8.8}Simulation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Loop.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{84}{section.8.8}%
+\contentsline {subsection}{\numberline {8.8.1}Typedef Documentation}{84}{subsection.8.8.1}%
+\contentsline {subsubsection}{\numberline {8.8.1.1}BSM}{84}{subsubsection.8.8.1.1}%
+\contentsline {section}{\numberline {8.9}Stress\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Performer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{84}{section.8.9}%
+\contentsline {section}{\numberline {8.10}Torque\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Performer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{85}{section.8.10}%
+\contentsline {section}{\numberline {8.11}Unit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solve\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Bend\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Twist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Constraint.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{85}{section.8.11}%
+\contentsline {subsection}{\numberline {8.11.1}Typedef Documentation}{85}{subsection.8.11.1}%
+\contentsline {subsubsection}{\numberline {8.11.1.1}BSM}{85}{subsubsection.8.11.1.1}%
+\contentsline {section}{\numberline {8.12}Unit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solve\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stretch\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Constraint.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{85}{section.8.12}%
+\contentsline {subsection}{\numberline {8.12.1}Typedef Documentation}{86}{subsection.8.12.1}%
+\contentsline {subsubsection}{\numberline {8.12.1.1}BSM}{86}{subsubsection.8.12.1.1}%
+\contentsline {section}{\numberline {8.13}Update\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Step.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{86}{section.8.13}%
+\contentsline {subsection}{\numberline {8.13.1}Typedef Documentation}{86}{subsection.8.13.1}%
+\contentsline {subsubsection}{\numberline {8.13.1.1}BSM}{86}{subsubsection.8.13.1.1}%
+\contentsline {chapter}{Index}{87}{section*.82}%

@@ -1,0 +1,594 @@
+\hypertarget{class_guidewire_sim_1_1_simulation_loop}{}\doxysection{Guidewire\+Sim.\+Simulation\+Loop Class Reference}
+\label{class_guidewire_sim_1_1_simulation_loop}\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+Inheritance diagram for Guidewire\+Sim.\+Simulation\+Loop\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_simulation_loop}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_af5eb3db33b65c2311c6d9397ecff3f07}{Perform\+Simulation\+Loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a89639700e967542512065f7452c535b6}{spheres}}
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a4060f9630c80bc35b5fe6329b6ba8a36}{sphere\+Positions}}
+\begin{DoxyCompactList}\small\item\em The position at the current frame of each sphere. \end{DoxyCompactList}\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a20cf0dd6adc13df1c870b955353f5bb6}{sphere\+Velocities}}
+\begin{DoxyCompactList}\small\item\em The velocity of the current frame of each sphere. Initalized with zero entries. \end{DoxyCompactList}\item 
+float\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ae37cd317de29f264c8ea88d7811ec77b}{sphere\+Inverse\+Masses}}
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_adf49eb51a7d37ca460bd9bcf9b0bfb7d}{sphere\+External\+Forces}}
+\begin{DoxyCompactList}\small\item\em The sum of all current external forces that are applied per particle/ sphere. \end{DoxyCompactList}\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a652e8740ea1a58aa6aa49d2620af1734}{cylinder\+Positions}}
+\begin{DoxyCompactList}\small\item\em The center of mass of each cylinder. \end{DoxyCompactList}\item 
+float\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ab307f749ac8caf2712518c27fea15822}{cylinder\+Scalar\+Weights}}
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a2cacab5c4c35893acb982cdc05a6915e}{cylinder\+External\+Torques}}
+\begin{DoxyCompactList}\small\item\em The sum of all current external torques that are applied per orientation element/ cylinder. \end{DoxyCompactList}\item 
+Vector3\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a6830906169fc8904910e83ddcf5357e6}{directors}}
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}{solve\+Stretch\+Constraints}} = true
+\begin{DoxyCompactList}\small\item\em Whether or not to perform the constraint solving of the stretch constraint. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a90c6c5c53241222d0dc73a95f1659561}{solve\+Bend\+Twist\+Constraints}} = true
+\begin{DoxyCompactList}\small\item\em Whether or not to perform the constraint solving of the bend twist constraint. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a7624ceba45187682a66befe96209a347}{solve\+Collision\+Constraints}} = true
+\begin{DoxyCompactList}\small\item\em Whether or not to perform the constraint solving of collision constraints. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac4d002113fbb86c676936cf79bec62e2}{Execute\+Single\+Loop\+Test}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+int \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_af9a6c61fac90c6cc999d4cdb015ec4b2}{Constraint\+Solver\+Steps}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a874acf0c4fbcec56b9372c37b294464f}{Time\+Step}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+int \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a888a52671506bb05713182f7c1ab3a7f}{Spheres\+Count}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The count of all \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a89639700e967542512065f7452c535b6}{spheres}} of the guidewire. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a74a6cb09e5dd74946aa0116e612c334d}{Cylinder\+Count}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The count of all \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_adff65d2c5dc025e8327d0926dc492a2f}{cylinders}} of the guidewire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a8eae348824c1f910be38cc7a97e111ef}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a44a81942b33695f1be0f14ce08991845}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a14cef7deee44f32995d8929d69d3d373}{Fixed\+Update}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a61c3615748e8bd34a3247e675a55ceb1}{Perform\+Initialization\+Step}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a0f03649bc05cb8297d40116708b0925c}{Perform\+Constraint\+Solving\+Step}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a701f9d36b41726d89c0abb7d6c756adf}{Perform\+Update\+Step}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_afc750748e8601965e7b4ba7c556e2f29}{Perform\+Prediction\+Step}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ad97cde203ac0c5e71bd1473c12e20d07}{Adapt\+Calculations}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a6a1723fa8ae1567984999db4627c89af}{Set\+Colliders\+Step}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step}{Initialization\+Step}} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac34e100d0a10ee4213f4b1086e48844f}{initialization\+Step}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step}{Initialization\+Step}} that is responsible for initializing the simulation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_prediction_step}{Prediction\+Step}} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a5f51ec2c3e2704f8c7b64de9266d2c0c}{prediction\+Step}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_prediction_step}{Prediction\+Step}} that is responsible for executing the Prediction Step of the algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_adcc4d82d5b168dbfbdd4eb92fe3499d1}{constraint\+Solving\+Step}}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_update_step}{Update\+Step}} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a207f58d001c0120db3ab56107783f18c}{update\+Step}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_update_step}{Update\+Step}} that is responsible for executing the Update Step of the algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_object_setter}{Object\+Setter}} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_afb1743f88a0a41ab36d653a2ac89e819}{object\+Setter}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_object_setter}{Object\+Setter}} that is responsible for setting all positions and rotations the the Game\+Objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a20185cbb00b847bb55010f211a9e67b9}{math\+Helper}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step}{Collision\+Solving\+Step}} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a05217d8a713e37b479776da9c264011a}{collision\+Solving\+Step}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step}{Collision\+Solving\+Step}} that solves all collisions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a284159fc762ad7d61c4d21109298a365}{collision\+Handler}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} that tracks all collisions. \end{DoxyCompactList}\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_adff65d2c5dc025e8327d0926dc492a2f}{cylinders}}
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a20128382840406db6459454b99c955bc}{sphere\+Position\+Predictions}}
+\begin{DoxyCompactList}\small\item\em The prediction of the position at the current frame of each sphere. \end{DoxyCompactList}\item 
+BSM.\+Quaternion\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a64a33d51ea4c69689c07b29d12e2597f}{cylinder\+Orientations}}
+\begin{DoxyCompactList}\small\item\em The orientation of each cylinder at its center of mass. \end{DoxyCompactList}\item 
+BSM.\+Quaternion\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac383824fdb3e7a5931b9920187ebdceb}{cylinder\+Orientation\+Predictions}}
+\begin{DoxyCompactList}\small\item\em The prediction of the orientation of each cylinder at its center of mass. \end{DoxyCompactList}\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_acbc46cb0ba727377c05f5147c6f9eb50}{discrete\+Rest\+Darboux\+Vectors}}
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_aa3ac607436226fac7b75a4a7d51767aa}{cylinder\+Angular\+Velocities}}
+\item 
+float\mbox{[},\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_acfdc8133d79d384f9cfc96dbac30a7ef}{inertia\+Tensor}}
+\begin{DoxyCompactList}\small\item\em The inertia tensor. Entries are approximates as in the Co\+RdE paper. \end{DoxyCompactList}\item 
+float\mbox{[},\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_af67ffc244454c28df31e3819ec302b7e}{inverse\+Inertia\+Tensor}}
+\begin{DoxyCompactList}\small\item\em The inverse of \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_acfdc8133d79d384f9cfc96dbac30a7ef}{inertia\+Tensor}}. \end{DoxyCompactList}\item 
+BSM.\+Quaternion\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a5f1a3bb79f1e8670f9458bb56cfbd2f7}{world\+Space\+Basis}}
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a0671ca94ded523a65654826d1ad58bf8}{rod\+Element\+Length}} = 10f
+\item 
+int \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a8fc978a57dc55deaba7834768eb6f655}{constraint\+Solver\+Steps}} = 1000
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a8b797e61b52cb0973ac5277ffc3e56c2}{time\+Step}} = 0.\+01f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class executes the outer simuluation loop of the algorithm and calls the implementations of each algorithm step and manages all coherent data. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_ad97cde203ac0c5e71bd1473c12e20d07}\label{class_guidewire_sim_1_1_simulation_loop_ad97cde203ac0c5e71bd1473c12e20d07}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!AdaptCalculations@{AdaptCalculations}}
+\index{AdaptCalculations@{AdaptCalculations}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{AdaptCalculations()}{AdaptCalculations()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Simulation\+Loop.\+Adapt\+Calculations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Adapts the data to the Unity Game\+Objects. For example, sets the positions of the Game\+Objects \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a89639700e967542512065f7452c535b6}{spheres}} to \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a4060f9630c80bc35b5fe6329b6ba8a36}{sphere\+Positions}}. \begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000023}{Requirements}}]Sets the positions of the Game\+Objects \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a89639700e967542512065f7452c535b6}{spheres}} to \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a4060f9630c80bc35b5fe6329b6ba8a36}{sphere\+Positions}}. 
+
+Calculates \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a652e8740ea1a58aa6aa49d2620af1734}{cylinder\+Positions}} based on \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a4060f9630c80bc35b5fe6329b6ba8a36}{sphere\+Positions}}. 
+
+Sets the positions of the Game\+Objects \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_adff65d2c5dc025e8327d0926dc492a2f}{cylinders}} to \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a652e8740ea1a58aa6aa49d2620af1734}{cylinder\+Positions}}. 
+
+Sets the rotations of the Game\+Objects \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_adff65d2c5dc025e8327d0926dc492a2f}{cylinders}} to \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a64a33d51ea4c69689c07b29d12e2597f}{cylinder\+Orientations}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a8eae348824c1f910be38cc7a97e111ef}\label{class_guidewire_sim_1_1_simulation_loop_a8eae348824c1f910be38cc7a97e111ef}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Simulation\+Loop.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a14cef7deee44f32995d8929d69d3d373}\label{class_guidewire_sim_1_1_simulation_loop_a14cef7deee44f32995d8929d69d3d373}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Simulation\+Loop.\+Fixed\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000018}{Requirements}}]Execute the simulation loop if and only if \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac4d002113fbb86c676936cf79bec62e2}{Execute\+Single\+Loop\+Test}} is false. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a0f03649bc05cb8297d40116708b0925c}\label{class_guidewire_sim_1_1_simulation_loop_a0f03649bc05cb8297d40116708b0925c}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!PerformConstraintSolvingStep@{PerformConstraintSolvingStep}}
+\index{PerformConstraintSolvingStep@{PerformConstraintSolvingStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{PerformConstraintSolvingStep()}{PerformConstraintSolvingStep()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Simulation\+Loop.\+Perform\+Constraint\+Solving\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs the constraint solving step of the algorithm. \begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000020}{Requirements}}]Performs the constraint solving of every constraint \#solver\+Step many times. 
+
+Solve stretch constraints, if and only if \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}{solve\+Stretch\+Constraints}} is true. 
+
+Solve bend twist constraints, if and only if \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a90c6c5c53241222d0dc73a95f1659561}{solve\+Bend\+Twist\+Constraints}} is true. 
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}{solve\+Stretch\+Constraints}}, then \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a888a52671506bb05713182f7c1ab3a7f}{Spheres\+Count}} is at least two. 
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}{solve\+Stretch\+Constraints}}, then \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a74a6cb09e5dd74946aa0116e612c334d}{Cylinder\+Count}} is at least one. 
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a90c6c5c53241222d0dc73a95f1659561}{solve\+Bend\+Twist\+Constraints}}, then \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a888a52671506bb05713182f7c1ab3a7f}{Spheres\+Count}} is at least three. 
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a90c6c5c53241222d0dc73a95f1659561}{solve\+Bend\+Twist\+Constraints}}, then \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a74a6cb09e5dd74946aa0116e612c334d}{Cylinder\+Count}} is at least two. 
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}{solve\+Stretch\+Constraints}}, after the step is complete the deviation between the actual rod element length and the default (rest state) \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a0671ca94ded523a65654826d1ad58bf8}{rod\+Element\+Length}} should be close to zero. 
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}{solve\+Stretch\+Constraints}}, after the step is complete the deviation of the stretch constraint to zero should be close to zero. 
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a7624ceba45187682a66befe96209a347}{solve\+Collision\+Constraints}}, after this step is complete clear the list {\ttfamily registered\+Collisions}, since these collisions are now resolved. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a61c3615748e8bd34a3247e675a55ceb1}\label{class_guidewire_sim_1_1_simulation_loop_a61c3615748e8bd34a3247e675a55ceb1}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!PerformInitializationStep@{PerformInitializationStep}}
+\index{PerformInitializationStep@{PerformInitializationStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{PerformInitializationStep()}{PerformInitializationStep()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Simulation\+Loop.\+Perform\+Initialization\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Calls every step that is mandatory to declare and initialize all data. \begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000019}{Requirements}}]Set \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a888a52671506bb05713182f7c1ab3a7f}{Spheres\+Count}} to the length of \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a89639700e967542512065f7452c535b6}{spheres}}. 
+
+Set \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a74a6cb09e5dd74946aa0116e612c334d}{Cylinder\+Count}} to the length of \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_adff65d2c5dc025e8327d0926dc492a2f}{cylinders}}. 
+
+Call every init method of \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac34e100d0a10ee4213f4b1086e48844f}{initialization\+Step}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_afc750748e8601965e7b4ba7c556e2f29}\label{class_guidewire_sim_1_1_simulation_loop_afc750748e8601965e7b4ba7c556e2f29}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!PerformPredictionStep@{PerformPredictionStep}}
+\index{PerformPredictionStep@{PerformPredictionStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{PerformPredictionStep()}{PerformPredictionStep()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Simulation\+Loop.\+Perform\+Prediction\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs the prediction step of the algorithm. \begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000022}{Requirements}}]Predict the \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a20cf0dd6adc13df1c870b955353f5bb6}{sphere\+Velocities}}. 
+
+Predict the \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a20128382840406db6459454b99c955bc}{sphere\+Position\+Predictions}}. 
+
+Predict the \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_aa3ac607436226fac7b75a4a7d51767aa}{cylinder\+Angular\+Velocities}}. 
+
+Predict the \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac383824fdb3e7a5931b9920187ebdceb}{cylinder\+Orientation\+Predictions}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_af5eb3db33b65c2311c6d9397ecff3f07}\label{class_guidewire_sim_1_1_simulation_loop_af5eb3db33b65c2311c6d9397ecff3f07}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!PerformSimulationLoop@{PerformSimulationLoop}}
+\index{PerformSimulationLoop@{PerformSimulationLoop}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{PerformSimulationLoop()}{PerformSimulationLoop()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Simulation\+Loop.\+Perform\+Simulation\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Performs the outer simulation loop of the algorithm. \begin{DoxyNote}{Note}
+In a late version, Collision\+Detection and Generate\+Collision\+Constraints will be added to the algorithm. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a701f9d36b41726d89c0abb7d6c756adf}\label{class_guidewire_sim_1_1_simulation_loop_a701f9d36b41726d89c0abb7d6c756adf}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!PerformUpdateStep@{PerformUpdateStep}}
+\index{PerformUpdateStep@{PerformUpdateStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{PerformUpdateStep()}{PerformUpdateStep()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Simulation\+Loop.\+Perform\+Update\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs the update step of the algorithm. \begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000021}{Requirements}}]Upate \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a20cf0dd6adc13df1c870b955353f5bb6}{sphere\+Velocities}}. 
+
+Upate \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a4060f9630c80bc35b5fe6329b6ba8a36}{sphere\+Positions}}. 
+
+Upate \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_aa3ac607436226fac7b75a4a7d51767aa}{cylinder\+Angular\+Velocities}}. 
+
+Upate \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a64a33d51ea4c69689c07b29d12e2597f}{cylinder\+Orientations}}. 
+
+Upate \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a6830906169fc8904910e83ddcf5357e6}{directors}}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a6a1723fa8ae1567984999db4627c89af}\label{class_guidewire_sim_1_1_simulation_loop_a6a1723fa8ae1567984999db4627c89af}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!SetCollidersStep@{SetCollidersStep}}
+\index{SetCollidersStep@{SetCollidersStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{SetCollidersStep()}{SetCollidersStep()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Simulation\+Loop.\+Set\+Colliders\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Sets the position of the collider of each sphere of the guidewire to the sphere\textquotesingle{}s position prediciton. \mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a44a81942b33695f1be0f14ce08991845}\label{class_guidewire_sim_1_1_simulation_loop_a44a81942b33695f1be0f14ce08991845}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!Start@{Start}}
+\index{Start@{Start}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Simulation\+Loop.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a284159fc762ad7d61c4d21109298a365}\label{class_guidewire_sim_1_1_simulation_loop_a284159fc762ad7d61c4d21109298a365}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!collisionHandler@{collisionHandler}}
+\index{collisionHandler@{collisionHandler}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{collisionHandler}{collisionHandler}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} Guidewire\+Sim.\+Simulation\+Loop.\+collision\+Handler\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} that tracks all collisions. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a05217d8a713e37b479776da9c264011a}\label{class_guidewire_sim_1_1_simulation_loop_a05217d8a713e37b479776da9c264011a}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!collisionSolvingStep@{collisionSolvingStep}}
+\index{collisionSolvingStep@{collisionSolvingStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{collisionSolvingStep}{collisionSolvingStep}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step}{Collision\+Solving\+Step}} Guidewire\+Sim.\+Simulation\+Loop.\+collision\+Solving\+Step\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step}{Collision\+Solving\+Step}} that solves all collisions. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a8fc978a57dc55deaba7834768eb6f655}\label{class_guidewire_sim_1_1_simulation_loop_a8fc978a57dc55deaba7834768eb6f655}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!constraintSolverSteps@{constraintSolverSteps}}
+\index{constraintSolverSteps@{constraintSolverSteps}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{constraintSolverSteps}{constraintSolverSteps}}
+{\footnotesize\ttfamily int Guidewire\+Sim.\+Simulation\+Loop.\+constraint\+Solver\+Steps = 1000\hspace{0.3cm}{\ttfamily [private]}}
+
+How often the constraint solver iterates over each constraint during the Constraint Solving Step. \begin{DoxyAttention}{Attention}
+This value must be positive. 
+\end{DoxyAttention}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_adcc4d82d5b168dbfbdd4eb92fe3499d1}\label{class_guidewire_sim_1_1_simulation_loop_adcc4d82d5b168dbfbdd4eb92fe3499d1}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!constraintSolvingStep@{constraintSolvingStep}}
+\index{constraintSolvingStep@{constraintSolvingStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{constraintSolvingStep}{constraintSolvingStep}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} Guidewire\+Sim.\+Simulation\+Loop.\+constraint\+Solving\+Step\hspace{0.3cm}{\ttfamily [private]}}
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} that is responsible for correcting the predictions with the collision and model constraints. \mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_aa3ac607436226fac7b75a4a7d51767aa}\label{class_guidewire_sim_1_1_simulation_loop_aa3ac607436226fac7b75a4a7d51767aa}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!cylinderAngularVelocities@{cylinderAngularVelocities}}
+\index{cylinderAngularVelocities@{cylinderAngularVelocities}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{cylinderAngularVelocities}{cylinderAngularVelocities}}
+{\footnotesize\ttfamily Vector3 \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+cylinder\+Angular\+Velocities\hspace{0.3cm}{\ttfamily [private]}}
+
+The angular velocity of the current frame of each orientation element/ cylinder. Initalized with zero entries. \mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a2cacab5c4c35893acb982cdc05a6915e}\label{class_guidewire_sim_1_1_simulation_loop_a2cacab5c4c35893acb982cdc05a6915e}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!cylinderExternalTorques@{cylinderExternalTorques}}
+\index{cylinderExternalTorques@{cylinderExternalTorques}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{cylinderExternalTorques}{cylinderExternalTorques}}
+{\footnotesize\ttfamily Vector3 \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+cylinder\+External\+Torques}
+
+
+
+The sum of all current external torques that are applied per orientation element/ cylinder. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_ac383824fdb3e7a5931b9920187ebdceb}\label{class_guidewire_sim_1_1_simulation_loop_ac383824fdb3e7a5931b9920187ebdceb}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!cylinderOrientationPredictions@{cylinderOrientationPredictions}}
+\index{cylinderOrientationPredictions@{cylinderOrientationPredictions}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{cylinderOrientationPredictions}{cylinderOrientationPredictions}}
+{\footnotesize\ttfamily BSM.\+Quaternion \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+cylinder\+Orientation\+Predictions\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The prediction of the orientation of each cylinder at its center of mass. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a64a33d51ea4c69689c07b29d12e2597f}\label{class_guidewire_sim_1_1_simulation_loop_a64a33d51ea4c69689c07b29d12e2597f}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!cylinderOrientations@{cylinderOrientations}}
+\index{cylinderOrientations@{cylinderOrientations}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{cylinderOrientations}{cylinderOrientations}}
+{\footnotesize\ttfamily BSM.\+Quaternion \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+cylinder\+Orientations\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The orientation of each cylinder at its center of mass. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a652e8740ea1a58aa6aa49d2620af1734}\label{class_guidewire_sim_1_1_simulation_loop_a652e8740ea1a58aa6aa49d2620af1734}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!cylinderPositions@{cylinderPositions}}
+\index{cylinderPositions@{cylinderPositions}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{cylinderPositions}{cylinderPositions}}
+{\footnotesize\ttfamily Vector3 \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+cylinder\+Positions}
+
+
+
+The center of mass of each cylinder. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_adff65d2c5dc025e8327d0926dc492a2f}\label{class_guidewire_sim_1_1_simulation_loop_adff65d2c5dc025e8327d0926dc492a2f}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!cylinders@{cylinders}}
+\index{cylinders@{cylinders}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{cylinders}{cylinders}}
+{\footnotesize\ttfamily Game\+Object \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+cylinders\hspace{0.3cm}{\ttfamily [private]}}
+
+All cylinders that are part of the guidewire. \begin{DoxyAttention}{Attention}
+The order in which the cylinders are assigned matters. Assign them such that two adjacent cylinders are adjacent in the array as well. 
+\end{DoxyAttention}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_ab307f749ac8caf2712518c27fea15822}\label{class_guidewire_sim_1_1_simulation_loop_ab307f749ac8caf2712518c27fea15822}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!cylinderScalarWeights@{cylinderScalarWeights}}
+\index{cylinderScalarWeights@{cylinderScalarWeights}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{cylinderScalarWeights}{cylinderScalarWeights}}
+{\footnotesize\ttfamily float \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+cylinder\+Scalar\+Weights}
+
+The constant scalar weights of each orientation/ quaternion similar to \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ae37cd317de29f264c8ea88d7811ec77b}{sphere\+Inverse\+Masses}}. \begin{DoxyNote}{Note}
+Set to 1 for moving orientations (so that angular motion can be applied) and to 0 for fixed orientations. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a6830906169fc8904910e83ddcf5357e6}\label{class_guidewire_sim_1_1_simulation_loop_a6830906169fc8904910e83ddcf5357e6}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!directors@{directors}}
+\index{directors@{directors}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{directors}{directors}}
+{\footnotesize\ttfamily Vector3 \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+directors}
+
+The orthonormal basis of each orientation element / cylinder, also called directors. \begin{DoxyNote}{Note}
+In the 0th row are the first directors of each orientation element, not in the 1th row. Example\+: The (i, j)th element holds the (i-\/1)th director of orientation element j. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_acbc46cb0ba727377c05f5147c6f9eb50}\label{class_guidewire_sim_1_1_simulation_loop_acbc46cb0ba727377c05f5147c6f9eb50}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!discreteRestDarbouxVectors@{discreteRestDarbouxVectors}}
+\index{discreteRestDarbouxVectors@{discreteRestDarbouxVectors}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{discreteRestDarbouxVectors}{discreteRestDarbouxVectors}}
+{\footnotesize\ttfamily Vector3 \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+discrete\+Rest\+Darboux\+Vectors\hspace{0.3cm}{\ttfamily [private]}}
+
+The discrete Darboux Vector at the rest configuration, i.\+e. at frame 0. \begin{DoxyNote}{Note}
+It is important to only take the imaginary part in the calculation for the discrete Darboux Vector, thus we only save it as a Vector3. To use it in a quaternion setting, embedd the Vector3 with scalar part 0, i.\+e. with Embedded\+Vector(). 
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+There is only Cylinder\+Count -\/ 1 many darboux vectors. The i-\/th Darboux Vector is between orientation i and orientation i+1. 
+\end{DoxyAttention}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_acfdc8133d79d384f9cfc96dbac30a7ef}\label{class_guidewire_sim_1_1_simulation_loop_acfdc8133d79d384f9cfc96dbac30a7ef}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!inertiaTensor@{inertiaTensor}}
+\index{inertiaTensor@{inertiaTensor}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{inertiaTensor}{inertiaTensor}}
+{\footnotesize\ttfamily float \mbox{[},\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+inertia\+Tensor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The inertia tensor. Entries are approximates as in the Co\+RdE paper. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_ac34e100d0a10ee4213f4b1086e48844f}\label{class_guidewire_sim_1_1_simulation_loop_ac34e100d0a10ee4213f4b1086e48844f}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!initializationStep@{initializationStep}}
+\index{initializationStep@{initializationStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{initializationStep}{initializationStep}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step}{Initialization\+Step}} Guidewire\+Sim.\+Simulation\+Loop.\+initialization\+Step\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step}{Initialization\+Step}} that is responsible for initializing the simulation. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_af67ffc244454c28df31e3819ec302b7e}\label{class_guidewire_sim_1_1_simulation_loop_af67ffc244454c28df31e3819ec302b7e}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!inverseInertiaTensor@{inverseInertiaTensor}}
+\index{inverseInertiaTensor@{inverseInertiaTensor}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{inverseInertiaTensor}{inverseInertiaTensor}}
+{\footnotesize\ttfamily float \mbox{[},\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+inverse\+Inertia\+Tensor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The inverse of \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_acfdc8133d79d384f9cfc96dbac30a7ef}{inertia\+Tensor}}. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a20185cbb00b847bb55010f211a9e67b9}\label{class_guidewire_sim_1_1_simulation_loop_a20185cbb00b847bb55010f211a9e67b9}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!mathHelper@{mathHelper}}
+\index{mathHelper@{mathHelper}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{mathHelper}{mathHelper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} Guidewire\+Sim.\+Simulation\+Loop.\+math\+Helper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_afb1743f88a0a41ab36d653a2ac89e819}\label{class_guidewire_sim_1_1_simulation_loop_afb1743f88a0a41ab36d653a2ac89e819}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!objectSetter@{objectSetter}}
+\index{objectSetter@{objectSetter}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{objectSetter}{objectSetter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_object_setter}{Object\+Setter}} Guidewire\+Sim.\+Simulation\+Loop.\+object\+Setter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_object_setter}{Object\+Setter}} that is responsible for setting all positions and rotations the the Game\+Objects. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a5f51ec2c3e2704f8c7b64de9266d2c0c}\label{class_guidewire_sim_1_1_simulation_loop_a5f51ec2c3e2704f8c7b64de9266d2c0c}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!predictionStep@{predictionStep}}
+\index{predictionStep@{predictionStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{predictionStep}{predictionStep}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_prediction_step}{Prediction\+Step}} Guidewire\+Sim.\+Simulation\+Loop.\+prediction\+Step\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_prediction_step}{Prediction\+Step}} that is responsible for executing the Prediction Step of the algorithm. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a0671ca94ded523a65654826d1ad58bf8}\label{class_guidewire_sim_1_1_simulation_loop_a0671ca94ded523a65654826d1ad58bf8}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!rodElementLength@{rodElementLength}}
+\index{rodElementLength@{rodElementLength}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{rodElementLength}{rodElementLength}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Simulation\+Loop.\+rod\+Element\+Length = 10f\hspace{0.3cm}{\ttfamily [private]}}
+
+The distance between two spheres, also the distance between two orientations. Also the length of one cylinder. \begin{DoxyNote}{Note}
+This should be two times the radius of a sphere. 
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+Make sure that the guidewire setup fulfilles that the distance between two adjacent spheres is \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a0671ca94ded523a65654826d1ad58bf8}{rod\+Element\+Length}}. 
+\end{DoxyAttention}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a90c6c5c53241222d0dc73a95f1659561}\label{class_guidewire_sim_1_1_simulation_loop_a90c6c5c53241222d0dc73a95f1659561}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!solveBendTwistConstraints@{solveBendTwistConstraints}}
+\index{solveBendTwistConstraints@{solveBendTwistConstraints}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{solveBendTwistConstraints}{solveBendTwistConstraints}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Simulation\+Loop.\+solve\+Bend\+Twist\+Constraints = true}
+
+
+
+Whether or not to perform the constraint solving of the bend twist constraint. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a7624ceba45187682a66befe96209a347}\label{class_guidewire_sim_1_1_simulation_loop_a7624ceba45187682a66befe96209a347}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!solveCollisionConstraints@{solveCollisionConstraints}}
+\index{solveCollisionConstraints@{solveCollisionConstraints}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{solveCollisionConstraints}{solveCollisionConstraints}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Simulation\+Loop.\+solve\+Collision\+Constraints = true}
+
+
+
+Whether or not to perform the constraint solving of collision constraints. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}\label{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!solveStretchConstraints@{solveStretchConstraints}}
+\index{solveStretchConstraints@{solveStretchConstraints}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{solveStretchConstraints}{solveStretchConstraints}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Simulation\+Loop.\+solve\+Stretch\+Constraints = true}
+
+
+
+Whether or not to perform the constraint solving of the stretch constraint. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_adf49eb51a7d37ca460bd9bcf9b0bfb7d}\label{class_guidewire_sim_1_1_simulation_loop_adf49eb51a7d37ca460bd9bcf9b0bfb7d}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!sphereExternalForces@{sphereExternalForces}}
+\index{sphereExternalForces@{sphereExternalForces}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{sphereExternalForces}{sphereExternalForces}}
+{\footnotesize\ttfamily Vector3 \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+sphere\+External\+Forces}
+
+
+
+The sum of all current external forces that are applied per particle/ sphere. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_ae37cd317de29f264c8ea88d7811ec77b}\label{class_guidewire_sim_1_1_simulation_loop_ae37cd317de29f264c8ea88d7811ec77b}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!sphereInverseMasses@{sphereInverseMasses}}
+\index{sphereInverseMasses@{sphereInverseMasses}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{sphereInverseMasses}{sphereInverseMasses}}
+{\footnotesize\ttfamily float \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+sphere\+Inverse\+Masses}
+
+The constant inverse masses of each sphere. \begin{DoxyNote}{Note}
+Set to 1 for moving spheres and to 0 for fixed spheres. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a20128382840406db6459454b99c955bc}\label{class_guidewire_sim_1_1_simulation_loop_a20128382840406db6459454b99c955bc}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!spherePositionPredictions@{spherePositionPredictions}}
+\index{spherePositionPredictions@{spherePositionPredictions}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{spherePositionPredictions}{spherePositionPredictions}}
+{\footnotesize\ttfamily Vector3 \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+sphere\+Position\+Predictions\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The prediction of the position at the current frame of each sphere. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a4060f9630c80bc35b5fe6329b6ba8a36}\label{class_guidewire_sim_1_1_simulation_loop_a4060f9630c80bc35b5fe6329b6ba8a36}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!spherePositions@{spherePositions}}
+\index{spherePositions@{spherePositions}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{spherePositions}{spherePositions}}
+{\footnotesize\ttfamily Vector3 \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+sphere\+Positions}
+
+
+
+The position at the current frame of each sphere. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a89639700e967542512065f7452c535b6}\label{class_guidewire_sim_1_1_simulation_loop_a89639700e967542512065f7452c535b6}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!spheres@{spheres}}
+\index{spheres@{spheres}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{spheres}{spheres}}
+{\footnotesize\ttfamily Game\+Object \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+spheres}
+
+All spheres that are part of the guidewire. \begin{DoxyAttention}{Attention}
+The order in which the spheres are assigned matters. Assign them such that two adjacent spheres are adjacent in the array as well. 
+\end{DoxyAttention}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a20cf0dd6adc13df1c870b955353f5bb6}\label{class_guidewire_sim_1_1_simulation_loop_a20cf0dd6adc13df1c870b955353f5bb6}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!sphereVelocities@{sphereVelocities}}
+\index{sphereVelocities@{sphereVelocities}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{sphereVelocities}{sphereVelocities}}
+{\footnotesize\ttfamily Vector3 \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+sphere\+Velocities}
+
+
+
+The velocity of the current frame of each sphere. Initalized with zero entries. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a8b797e61b52cb0973ac5277ffc3e56c2}\label{class_guidewire_sim_1_1_simulation_loop_a8b797e61b52cb0973ac5277ffc3e56c2}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!timeStep@{timeStep}}
+\index{timeStep@{timeStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{timeStep}{timeStep}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Simulation\+Loop.\+time\+Step = 0.\+01f\hspace{0.3cm}{\ttfamily [private]}}
+
+The fixed time step in seconds at which the simulation runs. \begin{DoxyNote}{Note}
+A lower timestep than 0.\+002 can not be guaranteed by the test hardware to be executed in time. Only choose a lower timestep if you are certain your hardware can handle it. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a207f58d001c0120db3ab56107783f18c}\label{class_guidewire_sim_1_1_simulation_loop_a207f58d001c0120db3ab56107783f18c}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!updateStep@{updateStep}}
+\index{updateStep@{updateStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{updateStep}{updateStep}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_update_step}{Update\+Step}} Guidewire\+Sim.\+Simulation\+Loop.\+update\+Step\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_update_step}{Update\+Step}} that is responsible for executing the Update Step of the algorithm. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a5f1a3bb79f1e8670f9458bb56cfbd2f7}\label{class_guidewire_sim_1_1_simulation_loop_a5f1a3bb79f1e8670f9458bb56cfbd2f7}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!worldSpaceBasis@{worldSpaceBasis}}
+\index{worldSpaceBasis@{worldSpaceBasis}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{worldSpaceBasis}{worldSpaceBasis}}
+{\footnotesize\ttfamily BSM.\+Quaternion \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Simulation\+Loop.\+world\+Space\+Basis\hspace{0.3cm}{\ttfamily [private]}}
+
+The three basis vectors of the world coordinate system as embedded quaternions with scalar part 0. E.\+g. the first basis vector is (1, 0, 0), the second (0, 1, 0) and the third (0, 0, 1). 
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_af9a6c61fac90c6cc999d4cdb015ec4b2}\label{class_guidewire_sim_1_1_simulation_loop_af9a6c61fac90c6cc999d4cdb015ec4b2}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!ConstraintSolverSteps@{ConstraintSolverSteps}}
+\index{ConstraintSolverSteps@{ConstraintSolverSteps}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{ConstraintSolverSteps}{ConstraintSolverSteps}}
+{\footnotesize\ttfamily int Guidewire\+Sim.\+Simulation\+Loop.\+Constraint\+Solver\+Steps\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a74a6cb09e5dd74946aa0116e612c334d}\label{class_guidewire_sim_1_1_simulation_loop_a74a6cb09e5dd74946aa0116e612c334d}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!CylinderCount@{CylinderCount}}
+\index{CylinderCount@{CylinderCount}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{CylinderCount}{CylinderCount}}
+{\footnotesize\ttfamily int Guidewire\+Sim.\+Simulation\+Loop.\+Cylinder\+Count\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+The count of all \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_adff65d2c5dc025e8327d0926dc492a2f}{cylinders}} of the guidewire. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_ac4d002113fbb86c676936cf79bec62e2}\label{class_guidewire_sim_1_1_simulation_loop_ac4d002113fbb86c676936cf79bec62e2}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!ExecuteSingleLoopTest@{ExecuteSingleLoopTest}}
+\index{ExecuteSingleLoopTest@{ExecuteSingleLoopTest}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{ExecuteSingleLoopTest}{ExecuteSingleLoopTest}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Simulation\+Loop.\+Execute\+Single\+Loop\+Test = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+Whether or not to execute the Single Loop Test, in which the outer simulation loop is exactly executed once. \mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a888a52671506bb05713182f7c1ab3a7f}\label{class_guidewire_sim_1_1_simulation_loop_a888a52671506bb05713182f7c1ab3a7f}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!SpheresCount@{SpheresCount}}
+\index{SpheresCount@{SpheresCount}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{SpheresCount}{SpheresCount}}
+{\footnotesize\ttfamily int Guidewire\+Sim.\+Simulation\+Loop.\+Spheres\+Count\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+The count of all \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a89639700e967542512065f7452c535b6}{spheres}} of the guidewire. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_simulation_loop_a874acf0c4fbcec56b9372c37b294464f}\label{class_guidewire_sim_1_1_simulation_loop_a874acf0c4fbcec56b9372c37b294464f}} 
+\index{GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}!TimeStep@{TimeStep}}
+\index{TimeStep@{TimeStep}!GuidewireSim.SimulationLoop@{GuidewireSim.SimulationLoop}}
+\doxysubsubsection{\texorpdfstring{TimeStep}{TimeStep}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Simulation\+Loop.\+Time\+Step\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_simulation_loop_8cs}{Simulation\+Loop.\+cs}}\end{DoxyCompactItemize}

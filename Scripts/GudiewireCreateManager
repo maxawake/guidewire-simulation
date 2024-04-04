@@ -1,0 +1,53 @@
+sing System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using GuidewireSim;
+
+public class GuidewireCreateManager : MonoBehaviour
+{
+    private CreationScript creationScript;
+    private SimulationLoop simulationLoop;
+
+    public GameObject Simulation;
+    public int L_0 = 100;
+    private float REL;
+
+    private void Start()
+    {
+        // Find the SimulationLoop component from the Simulation GameObject
+        simulationLoop = Simulation.GetComponent<SimulationLoop>();
+
+        if (simulationLoop == null)
+        {
+            Debug.LogError("SimulationLoop component not found in the Simulation GameObject!");
+            return; // Exit if SimulationLoop is not found
+        }
+
+        // Get the Rod Element Length
+        REL = simulationLoop.GetRodElementLength();
+        int numberOfElements = (int)(L_0 / REL) + 1; // Calculate the desired number of elements
+
+        // Find the CreationScript component in the scene
+        creationScript = FindObjectOfType<CreationScript>();
+        if (creationScript != null)
+        {
+            creationScript.CreateGuidewire(numberOfElements);
+
+            // Get the created spheres and cylinders from the CreationScript
+            GameObject[] createdSpheres = creationScript.GetSpheres();
+            GameObject[] createdCylinders = creationScript.GetCylinders();
+
+            // Link them to the arrays in the SimulationLoop script
+            simulationLoop.SetSpheres(createdSpheres);
+            simulationLoop.SetCylinders(createdCylinders);
+        }
+        else
+        {
+            Debug.LogError("CreationScript component not found in the scene!");
+        }
+    }
+}
+
+
+
+

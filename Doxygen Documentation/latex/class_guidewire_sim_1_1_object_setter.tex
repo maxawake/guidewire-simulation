@@ -1,0 +1,107 @@
+\hypertarget{class_guidewire_sim_1_1_object_setter}{}\doxysection{Guidewire\+Sim.\+Object\+Setter Class Reference}
+\label{class_guidewire_sim_1_1_object_setter}\index{GuidewireSim.ObjectSetter@{GuidewireSim.ObjectSetter}}
+Inheritance diagram for Guidewire\+Sim.\+Object\+Setter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_object_setter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_object_setter_a23460068813d4ca78c2f36aeaf204603}{Set\+Sphere\+Positions}} (Game\+Object\mbox{[}$\,$\mbox{]} spheres, int spheres\+Count, Vector3\mbox{[}$\,$\mbox{]} sphere\+Positions)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_object_setter_a62b8d9eb5ed5eff35424743000c81e28}{Set\+Cylinder\+Positions}} (Game\+Object\mbox{[}$\,$\mbox{]} cylinders, int cylinder\+Count, Vector3\mbox{[}$\,$\mbox{]} cylinder\+Positions)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_object_setter_abd63140b827da142cdca06681e987d48}{Set\+Cylinder\+Orientations}} (Game\+Object\mbox{[}$\,$\mbox{]} cylinders, int cylinder\+Count, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientations, Vector3\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} directors)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_object_setter_a5a522f02252274d564365fd4526a65e0}{Awake}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} \mbox{\hyperlink{class_guidewire_sim_1_1_object_setter_a76cfcc60935088671d74bdce4a8265fb}{math\+Helper}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is responsible for setting the transformation positions of the Game\+Objects in the scene to their respective simulation data like {\ttfamily sphere\+Positions}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_object_setter_a5a522f02252274d564365fd4526a65e0}\label{class_guidewire_sim_1_1_object_setter_a5a522f02252274d564365fd4526a65e0}} 
+\index{GuidewireSim.ObjectSetter@{GuidewireSim.ObjectSetter}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.ObjectSetter@{GuidewireSim.ObjectSetter}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Object\+Setter.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_object_setter_abd63140b827da142cdca06681e987d48}\label{class_guidewire_sim_1_1_object_setter_abd63140b827da142cdca06681e987d48}} 
+\index{GuidewireSim.ObjectSetter@{GuidewireSim.ObjectSetter}!SetCylinderOrientations@{SetCylinderOrientations}}
+\index{SetCylinderOrientations@{SetCylinderOrientations}!GuidewireSim.ObjectSetter@{GuidewireSim.ObjectSetter}}
+\doxysubsubsection{\texorpdfstring{SetCylinderOrientations()}{SetCylinderOrientations()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Object\+Setter.\+Set\+Cylinder\+Orientations (\begin{DoxyParamCaption}\item[{Game\+Object\mbox{[}$\,$\mbox{]}}]{cylinders,  }\item[{int}]{cylinder\+Count,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientations,  }\item[{Vector3}]{directors\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Rotates each cylinder Game\+Object such that its centerline is parallel with the line segment that is spanned by the two adjacent sphere\textquotesingle{}s center of masses. 
+\begin{DoxyParams}{Parameters}
+{\em cylinders} & All cylinders that are part of the guidewire. \\
+\hline
+{\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+{\em cylinder\+Orientations} & The orientation of each cylinder at its center of mass. \\
+\hline
+{\em directors} & The orthonormal basis of each orientation element / cylinder, also called directors. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+{\ttfamily applied\+Transformation} is the rotation that aligns the y-\/axis of the cylinder with the z-\/axis of the orientations (the third director). This is needed, because the y-\/axis of the cylinder is parallel with its centerline, while the z-\/axis of the orientations (the third director) is also defined as being parallel with the cylinder\textquotesingle{}s centerline. Thus {\ttfamily applied\+Transformation} is necessary. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_object_setter_a62b8d9eb5ed5eff35424743000c81e28}\label{class_guidewire_sim_1_1_object_setter_a62b8d9eb5ed5eff35424743000c81e28}} 
+\index{GuidewireSim.ObjectSetter@{GuidewireSim.ObjectSetter}!SetCylinderPositions@{SetCylinderPositions}}
+\index{SetCylinderPositions@{SetCylinderPositions}!GuidewireSim.ObjectSetter@{GuidewireSim.ObjectSetter}}
+\doxysubsubsection{\texorpdfstring{SetCylinderPositions()}{SetCylinderPositions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Object\+Setter.\+Set\+Cylinder\+Positions (\begin{DoxyParamCaption}\item[{Game\+Object\mbox{[}$\,$\mbox{]}}]{cylinders,  }\item[{int}]{cylinder\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{cylinder\+Positions }\end{DoxyParamCaption})}
+
+Sets the positions of the Game\+Objects {\ttfamily cylinders} to their respective {\ttfamily cylinder\+Positions}. 
+\begin{DoxyParams}{Parameters}
+{\em cylinders} & All cylinders that are part of the guidewire. \\
+\hline
+{\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+{\em cylinder\+Positions} & The position/ center of mass of each cylinder. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_object_setter_a23460068813d4ca78c2f36aeaf204603}\label{class_guidewire_sim_1_1_object_setter_a23460068813d4ca78c2f36aeaf204603}} 
+\index{GuidewireSim.ObjectSetter@{GuidewireSim.ObjectSetter}!SetSpherePositions@{SetSpherePositions}}
+\index{SetSpherePositions@{SetSpherePositions}!GuidewireSim.ObjectSetter@{GuidewireSim.ObjectSetter}}
+\doxysubsubsection{\texorpdfstring{SetSpherePositions()}{SetSpherePositions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Object\+Setter.\+Set\+Sphere\+Positions (\begin{DoxyParamCaption}\item[{Game\+Object\mbox{[}$\,$\mbox{]}}]{spheres,  }\item[{int}]{spheres\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Positions }\end{DoxyParamCaption})}
+
+Sets the positions of the Game\+Objects {\ttfamily spheres} to their respective {\ttfamily sphere\+Positions}. 
+\begin{DoxyParams}{Parameters}
+{\em spheres} & All spheres that are part of the guidewire. \\
+\hline
+{\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+{\em sphere\+Positions} & The position at the current frame of each sphere. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_object_setter_a76cfcc60935088671d74bdce4a8265fb}\label{class_guidewire_sim_1_1_object_setter_a76cfcc60935088671d74bdce4a8265fb}} 
+\index{GuidewireSim.ObjectSetter@{GuidewireSim.ObjectSetter}!mathHelper@{mathHelper}}
+\index{mathHelper@{mathHelper}!GuidewireSim.ObjectSetter@{GuidewireSim.ObjectSetter}}
+\doxysubsubsection{\texorpdfstring{mathHelper}{mathHelper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} Guidewire\+Sim.\+Object\+Setter.\+math\+Helper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_object_setter_8cs}{Object\+Setter.\+cs}}\end{DoxyCompactItemize}

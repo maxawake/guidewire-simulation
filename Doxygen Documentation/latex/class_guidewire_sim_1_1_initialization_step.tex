@@ -1,0 +1,348 @@
+\hypertarget{class_guidewire_sim_1_1_initialization_step}{}\doxysection{Guidewire\+Sim.\+Initialization\+Step Class Reference}
+\label{class_guidewire_sim_1_1_initialization_step}\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+Inheritance diagram for Guidewire\+Sim.\+Initialization\+Step\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_initialization_step}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a500eb98f83918ce1aaf534e529b908dc}{Init\+Sphere\+Positions}} (Game\+Object\mbox{[}$\,$\mbox{]} spheres, int spheres\+Count, out Vector3\mbox{[}$\,$\mbox{]} sphere\+Positions)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a07f986d2290521af922b21d624bf9f75}{Init\+Sphere\+Velocities}} (int spheres\+Count, out Vector3\mbox{[}$\,$\mbox{]} sphere\+Velocities)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_ae2bd36dc286c5678e0dd8b726f35f3e4}{Init\+Sphere\+Inverse\+Masses}} (int spheres\+Count, out float\mbox{[}$\,$\mbox{]} sphere\+Inverse\+Masses)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a0f9c89e1029a96acfb8a23baf761803a}{Init\+Cylinder\+Positions}} (int cylinder\+Count, Vector3\mbox{[}$\,$\mbox{]} sphere\+Positions, out Vector3\mbox{[}$\,$\mbox{]} cylinder\+Positions)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_af00ce81350f6ec8f8a48fc4b4a48d9ed}{Init\+Cylinder\+Orientations}} (int cylinder\+Count, out BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientations)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a3d49c4763b01ffdcf9733414fc68a399}{Init\+Discrete\+Rest\+Darboux\+Vectors}} (int cylinder\+Count, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientations, out Vector3\mbox{[}$\,$\mbox{]} discrete\+Rest\+Darboux\+Vectors, float rod\+Element\+Length)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a545ecf6df367f741c9203df33a9e9506}{Init\+Cylinder\+Angular\+Velocities}} (int cylinder\+Count, out Vector3\mbox{[}$\,$\mbox{]} cylinder\+Angular\+Velocities)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a6585a9b6a64c54e53bec6e4545aca491}{Init\+Cylinder\+Scalar\+Weights}} (int cylinder\+Count, out float\mbox{[}$\,$\mbox{]} cylinder\+Scalar\+Weights)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a78ef594d025ab08780a09f393580b208}{Init\+Sphere\+External\+Forces}} (int spheres\+Count, out Vector3\mbox{[}$\,$\mbox{]} sphere\+External\+Forces)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_ad2c5fa9732231fcecb9a8347db2c99e4}{Init\+Sphere\+Position\+Predictions}} (Game\+Object\mbox{[}$\,$\mbox{]} spheres, int spheres\+Count, out Vector3\mbox{[}$\,$\mbox{]} sphere\+Position\+Predictions)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_ad3b6d7cde8a08d360a3b240b5bad0c1a}{Init\+Cylinder\+Orientation\+Predictions}} (int cylinder\+Count, out BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a97632e3c3c34eeeaad2d4ca06a201f20}{Init\+Inertia\+Tensor}} (out float\mbox{[},\mbox{]} inertia\+Tensor)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_aa567c7f1d6a2c6a4f7148849ac7a1735}{Init\+Inverse\+Inertia\+Tensor}} (float\mbox{[},\mbox{]} inertia\+Tensor, out float\mbox{[},\mbox{]} inverse\+Inertia\+Tensor)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a80027f97aa27b5cff2c4cd15eaa5cc77}{Init\+Cylinder\+External\+Torques}} (int cylinder\+Count, out Vector3\mbox{[}$\,$\mbox{]} cylinder\+External\+Torques)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a62a2e50affc4cc1d4034e0cfc4bc9caa}{Init\+World\+Space\+Basis}} (out BSM.\+Quaternion\mbox{[}$\,$\mbox{]} world\+Space\+Basis)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_af40ca31b965197ecdd47081942cd34e7}{Init\+Directors}} (int cylinder\+Count, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} world\+Space\+Basis, out Vector3\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} directors)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_ac35932c1345eaace556bbd40e3ec4056}{Init\+Sphere\+Colliders}} (int spheres\+Count, Game\+Object\mbox{[}$\,$\mbox{]} spheres)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a1f072017a43fbb4709ead84b3d02b2ac}{Awake}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a86f49a738badaba83c86f847173cd8f0}{collision\+Handler}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} that solves all collisions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_ab7fbc05fd605149cb18ac7a75bcb1e87}{math\+Helper}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_ae3be1ce76a77ccba6619bd4cc4b63dc5}{material\+Density}} = 7860
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a512cce217ba6c77e9fe7515cc684f6a5}{material\+Radius}} = 0.\+001f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is responsible for initializing all data with their initial values of the simulation at the start of the simulation. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a1f072017a43fbb4709ead84b3d02b2ac}\label{class_guidewire_sim_1_1_initialization_step_a1f072017a43fbb4709ead84b3d02b2ac}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a545ecf6df367f741c9203df33a9e9506}\label{class_guidewire_sim_1_1_initialization_step_a545ecf6df367f741c9203df33a9e9506}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitCylinderAngularVelocities@{InitCylinderAngularVelocities}}
+\index{InitCylinderAngularVelocities@{InitCylinderAngularVelocities}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitCylinderAngularVelocities()}{InitCylinderAngularVelocities()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Cylinder\+Angular\+Velocities (\begin{DoxyParamCaption}\item[{int}]{cylinder\+Count,  }\item[{out Vector3\mbox{[}$\,$\mbox{]}}]{cylinder\+Angular\+Velocities }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily cylinder\+Angular\+Velocities} with the default value of zero at the start of the simulation. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em cylinder\+Angular\+Velocities} & The angular velocity of the current frame of each orientation element/ cylinder. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a80027f97aa27b5cff2c4cd15eaa5cc77}\label{class_guidewire_sim_1_1_initialization_step_a80027f97aa27b5cff2c4cd15eaa5cc77}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitCylinderExternalTorques@{InitCylinderExternalTorques}}
+\index{InitCylinderExternalTorques@{InitCylinderExternalTorques}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitCylinderExternalTorques()}{InitCylinderExternalTorques()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Cylinder\+External\+Torques (\begin{DoxyParamCaption}\item[{int}]{cylinder\+Count,  }\item[{out Vector3\mbox{[}$\,$\mbox{]}}]{cylinder\+External\+Torques }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily cylinder\+External\+Torques} with the default value of zero at the start of the simulation. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em cylinder\+External\+Torques} & The sum of all current external torques that are applied per orientation element/ cylinder. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_ad3b6d7cde8a08d360a3b240b5bad0c1a}\label{class_guidewire_sim_1_1_initialization_step_ad3b6d7cde8a08d360a3b240b5bad0c1a}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitCylinderOrientationPredictions@{InitCylinderOrientationPredictions}}
+\index{InitCylinderOrientationPredictions@{InitCylinderOrientationPredictions}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitCylinderOrientationPredictions()}{InitCylinderOrientationPredictions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Cylinder\+Orientation\+Predictions (\begin{DoxyParamCaption}\item[{int}]{cylinder\+Count,  }\item[{out BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily cylinder\+Orientation\+Predictions} with the default value of (0f, 0f, 0f, 1f) which equals the quaternion identity at the start of the simulation. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em cylinder\+Orientation\+Predictions} & The prediction of the orientation of each cylinder at its center of mass. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_af00ce81350f6ec8f8a48fc4b4a48d9ed}\label{class_guidewire_sim_1_1_initialization_step_af00ce81350f6ec8f8a48fc4b4a48d9ed}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitCylinderOrientations@{InitCylinderOrientations}}
+\index{InitCylinderOrientations@{InitCylinderOrientations}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitCylinderOrientations()}{InitCylinderOrientations()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Cylinder\+Orientations (\begin{DoxyParamCaption}\item[{int}]{cylinder\+Count,  }\item[{out BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientations }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily cylinder\+Orientations} with the default value of (0f, 0f, 0f, 1f) which equals the quaternion identity at the start of the simulation. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientations}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em cylinder\+Orientations} & The orientation of each cylinder at its center of mass. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a0f9c89e1029a96acfb8a23baf761803a}\label{class_guidewire_sim_1_1_initialization_step_a0f9c89e1029a96acfb8a23baf761803a}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitCylinderPositions@{InitCylinderPositions}}
+\index{InitCylinderPositions@{InitCylinderPositions}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitCylinderPositions()}{InitCylinderPositions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Cylinder\+Positions (\begin{DoxyParamCaption}\item[{int}]{cylinder\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Positions,  }\item[{out Vector3\mbox{[}$\,$\mbox{]}}]{cylinder\+Positions }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily cylinder\+Positions} as middle points of the positions of {\ttfamily spheres} at the start of the simulation. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+ & {\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em cylinder\+Positions} & The position/ center of mass of each cylinder. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a6585a9b6a64c54e53bec6e4545aca491}\label{class_guidewire_sim_1_1_initialization_step_a6585a9b6a64c54e53bec6e4545aca491}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitCylinderScalarWeights@{InitCylinderScalarWeights}}
+\index{InitCylinderScalarWeights@{InitCylinderScalarWeights}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitCylinderScalarWeights()}{InitCylinderScalarWeights()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Cylinder\+Scalar\+Weights (\begin{DoxyParamCaption}\item[{int}]{cylinder\+Count,  }\item[{out float\mbox{[}$\,$\mbox{]}}]{cylinder\+Scalar\+Weights }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily cylinder\+Scalar\+Weights} with the default value of one at the start of the simulation. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em cylinder\+Scalar\+Weights} & The constant scalar weights of each orientation/ quaternion similar to {\ttfamily sphere\+Inverse\+Masses}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_af40ca31b965197ecdd47081942cd34e7}\label{class_guidewire_sim_1_1_initialization_step_af40ca31b965197ecdd47081942cd34e7}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitDirectors@{InitDirectors}}
+\index{InitDirectors@{InitDirectors}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitDirectors()}{InitDirectors()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Directors (\begin{DoxyParamCaption}\item[{int}]{cylinder\+Count,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{world\+Space\+Basis,  }\item[{out Vector3}]{directors\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Initializes the {\ttfamily directors} array of arrays. The zero-\/th array defines all first directors of each director basis and so on. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+ & {\em world\+Space\+Basis} & The three basis vectors of the world coordinate system. \\
+\hline
+\mbox{\texttt{ out}}  & {\em directors} & The orthonormal basis of each orientation element / cylinder, also called directors. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Example\+: The (i, j)th element holds the (i-\/1)th director of orientation element j. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a3d49c4763b01ffdcf9733414fc68a399}\label{class_guidewire_sim_1_1_initialization_step_a3d49c4763b01ffdcf9733414fc68a399}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitDiscreteRestDarbouxVectors@{InitDiscreteRestDarbouxVectors}}
+\index{InitDiscreteRestDarbouxVectors@{InitDiscreteRestDarbouxVectors}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitDiscreteRestDarbouxVectors()}{InitDiscreteRestDarbouxVectors()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Discrete\+Rest\+Darboux\+Vectors (\begin{DoxyParamCaption}\item[{int}]{cylinder\+Count,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientations,  }\item[{out Vector3\mbox{[}$\,$\mbox{]}}]{discrete\+Rest\+Darboux\+Vectors,  }\item[{float}]{rod\+Element\+Length }\end{DoxyParamCaption})}
+
+Calculates the discrete darboux vector for each orientation pair (two adjacent orientations) at its rest configuration, i.\+e. at frame 0. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+ & {\em cylinder\+Orientations} & The orientation of each cylinder at its center of mass. \\
+\hline
+\mbox{\texttt{ out}}  & {\em discrete\+Rest\+Darboux\+Vectors} & The array of all discrete Darboux Vectors at the rest configuration, i.\+e. at frame 0. Has (n-\/1) elements, if n is the number of orientations of the guidewire, because the darboux vector is taken of two adjacent orientations. \\
+\hline
+ & {\em rod\+Element\+Length} & The distance between two spheres, also the distance between two orientations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000014}{Requirements}}]{\ttfamily cylinder\+Count} should be at least one. 
+
+{\ttfamily rod\+Element\+Length} should be positive. \end{DoxyRefDesc}
+\begin{DoxyNote}{Note}
+All cylinder orientations must be computed for frame 0 first. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a97632e3c3c34eeeaad2d4ca06a201f20}\label{class_guidewire_sim_1_1_initialization_step_a97632e3c3c34eeeaad2d4ca06a201f20}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitInertiaTensor@{InitInertiaTensor}}
+\index{InitInertiaTensor@{InitInertiaTensor}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitInertiaTensor()}{InitInertiaTensor()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Inertia\+Tensor (\begin{DoxyParamCaption}\item[{out float}]{inertia\+Tensor\mbox{[},\mbox{]} }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily inertia\+Tensor} so that all elements except the diagonal ones are zero. The first and second diagonal entry equal $ \rho * \pi * \frac{r^{2}}{4} $, and the third diagonal entry equals $ \rho * \pi * \frac{r^{2}}{2} $. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em inertia\+Tensor} & The inertia tensor. Entries are approximates as in the Co\+RdE paper. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_aa567c7f1d6a2c6a4f7148849ac7a1735}\label{class_guidewire_sim_1_1_initialization_step_aa567c7f1d6a2c6a4f7148849ac7a1735}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitInverseInertiaTensor@{InitInverseInertiaTensor}}
+\index{InitInverseInertiaTensor@{InitInverseInertiaTensor}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitInverseInertiaTensor()}{InitInverseInertiaTensor()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Inverse\+Inertia\+Tensor (\begin{DoxyParamCaption}\item[{float}]{inertia\+Tensor\mbox{[},\mbox{]},  }\item[{out float}]{inverse\+Inertia\+Tensor\mbox{[},\mbox{]} }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily inverse\+Inertia\+Tensor} as the inverse of {\ttfamily inertia\+Tensor}. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em inertia\+Tensor} & The inertia tensor. Entries are approximates as in the Co\+RdE paper. \\
+\hline
+\mbox{\texttt{ out}}  & {\em inverse\+Inertia\+Tensor} & The inverse of {\ttfamily inertia\+Tensor}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_ac35932c1345eaace556bbd40e3ec4056}\label{class_guidewire_sim_1_1_initialization_step_ac35932c1345eaace556bbd40e3ec4056}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitSphereColliders@{InitSphereColliders}}
+\index{InitSphereColliders@{InitSphereColliders}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitSphereColliders()}{InitSphereColliders()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Sphere\+Colliders (\begin{DoxyParamCaption}\item[{int}]{spheres\+Count,  }\item[{Game\+Object\mbox{[}$\,$\mbox{]}}]{spheres }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a78ef594d025ab08780a09f393580b208}\label{class_guidewire_sim_1_1_initialization_step_a78ef594d025ab08780a09f393580b208}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitSphereExternalForces@{InitSphereExternalForces}}
+\index{InitSphereExternalForces@{InitSphereExternalForces}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitSphereExternalForces()}{InitSphereExternalForces()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Sphere\+External\+Forces (\begin{DoxyParamCaption}\item[{int}]{spheres\+Count,  }\item[{out Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+External\+Forces }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily sphere\+External\+Forces} with the default value of zero at the start of the simulation. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em sphere\+External\+Forces} & The sum of all current external forces that are applied per particle/ sphere. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_ae2bd36dc286c5678e0dd8b726f35f3e4}\label{class_guidewire_sim_1_1_initialization_step_ae2bd36dc286c5678e0dd8b726f35f3e4}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitSphereInverseMasses@{InitSphereInverseMasses}}
+\index{InitSphereInverseMasses@{InitSphereInverseMasses}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitSphereInverseMasses()}{InitSphereInverseMasses()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Sphere\+Inverse\+Masses (\begin{DoxyParamCaption}\item[{int}]{spheres\+Count,  }\item[{out float\mbox{[}$\,$\mbox{]}}]{sphere\+Inverse\+Masses }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily sphere\+Inverse\+Masses} with the default value of one at the start of the simulation. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em sphere\+Inverse\+Masses} & The constant inverse masses of each sphere. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_ad2c5fa9732231fcecb9a8347db2c99e4}\label{class_guidewire_sim_1_1_initialization_step_ad2c5fa9732231fcecb9a8347db2c99e4}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitSpherePositionPredictions@{InitSpherePositionPredictions}}
+\index{InitSpherePositionPredictions@{InitSpherePositionPredictions}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitSpherePositionPredictions()}{InitSpherePositionPredictions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Sphere\+Position\+Predictions (\begin{DoxyParamCaption}\item[{Game\+Object\mbox{[}$\,$\mbox{]}}]{spheres,  }\item[{int}]{spheres\+Count,  }\item[{out Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Position\+Predictions }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily sphere\+Position\+Predictions} with the default value of zero at the start of the simulation. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em sphere\+Position\+Predictions} & The prediction of the position at the current frame of each sphere. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a500eb98f83918ce1aaf534e529b908dc}\label{class_guidewire_sim_1_1_initialization_step_a500eb98f83918ce1aaf534e529b908dc}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitSpherePositions@{InitSpherePositions}}
+\index{InitSpherePositions@{InitSpherePositions}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitSpherePositions()}{InitSpherePositions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Sphere\+Positions (\begin{DoxyParamCaption}\item[{Game\+Object\mbox{[}$\,$\mbox{]}}]{spheres,  }\item[{int}]{spheres\+Count,  }\item[{out Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Positions }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily sphere\+Positions} with the positions of {\ttfamily spheres} at the start of the simulation. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em spheres} & All spheres that are part of the guidewire. \\
+\hline
+ & {\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em sphere\+Positions} & The position at the current frame of each sphere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000013}{Requirements}}]{\ttfamily spheres\+Count} should be at least one. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a07f986d2290521af922b21d624bf9f75}\label{class_guidewire_sim_1_1_initialization_step_a07f986d2290521af922b21d624bf9f75}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitSphereVelocities@{InitSphereVelocities}}
+\index{InitSphereVelocities@{InitSphereVelocities}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitSphereVelocities()}{InitSphereVelocities()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+Sphere\+Velocities (\begin{DoxyParamCaption}\item[{int}]{spheres\+Count,  }\item[{out Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Velocities }\end{DoxyParamCaption})}
+
+Initializes {\ttfamily sphere\+Velocities} with the default value of zero at the start of the simulation. 
+\begin{DoxyParams}[1]{Parameters}
+ & {\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em sphere\+Velocities} & The velocity of the current frame of each sphere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Velocities are set to zero at the start of the simulation. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a62a2e50affc4cc1d4034e0cfc4bc9caa}\label{class_guidewire_sim_1_1_initialization_step_a62a2e50affc4cc1d4034e0cfc4bc9caa}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!InitWorldSpaceBasis@{InitWorldSpaceBasis}}
+\index{InitWorldSpaceBasis@{InitWorldSpaceBasis}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{InitWorldSpaceBasis()}{InitWorldSpaceBasis()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Initialization\+Step.\+Init\+World\+Space\+Basis (\begin{DoxyParamCaption}\item[{out BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{world\+Space\+Basis }\end{DoxyParamCaption})}
+
+Initializes the world space basis vectors (1, 0, 0), (0, 1, 0), (0, 0, 1) as embedded quaternions with scalar part zero. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em world\+Space\+Basis} & The three basis vectors of the world coordinate system. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a86f49a738badaba83c86f847173cd8f0}\label{class_guidewire_sim_1_1_initialization_step_a86f49a738badaba83c86f847173cd8f0}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!collisionHandler@{collisionHandler}}
+\index{collisionHandler@{collisionHandler}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{collisionHandler}{collisionHandler}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} Guidewire\+Sim.\+Initialization\+Step.\+collision\+Handler\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} that solves all collisions. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_ae3be1ce76a77ccba6619bd4cc4b63dc5}\label{class_guidewire_sim_1_1_initialization_step_ae3be1ce76a77ccba6619bd4cc4b63dc5}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!materialDensity@{materialDensity}}
+\index{materialDensity@{materialDensity}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{materialDensity}{materialDensity}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Initialization\+Step.\+material\+Density = 7860\hspace{0.3cm}{\ttfamily [private]}}
+
+The density of the rod material. The value 7960 is taken from Table 2 of the Co\+RdE paper. \mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_a512cce217ba6c77e9fe7515cc684f6a5}\label{class_guidewire_sim_1_1_initialization_step_a512cce217ba6c77e9fe7515cc684f6a5}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!materialRadius@{materialRadius}}
+\index{materialRadius@{materialRadius}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{materialRadius}{materialRadius}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Initialization\+Step.\+material\+Radius = 0.\+001f\hspace{0.3cm}{\ttfamily [private]}}
+
+The radius of the cross-\/section of the rod. Tha value 0.\+001 or 1mm is taken from Table 2 of the Co\+RdE paper. \mbox{\Hypertarget{class_guidewire_sim_1_1_initialization_step_ab7fbc05fd605149cb18ac7a75bcb1e87}\label{class_guidewire_sim_1_1_initialization_step_ab7fbc05fd605149cb18ac7a75bcb1e87}} 
+\index{GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}!mathHelper@{mathHelper}}
+\index{mathHelper@{mathHelper}!GuidewireSim.InitializationStep@{GuidewireSim.InitializationStep}}
+\doxysubsubsection{\texorpdfstring{mathHelper}{mathHelper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} Guidewire\+Sim.\+Initialization\+Step.\+math\+Helper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_initialization_step_8cs}{Initialization\+Step.\+cs}}\end{DoxyCompactItemize}

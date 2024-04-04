@@ -1,0 +1,106 @@
+\hypertarget{class_guidewire_sim_1_1_collision_detection_primitive}{}\doxysection{Guidewire\+Sim.\+Collision\+Detection\+Primitive Class Reference}
+\label{class_guidewire_sim_1_1_collision_detection_primitive}\index{GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}}
+Inheritance diagram for Guidewire\+Sim.\+Collision\+Detection\+Primitive\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_collision_detection_primitive}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_guidewire_sim_1_1_collision_detection_primitive_ad68005d8e800b28008ee5969cbcfc451}{sphere\+ID}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_detection_primitive_a6d170cc734d2d00084ea9c3d10b1c14a}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_detection_primitive_a548b5b3b6e334b5ee7d98e01a61413c5}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_detection_primitive_ada011c3742826fc5d36b58d9be0e0d1c}{Assign\+Sphere\+ID}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_detection_primitive_a94e5c29f4b76c3fc9be7cada74754a0d}{On\+Collision\+Enter}} (Collision other)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_detection_primitive_ad8771f6c5940a6a218f0c2250b5fc47a}{On\+Collision\+Stay}} (Collision other)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} \mbox{\hyperlink{class_guidewire_sim_1_1_collision_detection_primitive_a3c5a4796cea413ba791d14f44dec8c59}{simulation\+Loop}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} component in the Simulation Game\+Object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} \mbox{\hyperlink{class_guidewire_sim_1_1_collision_detection_primitive_a40e6469004fb3fc9f322680097f34567}{collision\+Handler}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} component in the Simulation Game\+Object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is responsible for tracking collisions of the object it is attached to. Attach this component only to sphere objects of the guidewire. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_detection_primitive_ada011c3742826fc5d36b58d9be0e0d1c}\label{class_guidewire_sim_1_1_collision_detection_primitive_ada011c3742826fc5d36b58d9be0e0d1c}} 
+\index{GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}!AssignSphereID@{AssignSphereID}}
+\index{AssignSphereID@{AssignSphereID}!GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}}
+\doxysubsubsection{\texorpdfstring{AssignSphereID()}{AssignSphereID()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Detection\+Primitive.\+Assign\+Sphere\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Assigns the unique ID of the object sphere it is attached to to \mbox{\hyperlink{class_guidewire_sim_1_1_collision_detection_primitive_ad68005d8e800b28008ee5969cbcfc451}{sphere\+ID}}. \mbox{\Hypertarget{class_guidewire_sim_1_1_collision_detection_primitive_a6d170cc734d2d00084ea9c3d10b1c14a}\label{class_guidewire_sim_1_1_collision_detection_primitive_a6d170cc734d2d00084ea9c3d10b1c14a}} 
+\index{GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Detection\+Primitive.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_detection_primitive_a94e5c29f4b76c3fc9be7cada74754a0d}\label{class_guidewire_sim_1_1_collision_detection_primitive_a94e5c29f4b76c3fc9be7cada74754a0d}} 
+\index{GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}!OnCollisionEnter@{OnCollisionEnter}}
+\index{OnCollisionEnter@{OnCollisionEnter}!GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}}
+\doxysubsubsection{\texorpdfstring{OnCollisionEnter()}{OnCollisionEnter()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Detection\+Primitive.\+On\+Collision\+Enter (\begin{DoxyParamCaption}\item[{Collision}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Registers a collision that Unity\textquotesingle{}s collision detection detected. \mbox{\Hypertarget{class_guidewire_sim_1_1_collision_detection_primitive_ad8771f6c5940a6a218f0c2250b5fc47a}\label{class_guidewire_sim_1_1_collision_detection_primitive_ad8771f6c5940a6a218f0c2250b5fc47a}} 
+\index{GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}!OnCollisionStay@{OnCollisionStay}}
+\index{OnCollisionStay@{OnCollisionStay}!GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}}
+\doxysubsubsection{\texorpdfstring{OnCollisionStay()}{OnCollisionStay()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Detection\+Primitive.\+On\+Collision\+Stay (\begin{DoxyParamCaption}\item[{Collision}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Registers a collision that Unity\textquotesingle{}s collision detection detected. \mbox{\Hypertarget{class_guidewire_sim_1_1_collision_detection_primitive_a548b5b3b6e334b5ee7d98e01a61413c5}\label{class_guidewire_sim_1_1_collision_detection_primitive_a548b5b3b6e334b5ee7d98e01a61413c5}} 
+\index{GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}!Start@{Start}}
+\index{Start@{Start}!GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Detection\+Primitive.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_detection_primitive_a40e6469004fb3fc9f322680097f34567}\label{class_guidewire_sim_1_1_collision_detection_primitive_a40e6469004fb3fc9f322680097f34567}} 
+\index{GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}!collisionHandler@{collisionHandler}}
+\index{collisionHandler@{collisionHandler}!GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}}
+\doxysubsubsection{\texorpdfstring{collisionHandler}{collisionHandler}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} Guidewire\+Sim.\+Collision\+Detection\+Primitive.\+collision\+Handler\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} component in the Simulation Game\+Object. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_detection_primitive_a3c5a4796cea413ba791d14f44dec8c59}\label{class_guidewire_sim_1_1_collision_detection_primitive_a3c5a4796cea413ba791d14f44dec8c59}} 
+\index{GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}!simulationLoop@{simulationLoop}}
+\index{simulationLoop@{simulationLoop}!GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}}
+\doxysubsubsection{\texorpdfstring{simulationLoop}{simulationLoop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} Guidewire\+Sim.\+Collision\+Detection\+Primitive.\+simulation\+Loop\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} component in the Simulation Game\+Object. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_detection_primitive_ad68005d8e800b28008ee5969cbcfc451}\label{class_guidewire_sim_1_1_collision_detection_primitive_ad68005d8e800b28008ee5969cbcfc451}} 
+\index{GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}!sphereID@{sphereID}}
+\index{sphereID@{sphereID}!GuidewireSim.CollisionDetectionPrimitive@{GuidewireSim.CollisionDetectionPrimitive}}
+\doxysubsubsection{\texorpdfstring{sphereID}{sphereID}}
+{\footnotesize\ttfamily int Guidewire\+Sim.\+Collision\+Detection\+Primitive.\+sphere\+ID}
+
+The unique ID of the sphere that this component is attached to. Matches the position in {\ttfamily spheres} in \#\+Simulation\+Loop. \begin{DoxyNote}{Note}
+Should also match the position in {\ttfamily sphere\+Positions}, {\ttfamily sphere\+Velocities}, {\ttfamily sphere\+External\+Forces}, {\ttfamily sphere\+Position\+Predictions} in \#\+Simulation\+Loop. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_collision_detection_primitive_8cs}{Collision\+Detection\+Primitive.\+cs}}\end{DoxyCompactItemize}

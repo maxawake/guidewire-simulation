@@ -1,0 +1,124 @@
+\hypertarget{class_guidewire_sim_1_1_collision_handler}{}\doxysection{Guidewire\+Sim.\+Collision\+Handler Class Reference}
+\label{class_guidewire_sim_1_1_collision_handler}\index{GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}}
+Inheritance diagram for Guidewire\+Sim.\+Collision\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_collision_handler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler_a0894b673a9de7a7ed7d69eb769944635}{Register\+Collision}} (Transform sphere, int sphere\+ID, Vector3 contact\+Point, Vector3 collision\+Normal)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler_a3b70fa65991afc0546dd7625e51e810c}{Reset\+Registered\+Collisions}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler_a666b1ffeeff0856a7c3bb75ad233aae8}{Set\+Colliders\+To\+Predictions}} (int spheres\+Count, Vector3\mbox{[}$\,$\mbox{]} sphere\+Position\+Predictions, Vector3\mbox{[}$\,$\mbox{]} sphere\+Positions)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{struct_guidewire_sim_1_1_collision_pair}{Collision\+Pair}} $>$ \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler_a1a5fc0088e1b6a8bf02d29ef892d473c}{registered\+Collisions}}
+\begin{DoxyCompactList}\small\item\em All collisions that occured between the last and the current frame in On\+Trigger\+Enter. \end{DoxyCompactList}\item 
+Sphere\+Collider\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler_a9c0f1d32f5fc37720db572ec5b421006}{sphere\+Colliders}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler_ac0aedcf53d19543a41be16dd04e640f9}{Start}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler_aecf1bec84331b43170efca009f69bdc3}{sphere\+Radius}} = 5f
+\begin{DoxyCompactList}\small\item\em The radius of the sphere elements of the guidewire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages all collisions that should be resolved, i.\+e. the collisions of the last frame. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_handler_a0894b673a9de7a7ed7d69eb769944635}\label{class_guidewire_sim_1_1_collision_handler_a0894b673a9de7a7ed7d69eb769944635}} 
+\index{GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}!RegisterCollision@{RegisterCollision}}
+\index{RegisterCollision@{RegisterCollision}!GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}}
+\doxysubsubsection{\texorpdfstring{RegisterCollision()}{RegisterCollision()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Handler.\+Register\+Collision (\begin{DoxyParamCaption}\item[{Transform}]{sphere,  }\item[{int}]{sphere\+ID,  }\item[{Vector3}]{contact\+Point,  }\item[{Vector3}]{collision\+Normal }\end{DoxyParamCaption})}
+
+Registers a collision by adding it to \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler_a1a5fc0088e1b6a8bf02d29ef892d473c}{registered\+Collisions}}. 
+\begin{DoxyParams}{Parameters}
+{\em sphere} & The sphere of the guidewire that collided. \\
+\hline
+{\em sphere\+ID} & The unique ID of {\ttfamily sphere}. \\
+\hline
+{\em contact\+Point} & The contact point of the collision. \\
+\hline
+{\em collision\+Normal} & The normal of the collision. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_handler_a3b70fa65991afc0546dd7625e51e810c}\label{class_guidewire_sim_1_1_collision_handler_a3b70fa65991afc0546dd7625e51e810c}} 
+\index{GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}!ResetRegisteredCollisions@{ResetRegisteredCollisions}}
+\index{ResetRegisteredCollisions@{ResetRegisteredCollisions}!GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}}
+\doxysubsubsection{\texorpdfstring{ResetRegisteredCollisions()}{ResetRegisteredCollisions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Handler.\+Reset\+Registered\+Collisions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Clears the list of all registered collisions. \mbox{\Hypertarget{class_guidewire_sim_1_1_collision_handler_a666b1ffeeff0856a7c3bb75ad233aae8}\label{class_guidewire_sim_1_1_collision_handler_a666b1ffeeff0856a7c3bb75ad233aae8}} 
+\index{GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}!SetCollidersToPredictions@{SetCollidersToPredictions}}
+\index{SetCollidersToPredictions@{SetCollidersToPredictions}!GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}}
+\doxysubsubsection{\texorpdfstring{SetCollidersToPredictions()}{SetCollidersToPredictions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Handler.\+Set\+Colliders\+To\+Predictions (\begin{DoxyParamCaption}\item[{int}]{spheres\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Position\+Predictions,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Positions }\end{DoxyParamCaption})}
+
+Sets the position of the collider of each sphere to the sphere\textquotesingle{}s position prediction. \begin{DoxyNote}{Note}
+The position of the collider is implicitly set by setting the colliders center argument. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+{\em sphere\+Position\+Predictions} & The prediction of the position at the current frame of each sphere (in this case of the last frame). \\
+\hline
+{\em sphere\+Positions} & The position at the current frame of each sphere. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_handler_ac0aedcf53d19543a41be16dd04e640f9}\label{class_guidewire_sim_1_1_collision_handler_ac0aedcf53d19543a41be16dd04e640f9}} 
+\index{GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}!Start@{Start}}
+\index{Start@{Start}!GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Handler.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_handler_a1a5fc0088e1b6a8bf02d29ef892d473c}\label{class_guidewire_sim_1_1_collision_handler_a1a5fc0088e1b6a8bf02d29ef892d473c}} 
+\index{GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}!registeredCollisions@{registeredCollisions}}
+\index{registeredCollisions@{registeredCollisions}!GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}}
+\doxysubsubsection{\texorpdfstring{registeredCollisions}{registeredCollisions}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{struct_guidewire_sim_1_1_collision_pair}{Collision\+Pair}}$>$ Guidewire\+Sim.\+Collision\+Handler.\+registered\+Collisions}
+
+
+
+All collisions that occured between the last and the current frame in On\+Trigger\+Enter. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_handler_a9c0f1d32f5fc37720db572ec5b421006}\label{class_guidewire_sim_1_1_collision_handler_a9c0f1d32f5fc37720db572ec5b421006}} 
+\index{GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}!sphereColliders@{sphereColliders}}
+\index{sphereColliders@{sphereColliders}!GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}}
+\doxysubsubsection{\texorpdfstring{sphereColliders}{sphereColliders}}
+{\footnotesize\ttfamily Sphere\+Collider \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Collision\+Handler.\+sphere\+Colliders}
+
+Each element stores a reference to the Spher\+Collider of the respective element in {\ttfamily spheres} in \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}}. \begin{DoxyParagraph}{Example}
+The second element in this list is the Sphere\+Collider corresponding to the sphere Game\+Object that is referenced in the second element of {\ttfamily spheres} in \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}}. 
+\end{DoxyParagraph}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_handler_aecf1bec84331b43170efca009f69bdc3}\label{class_guidewire_sim_1_1_collision_handler_aecf1bec84331b43170efca009f69bdc3}} 
+\index{GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}!sphereRadius@{sphereRadius}}
+\index{sphereRadius@{sphereRadius}!GuidewireSim.CollisionHandler@{GuidewireSim.CollisionHandler}}
+\doxysubsubsection{\texorpdfstring{sphereRadius}{sphereRadius}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Collision\+Handler.\+sphere\+Radius = 5f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The radius of the sphere elements of the guidewire. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_collision_handler_8cs}{Collision\+Handler.\+cs}}\end{DoxyCompactItemize}

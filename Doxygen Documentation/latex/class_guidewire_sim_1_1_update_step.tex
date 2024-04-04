@@ -1,0 +1,135 @@
+\hypertarget{class_guidewire_sim_1_1_update_step}{}\doxysection{Guidewire\+Sim.\+Update\+Step Class Reference}
+\label{class_guidewire_sim_1_1_update_step}\index{GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}}
+Inheritance diagram for Guidewire\+Sim.\+Update\+Step\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_update_step}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_update_step_a0fd84495ef1eac5adeee8576318a7847}{Update\+Sphere\+Velocities}} (Vector3\mbox{[}$\,$\mbox{]} sphere\+Velocities, int spheres\+Count, Vector3\mbox{[}$\,$\mbox{]} sphere\+Position\+Predictions, Vector3\mbox{[}$\,$\mbox{]} sphere\+Positions)
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_update_step_a70a0d72aadc988b6ee20d93ad408ac96}{Update\+Sphere\+Positions}} (Vector3\mbox{[}$\,$\mbox{]} sphere\+Positions, int spheres\+Count, Vector3\mbox{[}$\,$\mbox{]} sphere\+Position\+Predictions)
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_update_step_ab21e4a70ac32d8998a4078c272ab42cc}{Update\+Cylinder\+Angular\+Velocities}} (Vector3\mbox{[}$\,$\mbox{]} cylinder\+Angular\+Velocities, int cylinder\+Count, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientations, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions)
+\item 
+BSM.\+Quaternion\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_update_step_ac525397d5c2552e866d10cd118fc972d}{Update\+Cylinder\+Orientations}} (BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientations, int cylinder\+Count, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientation\+Predictions)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_update_step_a6524058e9c2fa837cfff839bbe57b389}{Awake}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} \mbox{\hyperlink{class_guidewire_sim_1_1_update_step_a41bb8b7784fe6a5edbb0bff8f8c3308c}{math\+Helper}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements the update step of the algorithm. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_update_step_a6524058e9c2fa837cfff839bbe57b389}\label{class_guidewire_sim_1_1_update_step_a6524058e9c2fa837cfff839bbe57b389}} 
+\index{GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Update\+Step.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_update_step_ab21e4a70ac32d8998a4078c272ab42cc}\label{class_guidewire_sim_1_1_update_step_ab21e4a70ac32d8998a4078c272ab42cc}} 
+\index{GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}!UpdateCylinderAngularVelocities@{UpdateCylinderAngularVelocities}}
+\index{UpdateCylinderAngularVelocities@{UpdateCylinderAngularVelocities}!GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}}
+\doxysubsubsection{\texorpdfstring{UpdateCylinderAngularVelocities()}{UpdateCylinderAngularVelocities()}}
+{\footnotesize\ttfamily Vector3\mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Update\+Step.\+Update\+Cylinder\+Angular\+Velocities (\begin{DoxyParamCaption}\item[{Vector3\mbox{[}$\,$\mbox{]}}]{cylinder\+Angular\+Velocities,  }\item[{int}]{cylinder\+Count,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientations,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions }\end{DoxyParamCaption})}
+
+Updates the cylinder angular velocities for the update step of the simulation. 
+\begin{DoxyParams}{Parameters}
+{\em cylinder\+Angular\+Velocities} & The angular velocity of the current frame of each orientation element/ cylinder. \\
+\hline
+{\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+{\em cylinder\+Orientations} & The orientation of each cylinder at its center of mass. \\
+\hline
+{\em cylinder\+Orientation\+Predictions} & The prediction of the orientation of each cylinder at its center of mass. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angular velocity of the current frame of each orientation element/ cylinder, i.\+e. {\ttfamily cylinder\+Angular\+Velocities}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_update_step_ac525397d5c2552e866d10cd118fc972d}\label{class_guidewire_sim_1_1_update_step_ac525397d5c2552e866d10cd118fc972d}} 
+\index{GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}!UpdateCylinderOrientations@{UpdateCylinderOrientations}}
+\index{UpdateCylinderOrientations@{UpdateCylinderOrientations}!GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}}
+\doxysubsubsection{\texorpdfstring{UpdateCylinderOrientations()}{UpdateCylinderOrientations()}}
+{\footnotesize\ttfamily BSM.\+Quaternion\mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Update\+Step.\+Update\+Cylinder\+Orientations (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientations,  }\item[{int}]{cylinder\+Count,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientation\+Predictions }\end{DoxyParamCaption})}
+
+Updates the cylinder orientations given the current orientation predictions for the update step of the simulation. 
+\begin{DoxyParams}{Parameters}
+{\em cylinder\+Orientations} & The orientation of each cylinder at its center of mass. \\
+\hline
+{\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+{\em cylinder\+Orientation\+Predictions} & The prediction of the orientation of each cylinder at its center of mass. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The orientation of each cylinder at its center of mass, i.\+e. {\ttfamily cylinder\+Orientations}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_update_step_a70a0d72aadc988b6ee20d93ad408ac96}\label{class_guidewire_sim_1_1_update_step_a70a0d72aadc988b6ee20d93ad408ac96}} 
+\index{GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}!UpdateSpherePositions@{UpdateSpherePositions}}
+\index{UpdateSpherePositions@{UpdateSpherePositions}!GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}}
+\doxysubsubsection{\texorpdfstring{UpdateSpherePositions()}{UpdateSpherePositions()}}
+{\footnotesize\ttfamily Vector3\mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Update\+Step.\+Update\+Sphere\+Positions (\begin{DoxyParamCaption}\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Positions,  }\item[{int}]{spheres\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Position\+Predictions }\end{DoxyParamCaption})}
+
+Updates the sphere positions given the current position predictions. 
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Positions} & The position at the current frame of each sphere. \\
+\hline
+{\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+{\em sphere\+Position\+Predictions} & The prediction of the position at the current frame of each sphere (in this case of the last frame). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The position at the current frame of each sphere, i.\+e. {\ttfamily sphere\+Positions}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_update_step_a0fd84495ef1eac5adeee8576318a7847}\label{class_guidewire_sim_1_1_update_step_a0fd84495ef1eac5adeee8576318a7847}} 
+\index{GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}!UpdateSphereVelocities@{UpdateSphereVelocities}}
+\index{UpdateSphereVelocities@{UpdateSphereVelocities}!GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}}
+\doxysubsubsection{\texorpdfstring{UpdateSphereVelocities()}{UpdateSphereVelocities()}}
+{\footnotesize\ttfamily Vector3\mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Update\+Step.\+Update\+Sphere\+Velocities (\begin{DoxyParamCaption}\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Velocities,  }\item[{int}]{spheres\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Position\+Predictions,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Positions }\end{DoxyParamCaption})}
+
+Updates the sphere velocities given the current prediction and the current position. 
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Velocities} & The velocity of the current frame of each sphere. \\
+\hline
+{\em spheres\+Count} & The count of all spheres of the guidewire. Equals the length of {\ttfamily sphere\+Position\+Predictions}. \\
+\hline
+{\em sphere\+Position\+Predictions} & The prediction of the position at the current frame of each sphere (in this case of the last frame). \\
+\hline
+{\em sphere\+Positions} & The position at the current frame of each sphere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The velocity of the current frame of each sphere, i.\+e. {\ttfamily sphere\+Velocities}. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_update_step_a41bb8b7784fe6a5edbb0bff8f8c3308c}\label{class_guidewire_sim_1_1_update_step_a41bb8b7784fe6a5edbb0bff8f8c3308c}} 
+\index{GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}!mathHelper@{mathHelper}}
+\index{mathHelper@{mathHelper}!GuidewireSim.UpdateStep@{GuidewireSim.UpdateStep}}
+\doxysubsubsection{\texorpdfstring{mathHelper}{mathHelper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} Guidewire\+Sim.\+Update\+Step.\+math\+Helper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_update_step_8cs}{Update\+Step.\+cs}}\end{DoxyCompactItemize}

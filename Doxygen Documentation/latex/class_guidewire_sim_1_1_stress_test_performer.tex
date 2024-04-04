@@ -1,0 +1,93 @@
+\hypertarget{class_guidewire_sim_1_1_stress_test_performer}{}\doxysection{Guidewire\+Sim.\+Stress\+Test\+Performer Class Reference}
+\label{class_guidewire_sim_1_1_stress_test_performer}\index{GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}}
+Inheritance diagram for Guidewire\+Sim.\+Stress\+Test\+Performer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_stress_test_performer}
+\end{center}
+\end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_stress_test_performer_a8ccb066e1105c7154cd93d7604ccc335}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_stress_test_performer_a1b304e9be5d59db871000d2971c3d62f}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_stress_test_performer_abbfc00f3e204f449b4695f9a98461e59}{Perform\+Stress\+Tests}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_guidewire_sim_1_1_stress_test_performer_a73c906296f567e0046463c2b07b5d208}{Perform\+Stress\+Test\+One}} (float apply\+Force\+Time=1f)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} \mbox{\hyperlink{class_guidewire_sim_1_1_stress_test_performer_a576045cea9bd075c412ba5416a378e3f}{simulation\+Loop}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} component that executes all steps of the simulation loop. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_stress_test_performer_afad9854b001e99d31bf67eb368cf9813}{do\+Stress\+Test\+One}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class enables the user to test the impact of mutliple external forces and external torques with one button within the Unity inspector. \begin{DoxyAttention}{Attention}
+In the current version, the user is not able to fix positions or orientations of the guidewire, which is necessary e.\+g. for stress test one. 
+\end{DoxyAttention}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_stress_test_performer_a8ccb066e1105c7154cd93d7604ccc335}\label{class_guidewire_sim_1_1_stress_test_performer_a8ccb066e1105c7154cd93d7604ccc335}} 
+\index{GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Stress\+Test\+Performer.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_stress_test_performer_a73c906296f567e0046463c2b07b5d208}\label{class_guidewire_sim_1_1_stress_test_performer_a73c906296f567e0046463c2b07b5d208}} 
+\index{GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}!PerformStressTestOne@{PerformStressTestOne}}
+\index{PerformStressTestOne@{PerformStressTestOne}!GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformStressTestOne()}{PerformStressTestOne()}}
+{\footnotesize\ttfamily IEnumerator Guidewire\+Sim.\+Stress\+Test\+Performer.\+Perform\+Stress\+Test\+One (\begin{DoxyParamCaption}\item[{float}]{apply\+Force\+Time = {\ttfamily 1f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs stress test one. This test fixes the position of one end of the guidewire, and applies {\ttfamily pull\+Force} at the other end for {\ttfamily apply\+Force\+Time} seconds, and then applies -\/ {\ttfamily pull\+Force} for another {\ttfamily apply\+Force\+Time} seconds. 
+\begin{DoxyParams}{Parameters}
+{\em apply\+Force\+Time} & For how many seconds to apply the force to the particles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+In the current version, the user is not able to fix positions or orientations of the guidewire, which is necessary e.\+g. for stress test one. 
+\end{DoxyAttention}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000024}{Requirements}}]Output a log message when no further forces are applied to the guidewire. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_stress_test_performer_abbfc00f3e204f449b4695f9a98461e59}\label{class_guidewire_sim_1_1_stress_test_performer_abbfc00f3e204f449b4695f9a98461e59}} 
+\index{GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}!PerformStressTests@{PerformStressTests}}
+\index{PerformStressTests@{PerformStressTests}!GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformStressTests()}{PerformStressTests()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Stress\+Test\+Performer.\+Perform\+Stress\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs each Stress Test whose respective serialized boolean is set to true in the Unity inspector. \mbox{\Hypertarget{class_guidewire_sim_1_1_stress_test_performer_a1b304e9be5d59db871000d2971c3d62f}\label{class_guidewire_sim_1_1_stress_test_performer_a1b304e9be5d59db871000d2971c3d62f}} 
+\index{GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}!Start@{Start}}
+\index{Start@{Start}!GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Stress\+Test\+Performer.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_stress_test_performer_afad9854b001e99d31bf67eb368cf9813}\label{class_guidewire_sim_1_1_stress_test_performer_afad9854b001e99d31bf67eb368cf9813}} 
+\index{GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}!doStressTestOne@{doStressTestOne}}
+\index{doStressTestOne@{doStressTestOne}!GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doStressTestOne}{doStressTestOne}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Stress\+Test\+Performer.\+do\+Stress\+Test\+One = false\hspace{0.3cm}{\ttfamily [private]}}
+
+Whether to run Stress Test One. This test fixes the position of one end of the guidewire, and applies {\ttfamily pull\+Force} at the other end for {\ttfamily apply\+Force\+Time} seconds, and then applies -\/ {\ttfamily pull\+Force} for another {\ttfamily apply\+Force\+Time} seconds. \mbox{\Hypertarget{class_guidewire_sim_1_1_stress_test_performer_a576045cea9bd075c412ba5416a378e3f}\label{class_guidewire_sim_1_1_stress_test_performer_a576045cea9bd075c412ba5416a378e3f}} 
+\index{GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}!simulationLoop@{simulationLoop}}
+\index{simulationLoop@{simulationLoop}!GuidewireSim.StressTestPerformer@{GuidewireSim.StressTestPerformer}}
+\doxysubsubsection{\texorpdfstring{simulationLoop}{simulationLoop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} Guidewire\+Sim.\+Stress\+Test\+Performer.\+simulation\+Loop\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} component that executes all steps of the simulation loop. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_stress_test_performer_8cs}{Stress\+Test\+Performer.\+cs}}\end{DoxyCompactItemize}

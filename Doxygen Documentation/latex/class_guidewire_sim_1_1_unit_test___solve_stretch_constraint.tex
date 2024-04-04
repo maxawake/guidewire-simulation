@@ -1,0 +1,149 @@
+\hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint}{}\doxysection{Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint Class Reference}
+\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint}\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+Inheritance diagram for Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint}
+\end{center}
+\end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a816d0e2eeaa2b376ffc288d49d37cfa4}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a71a214dc3529c525cb55e3c9de80c442}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ad0aef4d5d7dbae2f750d42baf85b0adc}{Perform\+Unit\+Tests}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_adc749e002084e020fa770202a557df9f}{Pick\+Random\+Positions}} (out Vector3 particle\+Position\+One, out Vector3 particle\+Position\+Two)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a72a2dcfdf80ecb16ddde03fdae40a401}{Test\+\_\+\+Solve\+Stretch\+Constraint}} (int iterations, Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, BSM.\+Quaternion orientation, bool log\+Delta\+Results=false)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_aac7896ad9348bd313238c737f6e854c1}{Check\+Stretch\+Constraint\+Deviation}} (Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, BSM.\+Quaternion orientation, BSM.\+Quaternion e\+\_\+3, float \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a6eebdfb6b55bee53c2eff149260184f8}{rod\+Element\+Length}})
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_abc367f085beca269dccc1a855b66faef}{Check\+Rod\+Element\+Length}} (Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, float default\+Rod\+Element\+Length)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ae5123e4ae952853e90a12ad335c82d82}{Log\+Delta\+Results}} (in Vector3 delta\+Position\+One, in Vector3 delta\+Position\+Two, in BSM.\+Quaternion delta\+Orientation)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ad5bb0ae1182f6fc42243bd1d5da96f09}{math\+Helper}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a31e0d9494e4c801915cd38f72e9ad00a}{constraint\+Solving\+Step}}
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ad267594569c9a12bf2280fe7f4a8b572}{execute\+Unit\+Test}} = false
+\begin{DoxyCompactList}\small\item\em Whether or not to perform all unit tests of this script. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ae1118627aa40f8fbcbe800d8cab203f1}{sample\+Size}} = 10
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a6eebdfb6b55bee53c2eff149260184f8}{rod\+Element\+Length}} = 10f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a816d0e2eeaa2b376ffc288d49d37cfa4}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a816d0e2eeaa2b376ffc288d49d37cfa4}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_abc367f085beca269dccc1a855b66faef}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_abc367f085beca269dccc1a855b66faef}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!CheckRodElementLength@{CheckRodElementLength}}
+\index{CheckRodElementLength@{CheckRodElementLength}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{CheckRodElementLength()}{CheckRodElementLength()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+Check\+Rod\+Element\+Length (\begin{DoxyParamCaption}\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two,  }\item[{float}]{default\+Rod\+Element\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_aac7896ad9348bd313238c737f6e854c1}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_aac7896ad9348bd313238c737f6e854c1}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!CheckStretchConstraintDeviation@{CheckStretchConstraintDeviation}}
+\index{CheckStretchConstraintDeviation@{CheckStretchConstraintDeviation}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{CheckStretchConstraintDeviation()}{CheckStretchConstraintDeviation()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+Check\+Stretch\+Constraint\+Deviation (\begin{DoxyParamCaption}\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two,  }\item[{BSM.\+Quaternion}]{orientation,  }\item[{BSM.\+Quaternion}]{e\+\_\+3,  }\item[{float}]{rod\+Element\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ae5123e4ae952853e90a12ad335c82d82}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ae5123e4ae952853e90a12ad335c82d82}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!LogDeltaResults@{LogDeltaResults}}
+\index{LogDeltaResults@{LogDeltaResults}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{LogDeltaResults()}{LogDeltaResults()}}
+{\footnotesize\ttfamily static void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+Log\+Delta\+Results (\begin{DoxyParamCaption}\item[{in Vector3}]{delta\+Position\+One,  }\item[{in Vector3}]{delta\+Position\+Two,  }\item[{in BSM.\+Quaternion}]{delta\+Orientation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ad0aef4d5d7dbae2f750d42baf85b0adc}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ad0aef4d5d7dbae2f750d42baf85b0adc}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!PerformUnitTests@{PerformUnitTests}}
+\index{PerformUnitTests@{PerformUnitTests}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{PerformUnitTests()}{PerformUnitTests()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+Perform\+Unit\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_adc749e002084e020fa770202a557df9f}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_adc749e002084e020fa770202a557df9f}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!PickRandomPositions@{PickRandomPositions}}
+\index{PickRandomPositions@{PickRandomPositions}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{PickRandomPositions()}{PickRandomPositions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+Pick\+Random\+Positions (\begin{DoxyParamCaption}\item[{out Vector3}]{particle\+Position\+One,  }\item[{out Vector3}]{particle\+Position\+Two }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Picks the first particle position uniformly distributed with $ x,y,z \in [-5, 5] $ and the second uniformly distributed around the first position with a uniformly distributed distance in $ [rodElementLength - maximalDistanceOffset, rodElementLength + maximalDistanceOffset] $. \begin{DoxyNote}{Note}
+The method for picking the second position is inspired by \href{https://math.stackexchange.com/q/50482}{\texttt{ https\+://math.\+stackexchange.\+com/q/50482}} 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000013}{Requirements}}]Picks the first particle position uniformly distributed so that $ x,y,z \in [-5, 5] $. 
+
+Picks a distance between the two particles that is uniformly distributed in the interval $ [rodElementLength - maximalDistanceOffset, rodElementLength + maximalDistanceOffset] $. 
+
+Picks the second particle position uniformly distributed on the surface of the sphere with center {\ttfamily particle\+Position\+One} and radius {\ttfamily start\+Distance}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a71a214dc3529c525cb55e3c9de80c442}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a71a214dc3529c525cb55e3c9de80c442}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!Start@{Start}}
+\index{Start@{Start}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a72a2dcfdf80ecb16ddde03fdae40a401}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a72a2dcfdf80ecb16ddde03fdae40a401}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!Test\_SolveStretchConstraint@{Test\_SolveStretchConstraint}}
+\index{Test\_SolveStretchConstraint@{Test\_SolveStretchConstraint}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{Test\_SolveStretchConstraint()}{Test\_SolveStretchConstraint()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+Test\+\_\+\+Solve\+Stretch\+Constraint (\begin{DoxyParamCaption}\item[{int}]{iterations,  }\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two,  }\item[{BSM.\+Quaternion}]{orientation,  }\item[{bool}]{log\+Delta\+Results = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a31e0d9494e4c801915cd38f72e9ad00a}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a31e0d9494e4c801915cd38f72e9ad00a}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!constraintSolvingStep@{constraintSolvingStep}}
+\index{constraintSolvingStep@{constraintSolvingStep}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{constraintSolvingStep}{constraintSolvingStep}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+constraint\+Solving\+Step\hspace{0.3cm}{\ttfamily [private]}}
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} that is responsible for correcting the predictions with the collision and model constraints. \mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ad267594569c9a12bf2280fe7f4a8b572}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ad267594569c9a12bf2280fe7f4a8b572}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!executeUnitTest@{executeUnitTest}}
+\index{executeUnitTest@{executeUnitTest}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{executeUnitTest}{executeUnitTest}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+execute\+Unit\+Test = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether or not to perform all unit tests of this script. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ad5bb0ae1182f6fc42243bd1d5da96f09}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ad5bb0ae1182f6fc42243bd1d5da96f09}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!mathHelper@{mathHelper}}
+\index{mathHelper@{mathHelper}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{mathHelper}{mathHelper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+math\+Helper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a6eebdfb6b55bee53c2eff149260184f8}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_a6eebdfb6b55bee53c2eff149260184f8}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!rodElementLength@{rodElementLength}}
+\index{rodElementLength@{rodElementLength}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{rodElementLength}{rodElementLength}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+rod\+Element\+Length = 10f\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ae1118627aa40f8fbcbe800d8cab203f1}\label{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ae1118627aa40f8fbcbe800d8cab203f1}} 
+\index{GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}!sampleSize@{sampleSize}}
+\index{sampleSize@{sampleSize}!GuidewireSim.UnitTest\_SolveStretchConstraint@{GuidewireSim.UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{sampleSize}{sampleSize}}
+{\footnotesize\ttfamily int Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+sample\+Size = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+The number of value-\/pairs the test is executed with. E.\+g. if \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_stretch_constraint_ae1118627aa40f8fbcbe800d8cab203f1}{sample\+Size}} is 10, then the unit test is executed with 10 randomly drawn value-\/pairs. A higher number needs more time to execute. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_unit_test___solve_stretch_constraint_8cs}{Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+cs}}\end{DoxyCompactItemize}

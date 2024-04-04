@@ -1,0 +1,85 @@
+\hypertarget{class_unit_test___solve_bend_twist_constraint}{}\doxysection{Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint Class Reference}
+\label{class_unit_test___solve_bend_twist_constraint}\index{UnitTest\_SolveBendTwistConstraint@{UnitTest\_SolveBendTwistConstraint}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IEnumerator \mbox{\hyperlink{class_unit_test___solve_bend_twist_constraint_a6aeb273dd69a95caec715b06bfe677d1}{Perform\+Unit\+Tests}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_unit_test___solve_bend_twist_constraint_ac8adb520714e1b30a58d9a9fbfd7ada5}{Test\+\_\+\+Solve\+Bend\+Twist\+Constraint}} (int iterations, BSM.\+Quaternion orientation\+One, BSM.\+Quaternion orientation\+Two, float rod\+Element\+Length, Vector3 discrete\+Rest\+Darboux\+Vector, \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Guidewire\+Sim.\+Math\+Helper}} math\+Helper, \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Guidewire\+Sim.\+Constraint\+Solving\+Step}} constraint\+Solving\+Step)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_unit_test___solve_bend_twist_constraint_a1f81274729285651611087cee76f1a09}{sample\+Size}} = 10
+\item 
+int \mbox{\hyperlink{class_unit_test___solve_bend_twist_constraint_a82363db0b37503f4949eb258bccd5f06}{constraint\+Solver\+Steps}} = 50
+\begin{DoxyCompactList}\small\item\em How often the constraint solver iterates over each constraint during the Constraint Solving Step. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class provides unit tests that test the method Solve\+Bend\+Twist\+Constraint() of Constraint\+Solving\+Step. Executing this test once generates {\ttfamily sample\+Size} many random value pairs and executes the unit test with each of these pairs. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_unit_test___solve_bend_twist_constraint_a6aeb273dd69a95caec715b06bfe677d1}\label{class_unit_test___solve_bend_twist_constraint_a6aeb273dd69a95caec715b06bfe677d1}} 
+\index{UnitTest\_SolveBendTwistConstraint@{UnitTest\_SolveBendTwistConstraint}!PerformUnitTests@{PerformUnitTests}}
+\index{PerformUnitTests@{PerformUnitTests}!UnitTest\_SolveBendTwistConstraint@{UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{PerformUnitTests()}{PerformUnitTests()}}
+{\footnotesize\ttfamily IEnumerator Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+Perform\+Unit\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Arranges all necessary data, generates \mbox{\hyperlink{class_unit_test___solve_bend_twist_constraint_a1f81274729285651611087cee76f1a09}{sample\+Size}} many random value pairs, and then passes all data to \mbox{\hyperlink{class_unit_test___solve_bend_twist_constraint_ac8adb520714e1b30a58d9a9fbfd7ada5}{Test\+\_\+\+Solve\+Bend\+Twist\+Constraint()}}, where the unit tests are executed. \begin{DoxyNote}{Note}
+Only tests the case that all rod elements are aligned at rest state. If you want to test deformed rods at rest state, change {\ttfamily discrete\+Rest\+Darboux\+Vector} accordingly. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_unit_test___solve_bend_twist_constraint_ac8adb520714e1b30a58d9a9fbfd7ada5}\label{class_unit_test___solve_bend_twist_constraint_ac8adb520714e1b30a58d9a9fbfd7ada5}} 
+\index{UnitTest\_SolveBendTwistConstraint@{UnitTest\_SolveBendTwistConstraint}!Test\_SolveBendTwistConstraint@{Test\_SolveBendTwistConstraint}}
+\index{Test\_SolveBendTwistConstraint@{Test\_SolveBendTwistConstraint}!UnitTest\_SolveBendTwistConstraint@{UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{Test\_SolveBendTwistConstraint()}{Test\_SolveBendTwistConstraint()}}
+{\footnotesize\ttfamily void Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint (\begin{DoxyParamCaption}\item[{int}]{iterations,  }\item[{BSM.\+Quaternion}]{orientation\+One,  }\item[{BSM.\+Quaternion}]{orientation\+Two,  }\item[{float}]{rod\+Element\+Length,  }\item[{Vector3}]{discrete\+Rest\+Darboux\+Vector,  }\item[{\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Guidewire\+Sim.\+Math\+Helper}}}]{math\+Helper,  }\item[{\mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Guidewire\+Sim.\+Constraint\+Solving\+Step}}}]{constraint\+Solving\+Step }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Executes Solve\+Bend\+Twist\+Constraint() of Constraint\+Solving\+Step {\ttfamily iterations} many times for one values pair, and then asserts whether the results of the algorithm of Solve\+Bend\+Twist\+Constraint() converged towards the expected values. 
+\begin{DoxyParams}{Parameters}
+{\em iterations} & The number of iterations that Solve\+Bend\+Twist\+Constraint() of Constraint\+Solving\+Step is executed. \\
+\hline
+{\em orientation\+One} & The first orientation for Solve\+Bend\+Twist\+Constraint(). \\
+\hline
+{\em orientation\+One} & The second orientation for Solve\+Bend\+Twist\+Constraint(). \\
+\hline
+{\em rod\+Element\+Length} & The rod element length for Solve\+Bend\+Twist\+Constraint(). \\
+\hline
+{\em discrete\+Rest\+Darboux\+Vector} & The discrete Darboux Vector at rest state for Solve\+Bend\+Twist\+Constraint(). \\
+\hline
+{\em math\+Helper} & The component Math\+Helper. \\
+\hline
+{\em constraint\+Solving\+Step} & The component Constraint\+Solving\+Step. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000027}{Requirements}}]{\ttfamily orientation\+One} and orientation\+Two are still unit quaternions at the end of the test. 
+
+The deviation between the bend twist constraint and zero is lower than a reasonable tolerance, i.\+e. close to zero., which means that the algorithm of Solve\+Bend\+Twist\+Constraint() converges towards the fulfillment of the bend twist constraint. \end{DoxyRefDesc}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_unit_test___solve_bend_twist_constraint_a82363db0b37503f4949eb258bccd5f06}\label{class_unit_test___solve_bend_twist_constraint_a82363db0b37503f4949eb258bccd5f06}} 
+\index{UnitTest\_SolveBendTwistConstraint@{UnitTest\_SolveBendTwistConstraint}!constraintSolverSteps@{constraintSolverSteps}}
+\index{constraintSolverSteps@{constraintSolverSteps}!UnitTest\_SolveBendTwistConstraint@{UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{constraintSolverSteps}{constraintSolverSteps}}
+{\footnotesize\ttfamily int Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+constraint\+Solver\+Steps = 50\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+How often the constraint solver iterates over each constraint during the Constraint Solving Step. 
+
+\mbox{\Hypertarget{class_unit_test___solve_bend_twist_constraint_a1f81274729285651611087cee76f1a09}\label{class_unit_test___solve_bend_twist_constraint_a1f81274729285651611087cee76f1a09}} 
+\index{UnitTest\_SolveBendTwistConstraint@{UnitTest\_SolveBendTwistConstraint}!sampleSize@{sampleSize}}
+\index{sampleSize@{sampleSize}!UnitTest\_SolveBendTwistConstraint@{UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{sampleSize}{sampleSize}}
+{\footnotesize\ttfamily int Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+sample\+Size = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+The number of value-\/pairs the test is executed with. E.\+g. if \mbox{\hyperlink{class_unit_test___solve_bend_twist_constraint_a1f81274729285651611087cee76f1a09}{sample\+Size}} is 10, then the unit test is executed with 10 randomly drawn value-\/pairs. A higher number needs more time to execute. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_unit_test___solve_bend_twist_constraint_8cs}{Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,132 @@
+\hypertarget{class_unit_test___solve_stretch_constraint}{}\doxysection{Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint Class Reference}
+\label{class_unit_test___solve_stretch_constraint}\index{UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IEnumerator \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_a82e007a71bca7e9b98ce3418920bc1b7}{Perform\+Unit\+Tests}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_a1e5987d9972d38ee5a70134b0cb2a83a}{Pick\+Random\+Positions}} (out Vector3 particle\+Position\+One, out Vector3 particle\+Position\+Two)
+\item 
+void \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_ad5754f90b4c4d4be355e60b6180bf975}{Test\+\_\+\+Solve\+Stretch\+Constraint}} (int iterations, Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, BSM.\+Quaternion orientation, \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Guidewire\+Sim.\+Math\+Helper}} math\+Helper, \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Guidewire\+Sim.\+Constraint\+Solving\+Step}} constraint\+Solving\+Step)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_af9c911b51a439a246f9be8c9691b1a3a}{maximal\+Distance\+Offset}} = 1f
+\item 
+int \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_a8c3f88b33b67b32259ecae01fcf9f73b}{sample\+Size}} = 10
+\item 
+int \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_ae8b9b4d4075fe62d367be64b34c17a23}{constraint\+Solver\+Steps}} = 1000
+\begin{DoxyCompactList}\small\item\em How often the constraint solver iterates over each constraint during the Constraint Solving Step. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_a7acdcdab76be8d93bb1bb89829625ff7}{rod\+Element\+Length}} = 10f
+\begin{DoxyCompactList}\small\item\em The distance between two spheres, also the distance between two orientations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class provides unit tests that test the method Solve\+Stretch\+Constraint() of Constraint\+Solving\+Step. Executing this test once generates {\ttfamily sample\+Size} many random value pairs and executes the unit test with each of these pairs. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_unit_test___solve_stretch_constraint_a82e007a71bca7e9b98ce3418920bc1b7}\label{class_unit_test___solve_stretch_constraint_a82e007a71bca7e9b98ce3418920bc1b7}} 
+\index{UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}!PerformUnitTests@{PerformUnitTests}}
+\index{PerformUnitTests@{PerformUnitTests}!UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{PerformUnitTests()}{PerformUnitTests()}}
+{\footnotesize\ttfamily IEnumerator Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+Perform\+Unit\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Arranges all necessary data, generates \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_a8c3f88b33b67b32259ecae01fcf9f73b}{sample\+Size}} many random value pairs, and then passes all data to \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_ad5754f90b4c4d4be355e60b6180bf975}{Test\+\_\+\+Solve\+Stretch\+Constraint()}}, where the unit tests are executed. \mbox{\Hypertarget{class_unit_test___solve_stretch_constraint_a1e5987d9972d38ee5a70134b0cb2a83a}\label{class_unit_test___solve_stretch_constraint_a1e5987d9972d38ee5a70134b0cb2a83a}} 
+\index{UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}!PickRandomPositions@{PickRandomPositions}}
+\index{PickRandomPositions@{PickRandomPositions}!UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{PickRandomPositions()}{PickRandomPositions()}}
+{\footnotesize\ttfamily void Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+Pick\+Random\+Positions (\begin{DoxyParamCaption}\item[{out Vector3}]{particle\+Position\+One,  }\item[{out Vector3}]{particle\+Position\+Two }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Picks the first particle position uniformly distributed with $ x,y,z \in [-5, 5] $ and the second uniformly distributed around the first position with a uniformly distributed distance in $ [rodElementLength - maximalDistanceOffset, rodElementLength + maximalDistanceOffset] $. \begin{DoxyNote}{Note}
+The method for picking the second position is inspired by \href{https://math.stackexchange.com/q/50482}{\texttt{ https\+://math.\+stackexchange.\+com/q/50482}} 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em particle\+Position\+One} & The first particle position that got picked. \\
+\hline
+\mbox{\texttt{ out}}  & {\em particle\+Position\+Two} & The second particle position that got picked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000028}{Requirements}}]Picks the first particle position uniformly distributed so that $ x,y,z \in [-5, 5] $. 
+
+Picks a distance between the two particles that is uniformly distributed in the interval $ [rodElementLength - maximalDistanceOffset, rodElementLength + maximalDistanceOffset] $. 
+
+Picks the second particle position uniformly distributed on the surface of the sphere with center {\ttfamily particle\+Position\+One} and radius {\ttfamily start\+Distance}. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_unit_test___solve_stretch_constraint_ad5754f90b4c4d4be355e60b6180bf975}\label{class_unit_test___solve_stretch_constraint_ad5754f90b4c4d4be355e60b6180bf975}} 
+\index{UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}!Test\_SolveStretchConstraint@{Test\_SolveStretchConstraint}}
+\index{Test\_SolveStretchConstraint@{Test\_SolveStretchConstraint}!UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{Test\_SolveStretchConstraint()}{Test\_SolveStretchConstraint()}}
+{\footnotesize\ttfamily void Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+Test\+\_\+\+Solve\+Stretch\+Constraint (\begin{DoxyParamCaption}\item[{int}]{iterations,  }\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two,  }\item[{BSM.\+Quaternion}]{orientation,  }\item[{\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Guidewire\+Sim.\+Math\+Helper}}}]{math\+Helper,  }\item[{\mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Guidewire\+Sim.\+Constraint\+Solving\+Step}}}]{constraint\+Solving\+Step }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Executes Solve\+Stretch\+Constraint() of Constraint\+Solving\+Step {\ttfamily iterations} many times for one values pair, and then asserts whether the results of the algorithm of Solve\+Stretch\+Constraint() converged towards the expected values. 
+\begin{DoxyParams}{Parameters}
+{\em iterations} & The number of iterations that Solve\+Stretch\+Constraint() of Constraint\+Solving\+Step is executed. \\
+\hline
+{\em particle\+Position\+One} & The first particle position for Solve\+Stretch\+Constraint(). \\
+\hline
+{\em particle\+Position\+Two} & The second particle position for Solve\+Stretch\+Constraint(). \\
+\hline
+{\em orientation} & The orientation for Solve\+Stretch\+Constraint(). \\
+\hline
+{\em math\+Helper} & The component Math\+Helper. \\
+\hline
+{\em constraint\+Solving\+Step} & The component Constraint\+Solving\+Step. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000029}{Requirements}}]{\ttfamily orientation} is still a unit quaternion at the end of the test. 
+
+The deviation between the stretch constraint and zero is lower than the tolerance 0.\+1, which means that the algorithm of Solve\+Stretch\+Constraint() converges towards the fulfillment of the stretch constraint. 
+
+The deviation between the actual distance of {\ttfamily particle\+Position\+One} and {\ttfamily particle\+Position\+Two} and the rest rod element length is lower than a reasonable tolerance, i.\+e. close to zero. \end{DoxyRefDesc}
+\begin{DoxyAttention}{Attention}
+The fulfillment of the requirement that the rod element length converges towards the rest rod element length depends on the initial deviation of both particle positions from each other and is just a byproduct of converging towards the constraint fulfillment. If this requirement is not fulfilled, the initial offset or the number of iterations was probably simply to high or low, respectively. 
+\end{DoxyAttention}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_unit_test___solve_stretch_constraint_ae8b9b4d4075fe62d367be64b34c17a23}\label{class_unit_test___solve_stretch_constraint_ae8b9b4d4075fe62d367be64b34c17a23}} 
+\index{UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}!constraintSolverSteps@{constraintSolverSteps}}
+\index{constraintSolverSteps@{constraintSolverSteps}!UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{constraintSolverSteps}{constraintSolverSteps}}
+{\footnotesize\ttfamily int Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+constraint\+Solver\+Steps = 1000\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+How often the constraint solver iterates over each constraint during the Constraint Solving Step. 
+
+\mbox{\Hypertarget{class_unit_test___solve_stretch_constraint_af9c911b51a439a246f9be8c9691b1a3a}\label{class_unit_test___solve_stretch_constraint_af9c911b51a439a246f9be8c9691b1a3a}} 
+\index{UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}!maximalDistanceOffset@{maximalDistanceOffset}}
+\index{maximalDistanceOffset@{maximalDistanceOffset}!UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{maximalDistanceOffset}{maximalDistanceOffset}}
+{\footnotesize\ttfamily float Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+maximal\+Distance\+Offset = 1f\hspace{0.3cm}{\ttfamily [private]}}
+
+The maximal deviation from the rest {\ttfamily rod\+Element\+Length}. \begin{DoxyParagraph}{Example}
+Let {\ttfamily rod\+Element\+Length} be 10 and \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_af9c911b51a439a246f9be8c9691b1a3a}{maximal\+Distance\+Offset}} be 2. Then the two random particle positions drawn will have a distance between 8 and 12. 
+\end{DoxyParagraph}
+\mbox{\Hypertarget{class_unit_test___solve_stretch_constraint_a7acdcdab76be8d93bb1bb89829625ff7}\label{class_unit_test___solve_stretch_constraint_a7acdcdab76be8d93bb1bb89829625ff7}} 
+\index{UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}!rodElementLength@{rodElementLength}}
+\index{rodElementLength@{rodElementLength}!UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{rodElementLength}{rodElementLength}}
+{\footnotesize\ttfamily float Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+rod\+Element\+Length = 10f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The distance between two spheres, also the distance between two orientations. 
+
+\mbox{\Hypertarget{class_unit_test___solve_stretch_constraint_a8c3f88b33b67b32259ecae01fcf9f73b}\label{class_unit_test___solve_stretch_constraint_a8c3f88b33b67b32259ecae01fcf9f73b}} 
+\index{UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}!sampleSize@{sampleSize}}
+\index{sampleSize@{sampleSize}!UnitTest\_SolveStretchConstraint@{UnitTest\_SolveStretchConstraint}}
+\doxysubsubsection{\texorpdfstring{sampleSize}{sampleSize}}
+{\footnotesize\ttfamily int Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+sample\+Size = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+The number of value-\/pairs the test is executed with. E.\+g. if \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_a8c3f88b33b67b32259ecae01fcf9f73b}{sample\+Size}} is 10, then the unit test is executed with 10 randomly drawn value-\/pairs. A higher number needs more time to execute. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_unit_test___solve_stretch_constraint_8cs}{Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.\+cs}}\end{DoxyCompactItemize}

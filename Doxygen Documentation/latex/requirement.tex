@@ -1,0 +1,258 @@
+
+\begin{DoxyRefList}
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_ab6b120bcd38837fdbca8d65aa4887bdc}{Guidewire\+Sim.Constraint\+Solving\+Step.Correct\+Bend\+Twist\+Predictions}} (int cylinder\+Index, BSM.\+Quaternion\mbox{[}\mbox{]} cylinder\+Orientation\+Predictions)]\label{requirement__requirement000010}%
+\Hypertarget{requirement__requirement000010}%
+ The relevant entries of {\ttfamily cylinder\+Orientation\+Predictions} should be unit quaternions, i.\+e. have length approximately equal to one. 
+
+
+
+After the quaternion predictions got corrected, they should again be unit quaternions, i.\+e. have length approximately equal to one.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_af46d12dac6f136ceb5ae96bcc2f488fa}{Guidewire\+Sim.Constraint\+Solving\+Step.Correct\+Stretch\+Predictions}} (int sphere\+Index, Vector3\mbox{[}\mbox{]} sphere\+Position\+Predictions, BSM.\+Quaternion\mbox{[}\mbox{]} cylinder\+Orientation\+Predictions)]\label{requirement__requirement000009}%
+\Hypertarget{requirement__requirement000009}%
+ The relevant entries of {\ttfamily cylinder\+Orientation\+Predictions} should be unit quaternions, i.\+e. have length approximately equal to one. 
+
+
+
+After the quaternion prediction got corrected, it should again be a unit quaternions, i.\+e. have length approximately equal to one.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_abb927153b912de1947c243c754bc7420}{Guidewire\+Sim.Constraint\+Solving\+Step.Solve\+Bend\+Twist\+Constraint}} (BSM.\+Quaternion orientation\+One, BSM.\+Quaternion orientation\+Two, Vector3 discrete\+Rest\+Darboux\+Vector, float rod\+Element\+Length, out BSM.\+Quaternion delta\+Orientation\+One, out BSM.\+Quaternion delta\+Orientation\+Two, float inertia\+Weight\+One=1f, float inertia\+Weight\+Two=1f)]\label{requirement__requirement000008}%
+\Hypertarget{requirement__requirement000008}%
+ {\ttfamily orientation\+One} and {\ttfamily orientation\+Two} should be unit quaternions, i.\+e. have length approximately equal to one. 
+
+
+
+{\ttfamily rod\+Element\+Length} should be positive. 
+
+
+
+{\ttfamily inertia\+Weight\+One} and {\ttfamily inertia\+Weight\+Two} should be values between 0 and 1.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_abb0819dc303fe77457f315fda13fb59e}{Guidewire\+Sim.Constraint\+Solving\+Step.Solve\+Bend\+Twist\+Constraints}} (BSM.\+Quaternion\mbox{[}\mbox{]} cylinder\+Orientation\+Predictions, int cylinder\+Count, Vector3\mbox{[}\mbox{]} discrete\+Rest\+Darboux\+Vectors, float rod\+Element\+Length)]\label{requirement__requirement000002}%
+\Hypertarget{requirement__requirement000002}%
+ {\ttfamily cylinder\+Count} should be at least one. 
+
+
+
+{\ttfamily rod\+Element\+Length} should be positive. 
+
+
+
+Executes the constraint solving step in bilateral interleaving order if \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a5bfee8881a0d715c12f2b8f9cd72df89}{execute\+In\+Bilateral\+Order}} and otherwise in naive order.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a2decab310446b017cbac73fed9d62b0a}{Guidewire\+Sim.Constraint\+Solving\+Step.Solve\+Bend\+Twist\+Constraints\+In\+Bilateral\+Order}} (BSM.\+Quaternion\mbox{[}\mbox{]} cylinder\+Orientation\+Predictions, int cylinder\+Count, Vector3\mbox{[}\mbox{]} discrete\+Rest\+Darboux\+Vectors, float rod\+Element\+Length)]\label{requirement__requirement000005}%
+\Hypertarget{requirement__requirement000005}%
+ {\ttfamily cylinder\+Count} should be at least one. 
+
+
+
+{\ttfamily rod\+Element\+Length} should be positive.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a93d5ad4d8703c5ae4659f6188c608972}{Guidewire\+Sim.Constraint\+Solving\+Step.Solve\+Bend\+Twist\+Constraints\+In\+Naive\+Order}} (BSM.\+Quaternion\mbox{[}\mbox{]} cylinder\+Orientation\+Predictions, int cylinder\+Count, Vector3\mbox{[}\mbox{]} discrete\+Rest\+Darboux\+Vectors, float rod\+Element\+Length)]\label{requirement__requirement000006}%
+\Hypertarget{requirement__requirement000006}%
+ {\ttfamily cylinder\+Count} should be at least one. 
+
+
+
+{\ttfamily rod\+Element\+Length} should be positive.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_aa5b56d38bd4e84257628ef413d9b464d}{Guidewire\+Sim.Constraint\+Solving\+Step.Solve\+Stretch\+Constraint}} (Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, BSM.\+Quaternion orientation, BSM.\+Quaternion e\+\_\+3, float rod\+Element\+Length, out Vector3 delta\+Position\+One, out Vector3 delta\+Position\+Two, out BSM.\+Quaternion delta\+Orientation, float inverse\+Mass\+One=1f, float inverse\+Mass\+Two=1f, float inertia\+Weight=1f)]\label{requirement__requirement000007}%
+\Hypertarget{requirement__requirement000007}%
+ {\ttfamily orientation} should be a unit quaternions, i.\+e. have length approximately equal to one. 
+
+
+
+{\ttfamily e\+\_\+3} should be a unit quaternions, i.\+e. have length approximately equal to one. 
+
+
+
+{\ttfamily rod\+Element\+Length} should be positive. 
+
+
+
+{\ttfamily inverse\+Mass\+One}, {\ttfamily inverse\+Mass\+Two} and {\ttfamily inertia\+Weight} should be values between 0 and 1.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a53ec7b275d2ef802184f30dd7d405d4c}{Guidewire\+Sim.Constraint\+Solving\+Step.Solve\+Stretch\+Constraints}} (Vector3\mbox{[}\mbox{]} sphere\+Position\+Predictions, BSM.\+Quaternion\mbox{[}\mbox{]} cylinder\+Orientation\+Predictions, int spheres\+Count, BSM.\+Quaternion\mbox{[}\mbox{]} world\+Space\+Basis, float rod\+Element\+Length)]\label{requirement__requirement000001}%
+\Hypertarget{requirement__requirement000001}%
+ {\ttfamily spheres\+Count} should be at least one. 
+
+
+
+{\ttfamily rod\+Element\+Length} should be positive. 
+
+
+
+Executes the constraint solving step in bilateral interleaving order if \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_a5bfee8881a0d715c12f2b8f9cd72df89}{execute\+In\+Bilateral\+Order}} and otherwise in naive order.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_ac2f99613fb119ff66d0d9f630b4059b8}{Guidewire\+Sim.Constraint\+Solving\+Step.Solve\+Stretch\+Constraints\+In\+Bilateral\+Order}} (Vector3\mbox{[}\mbox{]} sphere\+Position\+Predictions, BSM.\+Quaternion\mbox{[}\mbox{]} cylinder\+Orientation\+Predictions, int spheres\+Count, float rod\+Element\+Length, BSM.\+Quaternion e\+\_\+3)]\label{requirement__requirement000003}%
+\Hypertarget{requirement__requirement000003}%
+ {\ttfamily spheres\+Count} should be at least one. 
+
+
+
+{\ttfamily rod\+Element\+Length} should be positive.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step_aa31751d785d40d352c516bdd8df5f89b}{Guidewire\+Sim.Constraint\+Solving\+Step.Solve\+Stretch\+Constraints\+In\+Naive\+Order}} (Vector3\mbox{[}\mbox{]} sphere\+Position\+Predictions, BSM.\+Quaternion\mbox{[}\mbox{]} cylinder\+Orientation\+Predictions, int spheres\+Count, float rod\+Element\+Length, BSM.\+Quaternion e\+\_\+3)]\label{requirement__requirement000004}%
+\Hypertarget{requirement__requirement000004}%
+ {\ttfamily spheres\+Count} should be at least one. 
+
+
+
+{\ttfamily rod\+Element\+Length} should be positive.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a56a7f7db653aa6056393270bff0d862b}{Guidewire\+Sim.Directors\+Drawer.Calculate\+Arrow\+Head\+Positions}} (Vector3 start\+Position, Vector3 end\+Position)]\label{requirement__requirement000011}%
+\Hypertarget{requirement__requirement000011}%
+ {\ttfamily arrow\+Head\+Positions} has a length of 4.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a880fe5a6d67f1bf1c543bef7db0acef5}{Guidewire\+Sim.Directors\+Drawer.Draw\+Arrow\+Head\+Lines}} (int director\+Index, Vector3 end\+Position, Vector3\mbox{[}\mbox{]} arrow\+Head\+Positions)]\label{requirement__requirement000012}%
+\Hypertarget{requirement__requirement000012}%
+ {\ttfamily arrow\+Head\+Positions} has a length of 4.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a3d49c4763b01ffdcf9733414fc68a399}{Guidewire\+Sim.Initialization\+Step.Init\+Discrete\+Rest\+Darboux\+Vectors}} (int cylinder\+Count, BSM.\+Quaternion\mbox{[}\mbox{]} cylinder\+Orientations, out Vector3\mbox{[}\mbox{]} discrete\+Rest\+Darboux\+Vectors, float rod\+Element\+Length)]\label{requirement__requirement000014}%
+\Hypertarget{requirement__requirement000014}%
+ {\ttfamily cylinder\+Count} should be at least one. 
+
+
+
+{\ttfamily rod\+Element\+Length} should be positive.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_initialization_step_a500eb98f83918ce1aaf534e529b908dc}{Guidewire\+Sim.Initialization\+Step.Init\+Sphere\+Positions}} (Game\+Object\mbox{[}\mbox{]} spheres, int spheres\+Count, out Vector3\mbox{[}\mbox{]} sphere\+Positions)]\label{requirement__requirement000013}%
+\Hypertarget{requirement__requirement000013}%
+ {\ttfamily spheres\+Count} should be at least one.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a40f0a2f1deed47874d1e1eafa3eda627}{Guidewire\+Sim.Math\+Helper.Column\+Vector\+Matrix\+Multiplication}} (Vector3 column\+Vector, float\mbox{[},\mbox{]} matrix)]\label{requirement__requirement000016}%
+\Hypertarget{requirement__requirement000016}%
+ {\ttfamily matrix} must be a $ 3 \times 3 $ matrix.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_afd818fa7faa2e7561647519849dc897c}{Guidewire\+Sim.Math\+Helper.Matrix\+Vector\+Multiplication}} (float\mbox{[},\mbox{]} matrix, Vector3 vector)]\label{requirement__requirement000015}%
+\Hypertarget{requirement__requirement000015}%
+ {\ttfamily matrix} must be a $ 3 \times 3 $ matrix.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a512d6a02f0f473e313fdb2e7bf8e5f36}{Guidewire\+Sim.Math\+Helper.Random\+Unit\+Quaternion}} ()]\label{requirement__requirement000017}%
+\Hypertarget{requirement__requirement000017}%
+ The length of the drawn quaternion is approximately equal to one.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ad97cde203ac0c5e71bd1473c12e20d07}{Guidewire\+Sim.Simulation\+Loop.Adapt\+Calculations}} ()]\label{requirement__requirement000023}%
+\Hypertarget{requirement__requirement000023}%
+ Sets the positions of the Game\+Objects \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a89639700e967542512065f7452c535b6}{spheres}} to \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a4060f9630c80bc35b5fe6329b6ba8a36}{sphere\+Positions}}. 
+
+
+
+Calculates \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a652e8740ea1a58aa6aa49d2620af1734}{cylinder\+Positions}} based on \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a4060f9630c80bc35b5fe6329b6ba8a36}{sphere\+Positions}}. 
+
+
+
+Sets the positions of the Game\+Objects \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_adff65d2c5dc025e8327d0926dc492a2f}{cylinders}} to \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a652e8740ea1a58aa6aa49d2620af1734}{cylinder\+Positions}}. 
+
+
+
+Sets the rotations of the Game\+Objects \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_adff65d2c5dc025e8327d0926dc492a2f}{cylinders}} to \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a64a33d51ea4c69689c07b29d12e2597f}{cylinder\+Orientations}}.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a14cef7deee44f32995d8929d69d3d373}{Guidewire\+Sim.Simulation\+Loop.Fixed\+Update}} ()]\label{requirement__requirement000018}%
+\Hypertarget{requirement__requirement000018}%
+ Execute the simulation loop if and only if \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac4d002113fbb86c676936cf79bec62e2}{Execute\+Single\+Loop\+Test}} is false.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a0f03649bc05cb8297d40116708b0925c}{Guidewire\+Sim.Simulation\+Loop.Perform\+Constraint\+Solving\+Step}} ()]\label{requirement__requirement000020}%
+\Hypertarget{requirement__requirement000020}%
+ Performs the constraint solving of every constraint \#solver\+Step many times. 
+
+
+
+Solve stretch constraints, if and only if \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}{solve\+Stretch\+Constraints}} is true. 
+
+
+
+Solve bend twist constraints, if and only if \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a90c6c5c53241222d0dc73a95f1659561}{solve\+Bend\+Twist\+Constraints}} is true. 
+
+
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}{solve\+Stretch\+Constraints}}, then \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a888a52671506bb05713182f7c1ab3a7f}{Spheres\+Count}} is at least two. 
+
+
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}{solve\+Stretch\+Constraints}}, then \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a74a6cb09e5dd74946aa0116e612c334d}{Cylinder\+Count}} is at least one. 
+
+
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a90c6c5c53241222d0dc73a95f1659561}{solve\+Bend\+Twist\+Constraints}}, then \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a888a52671506bb05713182f7c1ab3a7f}{Spheres\+Count}} is at least three. 
+
+
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a90c6c5c53241222d0dc73a95f1659561}{solve\+Bend\+Twist\+Constraints}}, then \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a74a6cb09e5dd74946aa0116e612c334d}{Cylinder\+Count}} is at least two. 
+
+
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}{solve\+Stretch\+Constraints}}, after the step is complete the deviation between the actual rod element length and the default (rest state) \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a0671ca94ded523a65654826d1ad58bf8}{rod\+Element\+Length}} should be close to zero. 
+
+
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac137704c785d76e873c319628552c13c}{solve\+Stretch\+Constraints}}, after the step is complete the deviation of the stretch constraint to zero should be close to zero. 
+
+
+
+If \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a7624ceba45187682a66befe96209a347}{solve\+Collision\+Constraints}}, after this step is complete clear the list {\ttfamily registered\+Collisions}, since these collisions are now resolved.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a61c3615748e8bd34a3247e675a55ceb1}{Guidewire\+Sim.Simulation\+Loop.Perform\+Initialization\+Step}} ()]\label{requirement__requirement000019}%
+\Hypertarget{requirement__requirement000019}%
+ Set \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a888a52671506bb05713182f7c1ab3a7f}{Spheres\+Count}} to the length of \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a89639700e967542512065f7452c535b6}{spheres}}. 
+
+
+
+Set \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a74a6cb09e5dd74946aa0116e612c334d}{Cylinder\+Count}} to the length of \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_adff65d2c5dc025e8327d0926dc492a2f}{cylinders}}. 
+
+
+
+Call every init method of \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac34e100d0a10ee4213f4b1086e48844f}{initialization\+Step}}.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_afc750748e8601965e7b4ba7c556e2f29}{Guidewire\+Sim.Simulation\+Loop.Perform\+Prediction\+Step}} ()]\label{requirement__requirement000022}%
+\Hypertarget{requirement__requirement000022}%
+ Predict the \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a20cf0dd6adc13df1c870b955353f5bb6}{sphere\+Velocities}}. 
+
+
+
+Predict the \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a20128382840406db6459454b99c955bc}{sphere\+Position\+Predictions}}. 
+
+
+
+Predict the \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_aa3ac607436226fac7b75a4a7d51767aa}{cylinder\+Angular\+Velocities}}. 
+
+
+
+Predict the \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_ac383824fdb3e7a5931b9920187ebdceb}{cylinder\+Orientation\+Predictions}}.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a701f9d36b41726d89c0abb7d6c756adf}{Guidewire\+Sim.Simulation\+Loop.Perform\+Update\+Step}} ()]\label{requirement__requirement000021}%
+\Hypertarget{requirement__requirement000021}%
+ Upate \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a20cf0dd6adc13df1c870b955353f5bb6}{sphere\+Velocities}}. 
+
+
+
+Upate \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a4060f9630c80bc35b5fe6329b6ba8a36}{sphere\+Positions}}. 
+
+
+
+Upate \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_aa3ac607436226fac7b75a4a7d51767aa}{cylinder\+Angular\+Velocities}}. 
+
+
+
+Upate \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a64a33d51ea4c69689c07b29d12e2597f}{cylinder\+Orientations}}. 
+
+
+
+Upate \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop_a6830906169fc8904910e83ddcf5357e6}{directors}}.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_stress_test_performer_a73c906296f567e0046463c2b07b5d208}{Guidewire\+Sim.Stress\+Test\+Performer.Perform\+Stress\+Test\+One}} (float apply\+Force\+Time=1f)]\label{requirement__requirement000024}%
+\Hypertarget{requirement__requirement000024}%
+ Output a log message when no further forces are applied to the guidewire.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_a204d388f34f12b2e9e85502f691dd533}{Guidewire\+Sim.Torque\+Test\+Performer.Perform\+Torque\+Test\+Three}} (Vector3 pull\+Torque, float apply\+Torque\+Time=10f)]\label{requirement__requirement000026}%
+\Hypertarget{requirement__requirement000026}%
+ Output a log message when no further torques are applied to the guidewire.  
+\item[Member \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_abc8df1bad78eed932a6efabd8ad1f933}{Guidewire\+Sim.Torque\+Test\+Performer.Perform\+Torque\+Test\+Two}} (Vector3 pull\+Torque, float apply\+Torque\+Time=1f)]\label{requirement__requirement000025}%
+\Hypertarget{requirement__requirement000025}%
+ Output a log message when no further torques are applied to the guidewire.  
+\item[Member \mbox{\hyperlink{class_unit_test___solve_bend_twist_constraint_ac8adb520714e1b30a58d9a9fbfd7ada5}{Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.Test\+\_\+\+Solve\+Bend\+Twist\+Constraint}} (int iterations, BSM.\+Quaternion orientation\+One, BSM.\+Quaternion orientation\+Two, float rod\+Element\+Length, Vector3 discrete\+Rest\+Darboux\+Vector, \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Guidewire\+Sim.\+Math\+Helper}} math\+Helper, \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Guidewire\+Sim.\+Constraint\+Solving\+Step}} constraint\+Solving\+Step)]\label{requirement__requirement000027}%
+\Hypertarget{requirement__requirement000027}%
+ {\ttfamily orientation\+One} and orientation\+Two are still unit quaternions at the end of the test. 
+
+
+
+The deviation between the bend twist constraint and zero is lower than a reasonable tolerance, i.\+e. close to zero., which means that the algorithm of Solve\+Bend\+Twist\+Constraint() converges towards the fulfillment of the bend twist constraint.  
+\item[Member \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_a1e5987d9972d38ee5a70134b0cb2a83a}{Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.Pick\+Random\+Positions}} (out Vector3 particle\+Position\+One, out Vector3 particle\+Position\+Two)]\label{requirement__requirement000028}%
+\Hypertarget{requirement__requirement000028}%
+ Picks the first particle position uniformly distributed so that $ x,y,z \in [-5, 5] $. 
+
+
+
+Picks a distance between the two particles that is uniformly distributed in the interval $ [rodElementLength - maximalDistanceOffset, rodElementLength + maximalDistanceOffset] $. 
+
+
+
+Picks the second particle position uniformly distributed on the surface of the sphere with center {\ttfamily particle\+Position\+One} and radius {\ttfamily start\+Distance}.  
+\item[Member \mbox{\hyperlink{class_unit_test___solve_stretch_constraint_ad5754f90b4c4d4be355e60b6180bf975}{Unit\+Test\+\_\+\+Solve\+Stretch\+Constraint.Test\+\_\+\+Solve\+Stretch\+Constraint}} (int iterations, Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, BSM.\+Quaternion orientation, \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Guidewire\+Sim.\+Math\+Helper}} math\+Helper, \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Guidewire\+Sim.\+Constraint\+Solving\+Step}} constraint\+Solving\+Step)]\label{requirement__requirement000029}%
+\Hypertarget{requirement__requirement000029}%
+ {\ttfamily orientation} is still a unit quaternion at the end of the test. 
+
+
+
+The deviation between the stretch constraint and zero is lower than the tolerance 0.\+1, which means that the algorithm of Solve\+Stretch\+Constraint() converges towards the fulfillment of the stretch constraint. 
+
+
+
+The deviation between the actual distance of {\ttfamily particle\+Position\+One} and {\ttfamily particle\+Position\+Two} and the rest rod element length is lower than a reasonable tolerance, i.\+e. close to zero. 
+\end{DoxyRefList}

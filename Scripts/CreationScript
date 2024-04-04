@@ -1,0 +1,90 @@
+using UnityEngine;
+using System.IO;
+using GuidewireSim;
+
+public class CreationScript : MonoBehaviour
+{
+    public GameObject spherePrefab;
+    public GameObject cylinderPrefab;
+    private int spheresCount;
+    private int cylinderCount;
+    private GameObject[] spheres;
+    private GameObject[] cylinders;
+
+    private SimulationLoop simulationLoop;
+
+    void Start()
+    {
+        simulationLoop = GameObject.Find("Simulation").GetComponent<SimulationLoop>();
+    }
+
+    void Update()
+    {
+        SavePositionsToFile();
+    }
+
+    public void CreateGuidewire(int numberElements)
+    {
+        spheres = new GameObject[numberElements];
+        cylinders = new GameObject[numberElements - 1];
+        float rEL = simulationLoop.GetRodElementLength();
+
+        for (int i = 0; i < numberElements; ++i)
+        {
+            GameObject sphere = Instantiate(spherePrefab);
+            sphere.transform.position = new Vector3(0, 7, i * rEL);
+            sphere.transform.parent = this.transform;
+
+            spheres[i] = sphere;
+
+            if (i < numberElements - 1)
+            {
+                GameObject cylinder = Instantiate(cylinderPrefab);
+                cylinder.layer = 6;
+                cylinder.transform.parent = this.transform;
+
+                cylinders[i] = cylinder;
+            }
+        }
+
+        spheresCount = numberElements;
+
+        simulationLoop.SetSpheres(spheres);
+        simulationLoop.SetCylinders(cylinders);
+    }
+
+   
+
+    public void SavePositionsToFile()
+    {
+        string path = "/home/akreibich/TestRobinCode20/Position.txt";
+        StreamWriter writer = new StreamWriter(path, true);
+
+        for (int i = 0; i < spheresCount; ++i)
+        {
+            Vector3 position = spheres[i].transform.position;
+             writer.WriteLine("Sphere " + i + ": " + position.x + "," + position.y + "," + position.z);
+        }
+
+        writer.Close();
+    }
+
+    public GameObject GetLastSphere()
+    {
+        if (spheres != null && spheres.Length > 0)
+        {
+            return spheres[spheres.Length - 1];
+        }
+        return null;
+    }
+
+    public GameObject[] GetSpheres()
+    {
+        return spheres;
+    }
+
+    public GameObject[] GetCylinders()
+    {
+        return cylinders;
+    }
+}

@@ -1,0 +1,588 @@
+\begin{theindex}
+
+  \item {AdoptCalculations}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{58}
+  \item {arrowHeadAngle}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{27}
+  \item {arrowHeadPercentage}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{27}
+  \item {Awake}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{16}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{25}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{30}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{33}
+    \subitem {GuidewireSim.ObjectSetter}, \hyperpage{50}
+    \subitem {GuidewireSim.PredictionStep}, \hyperpage{53}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{58}
+    \subitem {GuidewireSim.StressTestPerformer}, \hyperpage{67}
+    \subitem {GuidewireSim.TorqueTestPerformer}, \hyperpage{69}
+    \subitem {GuidewireSim.UpdateStep}, \hyperpage{77}
+
+  \indexspace
+
+  \item {BendTwistConstraintDeviation}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{41}
+  \item {BSM}
+    \subitem {ConstraintSolvingStep.cs}, \hyperpage{81}
+    \subitem {InitializationStep.cs}, \hyperpage{82}
+    \subitem {MathHelper.cs}, \hyperpage{83}
+    \subitem {ObjectSetter.cs}, \hyperpage{83}
+    \subitem {PredictionStep.cs}, \hyperpage{84}
+    \subitem {SimulationLoop.cs}, \hyperpage{84}
+    \subitem {UnitTest\_SolveBendTwistConstraint.cs}, \hyperpage{85}
+    \subitem {UnitTest\_SolveStretchConstraint.cs}, \hyperpage{86}
+    \subitem {UpdateStep.cs}, \hyperpage{86}
+
+  \indexspace
+
+  \item {CalculateArrowHeadPositions}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{26}
+  \item {CalculateCylinderPositions}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{41}
+  \item {ConstraintSolverSteps}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{65}
+  \item {constraintSolverSteps}
+    \subitem {UnitTest\_SolveBendTwistConstraint}, \hyperpage{73}
+    \subitem {UnitTest\_SolveStretchConstraint}, \hyperpage{75}
+  \item {constraintSolvingStep}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{60}
+  \item {ConstraintSolvingStep.cs}, \hyperpage{81}
+    \subitem {BSM}, \hyperpage{81}
+  \item {CorrectBendTwistPredictions}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{16}
+  \item {CorrectStretchPredictions}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{17}
+  \item {cylinderAngularVelocities}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{60}
+  \item {CylinderCount}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{65}
+  \item {cylinderExternalTorques}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{60}
+  \item {cylinderOrientationPredictions}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{61}
+  \item {cylinderOrientations}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{61}
+  \item {cylinderPositions}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{61}
+  \item {cylinders}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{61}
+  \item {cylinderScalarWeights}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{61}
+
+  \indexspace
+
+  \item {DarbouxSignFactor}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{42}
+  \item {deltaOrientation}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{23}
+  \item {deltaOrientationOne}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{23}
+  \item {deltaOrientationTwo}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{24}
+  \item {deltaPositionOne}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{24}
+  \item {deltaPositionTwo}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{24}
+  \item {directorColors}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{28}
+  \item {directorOneColor}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{28}
+  \item {directors}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{62}
+  \item {DirectorsDrawer.cs}, \hyperpage{81}
+  \item {directorThreeColor}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{28}
+  \item {directorTwoColor}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{28}
+  \item {DiscreteDarbouxVector}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{42}
+  \item {discreteRestDarbouxVectors}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{62}
+  \item {doForceTestFour}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{31}
+  \item {doForceTestOne}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{31}
+  \item {doForceTestThree}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{31}
+  \item {doForceTestTwo}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{32}
+  \item {doSingleLoopTest}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{32}
+  \item {doStressTestOne}
+    \subitem {GuidewireSim.StressTestPerformer}, \hyperpage{68}
+  \item {doTorqueTestOne}
+    \subitem {GuidewireSim.TorqueTestPerformer}, \hyperpage{70}
+  \item {doTorqueTestThree}
+    \subitem {GuidewireSim.TorqueTestPerformer}, \hyperpage{70}
+  \item {doTorqueTestTwo}
+    \subitem {GuidewireSim.TorqueTestPerformer}, \hyperpage{71}
+  \item {DrawArrowHeadConnectionLines}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{26}
+  \item {DrawArrowHeadLines}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{26}
+  \item {DrawDirectors}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{27}
+
+  \indexspace
+
+  \item {EmbeddedVector}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{43}
+  \item {executeInBilateralOrder}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{24}
+  \item {ExecuteSingleLoopTest}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{66}
+
+  \indexspace
+
+  \item {FixedUpdate}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{58}
+  \item {ForceTestPerformer.cs}, \hyperpage{82}
+
+  \indexspace
+
+  \item {GetGaussianRandomNumber}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{43}
+  \item {GuidewireSim}, \hyperpage{13}
+  \item {GuidewireSim.ConstraintSolvingStep}, \hyperpage{15}
+    \subitem {Awake}, \hyperpage{16}
+    \subitem {CorrectBendTwistPredictions}, \hyperpage{16}
+    \subitem {CorrectStretchPredictions}, \hyperpage{17}
+    \subitem {deltaOrientation}, \hyperpage{23}
+    \subitem {deltaOrientationOne}, \hyperpage{23}
+    \subitem {deltaOrientationTwo}, \hyperpage{24}
+    \subitem {deltaPositionOne}, \hyperpage{24}
+    \subitem {deltaPositionTwo}, \hyperpage{24}
+    \subitem {executeInBilateralOrder}, \hyperpage{24}
+    \subitem {mathHelper}, \hyperpage{24}
+    \subitem {SolveBendTwistConstraint}, \hyperpage{17}
+    \subitem {SolveBendTwistConstraints}, \hyperpage{18}
+    \subitem {SolveBendTwistConstraintsInBilateralOrder}, 
+		\hyperpage{19}
+    \subitem {SolveBendTwistConstraintsInNaiveOrder}, \hyperpage{20}
+    \subitem {SolveStretchConstraint}, \hyperpage{20}
+    \subitem {SolveStretchConstraints}, \hyperpage{21}
+    \subitem {SolveStretchConstraintsInBilateralOrder}, \hyperpage{22}
+    \subitem {SolveStretchConstraintsInNaiveOrder}, \hyperpage{23}
+  \item {GuidewireSim.DirectorsDrawer}, \hyperpage{25}
+    \subitem {arrowHeadAngle}, \hyperpage{27}
+    \subitem {arrowHeadPercentage}, \hyperpage{27}
+    \subitem {Awake}, \hyperpage{25}
+    \subitem {CalculateArrowHeadPositions}, \hyperpage{26}
+    \subitem {directorColors}, \hyperpage{28}
+    \subitem {directorOneColor}, \hyperpage{28}
+    \subitem {directorThreeColor}, \hyperpage{28}
+    \subitem {directorTwoColor}, \hyperpage{28}
+    \subitem {DrawArrowHeadConnectionLines}, \hyperpage{26}
+    \subitem {DrawArrowHeadLines}, \hyperpage{26}
+    \subitem {DrawDirectors}, \hyperpage{27}
+    \subitem {scaleFactor}, \hyperpage{28}
+    \subitem {simulationLoop}, \hyperpage{29}
+    \subitem {Update}, \hyperpage{27}
+  \item {GuidewireSim.ForceTestPerformer}, \hyperpage{29}
+    \subitem {Awake}, \hyperpage{30}
+    \subitem {doForceTestFour}, \hyperpage{31}
+    \subitem {doForceTestOne}, \hyperpage{31}
+    \subitem {doForceTestThree}, \hyperpage{31}
+    \subitem {doForceTestTwo}, \hyperpage{32}
+    \subitem {doSingleLoopTest}, \hyperpage{32}
+    \subitem {PerformForceTestFour}, \hyperpage{30}
+    \subitem {PerformForceTestOne}, \hyperpage{30}
+    \subitem {PerformForceTests}, \hyperpage{30}
+    \subitem {PerformForceTestThree}, \hyperpage{30}
+    \subitem {PerformForceTestTwo}, \hyperpage{31}
+    \subitem {PerformSingleLoopTest}, \hyperpage{31}
+    \subitem {pullForceTestThree}, \hyperpage{32}
+    \subitem {simulationLoop}, \hyperpage{32}
+    \subitem {Start}, \hyperpage{31}
+  \item {GuidewireSim.InitializationStep}, \hyperpage{32}
+    \subitem {Awake}, \hyperpage{33}
+    \subitem {InitCylinderAngularVelocities}, \hyperpage{33}
+    \subitem {InitCylinderExternalTorques}, \hyperpage{34}
+    \subitem {InitCylinderOrientationPredictions}, \hyperpage{34}
+    \subitem {InitCylinderOrientations}, \hyperpage{34}
+    \subitem {InitCylinderPositions}, \hyperpage{35}
+    \subitem {InitCylinderScalarWeights}, \hyperpage{35}
+    \subitem {InitDirectors}, \hyperpage{35}
+    \subitem {InitDiscreteRestDarbouxVectors}, \hyperpage{36}
+    \subitem {InitInertiaTensor}, \hyperpage{36}
+    \subitem {InitInverseInertiaTensor}, \hyperpage{37}
+    \subitem {InitSphereExternalForces}, \hyperpage{37}
+    \subitem {InitSphereInverseMasses}, \hyperpage{37}
+    \subitem {InitSpherePositionPredictions}, \hyperpage{38}
+    \subitem {InitSpherePositions}, \hyperpage{38}
+    \subitem {InitSphereVelocities}, \hyperpage{38}
+    \subitem {InitWorldSpaceBasis}, \hyperpage{39}
+    \subitem {materialDensity}, \hyperpage{39}
+    \subitem {materialRadius}, \hyperpage{39}
+    \subitem {mathHelper}, \hyperpage{39}
+  \item {GuidewireSim.MathHelper}, \hyperpage{40}
+    \subitem {BendTwistConstraintDeviation}, \hyperpage{41}
+    \subitem {CalculateCylinderPositions}, \hyperpage{41}
+    \subitem {DarbouxSignFactor}, \hyperpage{42}
+    \subitem {DiscreteDarbouxVector}, \hyperpage{42}
+    \subitem {EmbeddedVector}, \hyperpage{43}
+    \subitem {GetGaussianRandomNumber}, \hyperpage{43}
+    \subitem {ImaginaryPart}, \hyperpage{44}
+    \subitem {MatrixVectorMultiplication}, \hyperpage{44}
+    \subitem {QuaternionConversionFromBSM}, \hyperpage{45}
+    \subitem {QuaternionConversionToBSM}, \hyperpage{45}
+    \subitem {QuaternionLength}, \hyperpage{45}
+    \subitem {RandomUnitQuaternion}, \hyperpage{46}
+    \subitem {RodElementLength}, \hyperpage{46}
+    \subitem {RodElementLengthDeviation}, \hyperpage{46}
+    \subitem {SquaredNorm}, \hyperpage{47}
+    \subitem {StretchConstraintDeviation}, \hyperpage{47}
+    \subitem {UpdateDirectors}, \hyperpage{48}
+    \subitem {VectorLength}, \hyperpage{48}
+  \item {GuidewireSim.ObjectSetter}, \hyperpage{49}
+    \subitem {Awake}, \hyperpage{50}
+    \subitem {mathHelper}, \hyperpage{52}
+    \subitem {SetCylinderOrientations}, \hyperpage{50}
+    \subitem {SetCylinderPositions}, \hyperpage{50}
+    \subitem {SetSpherePositions}, \hyperpage{52}
+  \item {GuidewireSim.PredictionStep}, \hyperpage{52}
+    \subitem {Awake}, \hyperpage{53}
+    \subitem {mathHelper}, \hyperpage{55}
+    \subitem {PredictAngularVelocities}, \hyperpage{53}
+    \subitem {PredictCylinderOrientations}, \hyperpage{54}
+    \subitem {PredictSpherePositions}, \hyperpage{54}
+    \subitem {PredictSphereVelocities}, \hyperpage{55}
+  \item {GuidewireSim.SimulationLoop}, \hyperpage{56}
+    \subitem {AdoptCalculations}, \hyperpage{58}
+    \subitem {Awake}, \hyperpage{58}
+    \subitem {ConstraintSolverSteps}, \hyperpage{65}
+    \subitem {constraintSolvingStep}, \hyperpage{60}
+    \subitem {cylinderAngularVelocities}, \hyperpage{60}
+    \subitem {CylinderCount}, \hyperpage{65}
+    \subitem {cylinderExternalTorques}, \hyperpage{60}
+    \subitem {cylinderOrientationPredictions}, \hyperpage{61}
+    \subitem {cylinderOrientations}, \hyperpage{61}
+    \subitem {cylinderPositions}, \hyperpage{61}
+    \subitem {cylinders}, \hyperpage{61}
+    \subitem {cylinderScalarWeights}, \hyperpage{61}
+    \subitem {directors}, \hyperpage{62}
+    \subitem {discreteRestDarbouxVectors}, \hyperpage{62}
+    \subitem {ExecuteSingleLoopTest}, \hyperpage{66}
+    \subitem {FixedUpdate}, \hyperpage{58}
+    \subitem {inertiaTensor}, \hyperpage{62}
+    \subitem {initializationStep}, \hyperpage{62}
+    \subitem {inverseInertiaTensor}, \hyperpage{63}
+    \subitem {mathHelper}, \hyperpage{63}
+    \subitem {objectSetter}, \hyperpage{63}
+    \subitem {PerformConstraintSolvingStep}, \hyperpage{58}
+    \subitem {PerformInitializationStep}, \hyperpage{59}
+    \subitem {PerformPredictionStep}, \hyperpage{59}
+    \subitem {PerformSimulationLoop}, \hyperpage{59}
+    \subitem {PerformUpdateStep}, \hyperpage{60}
+    \subitem {predictionStep}, \hyperpage{63}
+    \subitem {rodElementLength}, \hyperpage{63}
+    \subitem {solveBendTwistConstraints}, \hyperpage{63}
+    \subitem {solveStretchConstraints}, \hyperpage{64}
+    \subitem {sphereExternalForces}, \hyperpage{64}
+    \subitem {sphereInverseMasses}, \hyperpage{64}
+    \subitem {spherePositionPredictions}, \hyperpage{64}
+    \subitem {spherePositions}, \hyperpage{64}
+    \subitem {spheres}, \hyperpage{64}
+    \subitem {SpheresCount}, \hyperpage{66}
+    \subitem {sphereVelocities}, \hyperpage{65}
+    \subitem {Start}, \hyperpage{60}
+    \subitem {updateStep}, \hyperpage{65}
+    \subitem {worldSpaceBasis}, \hyperpage{65}
+  \item {GuidewireSim.StressTestPerformer}, \hyperpage{66}
+    \subitem {Awake}, \hyperpage{67}
+    \subitem {doStressTestOne}, \hyperpage{68}
+    \subitem {PerformStressTestOne}, \hyperpage{67}
+    \subitem {PerformStressTests}, \hyperpage{67}
+    \subitem {simulationLoop}, \hyperpage{68}
+    \subitem {Start}, \hyperpage{67}
+  \item {GuidewireSim.TorqueTestPerformer}, \hyperpage{68}
+    \subitem {Awake}, \hyperpage{69}
+    \subitem {doTorqueTestOne}, \hyperpage{70}
+    \subitem {doTorqueTestThree}, \hyperpage{70}
+    \subitem {doTorqueTestTwo}, \hyperpage{71}
+    \subitem {PerformTorqueTestOne}, \hyperpage{69}
+    \subitem {PerformTorqueTests}, \hyperpage{69}
+    \subitem {PerformTorqueTestThree}, \hyperpage{69}
+    \subitem {PerformTorqueTestTwo}, \hyperpage{70}
+    \subitem {pullTorque}, \hyperpage{71}
+    \subitem {simulationLoop}, \hyperpage{71}
+    \subitem {Start}, \hyperpage{70}
+  \item {GuidewireSim.UpdateStep}, \hyperpage{76}
+    \subitem {Awake}, \hyperpage{77}
+    \subitem {mathHelper}, \hyperpage{79}
+    \subitem {UpdateCylinderAngularVelocities}, \hyperpage{77}
+    \subitem {UpdateCylinderOrientations}, \hyperpage{77}
+    \subitem {UpdateSpherePositions}, \hyperpage{78}
+    \subitem {UpdateSphereVelocities}, \hyperpage{78}
+
+  \indexspace
+
+  \item {ImaginaryPart}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{44}
+  \item {inertiaTensor}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{62}
+  \item {InitCylinderAngularVelocities}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{33}
+  \item {InitCylinderExternalTorques}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{34}
+  \item {InitCylinderOrientationPredictions}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{34}
+  \item {InitCylinderOrientations}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{34}
+  \item {InitCylinderPositions}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{35}
+  \item {InitCylinderScalarWeights}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{35}
+  \item {InitDirectors}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{35}
+  \item {InitDiscreteRestDarbouxVectors}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{36}
+  \item {initializationStep}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{62}
+  \item {InitializationStep.cs}, \hyperpage{82}
+    \subitem {BSM}, \hyperpage{82}
+  \item {InitInertiaTensor}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{36}
+  \item {InitInverseInertiaTensor}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{37}
+  \item {InitSphereExternalForces}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{37}
+  \item {InitSphereInverseMasses}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{37}
+  \item {InitSpherePositionPredictions}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{38}
+  \item {InitSpherePositions}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{38}
+  \item {InitSphereVelocities}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{38}
+  \item {InitWorldSpaceBasis}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{39}
+  \item {inverseInertiaTensor}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{63}
+
+  \indexspace
+
+  \item {materialDensity}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{39}
+  \item {materialRadius}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{39}
+  \item {mathHelper}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{24}
+    \subitem {GuidewireSim.InitializationStep}, \hyperpage{39}
+    \subitem {GuidewireSim.ObjectSetter}, \hyperpage{52}
+    \subitem {GuidewireSim.PredictionStep}, \hyperpage{55}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{63}
+    \subitem {GuidewireSim.UpdateStep}, \hyperpage{79}
+  \item {MathHelper.cs}, \hyperpage{82}
+    \subitem {BSM}, \hyperpage{83}
+  \item {MatrixVectorMultiplication}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{44}
+  \item {maximalDistanceOffset}
+    \subitem {UnitTest\_SolveStretchConstraint}, \hyperpage{75}
+
+  \indexspace
+
+  \item {objectSetter}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{63}
+  \item {ObjectSetter.cs}, \hyperpage{83}
+    \subitem {BSM}, \hyperpage{83}
+
+  \indexspace
+
+  \item {PerformConstraintSolvingStep}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{58}
+  \item {PerformForceTestFour}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{30}
+  \item {PerformForceTestOne}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{30}
+  \item {PerformForceTests}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{30}
+  \item {PerformForceTestThree}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{30}
+  \item {PerformForceTestTwo}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{31}
+  \item {PerformInitializationStep}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{59}
+  \item {PerformPredictionStep}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{59}
+  \item {PerformSimulationLoop}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{59}
+  \item {PerformSingleLoopTest}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{31}
+  \item {PerformStressTestOne}
+    \subitem {GuidewireSim.StressTestPerformer}, \hyperpage{67}
+  \item {PerformStressTests}
+    \subitem {GuidewireSim.StressTestPerformer}, \hyperpage{67}
+  \item {PerformTorqueTestOne}
+    \subitem {GuidewireSim.TorqueTestPerformer}, \hyperpage{69}
+  \item {PerformTorqueTests}
+    \subitem {GuidewireSim.TorqueTestPerformer}, \hyperpage{69}
+  \item {PerformTorqueTestThree}
+    \subitem {GuidewireSim.TorqueTestPerformer}, \hyperpage{69}
+  \item {PerformTorqueTestTwo}
+    \subitem {GuidewireSim.TorqueTestPerformer}, \hyperpage{70}
+  \item {PerformUnitTests}
+    \subitem {UnitTest\_SolveBendTwistConstraint}, \hyperpage{72}
+    \subitem {UnitTest\_SolveStretchConstraint}, \hyperpage{74}
+  \item {PerformUpdateStep}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{60}
+  \item {PickRandomPositions}
+    \subitem {UnitTest\_SolveStretchConstraint}, \hyperpage{74}
+  \item {PredictAngularVelocities}
+    \subitem {GuidewireSim.PredictionStep}, \hyperpage{53}
+  \item {PredictCylinderOrientations}
+    \subitem {GuidewireSim.PredictionStep}, \hyperpage{54}
+  \item {predictionStep}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{63}
+  \item {PredictionStep.cs}, \hyperpage{83}
+    \subitem {BSM}, \hyperpage{84}
+  \item {PredictSpherePositions}
+    \subitem {GuidewireSim.PredictionStep}, \hyperpage{54}
+  \item {PredictSphereVelocities}
+    \subitem {GuidewireSim.PredictionStep}, \hyperpage{55}
+  \item {pullForceTestThree}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{32}
+  \item {pullTorque}
+    \subitem {GuidewireSim.TorqueTestPerformer}, \hyperpage{71}
+
+  \indexspace
+
+  \item {QuaternionConversionFromBSM}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{45}
+  \item {QuaternionConversionToBSM}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{45}
+  \item {QuaternionLength}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{45}
+
+  \indexspace
+
+  \item {RandomUnitQuaternion}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{46}
+  \item {RodElementLength}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{46}
+  \item {rodElementLength}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{63}
+    \subitem {UnitTest\_SolveStretchConstraint}, \hyperpage{76}
+  \item {RodElementLengthDeviation}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{46}
+
+  \indexspace
+
+  \item {sampleSize}
+    \subitem {UnitTest\_SolveBendTwistConstraint}, \hyperpage{73}
+    \subitem {UnitTest\_SolveStretchConstraint}, \hyperpage{76}
+  \item {scaleFactor}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{28}
+  \item {SetCylinderOrientations}
+    \subitem {GuidewireSim.ObjectSetter}, \hyperpage{50}
+  \item {SetCylinderPositions}
+    \subitem {GuidewireSim.ObjectSetter}, \hyperpage{50}
+  \item {SetSpherePositions}
+    \subitem {GuidewireSim.ObjectSetter}, \hyperpage{52}
+  \item {simulationLoop}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{29}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{32}
+    \subitem {GuidewireSim.StressTestPerformer}, \hyperpage{68}
+    \subitem {GuidewireSim.TorqueTestPerformer}, \hyperpage{71}
+  \item {SimulationLoop.cs}, \hyperpage{84}
+    \subitem {BSM}, \hyperpage{84}
+  \item {SolveBendTwistConstraint}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{17}
+  \item {SolveBendTwistConstraints}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{18}
+  \item {solveBendTwistConstraints}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{63}
+  \item {SolveBendTwistConstraintsInBilateralOrder}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{19}
+  \item {SolveBendTwistConstraintsInNaiveOrder}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{20}
+  \item {SolveStretchConstraint}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{20}
+  \item {SolveStretchConstraints}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{21}
+  \item {solveStretchConstraints}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{64}
+  \item {SolveStretchConstraintsInBilateralOrder}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{22}
+  \item {SolveStretchConstraintsInNaiveOrder}
+    \subitem {GuidewireSim.ConstraintSolvingStep}, \hyperpage{23}
+  \item {sphereExternalForces}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{64}
+  \item {sphereInverseMasses}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{64}
+  \item {spherePositionPredictions}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{64}
+  \item {spherePositions}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{64}
+  \item {spheres}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{64}
+  \item {SpheresCount}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{66}
+  \item {sphereVelocities}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{65}
+  \item {SquaredNorm}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{47}
+  \item {Start}
+    \subitem {GuidewireSim.ForceTestPerformer}, \hyperpage{31}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{60}
+    \subitem {GuidewireSim.StressTestPerformer}, \hyperpage{67}
+    \subitem {GuidewireSim.TorqueTestPerformer}, \hyperpage{70}
+  \item {StressTestPerformer.cs}, \hyperpage{84}
+  \item {StretchConstraintDeviation}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{47}
+
+  \indexspace
+
+  \item {Test\_SolveBendTwistConstraint}
+    \subitem {UnitTest\_SolveBendTwistConstraint}, \hyperpage{72}
+  \item {Test\_SolveStretchConstraint}
+    \subitem {UnitTest\_SolveStretchConstraint}, \hyperpage{74}
+  \item {TorqueTestPerformer.cs}, \hyperpage{85}
+
+  \indexspace
+
+  \item {UnitTest\_SolveBendTwistConstraint}, \hyperpage{71}
+    \subitem {constraintSolverSteps}, \hyperpage{73}
+    \subitem {PerformUnitTests}, \hyperpage{72}
+    \subitem {sampleSize}, \hyperpage{73}
+    \subitem {Test\_SolveBendTwistConstraint}, \hyperpage{72}
+  \item {UnitTest\_SolveBendTwistConstraint.cs}, \hyperpage{85}
+    \subitem {BSM}, \hyperpage{85}
+  \item {UnitTest\_SolveStretchConstraint}, \hyperpage{73}
+    \subitem {constraintSolverSteps}, \hyperpage{75}
+    \subitem {maximalDistanceOffset}, \hyperpage{75}
+    \subitem {PerformUnitTests}, \hyperpage{74}
+    \subitem {PickRandomPositions}, \hyperpage{74}
+    \subitem {rodElementLength}, \hyperpage{76}
+    \subitem {sampleSize}, \hyperpage{76}
+    \subitem {Test\_SolveStretchConstraint}, \hyperpage{74}
+  \item {UnitTest\_SolveStretchConstraint.cs}, \hyperpage{85}
+    \subitem {BSM}, \hyperpage{86}
+  \item {Update}
+    \subitem {GuidewireSim.DirectorsDrawer}, \hyperpage{27}
+  \item {UpdateCylinderAngularVelocities}
+    \subitem {GuidewireSim.UpdateStep}, \hyperpage{77}
+  \item {UpdateCylinderOrientations}
+    \subitem {GuidewireSim.UpdateStep}, \hyperpage{77}
+  \item {UpdateDirectors}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{48}
+  \item {UpdateSpherePositions}
+    \subitem {GuidewireSim.UpdateStep}, \hyperpage{78}
+  \item {UpdateSphereVelocities}
+    \subitem {GuidewireSim.UpdateStep}, \hyperpage{78}
+  \item {updateStep}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{65}
+  \item {UpdateStep.cs}, \hyperpage{86}
+    \subitem {BSM}, \hyperpage{86}
+
+  \indexspace
+
+  \item {VectorLength}
+    \subitem {GuidewireSim.MathHelper}, \hyperpage{48}
+
+  \indexspace
+
+  \item {worldSpaceBasis}
+    \subitem {GuidewireSim.SimulationLoop}, \hyperpage{65}
+
+\end{theindex}

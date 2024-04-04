@@ -1,0 +1,142 @@
+\hypertarget{class_guidewire_sim_1_1_torque_test_performer}{}\doxysection{Guidewire\+Sim.\+Torque\+Test\+Performer Class Reference}
+\label{class_guidewire_sim_1_1_torque_test_performer}\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+Inheritance diagram for Guidewire\+Sim.\+Torque\+Test\+Performer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_torque_test_performer}
+\end{center}
+\end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_ae838ad15776a9f6007af9ff06080a01a}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_a8253dd463a9f3b5fb5b6ef714d1f48e4}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_a56b06f928e25b81c3a8c3c3cfb76e92d}{Perform\+Torque\+Tests}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_ac156eeb0b963a3e278e4970eb79a2ac7}{Perform\+Torque\+Test\+One}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_abc8df1bad78eed932a6efabd8ad1f933}{Perform\+Torque\+Test\+Two}} (Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_a4e832b09d2a4bc95cac804f345c6ab64}{pull\+Torque}}, float apply\+Torque\+Time=1f)
+\item 
+IEnumerator \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_a204d388f34f12b2e9e85502f691dd533}{Perform\+Torque\+Test\+Three}} (Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_a4e832b09d2a4bc95cac804f345c6ab64}{pull\+Torque}}, float apply\+Torque\+Time=10f)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_a68ae11948063255bf248c90730de6d1c}{simulation\+Loop}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} component that executes all steps of the simulation loop. \end{DoxyCompactList}\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_a4e832b09d2a4bc95cac804f345c6ab64}{pull\+Torque}} = new Vector3(0f, 0.\+3f, 0f)
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_a58e762bff70ca9643c1dc2324e62c247}{do\+Torque\+Test\+One}} = false
+\begin{DoxyCompactList}\small\item\em Whether to run Torque Test One. This test applies an external torque to one end of the guidewire. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_a7c49660161bdacc452ad10e77dbfdc37}{do\+Torque\+Test\+Two}} = false
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_torque_test_performer_abdae0b4e59a3108a83a95e29736e859b}{do\+Torque\+Test\+Three}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class enables the user to test the impact of external torques with one button within the Unity inspector. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_torque_test_performer_ae838ad15776a9f6007af9ff06080a01a}\label{class_guidewire_sim_1_1_torque_test_performer_ae838ad15776a9f6007af9ff06080a01a}} 
+\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Torque\+Test\+Performer.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_torque_test_performer_ac156eeb0b963a3e278e4970eb79a2ac7}\label{class_guidewire_sim_1_1_torque_test_performer_ac156eeb0b963a3e278e4970eb79a2ac7}} 
+\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}!PerformTorqueTestOne@{PerformTorqueTestOne}}
+\index{PerformTorqueTestOne@{PerformTorqueTestOne}!GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformTorqueTestOne()}{PerformTorqueTestOne()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Torque\+Test\+Performer.\+Perform\+Torque\+Test\+One (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs torque test one. This test applies an external torque to one end of the guidewire. \mbox{\Hypertarget{class_guidewire_sim_1_1_torque_test_performer_a56b06f928e25b81c3a8c3c3cfb76e92d}\label{class_guidewire_sim_1_1_torque_test_performer_a56b06f928e25b81c3a8c3c3cfb76e92d}} 
+\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}!PerformTorqueTests@{PerformTorqueTests}}
+\index{PerformTorqueTests@{PerformTorqueTests}!GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformTorqueTests()}{PerformTorqueTests()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Torque\+Test\+Performer.\+Perform\+Torque\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs each Torque Test whose respective serialized boolean is set to true in the Unity inspector. \mbox{\Hypertarget{class_guidewire_sim_1_1_torque_test_performer_a204d388f34f12b2e9e85502f691dd533}\label{class_guidewire_sim_1_1_torque_test_performer_a204d388f34f12b2e9e85502f691dd533}} 
+\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}!PerformTorqueTestThree@{PerformTorqueTestThree}}
+\index{PerformTorqueTestThree@{PerformTorqueTestThree}!GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformTorqueTestThree()}{PerformTorqueTestThree()}}
+{\footnotesize\ttfamily IEnumerator Guidewire\+Sim.\+Torque\+Test\+Performer.\+Perform\+Torque\+Test\+Three (\begin{DoxyParamCaption}\item[{Vector3}]{pull\+Torque,  }\item[{float}]{apply\+Torque\+Time = {\ttfamily 10f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs torque test three. This test applies an external torque to one end of the guidewire and at the same time the opposite torque at the other end of the guidewire. The applied torque starts at 0 and linearly interpolates until it reaches {\ttfamily pull\+Torque} at {\ttfamily apply\+Torque\+Time} seconds. 
+\begin{DoxyParams}{Parameters}
+{\em pull\+Torque} & The external torque that is applied to one end of the guidewire. \\
+\hline
+{\em apply\+Torque\+Time} & For how many seconds to apply the torque to the orientations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000026}{Requirements}}]Output a log message when no further torques are applied to the guidewire. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_torque_test_performer_abc8df1bad78eed932a6efabd8ad1f933}\label{class_guidewire_sim_1_1_torque_test_performer_abc8df1bad78eed932a6efabd8ad1f933}} 
+\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}!PerformTorqueTestTwo@{PerformTorqueTestTwo}}
+\index{PerformTorqueTestTwo@{PerformTorqueTestTwo}!GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformTorqueTestTwo()}{PerformTorqueTestTwo()}}
+{\footnotesize\ttfamily IEnumerator Guidewire\+Sim.\+Torque\+Test\+Performer.\+Perform\+Torque\+Test\+Two (\begin{DoxyParamCaption}\item[{Vector3}]{pull\+Torque,  }\item[{float}]{apply\+Torque\+Time = {\ttfamily 1f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs torque test two. This test applies an external torque to one end of the guidewire for a fixed amount of time and then the opposite torque at the same orientation for the same amount of time. 
+\begin{DoxyParams}{Parameters}
+{\em pull\+Torque} & The external torque that is applied to one end of the guidewire. \\
+\hline
+{\em apply\+Torque\+Time} & For how many seconds to apply the torque to the orientations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000025}{Requirements}}]Output a log message when no further torques are applied to the guidewire. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_torque_test_performer_a8253dd463a9f3b5fb5b6ef714d1f48e4}\label{class_guidewire_sim_1_1_torque_test_performer_a8253dd463a9f3b5fb5b6ef714d1f48e4}} 
+\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}!Start@{Start}}
+\index{Start@{Start}!GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Torque\+Test\+Performer.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_torque_test_performer_a58e762bff70ca9643c1dc2324e62c247}\label{class_guidewire_sim_1_1_torque_test_performer_a58e762bff70ca9643c1dc2324e62c247}} 
+\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}!doTorqueTestOne@{doTorqueTestOne}}
+\index{doTorqueTestOne@{doTorqueTestOne}!GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doTorqueTestOne}{doTorqueTestOne}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Torque\+Test\+Performer.\+do\+Torque\+Test\+One = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether to run Torque Test One. This test applies an external torque to one end of the guidewire. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_torque_test_performer_abdae0b4e59a3108a83a95e29736e859b}\label{class_guidewire_sim_1_1_torque_test_performer_abdae0b4e59a3108a83a95e29736e859b}} 
+\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}!doTorqueTestThree@{doTorqueTestThree}}
+\index{doTorqueTestThree@{doTorqueTestThree}!GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doTorqueTestThree}{doTorqueTestThree}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Torque\+Test\+Performer.\+do\+Torque\+Test\+Three = false\hspace{0.3cm}{\ttfamily [private]}}
+
+Whether to run Torque Test Three. This test applies an external torque to one end of the guidewire and at the same time the opposite torque at the other end of the guidewire. The applied torque starts at 0 and linearly interpolates until it reaches {\ttfamily pull\+Torque} at {\ttfamily apply\+Torque\+Time} seconds. \mbox{\Hypertarget{class_guidewire_sim_1_1_torque_test_performer_a7c49660161bdacc452ad10e77dbfdc37}\label{class_guidewire_sim_1_1_torque_test_performer_a7c49660161bdacc452ad10e77dbfdc37}} 
+\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}!doTorqueTestTwo@{doTorqueTestTwo}}
+\index{doTorqueTestTwo@{doTorqueTestTwo}!GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doTorqueTestTwo}{doTorqueTestTwo}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Torque\+Test\+Performer.\+do\+Torque\+Test\+Two = false\hspace{0.3cm}{\ttfamily [private]}}
+
+Whether to run Torque Test Two. This test applies an external torque to one end of the guidewire for a fixed amount of time and then the opposite torque at the same orientation for the same amount of time. \mbox{\Hypertarget{class_guidewire_sim_1_1_torque_test_performer_a4e832b09d2a4bc95cac804f345c6ab64}\label{class_guidewire_sim_1_1_torque_test_performer_a4e832b09d2a4bc95cac804f345c6ab64}} 
+\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}!pullTorque@{pullTorque}}
+\index{pullTorque@{pullTorque}!GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+\doxysubsubsection{\texorpdfstring{pullTorque}{pullTorque}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Torque\+Test\+Performer.\+pull\+Torque = new Vector3(0f, 0.\+3f, 0f)\hspace{0.3cm}{\ttfamily [private]}}
+
+The external torque that is applied to the respective parts of the guidewire, depending on the test. \mbox{\Hypertarget{class_guidewire_sim_1_1_torque_test_performer_a68ae11948063255bf248c90730de6d1c}\label{class_guidewire_sim_1_1_torque_test_performer_a68ae11948063255bf248c90730de6d1c}} 
+\index{GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}!simulationLoop@{simulationLoop}}
+\index{simulationLoop@{simulationLoop}!GuidewireSim.TorqueTestPerformer@{GuidewireSim.TorqueTestPerformer}}
+\doxysubsubsection{\texorpdfstring{simulationLoop}{simulationLoop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} Guidewire\+Sim.\+Torque\+Test\+Performer.\+simulation\+Loop\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} component that executes all steps of the simulation loop. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_torque_test_performer_8cs}{Torque\+Test\+Performer.\+cs}}\end{DoxyCompactItemize}

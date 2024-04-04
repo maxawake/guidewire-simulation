@@ -1,0 +1,213 @@
+\hypertarget{class_guidewire_sim_1_1_collision_solving_step}{}\doxysection{Guidewire\+Sim.\+Collision\+Solving\+Step Class Reference}
+\label{class_guidewire_sim_1_1_collision_solving_step}\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+Inheritance diagram for Guidewire\+Sim.\+Collision\+Solving\+Step\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_collision_solving_step}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_aeb1a3c40339a7a891f554d8f9ff670f5}{Solve\+Collision\+Constraints}} (Vector3\mbox{[}$\,$\mbox{]} sphere\+Position\+Predictions, int solver\+Step, int constraint\+Solver\+Steps)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_aaf9f1e1dc3acf12e5c24b7010a4caec6}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_aba92e8f848ea05efa9dcd1f4cdc7d533}{Solve\+Collision\+Constraint}} (Vector3 sphere\+Position\+Prediction, Vector3 contact\+Point, Vector3 collision\+Normal, int solver\+Step, out Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_a1f17eddbf5bcd1edc9b0200e82a95562}{delta\+Position}})
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_aab39c2ecca6f97fb081cec86359b313f}{Draw\+Collision\+Information}} (Vector3 sphere\+Position\+Prediction, Vector3 contact\+Point, Vector3 collision\+Normal)
+\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_aca2cefe4d6198f90f37e148a76597c91}{Calculate\+Delta\+Position}} (Vector3 sphere\+Position\+Prediction, Vector3 closest\+Surface\+Point, Vector3 normal\+Vector)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_addf9216ddfe00d73000ffc3e736fd277}{Correct\+Collision\+Predictions}} (int sphere\+Index, Vector3\mbox{[}$\,$\mbox{]} sphere\+Position\+Predictions, int solver\+Step, int constraint\+Solver\+Steps)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_a6acc648590a85572e7e6ac7193bdab0e}{math\+Helper}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_a9c419edbc9a11d8ed2afaec800d2bcfc}{collision\+Handler}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} that tracks all collisions. \end{DoxyCompactList}\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_a1f17eddbf5bcd1edc9b0200e82a95562}{delta\+Position}} = new Vector3()
+\begin{DoxyCompactList}\small\item\em The correction of {\ttfamily sphere\+Position\+Prediction} in method \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_aba92e8f848ea05efa9dcd1f4cdc7d533}{Solve\+Collision\+Constraint()}}. \end{DoxyCompactList}\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_a73782b71a24ee18920de1d817ced1c26}{initial\+Position\+Prediction}} = new Vector3()
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_acbe04ce0fcc15317f1d5d5a47c9e2d3b}{sphere\+Radius}} = 5f
+\begin{DoxyCompactList}\small\item\em The radius of a sphere of the guidewire. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_a9247bdf4d647b99afe7739ebc85e109d}{collision\+Margin}} = 0.\+1f
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_a6f91aed7d1dd52ca94942c6361e76f26}{collision\+Stiffness}} = 0.\+001f
+\begin{DoxyCompactList}\small\item\em The collision constraint stiffness parameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements the collision solving that is part of the constraint solving step. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_aaf9f1e1dc3acf12e5c24b7010a4caec6}\label{class_guidewire_sim_1_1_collision_solving_step_aaf9f1e1dc3acf12e5c24b7010a4caec6}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Solving\+Step.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_aca2cefe4d6198f90f37e148a76597c91}\label{class_guidewire_sim_1_1_collision_solving_step_aca2cefe4d6198f90f37e148a76597c91}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!CalculateDeltaPosition@{CalculateDeltaPosition}}
+\index{CalculateDeltaPosition@{CalculateDeltaPosition}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{CalculateDeltaPosition()}{CalculateDeltaPosition()}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Collision\+Solving\+Step.\+Calculate\+Delta\+Position (\begin{DoxyParamCaption}\item[{Vector3}]{sphere\+Position\+Prediction,  }\item[{Vector3}]{closest\+Surface\+Point,  }\item[{Vector3}]{normal\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Calculates the displacement of the collision constraint. 
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Position\+Predictions} & The prediction of the position at the current frame of each sphere (in this case of the last frame). \\
+\hline
+{\em closest\+Surface\+Point} & The contact point of the collision. \\
+\hline
+{\em normal\+Vector} & The collision normal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The delta position, i.\+e. the calculated displacement. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_addf9216ddfe00d73000ffc3e736fd277}\label{class_guidewire_sim_1_1_collision_solving_step_addf9216ddfe00d73000ffc3e736fd277}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!CorrectCollisionPredictions@{CorrectCollisionPredictions}}
+\index{CorrectCollisionPredictions@{CorrectCollisionPredictions}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{CorrectCollisionPredictions()}{CorrectCollisionPredictions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Solving\+Step.\+Correct\+Collision\+Predictions (\begin{DoxyParamCaption}\item[{int}]{sphere\+Index,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Position\+Predictions,  }\item[{int}]{solver\+Step,  }\item[{int}]{constraint\+Solver\+Steps }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Corrects the position prediction of the sphere of {\ttfamily sphere\+Index} with the calculated displacement. 
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Index} & The sphere ID of the colliding sphere. \\
+\hline
+{\em sphere\+Position\+Predictions} & The prediction of the position at the current frame of each sphere (in this case of the last frame). \\
+\hline
+{\em solver\+Step} & The current iteration of the constraint solving step. \\
+\hline
+{\em constraint\+Solver\+Steps} & The total number of solver steps of the constraint solving step. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_aab39c2ecca6f97fb081cec86359b313f}\label{class_guidewire_sim_1_1_collision_solving_step_aab39c2ecca6f97fb081cec86359b313f}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!DrawCollisionInformation@{DrawCollisionInformation}}
+\index{DrawCollisionInformation@{DrawCollisionInformation}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{DrawCollisionInformation()}{DrawCollisionInformation()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Solving\+Step.\+Draw\+Collision\+Information (\begin{DoxyParamCaption}\item[{Vector3}]{sphere\+Position\+Prediction,  }\item[{Vector3}]{contact\+Point,  }\item[{Vector3}]{collision\+Normal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Draws the contact point, collision normal, and displacement corrections into the scene of the collision that occured. 
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Position\+Prediction} & The position prediction of the sphere that collided. \\
+\hline
+{\em contact\+Point} & The contact point of the collision. \\
+\hline
+{\em collision\+Normal} & The normal of the collision. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_aba92e8f848ea05efa9dcd1f4cdc7d533}\label{class_guidewire_sim_1_1_collision_solving_step_aba92e8f848ea05efa9dcd1f4cdc7d533}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!SolveCollisionConstraint@{SolveCollisionConstraint}}
+\index{SolveCollisionConstraint@{SolveCollisionConstraint}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{SolveCollisionConstraint()}{SolveCollisionConstraint()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Solving\+Step.\+Solve\+Collision\+Constraint (\begin{DoxyParamCaption}\item[{Vector3}]{sphere\+Position\+Prediction,  }\item[{Vector3}]{contact\+Point,  }\item[{Vector3}]{collision\+Normal,  }\item[{int}]{solver\+Step,  }\item[{out Vector3}]{delta\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Solves the collision constraint for one collision that occured this frame. 
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Position\+Predictions} & The prediction of the position at the current frame of each sphere (in this case of the last frame). \\
+\hline
+{\em contact\+Point} & The contact point of the collision. \\
+\hline
+{\em collision\+Normal} & The normal of the collision. \\
+\hline
+{\em solver\+Step} & The current iteration of the constraint solving step. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+Current calculation of the normal only works for spheres. 
+\end{DoxyAttention}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_aeb1a3c40339a7a891f554d8f9ff670f5}\label{class_guidewire_sim_1_1_collision_solving_step_aeb1a3c40339a7a891f554d8f9ff670f5}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!SolveCollisionConstraints@{SolveCollisionConstraints}}
+\index{SolveCollisionConstraints@{SolveCollisionConstraints}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{SolveCollisionConstraints()}{SolveCollisionConstraints()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Solving\+Step.\+Solve\+Collision\+Constraints (\begin{DoxyParamCaption}\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Position\+Predictions,  }\item[{int}]{solver\+Step,  }\item[{int}]{constraint\+Solver\+Steps }\end{DoxyParamCaption})}
+
+Is responsible for executing one iteration of the constraint solving step for the collision constraint of each collision of this frame. 
+\begin{DoxyParams}{Parameters}
+{\em sphere\+Position\+Predictions} & The prediction of the position at the current frame of each sphere (in this case of the last frame). \\
+\hline
+{\em solver\+Step} & The current iteration of the constraint solving step. \\
+\hline
+{\em constraint\+Solver\+Steps} & The total number of solver steps of the constraint solving step. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_a9c419edbc9a11d8ed2afaec800d2bcfc}\label{class_guidewire_sim_1_1_collision_solving_step_a9c419edbc9a11d8ed2afaec800d2bcfc}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!collisionHandler@{collisionHandler}}
+\index{collisionHandler@{collisionHandler}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{collisionHandler}{collisionHandler}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} Guidewire\+Sim.\+Collision\+Solving\+Step.\+collision\+Handler\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_collision_handler}{Collision\+Handler}} that tracks all collisions. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_a9247bdf4d647b99afe7739ebc85e109d}\label{class_guidewire_sim_1_1_collision_solving_step_a9247bdf4d647b99afe7739ebc85e109d}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!collisionMargin@{collisionMargin}}
+\index{collisionMargin@{collisionMargin}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{collisionMargin}{collisionMargin}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Collision\+Solving\+Step.\+collision\+Margin = 0.\+1f\hspace{0.3cm}{\ttfamily [private]}}
+
+A margin by which a colliding element of the guidewire is set away from the object colliding with in the direction of the normal. \begin{DoxyNote}{Note}
+Without this margin, the colliding element of the guidewire (e.\+g. a sphere) is corrected such that its surface exactly touches the object colliding with, which results in the guidewire still penetrating the object. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_a6f91aed7d1dd52ca94942c6361e76f26}\label{class_guidewire_sim_1_1_collision_solving_step_a6f91aed7d1dd52ca94942c6361e76f26}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!collisionStiffness@{collisionStiffness}}
+\index{collisionStiffness@{collisionStiffness}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{collisionStiffness}{collisionStiffness}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Collision\+Solving\+Step.\+collision\+Stiffness = 0.\+001f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The collision constraint stiffness parameter. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_a1f17eddbf5bcd1edc9b0200e82a95562}\label{class_guidewire_sim_1_1_collision_solving_step_a1f17eddbf5bcd1edc9b0200e82a95562}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!deltaPosition@{deltaPosition}}
+\index{deltaPosition@{deltaPosition}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{deltaPosition}{deltaPosition}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Collision\+Solving\+Step.\+delta\+Position = new Vector3()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The correction of {\ttfamily sphere\+Position\+Prediction} in method \mbox{\hyperlink{class_guidewire_sim_1_1_collision_solving_step_aba92e8f848ea05efa9dcd1f4cdc7d533}{Solve\+Collision\+Constraint()}}. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_a73782b71a24ee18920de1d817ced1c26}\label{class_guidewire_sim_1_1_collision_solving_step_a73782b71a24ee18920de1d817ced1c26}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!initialPositionPrediction@{initialPositionPrediction}}
+\index{initialPositionPrediction@{initialPositionPrediction}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{initialPositionPrediction}{initialPositionPrediction}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Collision\+Solving\+Step.\+initial\+Position\+Prediction = new Vector3()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_a6acc648590a85572e7e6ac7193bdab0e}\label{class_guidewire_sim_1_1_collision_solving_step_a6acc648590a85572e7e6ac7193bdab0e}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!mathHelper@{mathHelper}}
+\index{mathHelper@{mathHelper}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{mathHelper}{mathHelper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} Guidewire\+Sim.\+Collision\+Solving\+Step.\+math\+Helper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_solving_step_acbe04ce0fcc15317f1d5d5a47c9e2d3b}\label{class_guidewire_sim_1_1_collision_solving_step_acbe04ce0fcc15317f1d5d5a47c9e2d3b}} 
+\index{GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}!sphereRadius@{sphereRadius}}
+\index{sphereRadius@{sphereRadius}!GuidewireSim.CollisionSolvingStep@{GuidewireSim.CollisionSolvingStep}}
+\doxysubsubsection{\texorpdfstring{sphereRadius}{sphereRadius}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Collision\+Solving\+Step.\+sphere\+Radius = 5f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The radius of a sphere of the guidewire. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_collision_solving_step_8cs}{Collision\+Solving\+Step.\+cs}}\end{DoxyCompactItemize}

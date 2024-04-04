@@ -1,0 +1,208 @@
+\hypertarget{class_guidewire_sim_1_1_directors_drawer}{}\doxysection{Guidewire\+Sim.\+Directors\+Drawer Class Reference}
+\label{class_guidewire_sim_1_1_directors_drawer}\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+Inheritance diagram for Guidewire\+Sim.\+Directors\+Drawer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_directors_drawer}
+\end{center}
+\end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a913a4777563f30eb8cc8a2b592d772da}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_ab07eb9618f70d2cf7888823ad0ae40d1}{Update}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a7de7fbf1fd192ba5596ff0d9f6e7e273}{Draw\+Directors}} (Vector3\mbox{[}$\,$\mbox{]} cylinder\+Positions, Vector3\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} directors)
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a56a7f7db653aa6056393270bff0d862b}{Calculate\+Arrow\+Head\+Positions}} (Vector3 start\+Position, Vector3 end\+Position)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a880fe5a6d67f1bf1c543bef7db0acef5}{Draw\+Arrow\+Head\+Lines}} (int director\+Index, Vector3 end\+Position, Vector3\mbox{[}$\,$\mbox{]} arrow\+Head\+Positions)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a78938e718c841d0ea5507883832ae4e6}{Draw\+Arrow\+Head\+Connection\+Lines}} (int director\+Index, Vector3\mbox{[}$\,$\mbox{]} arrow\+Head\+Positions)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_ac98bfaec0f3f7c0b3cc47592f3a4b520}{simulation\+Loop}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a7dfc0b2fad5dca054a5d02cbe64cee6e}{scale\+Factor}}
+\begin{DoxyCompactList}\small\item\em The scale factor that gets multiplied to the length of the respective director. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_ab70a8cab17f1f11068a0e6d65346e087}{arrow\+Head\+Angle}}
+\begin{DoxyCompactList}\small\item\em The angle spread of the arrow head. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a6a1a4df7a01a5b8878a962bb8c6e850f}{arrow\+Head\+Percentage}}
+\begin{DoxyCompactList}\small\item\em The percentage of the length of the arrow that the arrow head covers. \end{DoxyCompactList}\item 
+Color \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a4ecc7f67498b7eed2f4cf1a14f6aa81b}{director\+One\+Color}} = Color.\+green
+\begin{DoxyCompactList}\small\item\em The color that the lines representing the first director are drawn with. \end{DoxyCompactList}\item 
+Color \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a285225ba3e78cfbd4ba8482e93258852}{director\+Two\+Color}} = Color.\+blue
+\begin{DoxyCompactList}\small\item\em The color that the lines representing the second director are drawn with. \end{DoxyCompactList}\item 
+Color \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_acb2fce1f562b3ea8b906e48eb7883036}{director\+Three\+Color}} = Color.\+red
+\begin{DoxyCompactList}\small\item\em The color that the lines representing the third director are drawn with. \end{DoxyCompactList}\item 
+Color\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_directors_drawer_a061dfa4d81681ecbeaa9f8cb3334dae4}{director\+Colors}} = new Color\mbox{[}3\mbox{]} \{Color.\+red, Color.\+green, Color.\+blue\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents each orientation by drawing all of its directors as arrows in each frame. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_a913a4777563f30eb8cc8a2b592d772da}\label{class_guidewire_sim_1_1_directors_drawer_a913a4777563f30eb8cc8a2b592d772da}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Directors\+Drawer.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_a56a7f7db653aa6056393270bff0d862b}\label{class_guidewire_sim_1_1_directors_drawer_a56a7f7db653aa6056393270bff0d862b}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!CalculateArrowHeadPositions@{CalculateArrowHeadPositions}}
+\index{CalculateArrowHeadPositions@{CalculateArrowHeadPositions}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{CalculateArrowHeadPositions()}{CalculateArrowHeadPositions()}}
+{\footnotesize\ttfamily Vector3\mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Directors\+Drawer.\+Calculate\+Arrow\+Head\+Positions (\begin{DoxyParamCaption}\item[{Vector3}]{start\+Position,  }\item[{Vector3}]{end\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Calculates the end position of each line of each arrow head. E.\+g. an arrow head consists of four lines, each of them starting at {\ttfamily end\+Position} and spreading in different directions to form the shape of an arrow tip. 
+\begin{DoxyParams}{Parameters}
+{\em start\+Position} & The start position of the director, i.\+e. the position of the orientation. \\
+\hline
+{\em end\+Position} & The position of the tip of the arrow head. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The end positions of the four lines that form the arrow head. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000011}{Requirements}}]{\ttfamily arrow\+Head\+Positions} has a length of 4. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_a78938e718c841d0ea5507883832ae4e6}\label{class_guidewire_sim_1_1_directors_drawer_a78938e718c841d0ea5507883832ae4e6}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!DrawArrowHeadConnectionLines@{DrawArrowHeadConnectionLines}}
+\index{DrawArrowHeadConnectionLines@{DrawArrowHeadConnectionLines}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{DrawArrowHeadConnectionLines()}{DrawArrowHeadConnectionLines()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Directors\+Drawer.\+Draw\+Arrow\+Head\+Connection\+Lines (\begin{DoxyParamCaption}\item[{int}]{director\+Index,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{arrow\+Head\+Positions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Draws the four lines that connect the arrow head tips with each other. E.\+g. draws the line from {\ttfamily arrow\+Head\+Positions} 0 and {\ttfamily arrow\+Head\+Positions} 1. 
+\begin{DoxyParams}{Parameters}
+{\em director\+Index} & The index of the director under consideration. \\
+\hline
+{\em arrow\+Head\+Positions} & The end positions of the four lines that form the arrow head. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_a880fe5a6d67f1bf1c543bef7db0acef5}\label{class_guidewire_sim_1_1_directors_drawer_a880fe5a6d67f1bf1c543bef7db0acef5}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!DrawArrowHeadLines@{DrawArrowHeadLines}}
+\index{DrawArrowHeadLines@{DrawArrowHeadLines}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{DrawArrowHeadLines()}{DrawArrowHeadLines()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Directors\+Drawer.\+Draw\+Arrow\+Head\+Lines (\begin{DoxyParamCaption}\item[{int}]{director\+Index,  }\item[{Vector3}]{end\+Position,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{arrow\+Head\+Positions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Draws the four lines that form the arrow head for the director that corresponds to {\ttfamily director\+Index}. 
+\begin{DoxyParams}{Parameters}
+{\em director\+Index} & The index of the director under consideration. \\
+\hline
+{\em end\+Position} & The position of the tip of the arrow head. \\
+\hline
+{\em arrow\+Head\+Positions} & The end positions of the four lines that form the arrow head. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000012}{Requirements}}]{\ttfamily arrow\+Head\+Positions} has a length of 4. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_a7de7fbf1fd192ba5596ff0d9f6e7e273}\label{class_guidewire_sim_1_1_directors_drawer_a7de7fbf1fd192ba5596ff0d9f6e7e273}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!DrawDirectors@{DrawDirectors}}
+\index{DrawDirectors@{DrawDirectors}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{DrawDirectors()}{DrawDirectors()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Directors\+Drawer.\+Draw\+Directors (\begin{DoxyParamCaption}\item[{Vector3\mbox{[}$\,$\mbox{]}}]{cylinder\+Positions,  }\item[{Vector3}]{directors\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Draws the director basis of each orientation element as arrows. 
+\begin{DoxyParams}{Parameters}
+{\em cylinder\+Positions} & The center of mass of each cylinder, i.\+e. the position of each orientation element. \\
+\hline
+{\em directors} & The orthonormal basis of each orientation element / cylinder, also called directors. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_ab07eb9618f70d2cf7888823ad0ae40d1}\label{class_guidewire_sim_1_1_directors_drawer_ab07eb9618f70d2cf7888823ad0ae40d1}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!Update@{Update}}
+\index{Update@{Update}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Directors\+Drawer.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_ab70a8cab17f1f11068a0e6d65346e087}\label{class_guidewire_sim_1_1_directors_drawer_ab70a8cab17f1f11068a0e6d65346e087}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!arrowHeadAngle@{arrowHeadAngle}}
+\index{arrowHeadAngle@{arrowHeadAngle}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{arrowHeadAngle}{arrowHeadAngle}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Directors\+Drawer.\+arrow\+Head\+Angle\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The angle spread of the arrow head. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_a6a1a4df7a01a5b8878a962bb8c6e850f}\label{class_guidewire_sim_1_1_directors_drawer_a6a1a4df7a01a5b8878a962bb8c6e850f}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!arrowHeadPercentage@{arrowHeadPercentage}}
+\index{arrowHeadPercentage@{arrowHeadPercentage}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{arrowHeadPercentage}{arrowHeadPercentage}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Directors\+Drawer.\+arrow\+Head\+Percentage\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The percentage of the length of the arrow that the arrow head covers. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_a061dfa4d81681ecbeaa9f8cb3334dae4}\label{class_guidewire_sim_1_1_directors_drawer_a061dfa4d81681ecbeaa9f8cb3334dae4}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!directorColors@{directorColors}}
+\index{directorColors@{directorColors}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{directorColors}{directorColors}}
+{\footnotesize\ttfamily Color \mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Directors\+Drawer.\+director\+Colors = new Color\mbox{[}3\mbox{]} \{Color.\+red, Color.\+green, Color.\+blue\}\hspace{0.3cm}{\ttfamily [private]}}
+
+The color that the lines representing the three directors are drawn with. \begin{DoxyNote}{Note}
+The i-\/th director is drawn in the i-\/th Color. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_a4ecc7f67498b7eed2f4cf1a14f6aa81b}\label{class_guidewire_sim_1_1_directors_drawer_a4ecc7f67498b7eed2f4cf1a14f6aa81b}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!directorOneColor@{directorOneColor}}
+\index{directorOneColor@{directorOneColor}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{directorOneColor}{directorOneColor}}
+{\footnotesize\ttfamily Color Guidewire\+Sim.\+Directors\+Drawer.\+director\+One\+Color = Color.\+green\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The color that the lines representing the first director are drawn with. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_acb2fce1f562b3ea8b906e48eb7883036}\label{class_guidewire_sim_1_1_directors_drawer_acb2fce1f562b3ea8b906e48eb7883036}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!directorThreeColor@{directorThreeColor}}
+\index{directorThreeColor@{directorThreeColor}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{directorThreeColor}{directorThreeColor}}
+{\footnotesize\ttfamily Color Guidewire\+Sim.\+Directors\+Drawer.\+director\+Three\+Color = Color.\+red\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The color that the lines representing the third director are drawn with. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_a285225ba3e78cfbd4ba8482e93258852}\label{class_guidewire_sim_1_1_directors_drawer_a285225ba3e78cfbd4ba8482e93258852}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!directorTwoColor@{directorTwoColor}}
+\index{directorTwoColor@{directorTwoColor}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{directorTwoColor}{directorTwoColor}}
+{\footnotesize\ttfamily Color Guidewire\+Sim.\+Directors\+Drawer.\+director\+Two\+Color = Color.\+blue\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The color that the lines representing the second director are drawn with. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_a7dfc0b2fad5dca054a5d02cbe64cee6e}\label{class_guidewire_sim_1_1_directors_drawer_a7dfc0b2fad5dca054a5d02cbe64cee6e}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!scaleFactor@{scaleFactor}}
+\index{scaleFactor@{scaleFactor}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{scaleFactor}{scaleFactor}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Directors\+Drawer.\+scale\+Factor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The scale factor that gets multiplied to the length of the respective director. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_directors_drawer_ac98bfaec0f3f7c0b3cc47592f3a4b520}\label{class_guidewire_sim_1_1_directors_drawer_ac98bfaec0f3f7c0b3cc47592f3a4b520}} 
+\index{GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}!simulationLoop@{simulationLoop}}
+\index{simulationLoop@{simulationLoop}!GuidewireSim.DirectorsDrawer@{GuidewireSim.DirectorsDrawer}}
+\doxysubsubsection{\texorpdfstring{simulationLoop}{simulationLoop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} Guidewire\+Sim.\+Directors\+Drawer.\+simulation\+Loop\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}}. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_directors_drawer_8cs}{Directors\+Drawer.\+cs}}\end{DoxyCompactItemize}

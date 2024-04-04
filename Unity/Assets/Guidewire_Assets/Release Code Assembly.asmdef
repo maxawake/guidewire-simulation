@@ -1,0 +1,17 @@
+{
+    "name": "ReleaseCodeAssembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a40d88304fd83b94cbaf66765992d731",
+        "GUID:54d8de80b0789fd459ac38e10a745992"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

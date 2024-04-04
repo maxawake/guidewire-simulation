@@ -1,0 +1,124 @@
+\hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint}{}\doxysection{Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint Class Reference}
+\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint}\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+Inheritance diagram for Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint}
+\end{center}
+\end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_aed2ecad2395010b323f4e5138129dfc5}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a9c1be68d12e5fc2862b7b5402441f383}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_acb05d0840321e8db35a813c727dcc5bb}{Perform\+Unit\+Tests}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_aff1029eedf08e89e1525c48376c5145d}{Test\+\_\+\+Solve\+Bend\+Twist\+Constraint}} (int iterations, BSM.\+Quaternion orientation\+One, BSM.\+Quaternion orientation\+Two, float rod\+Element\+Length, Vector3 discrete\+Rest\+Darboux\+Vector, bool log\+Delta\+Results=false)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a2be2eb23964ec32ee4a06779d74db37e}{Check\+Quaternion\+Length}} (BSM.\+Quaternion orientation)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_af42d417a73ac168675a464eaca892aeb}{Log\+Delta\+Results}} (BSM.\+Quaternion delta\+Orientation\+One, BSM.\+Quaternion delta\+Orientation\+Two)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_aed782be2181fbc15005476f6e5edec92}{Check\+Bend\+Twist\+Constraint\+Deviation}} (BSM.\+Quaternion orientation\+One, BSM.\+Quaternion orientation\+Two, float rod\+Element\+Length, Vector3 discrete\+Rest\+Darboux\+Vector)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_ab2502060a6ee72221156d8d31c898ecb}{math\+Helper}}
+\begin{DoxyCompactList}\small\item\em The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a8225a373256b4ee95dcb412b05f8e990}{constraint\+Solving\+Step}}
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a638a604e196bdde0f08556b401877b1b}{execute\+Unit\+Test}} = false
+\begin{DoxyCompactList}\small\item\em Whether or not to perform all unit tests of this script. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_afd86ec736ee5303d64b1e003285b3d25}{sample\+Size}} = 10
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_aed2ecad2395010b323f4e5138129dfc5}\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_aed2ecad2395010b323f4e5138129dfc5}} 
+\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_aed782be2181fbc15005476f6e5edec92}\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_aed782be2181fbc15005476f6e5edec92}} 
+\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}!CheckBendTwistConstraintDeviation@{CheckBendTwistConstraintDeviation}}
+\index{CheckBendTwistConstraintDeviation@{CheckBendTwistConstraintDeviation}!GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{CheckBendTwistConstraintDeviation()}{CheckBendTwistConstraintDeviation()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+Check\+Bend\+Twist\+Constraint\+Deviation (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion}]{orientation\+One,  }\item[{BSM.\+Quaternion}]{orientation\+Two,  }\item[{float}]{rod\+Element\+Length,  }\item[{Vector3}]{discrete\+Rest\+Darboux\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a2be2eb23964ec32ee4a06779d74db37e}\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a2be2eb23964ec32ee4a06779d74db37e}} 
+\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}!CheckQuaternionLength@{CheckQuaternionLength}}
+\index{CheckQuaternionLength@{CheckQuaternionLength}!GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{CheckQuaternionLength()}{CheckQuaternionLength()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+Check\+Quaternion\+Length (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion}]{orientation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_af42d417a73ac168675a464eaca892aeb}\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_af42d417a73ac168675a464eaca892aeb}} 
+\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}!LogDeltaResults@{LogDeltaResults}}
+\index{LogDeltaResults@{LogDeltaResults}!GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{LogDeltaResults()}{LogDeltaResults()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+Log\+Delta\+Results (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion}]{delta\+Orientation\+One,  }\item[{BSM.\+Quaternion}]{delta\+Orientation\+Two }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_acb05d0840321e8db35a813c727dcc5bb}\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_acb05d0840321e8db35a813c727dcc5bb}} 
+\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}!PerformUnitTests@{PerformUnitTests}}
+\index{PerformUnitTests@{PerformUnitTests}!GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{PerformUnitTests()}{PerformUnitTests()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+Perform\+Unit\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyNote}{Note}
+Only tests the case that all rod elements are aligned at rest state. If you want to test deformed rods at rest state, change {\ttfamily discrete\+Rest\+Darboux\+Vector} accordingly. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a9c1be68d12e5fc2862b7b5402441f383}\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a9c1be68d12e5fc2862b7b5402441f383}} 
+\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}!Start@{Start}}
+\index{Start@{Start}!GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_aff1029eedf08e89e1525c48376c5145d}\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_aff1029eedf08e89e1525c48376c5145d}} 
+\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}!Test\_SolveBendTwistConstraint@{Test\_SolveBendTwistConstraint}}
+\index{Test\_SolveBendTwistConstraint@{Test\_SolveBendTwistConstraint}!GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{Test\_SolveBendTwistConstraint()}{Test\_SolveBendTwistConstraint()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint (\begin{DoxyParamCaption}\item[{int}]{iterations,  }\item[{BSM.\+Quaternion}]{orientation\+One,  }\item[{BSM.\+Quaternion}]{orientation\+Two,  }\item[{float}]{rod\+Element\+Length,  }\item[{Vector3}]{discrete\+Rest\+Darboux\+Vector,  }\item[{bool}]{log\+Delta\+Results = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a8225a373256b4ee95dcb412b05f8e990}\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a8225a373256b4ee95dcb412b05f8e990}} 
+\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}!constraintSolvingStep@{constraintSolvingStep}}
+\index{constraintSolvingStep@{constraintSolvingStep}!GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{constraintSolvingStep}{constraintSolvingStep}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+constraint\+Solving\+Step\hspace{0.3cm}{\ttfamily [private]}}
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_constraint_solving_step}{Constraint\+Solving\+Step}} that is responsible for correcting the predictions with the collision and model constraints. \mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a638a604e196bdde0f08556b401877b1b}\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_a638a604e196bdde0f08556b401877b1b}} 
+\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}!executeUnitTest@{executeUnitTest}}
+\index{executeUnitTest@{executeUnitTest}!GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{executeUnitTest}{executeUnitTest}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+execute\+Unit\+Test = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether or not to perform all unit tests of this script. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_ab2502060a6ee72221156d8d31c898ecb}\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_ab2502060a6ee72221156d8d31c898ecb}} 
+\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}!mathHelper@{mathHelper}}
+\index{mathHelper@{mathHelper}!GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{mathHelper}{mathHelper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+math\+Helper\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The component \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper}{Math\+Helper}} that provides math related helper functions. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_afd86ec736ee5303d64b1e003285b3d25}\label{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_afd86ec736ee5303d64b1e003285b3d25}} 
+\index{GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}!sampleSize@{sampleSize}}
+\index{sampleSize@{sampleSize}!GuidewireSim.UnitTest\_SolveBendTwistConstraint@{GuidewireSim.UnitTest\_SolveBendTwistConstraint}}
+\doxysubsubsection{\texorpdfstring{sampleSize}{sampleSize}}
+{\footnotesize\ttfamily int Guidewire\+Sim.\+Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+sample\+Size = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+The number of value-\/pairs the test is executed with. E.\+g. if \mbox{\hyperlink{class_guidewire_sim_1_1_unit_test___solve_bend_twist_constraint_afd86ec736ee5303d64b1e003285b3d25}{sample\+Size}} is 10, then the unit test is executed with 10 randomly drawn value-\/pairs. A higher number needs more time to execute. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_unit_test___solve_bend_twist_constraint_8cs}{Unit\+Test\+\_\+\+Solve\+Bend\+Twist\+Constraint.\+cs}}\end{DoxyCompactItemize}

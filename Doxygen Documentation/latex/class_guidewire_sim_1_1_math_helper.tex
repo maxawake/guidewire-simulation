@@ -1,0 +1,456 @@
+\hypertarget{class_guidewire_sim_1_1_math_helper}{}\doxysection{Guidewire\+Sim.\+Math\+Helper Class Reference}
+\label{class_guidewire_sim_1_1_math_helper}\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+Inheritance diagram for Guidewire\+Sim.\+Math\+Helper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_math_helper}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a2104472d989b0f4bcc86912c1a10b25c}{Calculate\+Cylinder\+Positions}} (int cylinder\+Count, Vector3\mbox{[}$\,$\mbox{]} sphere\+Positions, Vector3\mbox{[}$\,$\mbox{]} cylinder\+Positions)
+\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_afd818fa7faa2e7561647519849dc897c}{Matrix\+Vector\+Multiplication}} (float\mbox{[},\mbox{]} matrix, Vector3 vector)
+\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a40f0a2f1deed47874d1e1eafa3eda627}{Column\+Vector\+Matrix\+Multiplication}} (Vector3 column\+Vector, float\mbox{[},\mbox{]} matrix)
+\item 
+float\mbox{[},\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a9f68429d3d678e9392ef9625f1513ebc}{Vector\+Column\+Vector\+Multiplication}} (Vector3 vector\+One, Vector3 column\+Vector\+Two)
+\item 
+float\mbox{[},\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a6f327c0f62d198949d055334cdf6aa8d}{Scalar\+Matrix\+Multiplication}} (float scalar, float\mbox{[},\mbox{]} matrix)
+\item 
+float\mbox{[},\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a4cdce0e8fae0174a7c94451c3571a623}{Matrix\+Inverse}} (float\mbox{[},\mbox{]} matrix)
+\item 
+BSM.\+Quaternion \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_af5d4140e6efc1d8b9b01c8f9704c271f}{Embedded\+Vector}} (Vector3 vector)
+\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a65f8e78d305ac3b646176de8f053aefe}{Imaginary\+Part}} (BSM.\+Quaternion quaternion)
+\item 
+Quaternion \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a10e3989a869d482069f361111bd4c64c}{Quaternion\+Conversion\+From\+BSM}} (BSM.\+Quaternion bsm\+Quaternion)
+\item 
+BSM.\+Quaternion \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_aa3382ce7c3d3c70810ba7d9076150897}{Quaternion\+Conversion\+To\+BSM}} (Quaternion quaternion)
+\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a0b5f7464428bff26a084d1fbbf2e3f26}{Discrete\+Darboux\+Vector}} (BSM.\+Quaternion orientation\+One, BSM.\+Quaternion orientation\+Two, float rod\+Element\+Length)
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a2394bdd34d74b73c3ff31aa5f3c5ed7f}{Darboux\+Sign\+Factor}} (Vector3 current\+Darboux\+Vector, Vector3 rest\+Darboux\+Vector)
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a218405d0ffe9ca5d41b34152416a6eb2}{Vector\+Length}} (Vector3 vector)
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a180dc9abe5fbe2d997f6a9943ae27c84}{Quaternion\+Length}} (BSM.\+Quaternion quaternion)
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a25f209759e1ab732ca2029df241f2585}{Rod\+Element\+Length\+Deviation}} (Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, float default\+Rod\+Element\+Length)
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_abf61dec851bbc38f5a63240b5fccc695}{Stretch\+Constraint\+Deviation}} (Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two, BSM.\+Quaternion orientation, BSM.\+Quaternion e\+\_\+3, float rod\+Element\+Length, bool log\+Intermediate\+Results=false)
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_af90bdf31d3b0831460340c4a9eb89bd8}{Bend\+Twist\+Constraint\+Deviation}} (BSM.\+Quaternion orientation\+One, BSM.\+Quaternion orientation\+Two, float rod\+Element\+Length, Vector3 discrete\+Rest\+Darboux\+Vector, bool log\+Intermediate\+Results=false)
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_ad6504c3474eced5602236484ddfe2615}{Rod\+Element\+Length}} (Vector3 particle\+Position\+One, Vector3 particle\+Position\+Two)
+\item 
+Vector3\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_ae8cf316956399598d7c07822b9f25f27}{Update\+Directors}} (int cylinder\+Count, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} cylinder\+Orientations, Vector3\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} directors, BSM.\+Quaternion\mbox{[}$\,$\mbox{]} world\+Space\+Basis)
+\item 
+BSM.\+Quaternion \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a512d6a02f0f473e313fdb2e7bf8e5f36}{Random\+Unit\+Quaternion}} ()
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_ada611825714e783e1dcfd752921ffc39}{Get\+Gaussian\+Random\+Number}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_math_helper_a41058723a1c508bc60f341f08e01e5ea}{Squared\+Norm}} (Vector3 vector)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class provides various helper methods for calculation. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_af90bdf31d3b0831460340c4a9eb89bd8}\label{class_guidewire_sim_1_1_math_helper_af90bdf31d3b0831460340c4a9eb89bd8}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!BendTwistConstraintDeviation@{BendTwistConstraintDeviation}}
+\index{BendTwistConstraintDeviation@{BendTwistConstraintDeviation}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{BendTwistConstraintDeviation()}{BendTwistConstraintDeviation()}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Math\+Helper.\+Bend\+Twist\+Constraint\+Deviation (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion}]{orientation\+One,  }\item[{BSM.\+Quaternion}]{orientation\+Two,  }\item[{float}]{rod\+Element\+Length,  }\item[{Vector3}]{discrete\+Rest\+Darboux\+Vector,  }\item[{bool}]{log\+Intermediate\+Results = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Returns the deviation of the bend twist constraint from zero. 
+\begin{DoxyParams}{Parameters}
+{\em orientation\+One} & $ q $ of the equation (32). \\
+\hline
+{\em orientation\+Two} & $ u $ of the equation (32). \\
+\hline
+{\em rod\+Element\+Length} & The Rod Element Length between {\ttfamily orientation\+One} and {\ttfamily orientation\+Two}. Used to calculate $ \mathbb{\Omega} $ of the equation (32). \\
+\hline
+{\em discrete\+Rest\+Darboux\+Vector} & $ \mathbb{\Omega}^0 $ of the equation (32). \\
+\hline
+{\em log\+Intermediate\+Results} & Whether to output several logs that contain intermediate results of the calculation. Default is false. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Deviation of the calculated bend twist constraint and zero. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Check the Position and Orientation Based Cosserat Rods Paper (2016), equation (32), for more information on the bend twist constraint. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a2104472d989b0f4bcc86912c1a10b25c}\label{class_guidewire_sim_1_1_math_helper_a2104472d989b0f4bcc86912c1a10b25c}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!CalculateCylinderPositions@{CalculateCylinderPositions}}
+\index{CalculateCylinderPositions@{CalculateCylinderPositions}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{CalculateCylinderPositions()}{CalculateCylinderPositions()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Math\+Helper.\+Calculate\+Cylinder\+Positions (\begin{DoxyParamCaption}\item[{int}]{cylinder\+Count,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{sphere\+Positions,  }\item[{Vector3\mbox{[}$\,$\mbox{]}}]{cylinder\+Positions }\end{DoxyParamCaption})}
+
+Calculates {\ttfamily cylinder\+Positions} as the middle points of two adjacent spheres. 
+\begin{DoxyParams}{Parameters}
+{\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+{\em sphere\+Positions} & The position at the current frame of each sphere. \\
+\hline
+{\em cylinder\+Positions} & The position/ center of mass of each cylinder. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+{\ttfamily cylinder\+Positions} is not marked as an out parameter, since {\ttfamily cylinder\+Positions} is not initialized in this method, but its values are changed. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a40f0a2f1deed47874d1e1eafa3eda627}\label{class_guidewire_sim_1_1_math_helper_a40f0a2f1deed47874d1e1eafa3eda627}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!ColumnVectorMatrixMultiplication@{ColumnVectorMatrixMultiplication}}
+\index{ColumnVectorMatrixMultiplication@{ColumnVectorMatrixMultiplication}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{ColumnVectorMatrixMultiplication()}{ColumnVectorMatrixMultiplication()}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Math\+Helper.\+Column\+Vector\+Matrix\+Multiplication (\begin{DoxyParamCaption}\item[{Vector3}]{column\+Vector,  }\item[{float}]{matrix\mbox{[},\mbox{]} }\end{DoxyParamCaption})}
+
+Calculates the multiplication of $ x^{T} M $, where $ M $ is the {\ttfamily matrix}, and $ x^{T} $ is the {\ttfamily column\+Vector} input. 
+\begin{DoxyParams}{Parameters}
+{\em matrix} & The matrix to be multiplied with the vector. \\
+\hline
+{\em vector} & The column vector $ x^{T} $ to be multiplied with the matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The multiplication $ x^{T} M $. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000016}{Requirements}}]{\ttfamily matrix} must be a $ 3 \times 3 $ matrix. \end{DoxyRefDesc}
+\begin{DoxyAttention}{Attention}
+The input vector and the output vector are both column vectors. 
+\end{DoxyAttention}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a2394bdd34d74b73c3ff31aa5f3c5ed7f}\label{class_guidewire_sim_1_1_math_helper_a2394bdd34d74b73c3ff31aa5f3c5ed7f}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!DarbouxSignFactor@{DarbouxSignFactor}}
+\index{DarbouxSignFactor@{DarbouxSignFactor}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{DarbouxSignFactor()}{DarbouxSignFactor()}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Math\+Helper.\+Darboux\+Sign\+Factor (\begin{DoxyParamCaption}\item[{Vector3}]{current\+Darboux\+Vector,  }\item[{Vector3}]{rest\+Darboux\+Vector }\end{DoxyParamCaption})}
+
+Calculates the sign factor of the current discrete Darboux Vector and the rest Darboux Vector of the same orientations. \begin{DoxyNote}{Note}
+Check the Position and Orientation Based Cosserat Rods Paper (2016) for more information on the sign factor. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Darboux\+Vector} & The discrete Darboux Vector of two fixed orientations at the current frame. \\
+\hline
+{\em rest\+Darboux\+Vector} & The rest Darboux Vector of the same two orientations at frame 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Sign Factor between these two entities. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a0b5f7464428bff26a084d1fbbf2e3f26}\label{class_guidewire_sim_1_1_math_helper_a0b5f7464428bff26a084d1fbbf2e3f26}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!DiscreteDarbouxVector@{DiscreteDarbouxVector}}
+\index{DiscreteDarbouxVector@{DiscreteDarbouxVector}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{DiscreteDarbouxVector()}{DiscreteDarbouxVector()}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Math\+Helper.\+Discrete\+Darboux\+Vector (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion}]{orientation\+One,  }\item[{BSM.\+Quaternion}]{orientation\+Two,  }\item[{float}]{rod\+Element\+Length }\end{DoxyParamCaption})}
+
+Calculates the discrete Darboux Vector of two adjacent orientations {\ttfamily orientation\+One}, {\ttfamily orientation\+Two}. 
+\begin{DoxyParams}{Parameters}
+{\em orientation\+One} & The orientation with the lower index, e.\+g. $ i $. \\
+\hline
+{\em orientation\+Two} & The orientation with the higher index, e.\+g. $ i + 1 $. \\
+\hline
+{\em rod\+Element\+Length} & The distance between two spheres, also the distance between two orientations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The discrete Darboux Vector between {\ttfamily orientation\+One} and {\ttfamily orientation\+Two}. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+There is only cylinder\+Count -\/ 1 many darboux vectors. The i-\/th Darboux Vector is between orientation i and orientation i+1. 
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+The order in which the orientations are entered matters. The Darboux Vector of $ q_1, q_2 $ is not the same as the Darboux Vector of $ q_2, q_1 $. 
+\end{DoxyAttention}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_af5d4140e6efc1d8b9b01c8f9704c271f}\label{class_guidewire_sim_1_1_math_helper_af5d4140e6efc1d8b9b01c8f9704c271f}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!EmbeddedVector@{EmbeddedVector}}
+\index{EmbeddedVector@{EmbeddedVector}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{EmbeddedVector()}{EmbeddedVector()}}
+{\footnotesize\ttfamily BSM.\+Quaternion Guidewire\+Sim.\+Math\+Helper.\+Embedded\+Vector (\begin{DoxyParamCaption}\item[{Vector3}]{vector }\end{DoxyParamCaption})}
+
+Returns a quaternion that is the embedded vector with scalar part zero. \begin{DoxyParagraph}{Example}
+$ (x, y, z) \mapsto (x, y, z, 0) $. 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The vector to be embedded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The quaternion that is the embedded vector with scalar part zero. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_ada611825714e783e1dcfd752921ffc39}\label{class_guidewire_sim_1_1_math_helper_ada611825714e783e1dcfd752921ffc39}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!GetGaussianRandomNumber@{GetGaussianRandomNumber}}
+\index{GetGaussianRandomNumber@{GetGaussianRandomNumber}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{GetGaussianRandomNumber()}{GetGaussianRandomNumber()}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Math\+Helper.\+Get\+Gaussian\+Random\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Provides a sample from $ \mathcal{N}(0,1)$ by using the Marsaglia polar method to transform a uniform distribution to a normal distribution. \begin{DoxyReturn}{Returns}
+A sample from $ \mathcal{N}(0,1)$. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+To understand this method, google the Marsaglia polar method. Note that unity does not provide a function to generate a random number following a gaussian distribution. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a65f8e78d305ac3b646176de8f053aefe}\label{class_guidewire_sim_1_1_math_helper_a65f8e78d305ac3b646176de8f053aefe}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!ImaginaryPart@{ImaginaryPart}}
+\index{ImaginaryPart@{ImaginaryPart}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{ImaginaryPart()}{ImaginaryPart()}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Math\+Helper.\+Imaginary\+Part (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion}]{quaternion }\end{DoxyParamCaption})}
+
+Returns the imaginary part of a {\ttfamily quaternion}. \begin{DoxyParagraph}{Example}
+$ (x, y, z, w) \mapsto (x, y, z) $. 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}{Parameters}
+{\em quaternion} & The quaternion whose imaginary part to return. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The imaginary part of a {\ttfamily quaternion}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a4cdce0e8fae0174a7c94451c3571a623}\label{class_guidewire_sim_1_1_math_helper_a4cdce0e8fae0174a7c94451c3571a623}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!MatrixInverse@{MatrixInverse}}
+\index{MatrixInverse@{MatrixInverse}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{MatrixInverse()}{MatrixInverse()}}
+{\footnotesize\ttfamily float\mbox{[},\mbox{]} Guidewire\+Sim.\+Math\+Helper.\+Matrix\+Inverse (\begin{DoxyParamCaption}\item[{float}]{matrix\mbox{[},\mbox{]} }\end{DoxyParamCaption})}
+
+Calculates the inverse of a $ 3 \times 3 $ matrix $ M $. 
+\begin{DoxyParams}{Parameters}
+{\em matrix} & The matrix to \\
+\hline
+{\em column\+Vector\+Two} & The column vector $ x^{T} $ to be multiplied. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting $ 3 \times 3 $ matrix of the multiplication $ x v^{T} $. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_afd818fa7faa2e7561647519849dc897c}\label{class_guidewire_sim_1_1_math_helper_afd818fa7faa2e7561647519849dc897c}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!MatrixVectorMultiplication@{MatrixVectorMultiplication}}
+\index{MatrixVectorMultiplication@{MatrixVectorMultiplication}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{MatrixVectorMultiplication()}{MatrixVectorMultiplication()}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Math\+Helper.\+Matrix\+Vector\+Multiplication (\begin{DoxyParamCaption}\item[{float}]{matrix\mbox{[},\mbox{]},  }\item[{Vector3}]{vector }\end{DoxyParamCaption})}
+
+Calculates the multiplication of $ M x $, where $ M $ is the {\ttfamily matrix}, and $ x $ is the {\ttfamily vector} input. 
+\begin{DoxyParams}{Parameters}
+{\em matrix} & The matrix to be multiplied with the vector. \\
+\hline
+{\em vector} & The vector to be multiplied with the matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The multiplication $ M x $. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000015}{Requirements}}]{\ttfamily matrix} must be a $ 3 \times 3 $ matrix. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a10e3989a869d482069f361111bd4c64c}\label{class_guidewire_sim_1_1_math_helper_a10e3989a869d482069f361111bd4c64c}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!QuaternionConversionFromBSM@{QuaternionConversionFromBSM}}
+\index{QuaternionConversionFromBSM@{QuaternionConversionFromBSM}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{QuaternionConversionFromBSM()}{QuaternionConversionFromBSM()}}
+{\footnotesize\ttfamily Quaternion Guidewire\+Sim.\+Math\+Helper.\+Quaternion\+Conversion\+From\+BSM (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion}]{bsm\+Quaternion }\end{DoxyParamCaption})}
+
+Takes as input a BSM.\+Quaternion and returns a Unity\+Engine.\+Quaternion. 
+\begin{DoxyParams}{Parameters}
+{\em bsm\+Quaternion} & The BSM.\+Quaternion to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The converted Unity\+Engine.\+Quaternion. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_aa3382ce7c3d3c70810ba7d9076150897}\label{class_guidewire_sim_1_1_math_helper_aa3382ce7c3d3c70810ba7d9076150897}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!QuaternionConversionToBSM@{QuaternionConversionToBSM}}
+\index{QuaternionConversionToBSM@{QuaternionConversionToBSM}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{QuaternionConversionToBSM()}{QuaternionConversionToBSM()}}
+{\footnotesize\ttfamily BSM.\+Quaternion Guidewire\+Sim.\+Math\+Helper.\+Quaternion\+Conversion\+To\+BSM (\begin{DoxyParamCaption}\item[{Quaternion}]{quaternion }\end{DoxyParamCaption})}
+
+Takes as input a Unity\+Engine.\+Quaternion and returns a BSM.\+Quaternion. 
+\begin{DoxyParams}{Parameters}
+{\em bsm\+Quaternion} & The Unity\+Engine.\+Quaternion to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The converted BSM.\+Quaternion. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a180dc9abe5fbe2d997f6a9943ae27c84}\label{class_guidewire_sim_1_1_math_helper_a180dc9abe5fbe2d997f6a9943ae27c84}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!QuaternionLength@{QuaternionLength}}
+\index{QuaternionLength@{QuaternionLength}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{QuaternionLength()}{QuaternionLength()}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Math\+Helper.\+Quaternion\+Length (\begin{DoxyParamCaption}\item[{BSM.\+Quaternion}]{quaternion }\end{DoxyParamCaption})}
+
+Returns the quaternion length of {\ttfamily quaternion}, i.\+e. $ \sqrt{x^2 + y^2 + z^2 + w^2} $. 
+\begin{DoxyParams}{Parameters}
+{\em quaternion} & The quaternion whose length to return. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The quaternion length of {\ttfamily quaternion}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a512d6a02f0f473e313fdb2e7bf8e5f36}\label{class_guidewire_sim_1_1_math_helper_a512d6a02f0f473e313fdb2e7bf8e5f36}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!RandomUnitQuaternion@{RandomUnitQuaternion}}
+\index{RandomUnitQuaternion@{RandomUnitQuaternion}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{RandomUnitQuaternion()}{RandomUnitQuaternion()}}
+{\footnotesize\ttfamily BSM.\+Quaternion Guidewire\+Sim.\+Math\+Helper.\+Random\+Unit\+Quaternion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Provides a random unit quaternion drawn from a gaussian distribution. \begin{DoxyReturn}{Returns}
+A random unit quaternion drawn from a gaussian distribution. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This works by drawing four random, gaussian distributed, numbers, and filling the components of the quaternion with these numbers. Mathematically, this is equal to drawing a quaternion from a gaussian distribution in $ \mathcal{R}^{4} $, since the joint distribution of gaussian samples is again gaussian. 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Requirements}
+\item[\mbox{\hyperlink{requirement__requirement000017}{Requirements}}]The length of the drawn quaternion is approximately equal to one. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_ad6504c3474eced5602236484ddfe2615}\label{class_guidewire_sim_1_1_math_helper_ad6504c3474eced5602236484ddfe2615}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!RodElementLength@{RodElementLength}}
+\index{RodElementLength@{RodElementLength}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{RodElementLength()}{RodElementLength()}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Math\+Helper.\+Rod\+Element\+Length (\begin{DoxyParamCaption}\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two }\end{DoxyParamCaption})}
+
+Calculates the rod element length between {\ttfamily particle\+Position\+One} and {\ttfamily particle\+Position\+Two}. 
+\begin{DoxyParams}{Parameters}
+{\em particle\+Position\+One} & The first particle of the rod element under consideration. \\
+\hline
+{\em particle\+Position\+Two} & The first particle of the rod element under consideration. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rod element length. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a25f209759e1ab732ca2029df241f2585}\label{class_guidewire_sim_1_1_math_helper_a25f209759e1ab732ca2029df241f2585}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!RodElementLengthDeviation@{RodElementLengthDeviation}}
+\index{RodElementLengthDeviation@{RodElementLengthDeviation}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{RodElementLengthDeviation()}{RodElementLengthDeviation()}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Math\+Helper.\+Rod\+Element\+Length\+Deviation (\begin{DoxyParamCaption}\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two,  }\item[{float}]{default\+Rod\+Element\+Length }\end{DoxyParamCaption})}
+
+Returns the deviation between the actual distance of {\ttfamily particle\+Position\+One} and {\ttfamily particle\+Position\+Two} (current Rod Element Length) and the {\ttfamily default\+Rod\+Element\+Length}. 
+\begin{DoxyParams}{Parameters}
+{\em particle\+Position\+One} & The first particle under consideration for the rod element length. \\
+\hline
+{\em particle\+Position\+Two} & The first particle under consideration for the rod element length. \\
+\hline
+{\em default\+Rod\+Element\+Length} & The rod element length at rest state (i.\+e. frame 0) between these two particles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The deviation between the actual rod element length and the default rod element length. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a6f327c0f62d198949d055334cdf6aa8d}\label{class_guidewire_sim_1_1_math_helper_a6f327c0f62d198949d055334cdf6aa8d}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!ScalarMatrixMultiplication@{ScalarMatrixMultiplication}}
+\index{ScalarMatrixMultiplication@{ScalarMatrixMultiplication}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{ScalarMatrixMultiplication()}{ScalarMatrixMultiplication()}}
+{\footnotesize\ttfamily float\mbox{[},\mbox{]} Guidewire\+Sim.\+Math\+Helper.\+Scalar\+Matrix\+Multiplication (\begin{DoxyParamCaption}\item[{float}]{scalar,  }\item[{float}]{matrix\mbox{[},\mbox{]} }\end{DoxyParamCaption})}
+
+Calculates the multiplication of $ a M $, where $ a $ is a scalar , and $ M $ is a $ 3 \times 3 $ matrix. 
+\begin{DoxyParams}{Parameters}
+{\em scalar} & The scalar to be multiplied. \\
+\hline
+{\em matrix} & The matrix $ M $ to be multiplied. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting $ 3 \times 3 $ matrix of the multiplication $ a M $. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a41058723a1c508bc60f341f08e01e5ea}\label{class_guidewire_sim_1_1_math_helper_a41058723a1c508bc60f341f08e01e5ea}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!SquaredNorm@{SquaredNorm}}
+\index{SquaredNorm@{SquaredNorm}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{SquaredNorm()}{SquaredNorm()}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Math\+Helper.\+Squared\+Norm (\begin{DoxyParamCaption}\item[{Vector3}]{vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Returns the squared norm of a {\ttfamily vector}. 
+\begin{DoxyParams}{Parameters}
+{\em vector} & The vector whose squared norm to return. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Squared norm of {\ttfamily vector}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_abf61dec851bbc38f5a63240b5fccc695}\label{class_guidewire_sim_1_1_math_helper_abf61dec851bbc38f5a63240b5fccc695}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!StretchConstraintDeviation@{StretchConstraintDeviation}}
+\index{StretchConstraintDeviation@{StretchConstraintDeviation}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{StretchConstraintDeviation()}{StretchConstraintDeviation()}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Math\+Helper.\+Stretch\+Constraint\+Deviation (\begin{DoxyParamCaption}\item[{Vector3}]{particle\+Position\+One,  }\item[{Vector3}]{particle\+Position\+Two,  }\item[{BSM.\+Quaternion}]{orientation,  }\item[{BSM.\+Quaternion}]{e\+\_\+3,  }\item[{float}]{rod\+Element\+Length,  }\item[{bool}]{log\+Intermediate\+Results = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Returns the deviation of the stretch constraint from zero. 
+\begin{DoxyParams}{Parameters}
+{\em particle\+Position\+One} & $ p_1 $ of the equation (31). \\
+\hline
+{\em particle\+Position\+Two} & $ p_2 $ of the equation (31). \\
+\hline
+{\em orientation} & $ q $ of the equation (31). \\
+\hline
+{\em e\+\_\+3} & $ e_3 $ of the equation (31). \\
+\hline
+{\em rod\+Element\+Length} & $ l $ of the equation (31). \\
+\hline
+{\em log\+Intermediate\+Results} & Whether to output several logs that contain intermediate results of the calculation. Default is false. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Deviation of the calculated stretch constraint and zero. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Check the Position and Orientation Based Cosserat Rods Paper (2016), equation (31), for more information on the stretch constraint. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_ae8cf316956399598d7c07822b9f25f27}\label{class_guidewire_sim_1_1_math_helper_ae8cf316956399598d7c07822b9f25f27}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!UpdateDirectors@{UpdateDirectors}}
+\index{UpdateDirectors@{UpdateDirectors}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{UpdateDirectors()}{UpdateDirectors()}}
+{\footnotesize\ttfamily Vector3\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Guidewire\+Sim.\+Math\+Helper.\+Update\+Directors (\begin{DoxyParamCaption}\item[{int}]{cylinder\+Count,  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{cylinder\+Orientations,  }\item[{Vector3}]{directors\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]},  }\item[{BSM.\+Quaternion\mbox{[}$\,$\mbox{]}}]{world\+Space\+Basis }\end{DoxyParamCaption})}
+
+Updates all directors of each orientation at the update step of the simulation loop. \begin{DoxyParagraph}{Example}
+The directors $ d_1, d_2, d_3 $ are calculated as $ d_i = q \cdot e_i \cdot \bar{q} $ for each orientation $ q$, where $ e_i $ is the i-\/th world space basis vector. In quaternion calculus, this means rotating $ e_i $ by $ q $. 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}{Parameters}
+{\em cylinder\+Count} & The count of all cylinders of the guidewire. Equals the length of {\ttfamily cylinder\+Orientation\+Predictions}. \\
+\hline
+{\em cylinder\+Orientations} & The orientation of each cylinder at its center of mass. \\
+\hline
+{\em directors} & The orthonormal basis of each orientation element / cylinder, also called directors. \\
+\hline
+{\em world\+Space\+Basis} & The three basis vectors of the world coordinate system. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+All directors of each orientation. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a9f68429d3d678e9392ef9625f1513ebc}\label{class_guidewire_sim_1_1_math_helper_a9f68429d3d678e9392ef9625f1513ebc}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!VectorColumnVectorMultiplication@{VectorColumnVectorMultiplication}}
+\index{VectorColumnVectorMultiplication@{VectorColumnVectorMultiplication}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{VectorColumnVectorMultiplication()}{VectorColumnVectorMultiplication()}}
+{\footnotesize\ttfamily float\mbox{[},\mbox{]} Guidewire\+Sim.\+Math\+Helper.\+Vector\+Column\+Vector\+Multiplication (\begin{DoxyParamCaption}\item[{Vector3}]{vector\+One,  }\item[{Vector3}]{column\+Vector\+Two }\end{DoxyParamCaption})}
+
+Calculates the multiplication of $ x v^{T} $, where $ x $ is a (row) vector , and $ v^{T} $ is a column vector. 
+\begin{DoxyParams}{Parameters}
+{\em vector\+One} & The (row) vector to be multiplied. \\
+\hline
+{\em column\+Vector\+Two} & The column vector $ x^{T} $ to be multiplied. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting $ 3 \times 3 $ matrix of the multiplication $ x v^{T} $. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_math_helper_a218405d0ffe9ca5d41b34152416a6eb2}\label{class_guidewire_sim_1_1_math_helper_a218405d0ffe9ca5d41b34152416a6eb2}} 
+\index{GuidewireSim.MathHelper@{GuidewireSim.MathHelper}!VectorLength@{VectorLength}}
+\index{VectorLength@{VectorLength}!GuidewireSim.MathHelper@{GuidewireSim.MathHelper}}
+\doxysubsubsection{\texorpdfstring{VectorLength()}{VectorLength()}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Math\+Helper.\+Vector\+Length (\begin{DoxyParamCaption}\item[{Vector3}]{vector }\end{DoxyParamCaption})}
+
+Returns the vector length of {\ttfamily vector}, i.\+e. $ \sqrt{x_1^2 + x_2^2 + x_3^2} $ for a three-\/dimensional vector. 
+\begin{DoxyParams}{Parameters}
+{\em vector} & The vector whose length to return. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vector length of {\ttfamily vector}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_math_helper_8cs}{Math\+Helper.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,145 @@
+\hypertarget{class_guidewire_sim_1_1_collision_test_performer}{}\doxysection{Guidewire\+Sim.\+Collision\+Test\+Performer Class Reference}
+\label{class_guidewire_sim_1_1_collision_test_performer}\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+Inheritance diagram for Guidewire\+Sim.\+Collision\+Test\+Performer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_collision_test_performer}
+\end{center}
+\end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_a61f2b6adc6b0b07e13cafe24be08404e}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_ae7de8089f4e01b2482a59e11ddf039e0}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_a4266450dd3924a834dca1dd26406bfc9}{Perform\+Collision\+Tests}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_a3f1375e5aec30b63b81dd24f754ccef1}{Perform\+Collision\+Test\+One}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_a6f179f9b45ad110b68e55be3a35f1e53}{Perform\+Collision\+Test\+Two}} (float apply\+Force\+Time=1.\+5f)
+\item 
+IEnumerator \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_aaae1d9affda581675433bc0195811b16}{Perform\+Collision\+Test\+Three}} (float exit\+Velocity=4f)
+\item 
+IEnumerator \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_a65864601995038dcd835c60723cfd20c}{Perform\+Collision\+Test\+Four}} (float pull\+Force\+Factor=0.\+3f)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_a8802f7304feacd4ea5a026a9986acaa6}{simulation\+Loop}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} component that executes all steps of the simulation loop. \end{DoxyCompactList}\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_a8bc8eff02195c6e870cc581fafa0358c}{pull\+Force}} = new Vector3(0f, 0f, 5f)
+\begin{DoxyCompactList}\small\item\em External force that is applied in Force Test Three. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_a84ddd17141ae81acb6dd54a6bc67cf3b}{do\+Collision\+Test\+One}} = false
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_a668660472bee084be33f3494980318f4}{do\+Collision\+Test\+Two}} = false
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_adde4685de16b0778fa3c87440b19f267}{do\+Collision\+Test\+Three}} = false
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_afbde3491eed1815b5a03bf9e19fae5ba}{do\+Collision\+Test\+Four}} = false
+\item 
+float \mbox{\hyperlink{class_guidewire_sim_1_1_collision_test_performer_ab8ac913de7c3eb936d3169bbc27c2073}{start\+Time}} = 0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_a61f2b6adc6b0b07e13cafe24be08404e}\label{class_guidewire_sim_1_1_collision_test_performer_a61f2b6adc6b0b07e13cafe24be08404e}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Test\+Performer.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_a65864601995038dcd835c60723cfd20c}\label{class_guidewire_sim_1_1_collision_test_performer_a65864601995038dcd835c60723cfd20c}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!PerformCollisionTestFour@{PerformCollisionTestFour}}
+\index{PerformCollisionTestFour@{PerformCollisionTestFour}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformCollisionTestFour()}{PerformCollisionTestFour()}}
+{\footnotesize\ttfamily IEnumerator Guidewire\+Sim.\+Collision\+Test\+Performer.\+Perform\+Collision\+Test\+Four (\begin{DoxyParamCaption}\item[{float}]{pull\+Force\+Factor = {\ttfamily 0.3f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_a3f1375e5aec30b63b81dd24f754ccef1}\label{class_guidewire_sim_1_1_collision_test_performer_a3f1375e5aec30b63b81dd24f754ccef1}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!PerformCollisionTestOne@{PerformCollisionTestOne}}
+\index{PerformCollisionTestOne@{PerformCollisionTestOne}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformCollisionTestOne()}{PerformCollisionTestOne()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Test\+Performer.\+Perform\+Collision\+Test\+One (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs torque test one. This test applies an external force to one end of the guidewire. \mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_a4266450dd3924a834dca1dd26406bfc9}\label{class_guidewire_sim_1_1_collision_test_performer_a4266450dd3924a834dca1dd26406bfc9}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!PerformCollisionTests@{PerformCollisionTests}}
+\index{PerformCollisionTests@{PerformCollisionTests}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformCollisionTests()}{PerformCollisionTests()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Test\+Performer.\+Perform\+Collision\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs each Torque Test whose respective serialized boolean is set to true in the Unity inspector. \mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_aaae1d9affda581675433bc0195811b16}\label{class_guidewire_sim_1_1_collision_test_performer_aaae1d9affda581675433bc0195811b16}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!PerformCollisionTestThree@{PerformCollisionTestThree}}
+\index{PerformCollisionTestThree@{PerformCollisionTestThree}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformCollisionTestThree()}{PerformCollisionTestThree()}}
+{\footnotesize\ttfamily IEnumerator Guidewire\+Sim.\+Collision\+Test\+Performer.\+Perform\+Collision\+Test\+Three (\begin{DoxyParamCaption}\item[{float}]{exit\+Velocity = {\ttfamily 4f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_a6f179f9b45ad110b68e55be3a35f1e53}\label{class_guidewire_sim_1_1_collision_test_performer_a6f179f9b45ad110b68e55be3a35f1e53}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!PerformCollisionTestTwo@{PerformCollisionTestTwo}}
+\index{PerformCollisionTestTwo@{PerformCollisionTestTwo}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformCollisionTestTwo()}{PerformCollisionTestTwo()}}
+{\footnotesize\ttfamily IEnumerator Guidewire\+Sim.\+Collision\+Test\+Performer.\+Perform\+Collision\+Test\+Two (\begin{DoxyParamCaption}\item[{float}]{apply\+Force\+Time = {\ttfamily 1.5f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_ae7de8089f4e01b2482a59e11ddf039e0}\label{class_guidewire_sim_1_1_collision_test_performer_ae7de8089f4e01b2482a59e11ddf039e0}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!Start@{Start}}
+\index{Start@{Start}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Collision\+Test\+Performer.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_afbde3491eed1815b5a03bf9e19fae5ba}\label{class_guidewire_sim_1_1_collision_test_performer_afbde3491eed1815b5a03bf9e19fae5ba}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!doCollisionTestFour@{doCollisionTestFour}}
+\index{doCollisionTestFour@{doCollisionTestFour}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doCollisionTestFour}{doCollisionTestFour}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Collision\+Test\+Performer.\+do\+Collision\+Test\+Four = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_a84ddd17141ae81acb6dd54a6bc67cf3b}\label{class_guidewire_sim_1_1_collision_test_performer_a84ddd17141ae81acb6dd54a6bc67cf3b}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!doCollisionTestOne@{doCollisionTestOne}}
+\index{doCollisionTestOne@{doCollisionTestOne}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doCollisionTestOne}{doCollisionTestOne}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Collision\+Test\+Performer.\+do\+Collision\+Test\+One = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_adde4685de16b0778fa3c87440b19f267}\label{class_guidewire_sim_1_1_collision_test_performer_adde4685de16b0778fa3c87440b19f267}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!doCollisionTestThree@{doCollisionTestThree}}
+\index{doCollisionTestThree@{doCollisionTestThree}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doCollisionTestThree}{doCollisionTestThree}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Collision\+Test\+Performer.\+do\+Collision\+Test\+Three = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_a668660472bee084be33f3494980318f4}\label{class_guidewire_sim_1_1_collision_test_performer_a668660472bee084be33f3494980318f4}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!doCollisionTestTwo@{doCollisionTestTwo}}
+\index{doCollisionTestTwo@{doCollisionTestTwo}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doCollisionTestTwo}{doCollisionTestTwo}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Collision\+Test\+Performer.\+do\+Collision\+Test\+Two = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_a8bc8eff02195c6e870cc581fafa0358c}\label{class_guidewire_sim_1_1_collision_test_performer_a8bc8eff02195c6e870cc581fafa0358c}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!pullForce@{pullForce}}
+\index{pullForce@{pullForce}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{pullForce}{pullForce}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Collision\+Test\+Performer.\+pull\+Force = new Vector3(0f, 0f, 5f)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+External force that is applied in Force Test Three. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_a8802f7304feacd4ea5a026a9986acaa6}\label{class_guidewire_sim_1_1_collision_test_performer_a8802f7304feacd4ea5a026a9986acaa6}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!simulationLoop@{simulationLoop}}
+\index{simulationLoop@{simulationLoop}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{simulationLoop}{simulationLoop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} Guidewire\+Sim.\+Collision\+Test\+Performer.\+simulation\+Loop\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} component that executes all steps of the simulation loop. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_collision_test_performer_ab8ac913de7c3eb936d3169bbc27c2073}\label{class_guidewire_sim_1_1_collision_test_performer_ab8ac913de7c3eb936d3169bbc27c2073}} 
+\index{GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}!startTime@{startTime}}
+\index{startTime@{startTime}!GuidewireSim.CollisionTestPerformer@{GuidewireSim.CollisionTestPerformer}}
+\doxysubsubsection{\texorpdfstring{startTime}{startTime}}
+{\footnotesize\ttfamily float Guidewire\+Sim.\+Collision\+Test\+Performer.\+start\+Time = 0f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_collision_test_performer_8cs}{Collision\+Test\+Performer.\+cs}}\end{DoxyCompactItemize}

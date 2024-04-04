@@ -1,0 +1,172 @@
+\hypertarget{class_guidewire_sim_1_1_force_test_performer}{}\doxysection{Guidewire\+Sim.\+Force\+Test\+Performer Class Reference}
+\label{class_guidewire_sim_1_1_force_test_performer}\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+Inheritance diagram for Guidewire\+Sim.\+Force\+Test\+Performer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guidewire_sim_1_1_force_test_performer}
+\end{center}
+\end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_a3f1e85db64792cd9039ae248729bed40}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_ab3a4f4906d48cf6c693501fd6d27fd46}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_a6034113bf73477bfba766976981ddff0}{Perform\+Force\+Tests}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_a93958f9881effd519bb2ac60fd4eddcd}{Perform\+Force\+Test\+One}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_ae3d42ccb5a67d0ff0b2ef9535c3b1c43}{Perform\+Force\+Test\+Two}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_a647326d021bf08243930aeaa34311f67}{Perform\+Force\+Test\+Three}} (Vector3 pull\+Force, float apply\+Force\+Time=1f)
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_a823cb0ddd35b0bedee2b93be20cac78e}{Perform\+Force\+Test\+Four}} ()
+\item 
+void \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_ae7022fd8e2e18a35ff624f0ed2f46619}{Perform\+Single\+Loop\+Test}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_a01acdcc6f38cfbd432e91979d2665fcc}{simulation\+Loop}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} component that executes all steps of the simulation loop. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_ad378214d0f818a9ccba036230cd653d0}{do\+Force\+Test\+One}} = false
+\begin{DoxyCompactList}\small\item\em Whether to run Force Test One. This test applies gravity to all spheres. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_aa1e0691f72dda564ae594fe3c5d74405}{do\+Force\+Test\+Two}} = false
+\begin{DoxyCompactList}\small\item\em Whether to run Force Test Two. This test applies an external force to one end of the guidewire. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_a07615b54977c86ac2adff412f1caf9ea}{do\+Force\+Test\+Three}} = false
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_a48fa1a463f93cf03057b76e0ca2d2470}{do\+Force\+Test\+Four}} = false
+\item 
+bool \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_a1a731e89ff7425c9b2216f3266e6c631}{do\+Single\+Loop\+Test}} = false
+\item 
+Vector3 \mbox{\hyperlink{class_guidewire_sim_1_1_force_test_performer_a5651c93e9388dfc141a6d3a69e5e2871}{pull\+Force\+Test\+Three}} = new Vector3(0f, 3f, 0f)
+\begin{DoxyCompactList}\small\item\em External force that is applied in Force Test Three. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class enables the user to test the impact of external forces with one button within the Unity inspector. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_a3f1e85db64792cd9039ae248729bed40}\label{class_guidewire_sim_1_1_force_test_performer_a3f1e85db64792cd9039ae248729bed40}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!Awake@{Awake}}
+\index{Awake@{Awake}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Force\+Test\+Performer.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_a823cb0ddd35b0bedee2b93be20cac78e}\label{class_guidewire_sim_1_1_force_test_performer_a823cb0ddd35b0bedee2b93be20cac78e}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!PerformForceTestFour@{PerformForceTestFour}}
+\index{PerformForceTestFour@{PerformForceTestFour}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformForceTestFour()}{PerformForceTestFour()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Force\+Test\+Performer.\+Perform\+Force\+Test\+Four (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs force test four. This test applies an external force to one end of the guidewire and the opposite force at the other end of the guidewire. \mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_a93958f9881effd519bb2ac60fd4eddcd}\label{class_guidewire_sim_1_1_force_test_performer_a93958f9881effd519bb2ac60fd4eddcd}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!PerformForceTestOne@{PerformForceTestOne}}
+\index{PerformForceTestOne@{PerformForceTestOne}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformForceTestOne()}{PerformForceTestOne()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Force\+Test\+Performer.\+Perform\+Force\+Test\+One (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs force test one. This test applies gravity to all spheres. \mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_a6034113bf73477bfba766976981ddff0}\label{class_guidewire_sim_1_1_force_test_performer_a6034113bf73477bfba766976981ddff0}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!PerformForceTests@{PerformForceTests}}
+\index{PerformForceTests@{PerformForceTests}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformForceTests()}{PerformForceTests()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Force\+Test\+Performer.\+Perform\+Force\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs each Force Test whose respective serialized boolean is set to true in the Unity inspector. \mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_a647326d021bf08243930aeaa34311f67}\label{class_guidewire_sim_1_1_force_test_performer_a647326d021bf08243930aeaa34311f67}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!PerformForceTestThree@{PerformForceTestThree}}
+\index{PerformForceTestThree@{PerformForceTestThree}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformForceTestThree()}{PerformForceTestThree()}}
+{\footnotesize\ttfamily IEnumerator Guidewire\+Sim.\+Force\+Test\+Performer.\+Perform\+Force\+Test\+Three (\begin{DoxyParamCaption}\item[{Vector3}]{pull\+Force,  }\item[{float}]{apply\+Force\+Time = {\ttfamily 1f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs force test three. This test applies an external force to one end of the guidewire for a fixed amount of time and then the opposite force at the same sphere for the same amount of time. 
+\begin{DoxyParams}{Parameters}
+{\em apply\+Force\+Time} & For how many seconds to apply the force to the particles. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_ae3d42ccb5a67d0ff0b2ef9535c3b1c43}\label{class_guidewire_sim_1_1_force_test_performer_ae3d42ccb5a67d0ff0b2ef9535c3b1c43}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!PerformForceTestTwo@{PerformForceTestTwo}}
+\index{PerformForceTestTwo@{PerformForceTestTwo}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformForceTestTwo()}{PerformForceTestTwo()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Force\+Test\+Performer.\+Perform\+Force\+Test\+Two (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs force test two. This test applies an external force to one end of the guidewire. \mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_ae7022fd8e2e18a35ff624f0ed2f46619}\label{class_guidewire_sim_1_1_force_test_performer_ae7022fd8e2e18a35ff624f0ed2f46619}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!PerformSingleLoopTest@{PerformSingleLoopTest}}
+\index{PerformSingleLoopTest@{PerformSingleLoopTest}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{PerformSingleLoopTest()}{PerformSingleLoopTest()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Force\+Test\+Performer.\+Perform\+Single\+Loop\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Performs the single loop test. This test shifts one end of the guidewire and runs the simulation for exactly one loop iteration to test constraint solving. \begin{DoxyNote}{Note}
+Position of particle one stays at (0, 0, 0), while the section particle shifts to about (10, 2, 0). Expected result is that both particles move a bit towards each other and reestablish a distance of 10 between them. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_ab3a4f4906d48cf6c693501fd6d27fd46}\label{class_guidewire_sim_1_1_force_test_performer_ab3a4f4906d48cf6c693501fd6d27fd46}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!Start@{Start}}
+\index{Start@{Start}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Guidewire\+Sim.\+Force\+Test\+Performer.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_a48fa1a463f93cf03057b76e0ca2d2470}\label{class_guidewire_sim_1_1_force_test_performer_a48fa1a463f93cf03057b76e0ca2d2470}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!doForceTestFour@{doForceTestFour}}
+\index{doForceTestFour@{doForceTestFour}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doForceTestFour}{doForceTestFour}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Force\+Test\+Performer.\+do\+Force\+Test\+Four = false\hspace{0.3cm}{\ttfamily [private]}}
+
+Whether to run Force Test Four. This test applies an external force to one end of the guidewire and the opposite force at the other end of the guidewire. \mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_ad378214d0f818a9ccba036230cd653d0}\label{class_guidewire_sim_1_1_force_test_performer_ad378214d0f818a9ccba036230cd653d0}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!doForceTestOne@{doForceTestOne}}
+\index{doForceTestOne@{doForceTestOne}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doForceTestOne}{doForceTestOne}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Force\+Test\+Performer.\+do\+Force\+Test\+One = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether to run Force Test One. This test applies gravity to all spheres. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_a07615b54977c86ac2adff412f1caf9ea}\label{class_guidewire_sim_1_1_force_test_performer_a07615b54977c86ac2adff412f1caf9ea}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!doForceTestThree@{doForceTestThree}}
+\index{doForceTestThree@{doForceTestThree}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doForceTestThree}{doForceTestThree}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Force\+Test\+Performer.\+do\+Force\+Test\+Three = false\hspace{0.3cm}{\ttfamily [private]}}
+
+Whether to run Force Test Three. This test applies an external force to one end of the guidewire for a fixed amount of time and then the opposite force at the same sphere for the same amount of time. \mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_aa1e0691f72dda564ae594fe3c5d74405}\label{class_guidewire_sim_1_1_force_test_performer_aa1e0691f72dda564ae594fe3c5d74405}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!doForceTestTwo@{doForceTestTwo}}
+\index{doForceTestTwo@{doForceTestTwo}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doForceTestTwo}{doForceTestTwo}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Force\+Test\+Performer.\+do\+Force\+Test\+Two = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether to run Force Test Two. This test applies an external force to one end of the guidewire. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_a1a731e89ff7425c9b2216f3266e6c631}\label{class_guidewire_sim_1_1_force_test_performer_a1a731e89ff7425c9b2216f3266e6c631}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!doSingleLoopTest@{doSingleLoopTest}}
+\index{doSingleLoopTest@{doSingleLoopTest}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{doSingleLoopTest}{doSingleLoopTest}}
+{\footnotesize\ttfamily bool Guidewire\+Sim.\+Force\+Test\+Performer.\+do\+Single\+Loop\+Test = false\hspace{0.3cm}{\ttfamily [private]}}
+
+Whether to run the Single Loop Test. This test shifts one end of the guidewire and runs the simulation for exactly one loop iteration to test constraint solving. \mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_a5651c93e9388dfc141a6d3a69e5e2871}\label{class_guidewire_sim_1_1_force_test_performer_a5651c93e9388dfc141a6d3a69e5e2871}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!pullForceTestThree@{pullForceTestThree}}
+\index{pullForceTestThree@{pullForceTestThree}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{pullForceTestThree}{pullForceTestThree}}
+{\footnotesize\ttfamily Vector3 Guidewire\+Sim.\+Force\+Test\+Performer.\+pull\+Force\+Test\+Three = new Vector3(0f, 3f, 0f)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+External force that is applied in Force Test Three. 
+
+\mbox{\Hypertarget{class_guidewire_sim_1_1_force_test_performer_a01acdcc6f38cfbd432e91979d2665fcc}\label{class_guidewire_sim_1_1_force_test_performer_a01acdcc6f38cfbd432e91979d2665fcc}} 
+\index{GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}!simulationLoop@{simulationLoop}}
+\index{simulationLoop@{simulationLoop}!GuidewireSim.ForceTestPerformer@{GuidewireSim.ForceTestPerformer}}
+\doxysubsubsection{\texorpdfstring{simulationLoop}{simulationLoop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} Guidewire\+Sim.\+Force\+Test\+Performer.\+simulation\+Loop\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The \mbox{\hyperlink{class_guidewire_sim_1_1_simulation_loop}{Simulation\+Loop}} component that executes all steps of the simulation loop. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_force_test_performer_8cs}{Force\+Test\+Performer.\+cs}}\end{DoxyCompactItemize}
