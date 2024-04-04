@@ -109,7 +109,7 @@ def run_unity_for_obj(obj_path, log_file_path, decimation_value, z_displacement,
         Unity process.
     """
 
-    unity_app_path = "/home/max/Nextcloud/Praktikum/Code/guidewire-simulation/Unity/test_max8.x86_64"
+    unity_app_path = "/home/max/Nextcloud/Praktikum/Code/guidewire-simulation/Unity/test_max.x86_64"
 
     command_args = [
         unity_app_path,
@@ -143,7 +143,7 @@ def run_unity_for_obj(obj_path, log_file_path, decimation_value, z_displacement,
     args_concat = " ".join(command_args)
     with open(log_file_path, "w") as f:
         f.write(args_concat)
-    proc = subprocess.Popen(command_args)
+    proc = subprocess.run(command_args)
     return proc
 
 
@@ -260,7 +260,7 @@ if __name__ == "__main__":
                 proc = run_unity_for_obj(obj_paths[-1], log_file_path, reduction_value, z_displacement, params)
 
                 # Entering a loop to wait for the Unity process to complete. 
-                check_termination(log_file_path, start_time, proc)
+                #check_termination(log_file_path, start_time, proc)
 
                 # Halving the rod_element_length and time_step for the next iteration to increase simulation accuracy --> this influence is analyzed, therefore we repeat the same measurement several times for the same mesh and other parameters. Instead of changing the rod_element_length we can also change the time_step in the same way/ idea
                 params["rod_element_length"] /= 2
