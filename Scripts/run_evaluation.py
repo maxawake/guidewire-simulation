@@ -109,7 +109,7 @@ def run_unity_for_obj(obj_path, log_file_path, decimation_value, z_displacement,
         Unity process.
     """
 
-    unity_app_path = "/home/max/Nextcloud/Praktikum/Code/guidewire-simulation/Unity/test_max.x86_64"
+    unity_app_path = "/home/max/Documents/Unity/Guidewire-Simulation/test_max_2.x86_64"
 
     command_args = [
         unity_app_path,
@@ -140,9 +140,9 @@ def run_unity_for_obj(obj_path, log_file_path, decimation_value, z_displacement,
         command_args.extend(["-secondObjPath", second_obj_path])
         
     # Launching the Unity application with the specified arguments using subprocess
-    args_concat = " ".join(command_args)
-    with open(log_file_path, "w") as f:
-        f.write(args_concat)
+    # args_concat = " ".join(command_args)
+    # with open(log_file_path, "w") as f:
+    #     f.write(args_concat)
     proc = subprocess.run(command_args)
     return proc
 
