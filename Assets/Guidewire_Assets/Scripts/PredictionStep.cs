@@ -59,6 +59,7 @@ public class PredictionStep : MonoBehaviour
 
         return sphereVelocities;
     }
+    // TODO: Verlet integration somewhere here
     // public Vector3[] PredictSphereVelocities(Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
     // {
     //     for (int sphereIndex = 0; sphereIndex < sphereVelocities.Length; sphereIndex++)
@@ -81,58 +82,59 @@ public class PredictionStep : MonoBehaviour
     public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
                                     Vector3[] sphereVelocities)
     {
-    // TODO: What is going on here??
-    // string filePath = "/home/max/Temp/Praktikum/debugPredictPosition"; // File path
-    // for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
-    // {
-    //     // If this is the first call and we are at the first sphere, apply the special offset
-    //     if (firstCall && sphereIndex == 0)
-    //     {
-	//     spherePositionPredictions[0] = spherePositions[0] + new Vector3(0, 0, zDisplacement); // Used zDisplacement here
-    //         using (StreamWriter writer = new StreamWriter(filePath, true))  // 'true' parameter appends to the file
-    //         {
-    //             //writer.WriteLine("First call, first sphere: special offset applied.");
-    //         }
-    //     }
-    //     else
-    //     {
-    //         spherePositionPredictions[sphereIndex] =spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex];
-    //         if (firstCall && sphereIndex == 0) // This condition should never be true, but adding for completeness
-    //         {
-    //             using (StreamWriter writer = new StreamWriter(filePath, true))
-    //             {
-    //                 //writer.WriteLine("First call, first sphere: special offset NOT applied.");
-    //             }
-    //         }
-    //         else
-    //         {
-    //             using (StreamWriter writer = new StreamWriter(filePath, true))
-    //             {
-    //                 //writer.WriteLine($"Subsequent calls or other spheres: regular update applied for sphere {sphereIndex}.");
-    //             }
-    //         }
-    //     }
-    //         using (StreamWriter writer = new StreamWriter("/home/max/Temp/Praktikum/Position#N.txt", true))
-    // {
-    //     //writer.WriteLine("PredictSpherePositions called. firstCall: " + firstCall);
-    //     // Add additional logging if needed
-    // }
+        // TODO: What is going on here??
+        // string filePath = "/home/max/Temp/Praktikum/debugPredictPosition"; // File path
+        // for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
+        // {
+        //     // If this is the first call and we are at the first sphere, apply the special offset
+        //     if (firstCall && sphereIndex == 0)
+        //     {
+        //     spherePositionPredictions[0] = spherePositions[0] + new Vector3(0, 0, zDisplacement); // Used zDisplacement here
+        //         using (StreamWriter writer = new StreamWriter(filePath, true))  // 'true' parameter appends to the file
+        //         {
+        //             //writer.WriteLine("First call, first sphere: special offset applied.");
+        //         }
+        //     }
+        //     else
+        //     {
+        //         spherePositionPredictions[sphereIndex] =spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex];
+        //         if (firstCall && sphereIndex == 0) // This condition should never be true, but adding for completeness
+        //         {
+        //             using (StreamWriter writer = new StreamWriter(filePath, true))
+        //             {
+        //                 //writer.WriteLine("First call, first sphere: special offset NOT applied.");
+        //             }
+        //         }
+        //         else
+        //         {
+        //             using (StreamWriter writer = new StreamWriter(filePath, true))
+        //             {
+        //                 //writer.WriteLine($"Subsequent calls or other spheres: regular update applied for sphere {sphereIndex}.");
+        //             }
+        //         }
+        //     }
+        //         using (StreamWriter writer = new StreamWriter("/home/max/Temp/Praktikum/Position#N.txt", true))
+        // {
+        //     //writer.WriteLine("PredictSpherePositions called. firstCall: " + firstCall);
+        //     // Add additional logging if needed
+        // }
 
-    // }
+        // }
 
-    // // Update the flag so the special case won't be applied again
-    // if (firstCall)
-    // {
-    //     firstCall = false;
-    // }
+        // // Update the flag so the special case won't be applied again
+        // if (firstCall)
+        // {
+        //     firstCall = false;
+        // }
 
-    for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
-        {
-            spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex];
-        }
+        for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
+            {
+                spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex];
+            }
 
-    return spherePositionPredictions;
-}
+        return spherePositionPredictions;
+    }
+    // TODO: Verlet integration somewhere here
     // public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions, Vector3[] sphereVelocities, Vector3[] sphereExternalForces, float[] sphereInverseMasses)
     // {
     //     for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
