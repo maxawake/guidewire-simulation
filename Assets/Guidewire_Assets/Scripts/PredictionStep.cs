@@ -28,14 +28,25 @@ public class PredictionStep : MonoBehaviour
      */
     public Vector3[] PredictSphereVelocities(Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
     {
+        Vector3 calc = Time.deltaTime * sphereInverseMasses[1] * sphereExternalForces[1];
+
         for (int sphereIndex = 0; sphereIndex < sphereVelocities.Length; sphereIndex++)
         {
-            Vector3 acceleration = sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
-            sphereVelocities[sphereIndex] += Time.deltaTime * acceleration;
+            sphereVelocities[sphereIndex] += Time.deltaTime * sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
         }
 
         return sphereVelocities;
     }
+    // public Vector3[] PredictSphereVelocities(Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
+    // {
+    //     for (int sphereIndex = 0; sphereIndex < sphereVelocities.Length; sphereIndex++)
+    //     {
+    //         Vector3 acceleration = sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
+    //         sphereVelocities[sphereIndex] += Time.deltaTime * acceleration;
+    //     }
+
+    //     return sphereVelocities;
+    // }
 
     /**
      * Calculates the predictions for the sphere positions for the prediction step of the algorithm using Verlet integration.
@@ -45,48 +56,34 @@ public class PredictionStep : MonoBehaviour
      * @param sphereVelocities The velocity of the current frame of each sphere.
      * @return The prediction of the position at the current frame of each sphere, i.e. spherePositionPredictions.
      */
-    public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions, Vector3[] sphereVelocities, Vector3[] sphereExternalForces, float[] sphereInverseMasses)
+    public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
+                                            Vector3[] sphereVelocities)
     {
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
-            Vector3 acceleration = sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
-
-            Vector3 currentPosition = spherePositionPredictions[sphereIndex];
-            Vector3 previousPosition = spherePositions[sphereIndex];
-
-            Vector3 newPosition = 2 * currentPosition - previousPosition + acceleration * Time.deltaTime;
-
-            spherePositionPredictions[sphereIndex] = newPosition;
-
-            Debug.Log("Index" + sphereIndex + "External Force: " + sphereExternalForces[sphereIndex] + " Acceleration: " + acceleration + " Position: " + newPosition);
+            spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex];
         }
 
         return spherePositionPredictions;
     }
- 
-    // public Vector3[] PredictSphereVelocities(Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
-    // {
-    //     Vector3 calc = Time.deltaTime * sphereInverseMasses[1] * sphereExternalForces[1];
-
-    //     for (int sphereIndex = 0; sphereIndex < sphereVelocities.Length; sphereIndex++)
-    //     {
-    //         sphereVelocities[sphereIndex] += Time.deltaTime * sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
-    //     }
-
-    //     return sphereVelocities;
-    // }
-
-    // public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
-    //                                         Vector3[] sphereVelocities)
+    // public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions, Vector3[] sphereVelocities, Vector3[] sphereExternalForces, float[] sphereInverseMasses)
     // {
     //     for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
     //     {
-    //         spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex];
+    //         Vector3 acceleration = sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
+
+    //         Vector3 currentPosition = spherePositionPredictions[sphereIndex];
+    //         Vector3 previousPosition = spherePositions[sphereIndex];
+
+    //         Vector3 newPosition = 2 * currentPosition - previousPosition + acceleration * Time.deltaTime;
+
+    //         spherePositionPredictions[sphereIndex] = newPosition;
+
+    //         Debug.Log("Index" + sphereIndex + "External Force: " + sphereExternalForces[sphereIndex] + " Acceleration: " + acceleration + " Position: " + newPosition);
     //     }
 
     //     return spherePositionPredictions;
     // }
-    
 
     /**
      * Calculates the predictions for the angular velocities for the prediction step of the algorithm.

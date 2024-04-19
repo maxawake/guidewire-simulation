@@ -304,7 +304,8 @@ public class SimulationLoop : MonoBehaviour
     private void PerformPredictionStep()
     {
         sphereVelocities = predictionStep.PredictSphereVelocities(sphereVelocities, sphereInverseMasses, sphereExternalForces);
-        spherePositionPredictions = predictionStep.PredictSpherePositions(spherePositionPredictions, SpheresCount, spherePositions, sphereVelocities, sphereExternalForces, sphereInverseMasses);
+        spherePositionPredictions = predictionStep.PredictSpherePositions(spherePositionPredictions, SpheresCount, spherePositions, sphereVelocities);
+        //spherePositionPredictions = predictionStep.PredictSpherePositions(spherePositionPredictions, SpheresCount, spherePositions, sphereVelocities, sphereExternalForces, sphereInverseMasses);
         cylinderAngularVelocities = predictionStep.PredictAngularVelocities(cylinderAngularVelocities, CylinderCount, inertiaTensor,
                                                                             cylinderExternalTorques, inverseInertiaTensor);
         cylinderOrientationPredictions = predictionStep.PredictCylinderOrientations(cylinderOrientationPredictions, CylinderCount,
