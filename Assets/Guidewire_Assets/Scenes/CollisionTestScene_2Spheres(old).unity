@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44658786, g: 0.49642265, b: 0.57482505, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -367,6 +367,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3901088838006394844, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: doCollisionTestTwo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901088838006394844, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
+      propertyPath: doCollisionTestFour
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901088838006394844, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
+      propertyPath: setLastSphereInMotion
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007088, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
@@ -413,6 +421,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
+      propertyPath: followingCamera
+      value: 
+      objectReference: {fileID: 430987649}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: spheres.Array.data[0]
       value: 

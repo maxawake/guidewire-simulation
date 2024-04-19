@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using BSM = BulletSharp.Math;
+using System.IO; 
 
 namespace GuidewireSim
 {
@@ -10,7 +11,11 @@ namespace GuidewireSim
  * This class executes and implements various algorithms of the constraint solving step of the algorithm and manages all coherent data.
  */
 public class ConstraintSolvingStep : MonoBehaviour
-{
+{   
+    // TODO: Check if can be outsourced
+    private SimulationLoop simulationLoop; // Declare simulationLoop
+    private float rodElementLength; // Declare rodElementLength
+
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
 
     Vector3 deltaPositionOne = new Vector3(); //!< The correction of @p particlePositionOne in method SolveStretchConstraint().
@@ -19,6 +24,7 @@ public class ConstraintSolvingStep : MonoBehaviour
     BSM.Quaternion deltaOrientationOne = new BSM.Quaternion(); //!< The correction of @p orientationOne in method SolveBendTwistConstraint().
     BSM.Quaternion deltaOrientationTwo = new BSM.Quaternion(); //!< The correction of @p orientationTwo in method SolveBendTwistConstraint().
 
+    // TODO: Check value
     float stretchStiffness = 0.1f;
     float bendStiffness = 0.1f;
 
@@ -29,6 +35,9 @@ public class ConstraintSolvingStep : MonoBehaviour
     {
         mathHelper = GetComponent<MathHelper>();
         Assert.IsNotNull(mathHelper);
+        // TODO: Check if can be outsourced
+        simulationLoop = GetComponent<SimulationLoop>(); // Initialize simulationLoop
+        rodElementLength = simulationLoop.GetRodElementLength(); // Initialize rodElementLength
     }
 
     /**
@@ -44,8 +53,7 @@ public class ConstraintSolvingStep : MonoBehaviour
      * @req @p rodElementLength should be positive.
      * @req Executes the constraint solving step in bilateral interleaving order if #executeInBilateralOrder and otherwise in naive order.
      */
-    public void SolveStretchConstraints(Vector3[] spherePositionPredictions, BSM.Quaternion[] cylinderOrientationPredictions,
-                                        int spheresCount, BSM.Quaternion[] worldSpaceBasis, float rodElementLength)
+    public void SolveStretchConstraints(Vector3[] spherePositionPredictions, BSM.Quaternion[] cylinderOrientationPredictions, int spheresCount, BSM.Quaternion[] worldSpaceBasis, float rodElementLength)
     {
         Assert.IsTrue(spheresCount >= 1);
         Assert.IsTrue(rodElementLength > 0f);
@@ -284,6 +292,9 @@ public class ConstraintSolvingStep : MonoBehaviour
                                        out Vector3 deltaPositionTwo, out BSM.Quaternion deltaOrientation, float inverseMassOne = 1f,
                                        float inverseMassTwo = 1f, float inertiaWeight = 1f)
     {
+        // TODO: Check if needed
+        //float inverseMassValue = ((1000/rodElementLength)+1)/10f; 
+        // TODO: Why is value changed?
         Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(orientation), tolerance: 0.01f);
         Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(e_3), tolerance: 0.01f);
         Assert.IsTrue(rodElementLength > 0f);
@@ -292,6 +303,8 @@ public class ConstraintSolvingStep : MonoBehaviour
         Assert.IsTrue(inertiaWeight >= 0f && inertiaWeight <= 1f);
 
         Vector3 thirdDirector = mathHelper.ImaginaryPart(orientation * e_3 * BSM.Quaternion.Conjugate(orientation));
+        // TODO: Why do we need this?
+        // float denominator = inverseMassValue + inverseMassValue + 4 * inertiaWeight * rodElementLength * rodElementLength;
         float denominator = inverseMassOne + inverseMassTwo + 4 * inertiaWeight * rodElementLength * rodElementLength;
 
         Vector3 factor = (1f / rodElementLength) * (particlePositionTwo - particlePositionOne) - thirdDirector;
@@ -300,9 +313,18 @@ public class ConstraintSolvingStep : MonoBehaviour
         float quaternionScalarFactor = 2f * inertiaWeight * rodElementLength * rodElementLength / denominator;
         BSM.Quaternion quaternionProduct = embeddedFactor * orientation * BSM.Quaternion.Conjugate(e_3);
 
+        // TODO: Why is value changed?
+        // deltaPositionOne = inverseMassValue * rodElementLength * factor / denominator;
+        // deltaPositionTwo = - inverseMassValue * rodElementLength * factor / denominator;
         deltaPositionOne = inverseMassOne * rodElementLength * factor / denominator;
         deltaPositionTwo = - inverseMassTwo * rodElementLength * factor / denominator;
+
         deltaOrientation = quaternionScalarFactor * quaternionProduct;
+
+        // TODO: See if can be oursourced
+        //string debugFilePath = "/home/max/Temp/Praktikum/DebugConstraint.txt";
+    	//string content = $"inverseMassValue: {inverseMassValue}, denominator: {denominator}\n";
+    	//File.AppendAllText(debugFilePath, content);
     }
 
     /**
@@ -351,19 +373,28 @@ public class ConstraintSolvingStep : MonoBehaviour
      * @req The relevant entries of @p cylinderOrientationPredictions should be unit quaternions, i.e. have length approximately equal to one.
      * @req After the quaternion prediction got corrected, it should again be a unit quaternions, i.e. have length approximately equal to one.
      */
-    private void CorrectStretchPredictions(int sphereIndex, Vector3[] spherePositionPredictions, BSM.Quaternion[] cylinderOrientationPredictions)
+private void CorrectStretchPredictions(int sphereIndex, Vector3[] spherePositionPredictions, BSM.Quaternion[] cylinderOrientationPredictions)
+{
+    Assert.IsTrue(sphereIndex >= 0);
+    Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[sphereIndex]), tolerance: 0.01f);
+
+    spherePositionPredictions[sphereIndex] += stretchStiffness * deltaPositionOne;
+    spherePositionPredictions[sphereIndex + 1] += stretchStiffness * deltaPositionTwo;
+    cylinderOrientationPredictions[sphereIndex] += stretchStiffness * deltaOrientation;
+
+    cylinderOrientationPredictions[sphereIndex].Normalize();
+
+    Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[sphereIndex]), tolerance: 0.01f);
+    // TODO: Check if can be outsourced
+    string path = "/home/max/Temp/Praktikum/LogConstraints.txt";
+
+    using (StreamWriter writer = new StreamWriter(path, true)) // true to append data to the file
     {
-        Assert.IsTrue(sphereIndex >= 0);
-        Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[sphereIndex]), tolerance: 0.01f);
-
-        spherePositionPredictions[sphereIndex] += stretchStiffness * deltaPositionOne;
-        spherePositionPredictions[sphereIndex + 1] += stretchStiffness * deltaPositionTwo;
-        cylinderOrientationPredictions[sphereIndex] += stretchStiffness * deltaOrientation;
-
-        cylinderOrientationPredictions[sphereIndex].Normalize();
-
-        Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[sphereIndex]), tolerance: 0.01f);
+        // Log the deltaPositionOne and deltaPositionTwo to the file
+        //writer.WriteLine($"Delta Position One: {1000 * deltaPositionOne}");
+        //writer.WriteLine($"Delta Position Two: {1000 * deltaPositionTwo}");
     }
+}
 
     /**
      * Corrects the predictions of the bend twist constraint by adding @p deltaOrientationOne and @p deltaOrientationTwo.

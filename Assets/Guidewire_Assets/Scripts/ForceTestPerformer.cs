@@ -73,7 +73,9 @@ public class ForceTestPerformer : MonoBehaviour
      * Performs force test two. This test applies an external force to one end of the guidewire.
      */
     private void PerformForceTestTwo()
-    {
+    {   
+        // Check value
+        //Vector3 pullForce = new Vector3(0f, 0f, 15f);
         Vector3 pullForce = new Vector3(0f, 0.3f, 0f);
 
         for (int sphereIndex = 0; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)

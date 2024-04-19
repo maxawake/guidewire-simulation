@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using BSM = BulletSharp.Math;
+using System.IO; 
 
 namespace GuidewireSim
 {
@@ -12,6 +13,8 @@ namespace GuidewireSim
 public class UpdateStep : MonoBehaviour
 {
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
+    // TODO: Is this needed?
+    // private Vector3[] lastSphereVelocities;
 
     private void Awake()
     {
@@ -27,9 +30,37 @@ public class UpdateStep : MonoBehaviour
      * @param spherePositions The position at the current frame of each sphere.
      * @return The velocity of the current frame of each sphere, i.e. @p sphereVelocities.
      */
-    public Vector3[] UpdateSphereVelocities(Vector3[] sphereVelocities, int spheresCount, Vector3[] spherePositionPredictions,
-                                            Vector3[] spherePositions)
-    {
+    public Vector3[] UpdateSphereVelocities(Vector3[] sphereVelocities, int spheresCount, Vector3[] spherePositionPredictions, 
+    Vector3[] spherePositions)
+    {   
+        // TODO: Check differences
+        // string debugFilePath = "/home/max/Temp/Praktikum/DebugVelocities.txt";
+        // using (StreamWriter writer = new StreamWriter(debugFilePath, true)) 
+        // {
+        //     for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
+        //     {
+        //         if (sphereIndex == 0) // Check if it's the first sphere
+        //         {
+        //             sphereVelocities[sphereIndex] = Vector3.zero; // Set velocity to (0, 0, 0)
+        //         }
+        //         else
+        //         {
+        //             // Update the velocity for other spheres
+        //             Vector3 newVelocity = (spherePositionPredictions[sphereIndex] - spherePositions[sphereIndex]) / Time.deltaTime;
+        //             sphereVelocities[sphereIndex] = newVelocity;
+        //         }
+
+        //         writer.WriteLine($"After Update: Sphere Index: {sphereIndex}, {1* sphereVelocities[sphereIndex]}");
+        //     }
+        //         CreationScript creationScript = GameObject.Find("GameObject (1)").GetComponent<CreationScript>();
+        //         if (creationScript != null)
+        //         {
+        //         creationScript.UpdateSphereVelocities(sphereVelocities);
+        //         }
+        // }
+
+        // return sphereVelocities;
+
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
             sphereVelocities[sphereIndex] = (spherePositionPredictions[sphereIndex] - spherePositions[sphereIndex]) / Time.deltaTime;
@@ -45,13 +76,20 @@ public class UpdateStep : MonoBehaviour
      * @param spherePositionPredictions The prediction of the position at the current frame of each sphere (in this case of the last frame).
      * @return The position at the current frame of each sphere, i.e. @p spherePositions.
      */
-    public Vector3[] UpdateSpherePositions(Vector3[] spherePositions, int spheresCount, Vector3[] spherePositionPredictions)
+public Vector3[] UpdateSpherePositions(Vector3[] spherePositions, int spheresCount, Vector3[] spherePositionPredictions)
     {
-        for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
+        // Initialize StreamWriter to write to the specified file.
+        // This will append to the file if it already exists.
+        using (StreamWriter writer = new StreamWriter("/home/max/Temp/Praktikum/UpdateStepDebug.txt", true))
         {
-            spherePositions[sphereIndex] = spherePositionPredictions[sphereIndex];
+            for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
+            {
+                // Write the position before updating to the file.
+                //writer.WriteLine($"Before Update: Sphere Index: {sphereIndex}, {spherePositions[sphereIndex].ToString()}");
+                // Update the position.
+                spherePositions[sphereIndex] = spherePositionPredictions[sphereIndex];
+            }
         }
-
         return spherePositions;
     }
 
@@ -87,7 +125,8 @@ public class UpdateStep : MonoBehaviour
      */
     public BSM.Quaternion[] UpdateCylinderOrientations(BSM.Quaternion[] cylinderOrientations, int cylinderCount,
                                                      BSM.Quaternion[] cylinderOrientationPredictions)
-    {
+    {   
+        // TODO: Why is the first cylinder not updated? Was 1 before
         for (int cylinderIndex = 0; cylinderIndex < cylinderCount; cylinderIndex++)
         {
             cylinderOrientations[cylinderIndex] = cylinderOrientationPredictions[cylinderIndex];

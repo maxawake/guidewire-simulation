@@ -4,21 +4,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using BSM = BulletSharp.Math;
+using System.IO;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 
 namespace GuidewireSim
 {
 /**
  * This class executes the outer simuluation loop of the algorithm and calls the implementations of each algorithm step and manages all coherent data.
  */
+// TODO: Do we need these RequireComponent attributes?
 [RequireComponent(typeof(InitializationStep))]
 [RequireComponent(typeof(MathHelper))]
 public class SimulationLoop : MonoBehaviour
 {
+    // TODO: What is going on here?
+    private bool isFirstCall = true; 
+    //public int count; //hier aus CreationScript
+    //CreationScript creationScript; //hier -""-
+    private Stopwatch stopwatch;
+    public Camera followingCamera;  // Drag your camera here in the Unity Editor
+    private Vector3 cameraOffset = new Vector3(0, 781, 0); // The offset of the camera in the y direction is 781
+    private string logFilePath = "";
+    // TODO: End
+
     InitializationStep initializationStep; //!< The component InitializationStep that is responsible for initializing the simulation.
     PredictionStep predictionStep; //!< The component PredictionStep that is responsible for executing the Prediction Step of the algorithm.
     ConstraintSolvingStep constraintSolvingStep; /**< The component ConstraintSolvingStep that is responsible for correcting the predictions
-                                                  *   with the collision and model constraints.
-                                                  */
+                                            *   with the collision and model constraints.
+                                            */
     UpdateStep updateStep; //!< The component UpdateStep that is responsible for executing the Update Step of the algorithm.
     ObjectSetter objectSetter; //!< The component ObjectSetter that is responsible for setting all positions and rotations the the GameObjects.
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
@@ -26,19 +40,22 @@ public class SimulationLoop : MonoBehaviour
     CollisionHandler collisionHandler; //!< The component CollisionHandler that tracks all collisions.
 
     [SerializeField] public GameObject[] spheres; /**< All spheres that are part of the guidewire.
-                                        *   @attention The order in which the spheres are assigned matters. Assign them such that
-                                        *   two adjacent spheres are adjacent in the array as well.
-                                        */
+                                *   @attention The order in which the spheres are assigned matters. Assign them such that
+                                *   two adjacent spheres are adjacent in the array as well.
+                                */
     [SerializeField] GameObject[] cylinders; /**< All cylinders that are part of the guidewire.
-                                              *   @attention The order in which the cylinders are assigned matters. Assign them such that
-                                              *   two adjacent cylinders are adjacent in the array as well.
-                                              */
+                                        *   @attention The order in which the cylinders are assigned matters. Assign them such that
+                                        *   two adjacent cylinders are adjacent in the array as well.
+                                        */
 
     [HideInInspector] public Vector3[] spherePositions; //!< The position at the current frame of each sphere.
     [HideInInspector] public Vector3[] sphereVelocities; //!< The velocity of the current frame of each sphere. Initalized with zero entries.
+    // TODO: What is the purpose of this array?
     [HideInInspector] public float[] sphereInverseMasses; /**< The constant inverse masses  of each sphere.
-                                                           *   @note Set to 1 for moving spheres and to 0 for fixed spheres.
-                                                           */
+
+    // public float[] sphereInverseMasses; /**< The constant inverse masses  of each sphere.
+                                                    *   @note Set to 1 for moving spheres and to 0 for fixed spheres.
+                                                    */
     [HideInInspector] public Vector3[] sphereExternalForces; //!< The sum of all current external forces that are applied per particle/ sphere.
     Vector3[] spherePositionPredictions; //!< The prediction of the position at the current frame of each sphere.
     
@@ -78,6 +95,11 @@ public class SimulationLoop : MonoBehaviour
     public bool solveBendTwistConstraints = true; //!< Whether or not to perform the constraint solving of the bend twist constraint.
     public bool solveCollisionConstraints = true; //!< Whether or not to perform the constraint solving of collision constraints.
 
+    // TODO: Why here?
+    public float GetRodElementLength(){
+    	return rodElementLength;
+    }   
+
     float rodElementLength = 10f; /**< The distance between two spheres, also the distance between two orientations.
                                 *   Also the length of one cylinder.
                                 *   @note This should be two times the radius of a sphere.
@@ -91,6 +113,9 @@ public class SimulationLoop : MonoBehaviour
                                                                                  */
     public int ConstraintSolverSteps { get { return constraintSolverSteps; }
                                        set { constraintSolverSteps = value; } }
+
+    // TODO: Why private?
+    //private float timeStep;
     [SerializeField] [Range(0.002f, 0.04f)] float timeStep = 0.01f; /**< The fixed time step in seconds at which the simulation runs.
                                                                       *  @note A lower timestep than 0.002 can not be guaranteed by
                                                                       *  the test hardware to be executed in time. Only choose a lower timestep if
@@ -100,9 +125,54 @@ public class SimulationLoop : MonoBehaviour
 
     public int SpheresCount { get; private set; } //!< The count of all #spheres of the guidewire.
     public int CylinderCount { get; private set; } //!< The count of all #cylinders of the guidewire.
-
+    
     private void Awake()
-    {
+    {        
+        // TODO: Can this be outsourced?
+    	//GameObject creationObject = GameObject.Find("GameObjectCreationScript");    //hier aus creation script, alle 3 zeilen
+    	//creationScript = creationObject.GetComponent<CreationScript>();
+    	//int count = creationScript.spheresCount;
+
+    	string[] args = System.Environment.GetCommandLineArgs();
+    	for (int i = 0; i < args.Length; i++)
+    	{
+        	if (args[i] == "-logFilePath" && args.Length > i + 1)
+        	{
+            		logFilePath = args[i + 1];
+        	}
+        	else if (args[i] == "-timeStep" && args.Length > i + 1)
+        	{
+           		if (float.TryParse(args[i + 1], out float parsedTimeStep))
+            		{
+                		timeStep = parsedTimeStep;
+            		}
+            		else
+            		{
+                		Debug.LogError("Failed to parse timeStep from command-line arguments. Using default value.");
+                		timeStep = 0.01f;
+            		}
+        	}
+    	}
+    	
+    	for (int i = 0; i < args.Length; i++)
+    	{
+        
+        	if (args[i] == "-rodElementLength" && args.Length > i + 1)
+        	{
+            		if (float.TryParse(args[i + 1], out float parsedRodElementLength))
+            		{
+                		rodElementLength = parsedRodElementLength;
+            		}
+            		else
+            		{
+                		Debug.LogError("Failed to parse rodElementLength from command-line arguments. Using default value.");
+                		rodElementLength = 50f;
+            		}
+       	}
+    	}            
+        stopwatch = new Stopwatch();
+        // TODO: end
+
         Assert.IsFalse(spheres.Length == 0);
         Assert.IsFalse(cylinders.Length == 0);
         Assert.IsTrue(spheres.Length == cylinders.Length + 1);
@@ -130,35 +200,90 @@ public class SimulationLoop : MonoBehaviour
 
         collisionHandler = GetComponent<CollisionHandler>();
         Assert.IsNotNull(collisionHandler);
-    }
 
-    private void Start()
-    {
-        Time.fixedDeltaTime = timeStep;
+        // TODO: why is this here?
+        // Get command line arguments
+        //string[] args = System.Environment.GetCommandLineArgs();
+        for (int i = 0; i < args.Length; i++)
+        {
+            if (args[i] == "-logFilePath" && args.Length > i + 1)
+            {
+                logFilePath = args[i + 1];
+            }
+        }
+        // TODO: end
+        }
 
-        PerformInitializationStep();
+        private void Start()
+        {
+            Time.fixedDeltaTime = timeStep;
 
-        // SetSpherePositions(); // are already set
-        objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
-        objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
-    }
+            PerformInitializationStep();
+
+            objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
+            objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
+        }
 
     /**
      * @req Execute the simulation loop if and only if #ExecuteSingleLoopTest is false.
      */
     private void FixedUpdate()
-    {
+    {   
+        // TODO: Do we need this?
+        stopwatch.Restart();
+        SavePositionsToFile();
+
         if (ExecuteSingleLoopTest) return;
 
         PerformSimulationLoop();
+
+        // TODO: What is the rest doing?
+        UpdateCameraPosition();
+
+        stopwatch.Stop();
+        long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+        UnityEngine.Debug.Log($"FixedUpdate took {elapsedMilliseconds} ms");
+        
+        string filePath = "/home/max/Temp/Praktikum/TimeCalculationsFixedUpdate.txt";
+        using (StreamWriter writer = new StreamWriter(filePath, true))
+        {
+            //writer.WriteLine($"FixedUpdate took {elapsedMilliseconds} ms");
+        }
+        
+        string filePath2 = "/home/max/Temp/Praktikum/LogConstraints.txt";
+        using (StreamWriter writer = new StreamWriter(filePath2, true))
+        {
+            //writer.WriteLine($"FixedUpdate took place");
+        }      
     }
 
-    /**
-     * Calls every step that is mandatory to declare and initialize all data.
-     * @req Set #SpheresCount to the length of #spheres.
-     * @req Set #CylinderCount to the length of #cylinders.
-     * @req Call every init method of #initializationStep.
-     */
+    // TODO Create documentation
+    public void SavePositionsToFile()
+    {
+        string logFilePath1 = $"/home/max/Temp/Praktikum/Position#All.txt";
+        using (StreamWriter writer = new StreamWriter(logFilePath1, true))
+        {
+            for (int i = 0; i < spheres.Length; i++)
+            {
+                Vector3 spherePosition = spheres[i].transform.position;
+                writer.WriteLine("Sphere " + (i + 1) + " Position: " + spherePosition.x + "," + spherePosition.y + "," + spherePosition.z);
+            }
+        }
+        //fixedUpdateCounter++; // Increment the counter for the next file name
+    }
+
+    // TODO Create documentation
+    private void UpdateCameraPosition()
+    {
+        if (spheres != null && spheres.Length > 0)
+        {
+                GameObject lastSphere = spheres[spheres.Length-1];
+                Vector3 newCameraPosition = lastSphere.transform.position + cameraOffset;
+                followingCamera.transform.position = newCameraPosition;
+        }
+    }
+
+
     private void PerformInitializationStep()
     {
         SpheresCount = spheres.Length;
@@ -196,6 +321,14 @@ public class SimulationLoop : MonoBehaviour
         PerformPredictionStep();
         AdaptCalculations();
         SetCollidersStep();
+        // TODO: Is this still needed?
+        if (solveStretchConstraints)
+        {
+        //List<Vector3> allDeltaPositionOnes = constraintSolvingStep.GetAllDeltaPositionOnes();
+    //List<Vector3> allDeltaPositionTwos = constraintSolvingStep.GetAllDeltaPositionTwos();
+    //List<BSM.Quaternion> allDeltaOrientations = constraintSolvingStep.GetAllDeltaOrientations();
+        //Debug.Log($"All Stretch Corrections - DeltaPositionOnes: {string.Join(", ", allDeltaPositionOnes)}, DeltaPositionTwos: {string.Join(", ", allDeltaPositionTwos)}, DeltaOrientations: {string.Join(", ", allDeltaOrientations)}");
+        }
     }
 
     /**
@@ -221,42 +354,79 @@ public class SimulationLoop : MonoBehaviour
             Assert.IsTrue(SpheresCount >= 2);
             Assert.IsTrue(CylinderCount >= 1);
         }
+
         if (solveBendTwistConstraints)
         {
             Assert.IsTrue(CylinderCount >= 2);
             Assert.IsTrue(SpheresCount >= 3);
         }
 
-            // if (solveCollisionConstraints)
-            // {
-            //     collisionSolvingStep.SolveCollisionConstraints(spherePositionPredictions);
-            // }
+        // TODO: Something from alex
+        // if (solveCollisionConstraints)
+        // {
+        //     collisionSolvingStep.SolveCollisionConstraints(spherePositionPredictions);
+        // }
 
         for (int solverStep = 0; solverStep < ConstraintSolverSteps; solverStep++)
         {
+            
+            // TODO: Can this be outsourced?
+            string filePath = "/home/max/Temp/Praktikum/LastSphereConstraintPositions";
+            using (StreamWriter writer = new StreamWriter(filePath, true))  // 'true' parameter appends to the file
+            {
+                //writer.WriteLine($"Start of Constraint Solving - Last sphere position: {spherePositionPredictions[0]}");
+            }
+            Vector3 initialLastSpherePosition = spherePositionPredictions[0];
+            // TODO: end
+
             if (solveStretchConstraints)
             {
-                constraintSolvingStep.SolveStretchConstraints(spherePositionPredictions, cylinderOrientationPredictions, SpheresCount,
-                                                              worldSpaceBasis, rodElementLength);
+                constraintSolvingStep.SolveStretchConstraints(spherePositionPredictions, cylinderOrientationPredictions, SpheresCount, 
+                worldSpaceBasis, rodElementLength);
             }
 
             if (solveBendTwistConstraints)
             {
-                constraintSolvingStep.SolveBendTwistConstraints(cylinderOrientationPredictions, CylinderCount, discreteRestDarbouxVectors,
-                                                                rodElementLength);
+                constraintSolvingStep.SolveBendTwistConstraints(cylinderOrientationPredictions, CylinderCount, discreteRestDarbouxVectors, 
+                rodElementLength);
             }
 
             if (solveCollisionConstraints)
             {
                 collisionSolvingStep.SolveCollisionConstraints(spherePositionPredictions, solverStep, ConstraintSolverSteps);
             }
-        }
+
+            // TODO: What is happening here?
+            if (isFirstCall)
+            {
+                    spherePositionPredictions[0] = initialLastSpherePosition;
+                    using (StreamWriter writer = new StreamWriter(filePath, true))  // 'true' parameter appends to the file
+                {
+                        //writer.WriteLine($"FirstCall");
+                }
+                    
+            }
+    
+            using (StreamWriter writer = new StreamWriter(filePath, true))  // 'true' parameter appends to the file
+            {
+                    //writer.WriteLine($"End of Constraint Solving - Last sphere position: {spherePositionPredictions[0]}");
+            }
+            }
+
+            // Set flag to false after the first call
+            if (isFirstCall)
+            {
+                isFirstCall = true;
+            }
+            // TODO: end
+            
 
         if (solveCollisionConstraints)
         {
             collisionHandler.ResetRegisteredCollisions();
         }
 
+        // TODO: From alex, check if the rest is right
         if (solveStretchConstraints)
         {
             // Debug.Log(mathHelper.RodElementLengthDeviation(spherePositionPredictions[0],
@@ -288,8 +458,8 @@ public class SimulationLoop : MonoBehaviour
     {
         sphereVelocities = updateStep.UpdateSphereVelocities(sphereVelocities, SpheresCount, spherePositionPredictions, spherePositions);
         spherePositions = updateStep.UpdateSpherePositions(spherePositions, SpheresCount, spherePositionPredictions);
-        cylinderAngularVelocities = updateStep.UpdateCylinderAngularVelocities(cylinderAngularVelocities, CylinderCount, cylinderOrientations,
-                                                                               cylinderOrientationPredictions);
+        cylinderAngularVelocities = updateStep.UpdateCylinderAngularVelocities(cylinderAngularVelocities, CylinderCount, cylinderOrientations, 
+        cylinderOrientationPredictions);
         cylinderOrientations = updateStep.UpdateCylinderOrientations(cylinderOrientations, CylinderCount, cylinderOrientationPredictions);
         directors = mathHelper.UpdateDirectors(CylinderCount, cylinderOrientations, directors, worldSpaceBasis);
     }
@@ -305,16 +475,17 @@ public class SimulationLoop : MonoBehaviour
     {
         sphereVelocities = predictionStep.PredictSphereVelocities(sphereVelocities, sphereInverseMasses, sphereExternalForces);
         spherePositionPredictions = predictionStep.PredictSpherePositions(spherePositionPredictions, SpheresCount, spherePositions, sphereVelocities);
-        //spherePositionPredictions = predictionStep.PredictSpherePositions(spherePositionPredictions, SpheresCount, spherePositions, sphereVelocities, sphereExternalForces, sphereInverseMasses);
-        cylinderAngularVelocities = predictionStep.PredictAngularVelocities(cylinderAngularVelocities, CylinderCount, inertiaTensor,
-                                                                            cylinderExternalTorques, inverseInertiaTensor);
-        cylinderOrientationPredictions = predictionStep.PredictCylinderOrientations(cylinderOrientationPredictions, CylinderCount,
-                                                                                    cylinderAngularVelocities, cylinderOrientations);
-
-        if (ExecuteSingleLoopTest) Debug.Log("The distance between both sphere position predictions is "
-                                             + Vector3.Distance(spherePositionPredictions[0], spherePositionPredictions[1]));
+        // TODO: Further analyze differences
+        //spherePositionPredictions = predictionStep.PredictSpherePositions(spherePositionPredictions, SpheresCount, spherePositions, sphereVelocities, sphereExternalForces, sphereInverseMasses); 
+        cylinderAngularVelocities = predictionStep.PredictAngularVelocities(cylinderAngularVelocities, CylinderCount, inertiaTensor, 
+        cylinderExternalTorques, inverseInertiaTensor);
+        cylinderOrientationPredictions = predictionStep.PredictCylinderOrientations(cylinderOrientationPredictions, CylinderCount, 
+        cylinderAngularVelocities, cylinderOrientations);
+        // Todo: From alex: check if needed
+        // if (ExecuteSingleLoopTest) Debug.Log("The distance between both sphere position predictions is "
+        //                                      + Vector3.Distance(spherePositionPredictions[0], spherePositionPredictions[1]));
     }
-
+    
     /**
      * Adapts the data to the Unity GameObjects. For example, sets the positions of the GameObjects #spheres to #spherePositions.
      * @req Sets the positions of the GameObjects #spheres to #spherePositions.
@@ -329,13 +500,25 @@ public class SimulationLoop : MonoBehaviour
         objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
         objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
     }
-    
+
     /**
      * Sets the position of the collider of each sphere of the guidewire to the sphere's position prediciton.
      */
     private void SetCollidersStep()
     {
         collisionHandler.SetCollidersToPredictions(SpheresCount, spherePositionPredictions, spherePositions);
+    }
+
+    // TODO: Documentation
+    public void SetSpheres(GameObject[] spheresArray)
+    {
+        spheres = spheresArray;
+    }
+
+    // TODO: Documentation
+    public void SetCylinders(GameObject[] cylindersArray)
+    {
+        cylinders = cylindersArray;
     }
 }
 }

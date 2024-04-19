@@ -54,6 +54,7 @@ public class CollisionTestPerformer : MonoBehaviour
     }
 
     // force gets applied for a fixed time
+    // TODO: Check value
     private IEnumerator PerformCollisionTestTwo(float applyForceTime = 1.5f)
     {
         for (int sphereIndex = 0; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)
@@ -61,10 +62,12 @@ public class CollisionTestPerformer : MonoBehaviour
             simulationLoop.sphereExternalForces[sphereIndex] = Vector3.zero;
         }
 
+        // TODO: Check if the force is applied to the correct sphere
         simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = pullForce;
 
         yield return new WaitForSeconds(applyForceTime);
 
+        // TODO: Check if the force is applied to the correct sphere
         simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = Vector3.zero;
 
         float timeDiff = Time.time - startTime;
@@ -74,6 +77,7 @@ public class CollisionTestPerformer : MonoBehaviour
     }
 
     // force gets applied until a fixed velocity is reached
+    // TODO: Check value
     private IEnumerator PerformCollisionTestThree(float exitVelocity = 4f)
     {
         for (int sphereIndex = 0; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)
@@ -95,6 +99,7 @@ public class CollisionTestPerformer : MonoBehaviour
     }
 
     // force gets applied for the whole time
+    // TODO: Check value
     private IEnumerator PerformCollisionTestFour(float pullForceFactor = 0.3f)
     {
         float appliedPullForce = pullForceFactor * pullForce.z;
@@ -107,6 +112,7 @@ public class CollisionTestPerformer : MonoBehaviour
             simulationLoop.sphereExternalForces[sphereIndex] = Vector3.zero;
         }
 
+        // TODO: Check if the force is applied to the correct sphere
         simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = pullForceFactor * pullForce;
 
         yield return null;

@@ -13,19 +13,29 @@ namespace GuidewireSim
  */
 [RequireComponent(typeof(MathHelper))]
 public class InitializationStep : MonoBehaviour
-{
+{   
+    // TODO: Check if can be outsourced
+    private SimulationLoop simulationLoop; // Declare simulationLoop
+    private float rodElementLength; // Declare rodElementLength
+
     CollisionHandler collisionHandler; //!< The component CollisionHandler that solves all collisions.
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
 
-    [Range(1000f, 10000f)] float materialDensity = 7860; /**< The density of the rod material. The value 7960 is taken from 
+    // TODO: Why private and why changed value?
+    [Range(1000f, 10000f)] private float materialDensity = 7860; /**< The density of the rod material. The value 7960 is taken from 
                                                           *   Table 2 of the CoRdE paper.
                                                           */
-    [Range(0.0001f, 1f)] float materialRadius = 0.001f; /**< The radius of the cross-section of the rod. Tha value 0.001 or 1mm
+
+    [Range(0.0001f, 1f)] private float materialRadius = 0.001f; /**< The radius of the cross-section of the rod. Tha value 0.001 or 1mm
                                                         *  is taken from Table 2 of the CoRdE paper.
                                                         */
 
     private void Awake()
-    {
+    {   
+        // TODO: Check if can be outsourced
+        simulationLoop = GetComponent<SimulationLoop>(); // Initialize simulationLoop
+        rodElementLength = simulationLoop.GetRodElementLength(); // Initialize rodElementLength
+
         collisionHandler = GetComponent<CollisionHandler>();
         Assert.IsNotNull(collisionHandler);
 
@@ -64,16 +74,19 @@ public class InitializationStep : MonoBehaviour
     }
 
     /**
-     * Initializes @p sphereInverseMasses with the default value of one at the start of the simulation.
+     * Initializes @p sphereInverseMasses with the default value of one at the start of the simulation. TODO: I (Alex Kreibich) adapt this so the total mass stays the same. The idea for how this works is described in my Bachelorthesis in the Methods Chapter
      * @param spheresCount The count of all spheres of the guidewire. Equals the length of @p spherePositionPredictions.
      * @param[out] sphereInverseMasses The constant inverse masses  of each sphere.
      */
     public void InitSphereInverseMasses(int spheresCount, out float[] sphereInverseMasses)
     {
         sphereInverseMasses = new float[spheresCount];
+        // TODO: Why is this calculation done?
+        //float inverseMassValue = ((100/rodElementLength)+1)/10f; 
 
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
+            //TODO: Why ? sphereInverseMasses[sphereIndex] = inverseMassValue;
             sphereInverseMasses[sphereIndex] = 1f;
         }
     }
@@ -156,8 +169,9 @@ public class InitializationStep : MonoBehaviour
         cylinderScalarWeights = new float[cylinderCount];
 
         for (int cylinderIndex = 0; cylinderIndex < cylinderCount; cylinderIndex++)
-        {
-            cylinderScalarWeights[cylinderIndex] = 1f;
+        {   
+            // TODO: Why not here?
+            cylinderScalarWeights[cylinderIndex] = 1f; //(50/(500/rodElementLength)-1);
         }
     }
 

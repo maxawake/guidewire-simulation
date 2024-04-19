@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2996864074033366816}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CylinderPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4669950310556817292}
   - component: {fileID: 3601196039139303741}
   - component: {fileID: 31664545821823881}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CylinderBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
