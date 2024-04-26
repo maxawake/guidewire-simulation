@@ -7,7 +7,7 @@ public class MeshImporter3 : MonoBehaviour
 {
     void Awake()
     {
-        string logFilePath = "/home/max/Temp/Praktikum/DebugLogs.txt";
+        string logFilePath = "/home/max/Temp/guidewire-log.txt";
         File.AppendAllText(logFilePath, "Awake started.\n");
 
         try

@@ -27,28 +27,28 @@ public class CreationScript : MonoBehaviour
     {
         predictionStep = GameObject.Find("Simulation").GetComponent<PredictionStep>();
         simulationLoop = GameObject.Find("Simulation").GetComponent<SimulationLoop>();
-        InvokeRepeating("SavePositionsToFile", 0f, 0.01f);
+        //InvokeRepeating("SavePositionsToFile", 0f, 0.01f);
    
     }
 
     private void Awake()
     {
-        string[] args = System.Environment.GetCommandLineArgs();
-        for (int i = 0; i < args.Length; i++)
-        {
-            if (args[i] == "-logFilePath" && args.Length > i + 1)
-            {
-                logFilePath = args[i + 1];
-            }
-        }
+        // string[] args = System.Environment.GetCommandLineArgs();
+        // for (int i = 0; i < args.Length; i++)
+        // {
+        //     if (args[i] == "-logFilePath" && args.Length > i + 1)
+        //     {
+        //         logFilePath = args[i + 1];
+        //     }
+        // }
     }
 
     void FixedUpdate()
     {
-        if (Time.time > initialCheckDelay)
-        {
-            CheckVelocityDifference();
-        }
+        // if (Time.time > initialCheckDelay)
+        // {
+        //     CheckVelocityDifference();
+        // }
     }
 
 
@@ -62,6 +62,7 @@ public class CreationScript : MonoBehaviour
         for (int i = 0; i < numberElements; ++i)
         {
             GameObject sphere = Instantiate(spherePrefab);
+            // TODO: What is happening here? 
             sphere.transform.position = new Vector3(0, 0, 44.5f + i * rEL);    //-444 fuer 1000 lang, -123 fur 2?, 44.5f fur 2!
             sphere.transform.parent = this.transform;
             spheres[i] = sphere;
@@ -84,20 +85,20 @@ public class CreationScript : MonoBehaviour
 
     public void SavePositionsToFile()
     {
-        using (StreamWriter writer = new StreamWriter(logFilePath, true))
-        {
-            if (spheres != null && spheres.Length > 0)
-            {
-                Vector3 firstSpherePosition = spheres[0].transform.position;
-                writer.WriteLine("First Sphere: " + firstSpherePosition.x + "," + firstSpherePosition.y + "," + firstSpherePosition.z);
+        // using (StreamWriter writer = new StreamWriter(logFilePath, true))
+        // {
+        //     if (spheres != null && spheres.Length > 0)
+        //     {
+        //         Vector3 firstSpherePosition = spheres[0].transform.position;
+        //         writer.WriteLine("First Sphere: " + firstSpherePosition.x + "," + firstSpherePosition.y + "," + firstSpherePosition.z);
 
-                if (spheres.Length > 1)
-                {
-                    Vector3 lastSpherePosition = spheres[spheres.Length - 1].transform.position;
-                    writer.WriteLine("Last Sphere: " + lastSpherePosition.x + "," + lastSpherePosition.y + "," + lastSpherePosition.z);
-                }
-            }
-        }
+        //         if (spheres.Length > 1)
+        //         {
+        //             Vector3 lastSpherePosition = spheres[spheres.Length - 1].transform.position;
+        //             writer.WriteLine("Last Sphere: " + lastSpherePosition.x + "," + lastSpherePosition.y + "," + lastSpherePosition.z);
+        //         }
+        //     }
+        // }
     }
 
 
@@ -106,52 +107,52 @@ public class CreationScript : MonoBehaviour
         lastSphereVelocities = velocities;
     }
 
-    private void CheckVelocityDifference()
-    {
-        string debugVelocityFilePath = "/home/max/Temp/Praktikum/DebugVelocities.txt";
-        string positionFilePath = "/home/max/Temp/Praktikum/Position#N.txt";
+    // private void CheckVelocityDifference()
+    // {
+    //     string debugVelocityFilePath = "/home/max/Temp/Praktikum/DebugVelocities.txt";
+    //     string positionFilePath = "/home/max/Temp/Praktikum/Position#N.txt";
 
-        if (spheres != null && spheres.Length > 1 && lastSphereVelocities != null) 
-        {
-            bool allSpheresBelowVelocityThreshold = true;
-            float epsilon = 0.000001f;
-            float velocityDifferenceThreshold = 1f; // Define your velocity threshold here
+    //     if (spheres != null && spheres.Length > 1 && lastSphereVelocities != null) 
+    //     {
+    //         bool allSpheresBelowVelocityThreshold = true;
+    //         float epsilon = 0.000001f;
+    //         float velocityDifferenceThreshold = 1f; // Define your velocity threshold here
 
-            using (StreamWriter velocityWriter = new StreamWriter(debugVelocityFilePath, true),
-                            positionWriter = new StreamWriter(positionFilePath, true))
-            {
-                for (int i = 1; i < spheres.Length; i++) 
-                {
-                    float velocityMagnitude = lastSphereVelocities[i].magnitude;
-                    //velocityWriter.WriteLine("Sphere " + i + " Velocity Magnitude: " + velocityMagnitude);
+    //         using (StreamWriter velocityWriter = new StreamWriter(debugVelocityFilePath, true),
+    //                         positionWriter = new StreamWriter(positionFilePath, true))
+    //         {
+    //             for (int i = 1; i < spheres.Length; i++) 
+    //             {
+    //                 float velocityMagnitude = lastSphereVelocities[i].magnitude;
+    //                 //velocityWriter.WriteLine("Sphere " + i + " Velocity Magnitude: " + velocityMagnitude);
 
-                    if (velocityMagnitude >= velocityDifferenceThreshold + epsilon)
-                    {
-                        allSpheresBelowVelocityThreshold = false;
-                        break;
-                    }
-                }
+    //                 if (velocityMagnitude >= velocityDifferenceThreshold + epsilon)
+    //                 {
+    //                     allSpheresBelowVelocityThreshold = false;
+    //                     break;
+    //                 }
+    //             }
 
-                if (allSpheresBelowVelocityThreshold)
-                {
-                    if (firstCallResetCounter < MaxFirstCallResets)
-                    {
-                        predictionStep.ResetFirstCall();
-                        firstCallResetCounter++;
-                        DateTime now = DateTime.Now;
-                        string timestamp = now.ToString("yyyy-MM-dd HH:mm:ss.fff");
-                        velocityWriter.WriteLine($"Threshold reached at {timestamp}, triggering displacement.");
-                        positionWriter.WriteLine($"Threshold reached at {timestamp}, triggering displacement.");
-                    }
+    //             if (allSpheresBelowVelocityThreshold)
+    //             {
+    //                 if (firstCallResetCounter < MaxFirstCallResets)
+    //                 {
+    //                     predictionStep.ResetFirstCall();
+    //                     firstCallResetCounter++;
+    //                     DateTime now = DateTime.Now;
+    //                     string timestamp = now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+    //                     velocityWriter.WriteLine($"Threshold reached at {timestamp}, triggering displacement.");
+    //                     positionWriter.WriteLine($"Threshold reached at {timestamp}, triggering displacement.");
+    //                 }
 
-                    if (firstCallResetCounter >= MaxFirstCallResets)
-                    {
-                        Application.Quit(1);
-                    }
-                }
-            }
-        }
-    }
+    //                 if (firstCallResetCounter >= MaxFirstCallResets)
+    //                 {
+    //                     Application.Quit(1);
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 
     public GameObject GetLastSphere()
     {

@@ -80,8 +80,8 @@ public Vector3[] UpdateSpherePositions(Vector3[] spherePositions, int spheresCou
     {
         // Initialize StreamWriter to write to the specified file.
         // This will append to the file if it already exists.
-        using (StreamWriter writer = new StreamWriter("/home/max/Temp/Praktikum/UpdateStepDebug.txt", true))
-        {
+        //using (StreamWriter writer = new StreamWriter("/home/max/Temp/Praktikum/UpdateStepDebug.txt", true))
+        //{
             for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
             {
                 // Write the position before updating to the file.
@@ -89,7 +89,7 @@ public Vector3[] UpdateSpherePositions(Vector3[] spherePositions, int spheresCou
                 // Update the position.
                 spherePositions[sphereIndex] = spherePositionPredictions[sphereIndex];
             }
-        }
+        //}
         return spherePositions;
     }
 

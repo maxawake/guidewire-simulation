@@ -12,8 +12,8 @@ namespace GuidewireSim
 public class PredictionStep : MonoBehaviour
 {
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
-    // TODO: What is this for?
-    private float zDisplacement = 0.0f;
+    // // TODO: What is this for?
+    // private float zDisplacement = 0.0f;
 
     // TODO: Do we need this?
     private bool firstCall = true;  // Add this line to keep track of the first call
@@ -24,14 +24,14 @@ public class PredictionStep : MonoBehaviour
         Assert.IsNotNull(mathHelper);
 
         // TODO: Can this be oursourced?
-        string[] args = System.Environment.GetCommandLineArgs();
-        for (int i = 0; i < args.Length; i++)   
-        {
-            if (args[i] == "-zDisplacement")
-            {
-                zDisplacement = float.Parse(args[i + 1]);
-            }
-        }
+        // string[] args = System.Environment.GetCommandLineArgs();
+        // for (int i = 0; i < args.Length; i++)   
+        // {
+        //     if (args[i] == "-zDisplacement")
+        //     {
+        //         zDisplacement = float.Parse(args[i + 1]);
+        //     }
+        // }
     }
 
     // TODO: Do we need this?

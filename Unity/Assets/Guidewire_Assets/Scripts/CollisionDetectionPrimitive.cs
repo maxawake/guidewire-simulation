@@ -41,6 +41,7 @@ namespace GuidewireSim
         private void AssignSphereID()
         {
             GameObject thisSphere = this.transform.gameObject;
+            Debug.Log(simulationLoop.SpheresCount);
 
             for (int sphereIndex = 0; sphereIndex < simulationLoop.SpheresCount; sphereIndex++)
             {

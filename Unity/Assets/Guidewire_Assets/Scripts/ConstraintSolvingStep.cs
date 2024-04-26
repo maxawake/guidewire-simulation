@@ -386,14 +386,14 @@ private void CorrectStretchPredictions(int sphereIndex, Vector3[] spherePosition
 
     Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[sphereIndex]), tolerance: 0.01f);
     // TODO: Check if can be outsourced
-    string path = "/home/max/Temp/Praktikum/LogConstraints.txt";
+    // string path = "/home/max/Temp/Praktikum/LogConstraints.txt";
 
-    using (StreamWriter writer = new StreamWriter(path, true)) // true to append data to the file
-    {
-        // Log the deltaPositionOne and deltaPositionTwo to the file
-        //writer.WriteLine($"Delta Position One: {1000 * deltaPositionOne}");
-        //writer.WriteLine($"Delta Position Two: {1000 * deltaPositionTwo}");
-    }
+    // using (StreamWriter writer = new StreamWriter(path, true)) // true to append data to the file
+    // {
+    //     // Log the deltaPositionOne and deltaPositionTwo to the file
+    //     //writer.WriteLine($"Delta Position One: {1000 * deltaPositionOne}");
+    //     //writer.WriteLine($"Delta Position Two: {1000 * deltaPositionTwo}");
+    // }
 }
 
     /**

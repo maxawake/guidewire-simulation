@@ -25,7 +25,7 @@ public class GuidewireCreateManager : MonoBehaviour
         }
 
         //again we need to get the rod element length from the simulation loop script; 
-        REL = simulationLoop.GetRodElementLength();
+        REL = 10.0f;//simulationLoop.GetRodElementLength();
         int numberOfElements = (int)(L_0 / REL) + 1;//This calculates the number of elements that now make up the discretized guidewire. The number of elements depends on the rod element length 
 
         //now find the CreationScript component in the scene, to create the guidewire with the wanted number of elements and rod element length.

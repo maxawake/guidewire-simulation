@@ -23,9 +23,13 @@ public class SimulationLoop : MonoBehaviour
     //public int count; //hier aus CreationScript
     //CreationScript creationScript; //hier -""-
     private Stopwatch stopwatch;
-    public Camera followingCamera;  // Drag your camera here in the Unity Editor
+    //public Camera followingCamera;  // Drag your camera here in the Unity Editor
     private Vector3 cameraOffset = new Vector3(0, 781, 0); // The offset of the camera in the y direction is 781
     private string logFilePath = "";
+
+    // OWN STUFF:
+    ParameterHandler parameterHandler; // The parameter handler
+    DataLogger logger;
     // TODO: End
 
     InitializationStep initializationStep; //!< The component InitializationStep that is responsible for initializing the simulation.
@@ -95,17 +99,12 @@ public class SimulationLoop : MonoBehaviour
     public bool solveBendTwistConstraints = true; //!< Whether or not to perform the constraint solving of the bend twist constraint.
     public bool solveCollisionConstraints = true; //!< Whether or not to perform the constraint solving of collision constraints.
 
-    // TODO: Why here?
-    public float GetRodElementLength(){
-    	return rodElementLength;
-    }   
-
     float rodElementLength = 10f; /**< The distance between two spheres, also the distance between two orientations.
-                                *   Also the length of one cylinder.
-                                *   @note This should be two times the radius of a sphere.
-                                *   @attention Make sure that the guidewire setup fulfilles that the distance between two adjacent
-                                *   spheres is #rodElementLength.
-                                */
+    //                             *   Also the length of one cylinder.
+    //                             *   @note This should be two times the radius of a sphere.
+    //                             *   @attention Make sure that the guidewire setup fulfilles that the distance between two adjacent
+    //                             *   spheres is #rodElementLength.
+    //                             */
 
     [SerializeField] [Range(1, 1000)] int constraintSolverSteps = 1000; /**< How often the constraint solver iterates over each constraint during
                                                                                  *   the Constraint Solving Step.
@@ -126,50 +125,12 @@ public class SimulationLoop : MonoBehaviour
     public int SpheresCount { get; private set; } //!< The count of all #spheres of the guidewire.
     public int CylinderCount { get; private set; } //!< The count of all #cylinders of the guidewire.
     
+    /**
+    * Default constructor.
+    */
     private void Awake()
     {        
-        // TODO: Can this be outsourced?
-    	//GameObject creationObject = GameObject.Find("GameObjectCreationScript");    //hier aus creation script, alle 3 zeilen
-    	//creationScript = creationObject.GetComponent<CreationScript>();
-    	//int count = creationScript.spheresCount;
-
-    	string[] args = System.Environment.GetCommandLineArgs();
-    	for (int i = 0; i < args.Length; i++)
-    	{
-        	if (args[i] == "-logFilePath" && args.Length > i + 1)
-        	{
-            		logFilePath = args[i + 1];
-        	}
-        	else if (args[i] == "-timeStep" && args.Length > i + 1)
-        	{
-           		if (float.TryParse(args[i + 1], out float parsedTimeStep))
-            		{
-                		timeStep = parsedTimeStep;
-            		}
-            		else
-            		{
-                		Debug.LogError("Failed to parse timeStep from command-line arguments. Using default value.");
-                		timeStep = 0.01f;
-            		}
-        	}
-    	}
-    	
-    	for (int i = 0; i < args.Length; i++)
-    	{
-        
-        	if (args[i] == "-rodElementLength" && args.Length > i + 1)
-        	{
-            		if (float.TryParse(args[i + 1], out float parsedRodElementLength))
-            		{
-                		rodElementLength = parsedRodElementLength;
-            		}
-            		else
-            		{
-                		Debug.LogError("Failed to parse rodElementLength from command-line arguments. Using default value.");
-                		rodElementLength = 50f;
-            		}
-       	}
-    	}            
+        //rodElementLength = parameterHandler.GetRodElementLength();
         stopwatch = new Stopwatch();
         // TODO: end
 
@@ -201,85 +162,76 @@ public class SimulationLoop : MonoBehaviour
         collisionHandler = GetComponent<CollisionHandler>();
         Assert.IsNotNull(collisionHandler);
 
-        // TODO: why is this here?
-        // Get command line arguments
-        //string[] args = System.Environment.GetCommandLineArgs();
-        for (int i = 0; i < args.Length; i++)
-        {
-            if (args[i] == "-logFilePath" && args.Length > i + 1)
-            {
-                logFilePath = args[i + 1];
-            }
-        }
-        // TODO: end
-        }
+        logger = GetComponent<DataLogger>();
+        Assert.IsNotNull(logger);
 
-        private void Start()
-        {
-            Time.fixedDeltaTime = timeStep;
+        //parameterHandler = GetComponent<ParameterHandler>();
+        //Assert.IsNotNull(parameterHandler);
+    }
 
-            PerformInitializationStep();
+    /**
+     * Initializes the simulation loop.
+     */
+    private void Start()
+    {
+        Time.fixedDeltaTime = timeStep;
 
-            objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
-            objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
-        }
+        PerformInitializationStep();
+
+        objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
+        objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
+    }
 
     /**
      * @req Execute the simulation loop if and only if #ExecuteSingleLoopTest is false.
      */
     private void FixedUpdate()
     {   
-        // TODO: Do we need this?
-        stopwatch.Restart();
-        SavePositionsToFile();
-
         if (ExecuteSingleLoopTest) return;
 
+        stopwatch.Restart();
         PerformSimulationLoop();
-
-        // TODO: What is the rest doing?
-        UpdateCameraPosition();
-
         stopwatch.Stop();
+
+        //UpdateCameraPosition();
+
         long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
-        UnityEngine.Debug.Log($"FixedUpdate took {elapsedMilliseconds} ms");
-        
-        string filePath = "/home/max/Temp/Praktikum/TimeCalculationsFixedUpdate.txt";
-        using (StreamWriter writer = new StreamWriter(filePath, true))
-        {
-            //writer.WriteLine($"FixedUpdate took {elapsedMilliseconds} ms");
-        }
-        
-        string filePath2 = "/home/max/Temp/Praktikum/LogConstraints.txt";
-        using (StreamWriter writer = new StreamWriter(filePath2, true))
-        {
-            //writer.WriteLine($"FixedUpdate took place");
-        }      
+        logger.write($"FixedUpdate took {elapsedMilliseconds} ms");
+        SaveCurrentPositions();
     }
 
-    // TODO Create documentation
-    public void SavePositionsToFile()
+    /**
+     * Returns the rod element length.
+     */
+    public float GetRodElementLength()
     {
-        string logFilePath1 = $"/home/max/Temp/Praktikum/Position#All.txt";
-        using (StreamWriter writer = new StreamWriter(logFilePath1, true))
+        return rodElementLength;//parameterHandler.GetRodElementLength();
+    }
+
+    /**
+     * Saves the current positions of the spheres to the log file.
+     */
+    public void SaveCurrentPositions()
+    {
+        for (int i = 0; i < spheres.Length; i++)
         {
-            for (int i = 0; i < spheres.Length; i++)
-            {
-                Vector3 spherePosition = spheres[i].transform.position;
-                writer.WriteLine("Sphere " + (i + 1) + " Position: " + spherePosition.x + "," + spherePosition.y + "," + spherePosition.z);
-            }
+            Vector3 spherePosition = spheres[i].transform.position;
+            logger.write("Sphere " + (i + 1) + " Position: " + spherePosition.x + "," + spherePosition.y + "," + spherePosition.z);
         }
+        
         //fixedUpdateCounter++; // Increment the counter for the next file name
     }
 
-    // TODO Create documentation
+    /**
+     * Updates the camera position to the last sphere.
+     */
     private void UpdateCameraPosition()
     {
         if (spheres != null && spheres.Length > 0)
         {
                 GameObject lastSphere = spheres[spheres.Length-1];
                 Vector3 newCameraPosition = lastSphere.transform.position + cameraOffset;
-                followingCamera.transform.position = newCameraPosition;
+                //followingCamera.transform.position = newCameraPosition;
         }
     }
 
@@ -321,14 +273,6 @@ public class SimulationLoop : MonoBehaviour
         PerformPredictionStep();
         AdaptCalculations();
         SetCollidersStep();
-        // TODO: Is this still needed?
-        if (solveStretchConstraints)
-        {
-        //List<Vector3> allDeltaPositionOnes = constraintSolvingStep.GetAllDeltaPositionOnes();
-    //List<Vector3> allDeltaPositionTwos = constraintSolvingStep.GetAllDeltaPositionTwos();
-    //List<BSM.Quaternion> allDeltaOrientations = constraintSolvingStep.GetAllDeltaOrientations();
-        //Debug.Log($"All Stretch Corrections - DeltaPositionOnes: {string.Join(", ", allDeltaPositionOnes)}, DeltaPositionTwos: {string.Join(", ", allDeltaPositionTwos)}, DeltaOrientations: {string.Join(", ", allDeltaOrientations)}");
-        }
     }
 
     /**
@@ -361,23 +305,9 @@ public class SimulationLoop : MonoBehaviour
             Assert.IsTrue(SpheresCount >= 3);
         }
 
-        // TODO: Something from alex
-        // if (solveCollisionConstraints)
-        // {
-        //     collisionSolvingStep.SolveCollisionConstraints(spherePositionPredictions);
-        // }
-
         for (int solverStep = 0; solverStep < ConstraintSolverSteps; solverStep++)
-        {
-            
-            // TODO: Can this be outsourced?
-            string filePath = "/home/max/Temp/Praktikum/LastSphereConstraintPositions";
-            using (StreamWriter writer = new StreamWriter(filePath, true))  // 'true' parameter appends to the file
-            {
-                //writer.WriteLine($"Start of Constraint Solving - Last sphere position: {spherePositionPredictions[0]}");
-            }
-            Vector3 initialLastSpherePosition = spherePositionPredictions[0];
-            // TODO: end
+        {            
+            logger.write($"Start of Constraint Solving - Last sphere position: {spherePositionPredictions[0]}"); 
 
             if (solveStretchConstraints)
             {
@@ -395,56 +325,14 @@ public class SimulationLoop : MonoBehaviour
             {
                 collisionSolvingStep.SolveCollisionConstraints(spherePositionPredictions, solverStep, ConstraintSolverSteps);
             }
-
-            // TODO: What is happening here?
-            if (isFirstCall)
-            {
-                    spherePositionPredictions[0] = initialLastSpherePosition;
-                    using (StreamWriter writer = new StreamWriter(filePath, true))  // 'true' parameter appends to the file
-                {
-                        //writer.WriteLine($"FirstCall");
-                }
-                    
-            }
-    
-            using (StreamWriter writer = new StreamWriter(filePath, true))  // 'true' parameter appends to the file
-            {
-                    //writer.WriteLine($"End of Constraint Solving - Last sphere position: {spherePositionPredictions[0]}");
-            }
-            }
-
-            // Set flag to false after the first call
-            if (isFirstCall)
-            {
-                isFirstCall = true;
-            }
-            // TODO: end
-            
+        }
 
         if (solveCollisionConstraints)
         {
             collisionHandler.ResetRegisteredCollisions();
         }
-
-        // TODO: From alex, check if the rest is right
-        if (solveStretchConstraints)
-        {
-            // Debug.Log(mathHelper.RodElementLengthDeviation(spherePositionPredictions[0],
-            //                                                 spherePositionPredictions[1],
-            //                                                 rodElementLength));
-            for (int sphereIndex = 0; sphereIndex < SpheresCount - 1; sphereIndex++)
-            {
-                // Assert.AreApproximatelyEqual(0f, mathHelper.RodElementLengthDeviation(spherePositionPredictions[sphereIndex],
-                //                                                                       spherePositionPredictions[sphereIndex + 1],
-                //                                                                       rodElementLength), tolerance: 0.05f);
-                // Assert.AreApproximatelyEqual(0f, mathHelper.StretchConstraintDeviation(spherePositionPredictions[sphereIndex],
-                //                                                                        spherePositionPredictions[sphereIndex + 1],
-                //                                                                        cylinderOrientationPredictions[sphereIndex],
-                //                                                                        worldSpaceBasis[2],
-                //                                                                        rodElementLength), tolerance: 0.1f);
-            }
-        }
     }
+    
 
     /**
      * Performs the update step of the algorithm.
@@ -465,12 +353,12 @@ public class SimulationLoop : MonoBehaviour
     }
 
     /**
-        * Performs the prediction step of the algorithm.
-        * @req Predict the #sphereVelocities.
-        * @req Predict the #spherePositionPredictions.
-        * @req Predict the #cylinderAngularVelocities.
-        * @req Predict the #cylinderOrientationPredictions.
-        */
+    * Performs the prediction step of the algorithm.
+    * @req Predict the #sphereVelocities.
+    * @req Predict the #spherePositionPredictions.
+    * @req Predict the #cylinderAngularVelocities.
+    * @req Predict the #cylinderOrientationPredictions.
+    */
     private void PerformPredictionStep()
     {
         sphereVelocities = predictionStep.PredictSphereVelocities(sphereVelocities, sphereInverseMasses, sphereExternalForces);
@@ -481,9 +369,6 @@ public class SimulationLoop : MonoBehaviour
         cylinderExternalTorques, inverseInertiaTensor);
         cylinderOrientationPredictions = predictionStep.PredictCylinderOrientations(cylinderOrientationPredictions, CylinderCount, 
         cylinderAngularVelocities, cylinderOrientations);
-        // Todo: From alex: check if needed
-        // if (ExecuteSingleLoopTest) Debug.Log("The distance between both sphere position predictions is "
-        //                                      + Vector3.Distance(spherePositionPredictions[0], spherePositionPredictions[1]));
     }
     
     /**
@@ -509,13 +394,19 @@ public class SimulationLoop : MonoBehaviour
         collisionHandler.SetCollidersToPredictions(SpheresCount, spherePositionPredictions, spherePositions);
     }
 
-    // TODO: Documentation
+    /**
+     * Sets the spheres of the guidewire.
+     * @param spheresArray The spheres of the guidewire.
+     */
     public void SetSpheres(GameObject[] spheresArray)
     {
         spheres = spheresArray;
     }
 
-    // TODO: Documentation
+    /**
+     * Sets the cylinders of the guidewire.
+     * @param cylindersArray The cylinders of the guidewire.
+     */
     public void SetCylinders(GameObject[] cylindersArray)
     {
         cylinders = cylindersArray;
