@@ -3793,7 +3793,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3537744961480436555, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: collisionMargin
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3901088838006394844, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: pullForce.z
@@ -3877,7 +3877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: timeStep
-      value: 0.04
+      value: 0.002
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: spheres.Array.size
@@ -3889,7 +3889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: constraintSolverSteps
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: spheres.Array.data[0]
