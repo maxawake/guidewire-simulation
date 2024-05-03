@@ -11,8 +11,9 @@ namespace GuidewireSim
      * This class manages all collisions that should be resolved, i.e. the collisions of the last frame.
      */
     public class DataLogger : MonoBehaviour
-    {
-        private string filePath = "/home/max/Temp/guidewire-log.txt";
+    {   
+        // TODO: Get the path from the parameters file
+        private string filePath = "/home/max/Temp/Praktikum/guidewire-log.txt";
         
         private void Awake()
         {
