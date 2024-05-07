@@ -296,6 +296,21 @@ public class SimulationLoop : MonoBehaviour
         PerformPredictionStep();
         AdaptCalculations();
         SetCollidersStep();
+
+        GameObject test = GameObject.Find("Guidewire");
+        // Get all components of the GameObject this script is attached to
+        // Get the transform of the parent GameObject
+        Transform parentTransform = test.transform;
+
+        // Loop through each child GameObject
+        for (int i = 0; i < parentTransform.childCount; i++)
+        {
+            // Get the child GameObject at index i
+            GameObject childObject = parentTransform.GetChild(i).gameObject;
+
+            // Do something with the child GameObject, for example, print its name
+            Debug.Log("Child Object Name: " + childObject.name);
+        }
         
         DateTime dt = DateTime.Now;
         ScreenCapture.CaptureScreenshot("/home/max/Temp/Praktikum/screenshots/" + dt.ToString("yyyy-MM-dd-HH-mm-ss") + ".png");
