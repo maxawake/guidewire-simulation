@@ -31,10 +31,7 @@ public class SimulationLoop : MonoBehaviour
     ParameterHandler parameterHandler; // The parameter handler
     DataLogger logger;
     CommandLineHandler cli;
-    
-    //Debug.Log(json);
-    //File.WriteAllText(saveFile, json);
-    // TODO: End
+    // OWN STUFF:
 
     InitializationStep initializationStep; //!< The component InitializationStep that is responsible for initializing the simulation.
     PredictionStep predictionStep; //!< The component PredictionStep that is responsible for executing the Prediction Step of the algorithm.
@@ -136,7 +133,10 @@ public class SimulationLoop : MonoBehaviour
     {        
         //rodElementLength = parameterHandler.GetRodElementLength();
         stopwatch = new Stopwatch();
-        // TODO: end
+
+        if (spheres.Length == 0 || cylinders.Length == 0) {
+            this.GetGuidewireFromScene();
+        }
 
         Assert.IsFalse(spheres.Length == 0);
         Assert.IsFalse(cylinders.Length == 0);
@@ -190,17 +190,17 @@ public class SimulationLoop : MonoBehaviour
 
         string saveFile = "/home/max/Temp/Praktikum/parameters.json";
         //string saveFile = cli.GetArg("parameters");
-        if (File.Exists(saveFile))
-        {
-            // Read the entire file and save its contents.
-            string fileContents = File.ReadAllText(saveFile);
-            parameterHandler.CreateFromJSON(fileContents);
-            rodElementLength = parameterHandler.GetRodElementLength();
-        }
-        // string json = parameterHandler.SaveToString();
-        // //Debug.Log("HELLO" + json);
-        // File.WriteAllText(saveFile, json);
-        // rodElementLength = parameterHandler.GetRodElementLength();
+        // if (File.Exists(saveFile))
+        // {
+        //     // Read the entire file and save its contents.
+        //     string fileContents = File.ReadAllText(saveFile);
+        //     parameterHandler.CreateFromJSON(fileContents);
+        //     rodElementLength = parameterHandler.GetRodElementLength();
+        // }
+        string json = parameterHandler.SaveToString();
+        //Debug.Log("HELLO" + json);
+        File.WriteAllText(saveFile, json);
+        rodElementLength = parameterHandler.GetRodElementLength();
 
         Debug.Log("Rod Element Length: " + rodElementLength);
     }
@@ -260,7 +260,7 @@ public class SimulationLoop : MonoBehaviour
 
 
     private void PerformInitializationStep()
-    {
+    {   
         SpheresCount = spheres.Length;
         CylinderCount = cylinders.Length;
 
@@ -297,20 +297,6 @@ public class SimulationLoop : MonoBehaviour
         AdaptCalculations();
         SetCollidersStep();
 
-        GameObject test = GameObject.Find("Guidewire");
-        // Get all components of the GameObject this script is attached to
-        // Get the transform of the parent GameObject
-        Transform parentTransform = test.transform;
-
-        // Loop through each child GameObject
-        for (int i = 0; i < parentTransform.childCount; i++)
-        {
-            // Get the child GameObject at index i
-            GameObject childObject = parentTransform.GetChild(i).gameObject;
-
-            // Do something with the child GameObject, for example, print its name
-            Debug.Log("Child Object Name: " + childObject.name);
-        }
         
         DateTime dt = DateTime.Now;
         ScreenCapture.CaptureScreenshot("/home/max/Temp/Praktikum/screenshots/" + dt.ToString("yyyy-MM-dd-HH-mm-ss") + ".png");
@@ -451,6 +437,39 @@ public class SimulationLoop : MonoBehaviour
     public void SetCylinders(GameObject[] cylindersArray)
     {
         cylinders = cylindersArray;
+    }
+
+    /**
+     * Get the guidewire from the scene
+    */
+    public void GetGuidewireFromScene() {
+        // Get the guidewire from the scene
+        GameObject guidewire = GameObject.Find("Guidewire");
+        Transform parentTransform = guidewire.transform;
+
+        // Use lists because we dont know how many spheres beforehand
+        List<GameObject> spheresList = new List<GameObject>();
+        List<GameObject> cylindersList = new List<GameObject>();
+
+        // Loop through each child GameObject
+        for (int i = 0; i < parentTransform.childCount; i++)
+        {
+            // Get the child GameObject at index i
+            GameObject childObject = parentTransform.GetChild(i).gameObject;
+
+            // Add to spheres or cylinder list, depending on name
+            if (childObject.name.Contains("Sphere")) {
+                spheresList.Add(childObject);
+            }
+
+            if (childObject.name.Contains("Cylinder")) {
+                cylindersList.Add(childObject);
+            }
+        }  
+
+        // Add them to the class variables
+        this.SetSpheres(spheresList.ToArray());
+        this.SetCylinders(cylindersList.ToArray());
     }
 }
 }

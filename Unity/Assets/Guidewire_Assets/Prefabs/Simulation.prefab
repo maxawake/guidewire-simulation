@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: 4233146888435007112}
   - component: {fileID: 1852714578}
   - component: {fileID: 3537744961480436555}
+  - component: {fileID: 8465467182631306598}
+  - component: {fileID: 5080553732755019934}
+  - component: {fileID: 1771382806693646866}
   m_Layer: 0
   m_Name: Simulation
   m_TagString: Untagged
@@ -36,12 +39,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4233146888435007114}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4233146888435007091
 MonoBehaviour:
@@ -70,6 +74,8 @@ MonoBehaviour:
   solveStretchConstraints: 0
   solveBendTwistConstraints: 0
   solveCollisionConstraints: 0
+  constraintSolverSteps: 1000
+  timeStep: 0.01
 --- !u!114 &4233146888435007115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +125,8 @@ MonoBehaviour:
   pullForce: {x: 0, y: 0, z: 5}
   doCollisionTestOne: 0
   doCollisionTestTwo: 0
+  doCollisionTestThree: 0
+  doCollisionTestFour: 0
 --- !u!114 &4233146888435007090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,5 +238,49 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70b3fde2a73919f49b9b11e9deeeef0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMargin: 0.1
+--- !u!114 &8465467182631306598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4233146888435007114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969342c1b802a2fc1b9c216db997f2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5080553732755019934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4233146888435007114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c707605c2c762210c80eaafa0905bb04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rodElementLength: 5
+  timeStep: 0.01
+  zDisplacement: 0
+  logFilePath: /home/max/Temp/Praktikum/guidewire-log.txt
+  position: {x: 0, y: 0, z: 0}
+  scale: {x: 1, y: 1, z: 1}
+  rotation: {x: 0, y: 0, z: 0}
+--- !u!114 &1771382806693646866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4233146888435007114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c7e8ce5090b5760e83894e651cc51b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
