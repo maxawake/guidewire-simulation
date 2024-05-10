@@ -48,7 +48,7 @@ public class SimulationLoop : MonoBehaviour
                                 *   @attention The order in which the spheres are assigned matters. Assign them such that
                                 *   two adjacent spheres are adjacent in the array as well.
                                 */
-    [SerializeField] GameObject[] cylinders; /**< All cylinders that are part of the guidewire.
+    [SerializeField] public GameObject[] cylinders; /**< All cylinders that are part of the guidewire.
                                         *   @attention The order in which the cylinders are assigned matters. Assign them such that
                                         *   two adjacent cylinders are adjacent in the array as well.
                                         */
