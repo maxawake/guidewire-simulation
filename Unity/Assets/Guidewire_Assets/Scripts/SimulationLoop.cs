@@ -19,13 +19,13 @@ namespace GuidewireSim
 public class SimulationLoop : MonoBehaviour
 {
     // TODO: What is going on here?
-    private bool isFirstCall = true; 
+    //private bool isFirstCall = true; 
     //public int count; //hier aus CreationScript
     //CreationScript creationScript; //hier -""-
     private Stopwatch stopwatch;
     //public Camera followingCamera;  // Drag your camera here in the Unity Editor
     private Vector3 cameraOffset = new Vector3(0, 781, 0); // The offset of the camera in the y direction is 781
-    private string logFilePath = "";
+    //private string logFilePath = "";
 
     // OWN STUFF:
     ParameterHandler parameterHandler; // The parameter handler
@@ -181,15 +181,8 @@ public class SimulationLoop : MonoBehaviour
      * Initializes the simulation loop.
      */
     private void Start()
-    {
-        Time.fixedDeltaTime = timeStep;
-
-        PerformInitializationStep();
-
-        objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
-        objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
-
-        string saveFile = "/home/max/Temp/Praktikum/parameters.json";
+    {   
+         string saveFile = "/home/max/Temp/Praktikum/parameters.json";
         //string saveFile = cli.GetArg("parameters");
         // if (File.Exists(saveFile))
         // {
@@ -204,6 +197,14 @@ public class SimulationLoop : MonoBehaviour
         rodElementLength = parameterHandler.GetRodElementLength();
 
         Debug.Log("Rod Element Length: " + rodElementLength);
+
+
+        Time.fixedDeltaTime = timeStep;
+
+        PerformInitializationStep();
+
+        objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
+        objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
     }
 
     /**
@@ -271,7 +272,7 @@ public class SimulationLoop : MonoBehaviour
         initializationStep.InitCylinderOrientations(CylinderCount, out cylinderOrientations);
         initializationStep.InitDiscreteRestDarbouxVectors(CylinderCount, cylinderOrientations, out discreteRestDarbouxVectors, rodElementLength);
         initializationStep.InitCylinderAngularVelocities(CylinderCount, out cylinderAngularVelocities);
-        initializationStep.InitCylinderScalarWeights(CylinderCount, out cylinderScalarWeights);
+        //initializationStep.InitCylinderScalarWeights(CylinderCount, out cylinderScalarWeights);
         initializationStep.InitSphereExternalForces(SpheresCount, out sphereExternalForces);
         initializationStep.InitSpherePositionPredictions(spheres, SpheresCount, out spherePositionPredictions);
         initializationStep.InitInertiaTensor(out inertiaTensor);
@@ -283,9 +284,9 @@ public class SimulationLoop : MonoBehaviour
         initializationStep.InitSphereColliders(SpheresCount, spheres);
     }
 
-    /**
-     * Performs the outer simulation loop of the algorithm.
-     * @note In a late version, CollisionDetection and GenerateCollisionConstraints will be added to the algorithm.
+    /*
+     Performs the outer simulation loop of the algorithm.
+     @note In a late version, CollisionDetection and GenerateCollisionConstraints will be added to the algorithm.
      */
     public void PerformSimulationLoop()
     {
@@ -295,9 +296,8 @@ public class SimulationLoop : MonoBehaviour
         AdaptCalculations();
         SetCollidersStep();
 
-        
-        DateTime dt = DateTime.Now;
-        ScreenCapture.CaptureScreenshot("/home/max/Temp/Praktikum/screenshots/" + dt.ToString("yyyy-MM-dd-HH-mm-ss") + ".png");
+        // Take screenshot
+        ScreenCapture.CaptureScreenshot("/home/max/Temp/Praktikum/screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png");
     }
 
     /**
@@ -468,8 +468,8 @@ public class SimulationLoop : MonoBehaviour
         }  
 
         // Add them to the class variables
-        this.SetSpheres(spheresList.ToArray());
-        this.SetCylinders(cylindersList.ToArray());
+        SetSpheres(spheresList.ToArray());
+        SetCylinders(cylindersList.ToArray());
     }
 }
 }

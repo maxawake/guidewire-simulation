@@ -48,28 +48,17 @@ public class PredictionStep : MonoBehaviour
      * @return The predictions of the positions of the spheres, i.e. @p spherePositionPredictions.
      * @note The predictions are again stored in @p sphereVelocities.
      */
+    // TODO: Verlet integration somewhere here
     public Vector3[] PredictSphereVelocities(Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
     {
-        Vector3 calc = Time.deltaTime * sphereInverseMasses[1] * sphereExternalForces[1];
-
         for (int sphereIndex = 0; sphereIndex < sphereVelocities.Length; sphereIndex++)
         {
-            sphereVelocities[sphereIndex] += Time.deltaTime * sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
+            Vector3 acceleration = sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
+            sphereVelocities[sphereIndex] += Time.deltaTime * acceleration;
         }
 
         return sphereVelocities;
     }
-    // TODO: Verlet integration somewhere here
-    // public Vector3[] PredictSphereVelocities(Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
-    // {
-    //     for (int sphereIndex = 0; sphereIndex < sphereVelocities.Length; sphereIndex++)
-    //     {
-    //         Vector3 acceleration = sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
-    //         sphereVelocities[sphereIndex] += Time.deltaTime * acceleration;
-    //     }
-
-    //     return sphereVelocities;
-    // }
 
     /**
      * Calculates the predictions for the sphere positions for the prediction step of the algorithm using Verlet integration.

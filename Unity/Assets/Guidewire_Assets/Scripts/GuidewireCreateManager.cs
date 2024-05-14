@@ -30,7 +30,7 @@ public class GuidewireCreateManager : MonoBehaviour
 
         //now find the CreationScript component in the scene, to create the guidewire with the wanted number of elements and rod element length.
         //This will cause the total length of the guidewire to stay the same
-        creationScript = FindObjectOfType<CreationScript>();
+        creationScript = FindAnyObjectByType<CreationScript>();
         if (creationScript != null)
         {
             creationScript.CreateGuidewire(numberOfElements);

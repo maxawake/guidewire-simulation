@@ -82,12 +82,12 @@ public class InitializationStep : MonoBehaviour
     {
         sphereInverseMasses = new float[spheresCount];
         // TODO: Why is this calculation done?
-        //float inverseMassValue = ((100/rodElementLength)+1)/10f; 
+        float inverseMassValue = ((100/rodElementLength)+1)/10f; 
 
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
             //TODO: Why ? sphereInverseMasses[sphereIndex] = inverseMassValue;
-            sphereInverseMasses[sphereIndex] = 1f;
+            sphereInverseMasses[sphereIndex] = inverseMassValue; //1.0f
         }
     }
 
@@ -164,16 +164,16 @@ public class InitializationStep : MonoBehaviour
      * @param cylinderCount The count of all cylinders of the guidewire. Equals the length of @p cylinderOrientationPredictions.
      * @param[out] cylinderScalarWeights The constant scalar weights of each orientation/ quaternion similar to @p sphereInverseMasses.
      */
-    public void InitCylinderScalarWeights(int cylinderCount, out float[] cylinderScalarWeights)
-    {
-        cylinderScalarWeights = new float[cylinderCount];
+    // public void InitCylinderScalarWeights(int cylinderCount, out float[] cylinderScalarWeights)
+    // {
+    //     cylinderScalarWeights = new float[cylinderCount];
 
-        for (int cylinderIndex = 0; cylinderIndex < cylinderCount; cylinderIndex++)
-        {   
-            // TODO: Why not here?
-            cylinderScalarWeights[cylinderIndex] = 1f; //(50/(500/rodElementLength)-1);
-        }
-    }
+    //     for (int cylinderIndex = 0; cylinderIndex < cylinderCount; cylinderIndex++)
+    //     {   
+    //         // TODO: Why not here?
+    //         cylinderScalarWeights[cylinderIndex] = 1f; //(50/(500/rodElementLength)-1);
+    //     }
+    // }
 
     /**
      * Initializes @p sphereExternalForces with the default value of zero at the start of the simulation.

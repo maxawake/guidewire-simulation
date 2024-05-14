@@ -16,10 +16,10 @@ namespace GuidewireSim
 
         private void Awake()
         {
-            simulationLoop = FindObjectOfType<SimulationLoop>();
+            simulationLoop = FindAnyObjectByType<SimulationLoop>();
             Assert.IsNotNull(simulationLoop);
 
-            collisionHandler = FindObjectOfType<CollisionHandler>();
+            collisionHandler = FindAnyObjectByType<CollisionHandler>();
             Assert.IsNotNull(collisionHandler);
         }
 

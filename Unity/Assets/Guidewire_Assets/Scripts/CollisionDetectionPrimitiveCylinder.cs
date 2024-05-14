@@ -20,10 +20,10 @@ namespace GuidewireSim
 
         private void Awake()
         {
-            simulationLoop = FindObjectOfType<SimulationLoop>();
+            simulationLoop = FindAnyObjectByType<SimulationLoop>();
             Assert.IsNotNull(simulationLoop);
 
-            collisionHandler = FindObjectOfType<CollisionHandler>();
+            collisionHandler = FindAnyObjectByType<CollisionHandler>();
             Assert.IsNotNull(collisionHandler);
         }
 
@@ -37,13 +37,10 @@ namespace GuidewireSim
          */
         public void AssignCylinderID()
         {
-            GameObject thisCylinder = this.transform.gameObject;
-            Debug.Log(simulationLoop.CylinderCount);
+            GameObject thisCylinder = this.transform.parent.gameObject;
 
             for (int cylinderIndex = 0; cylinderIndex < simulationLoop.CylinderCount; cylinderIndex++)
             {   
-                Debug.Log(simulationLoop.cylinders[cylinderIndex]);
-                Debug.Log(thisCylinder);
                 if (thisCylinder == simulationLoop.cylinders[cylinderIndex])
                 {
                     cylinderID = cylinderIndex;

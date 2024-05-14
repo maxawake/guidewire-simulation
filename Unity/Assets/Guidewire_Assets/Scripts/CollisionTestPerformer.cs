@@ -9,7 +9,7 @@ public class CollisionTestPerformer : MonoBehaviour
 {
     SimulationLoop simulationLoop; //!< The SimulationLoop component that executes all steps of the simulation loop.
 
-    [SerializeField] Vector3 pullForce = new Vector3(0f, 0f, 5f); //!< External force that is applied in Force Test Three.
+    [SerializeField] Vector3 pullForce = new Vector3(0f, 0f, 0f); //!< External force that is applied in Force Test Three.
 
     [SerializeField] bool doCollisionTestOne = false;
     [SerializeField] bool doCollisionTestTwo = false;

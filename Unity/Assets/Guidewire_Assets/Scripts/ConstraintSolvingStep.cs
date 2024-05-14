@@ -25,8 +25,8 @@ public class ConstraintSolvingStep : MonoBehaviour
     BSM.Quaternion deltaOrientationTwo = new BSM.Quaternion(); //!< The correction of @p orientationTwo in method SolveBendTwistConstraint().
 
     // TODO: Check value
-    float stretchStiffness = 0.1f;
-    float bendStiffness = 0.1f;
+    float stretchStiffness = 1.0f;
+    float bendStiffness = 1.0f;
 
     [Tooltip("Whether to solve both constraints in bilateral interleaving order. Naive order is used when false.")]
     [SerializeField] bool executeInBilateralOrder = false; //!< Whether to solve both constraints in bilateral interleaving order. Naive order is used when false.
@@ -173,6 +173,7 @@ public class ConstraintSolvingStep : MonoBehaviour
         Assert.IsTrue(spheresCount >= 1);
         Assert.IsTrue(rodElementLength > 0f);
 
+        // TODO: Why only to n-1?
         for (int sphereIndex = 0; sphereIndex < spheresCount - 1; sphereIndex++)
         {
             SolveStretchConstraint(spherePositionPredictions[sphereIndex], spherePositionPredictions[sphereIndex + 1],
@@ -293,7 +294,7 @@ public class ConstraintSolvingStep : MonoBehaviour
                                        float inverseMassTwo = 1f, float inertiaWeight = 1f)
     {
         // TODO: Check if needed
-        //float inverseMassValue = ((1000/rodElementLength)+1)/10f; 
+        float inverseMassValue = ((1000/rodElementLength)+1)/10f; 
         // TODO: Why is value changed?
         Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(orientation), tolerance: 0.01f);
         Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(e_3), tolerance: 0.01f);
@@ -304,20 +305,20 @@ public class ConstraintSolvingStep : MonoBehaviour
 
         Vector3 thirdDirector = mathHelper.ImaginaryPart(orientation * e_3 * BSM.Quaternion.Conjugate(orientation));
         // TODO: Why do we need this?
-        // float denominator = inverseMassValue + inverseMassValue + 4 * inertiaWeight * rodElementLength * rodElementLength;
-        float denominator = inverseMassOne + inverseMassTwo + 4 * inertiaWeight * rodElementLength * rodElementLength;
+        float denominator = inverseMassValue + inverseMassValue + 4 * inertiaWeight * rodElementLength * rodElementLength;
+        //float denominator = inverseMassOne + inverseMassTwo + 4 * inertiaWeight * rodElementLength * rodElementLength;
 
-        Vector3 factor = (1f / rodElementLength) * (particlePositionTwo - particlePositionOne) - thirdDirector;
+        Vector3 factor = 1f / rodElementLength * (particlePositionTwo - particlePositionOne) - thirdDirector;
         BSM.Quaternion embeddedFactor = mathHelper.EmbeddedVector(factor);
         
         float quaternionScalarFactor = 2f * inertiaWeight * rodElementLength * rodElementLength / denominator;
         BSM.Quaternion quaternionProduct = embeddedFactor * orientation * BSM.Quaternion.Conjugate(e_3);
 
         // TODO: Why is value changed?
-        // deltaPositionOne = inverseMassValue * rodElementLength * factor / denominator;
-        // deltaPositionTwo = - inverseMassValue * rodElementLength * factor / denominator;
-        deltaPositionOne = inverseMassOne * rodElementLength * factor / denominator;
-        deltaPositionTwo = - inverseMassTwo * rodElementLength * factor / denominator;
+        deltaPositionOne = inverseMassValue * rodElementLength * factor / denominator;
+        deltaPositionTwo = - inverseMassValue * rodElementLength * factor / denominator;
+        //deltaPositionOne = inverseMassOne * rodElementLength * factor / denominator;
+        //deltaPositionTwo = - inverseMassTwo * rodElementLength * factor / denominator;
 
         deltaOrientation = quaternionScalarFactor * quaternionProduct;
 

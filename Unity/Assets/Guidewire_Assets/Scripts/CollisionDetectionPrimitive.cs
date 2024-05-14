@@ -23,15 +23,13 @@ namespace GuidewireSim
 
         private void Awake()
         {
-            
-
-            collisionHandler = FindObjectOfType<CollisionHandler>();
+            collisionHandler = FindAnyObjectByType<CollisionHandler>();
             Assert.IsNotNull(collisionHandler);
         }
 
         private void Start()
         {
-            simulationLoop = FindObjectOfType<SimulationLoop>();
+            simulationLoop = FindAnyObjectByType<SimulationLoop>();
             Assert.IsNotNull(simulationLoop);
             AssignSphereID();
         }

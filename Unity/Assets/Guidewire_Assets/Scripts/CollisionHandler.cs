@@ -54,6 +54,7 @@ namespace GuidewireSim
          * @param spherePositionPredictions The prediction of the position at the current frame of each sphere (in this case of the last frame).
          * @param spherePositions The position at the current frame of each sphere.
          */
+        // TODO: Maybe verlet needs to be here?
         public void SetCollidersToPredictions(int spheresCount, Vector3[] spherePositionPredictions, Vector3[] spherePositions)
         {
             for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)

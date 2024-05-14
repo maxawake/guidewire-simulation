@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -245,7 +241,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7635826562936255635, guid: ba2d24f9b9b0b4601b443430a6b55a6a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9c302730209490844911524b04ef43d8, type: 2}
     - target: {fileID: 919132149155446097, guid: ba2d24f9b9b0b4601b443430a6b55a6a, type: 3}
@@ -303,6 +299,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -487,7 +485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: timeStep
-      value: 0.04
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: spheres.Array.size
@@ -502,203 +500,203 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[0]
+      propertyPath: 'spheres.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[1]
+      propertyPath: 'spheres.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[2]
+      propertyPath: 'spheres.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[3]
+      propertyPath: 'spheres.Array.data[3]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[4]
+      propertyPath: 'spheres.Array.data[4]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[5]
+      propertyPath: 'spheres.Array.data[5]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[6]
+      propertyPath: 'spheres.Array.data[6]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[7]
+      propertyPath: 'spheres.Array.data[7]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[8]
+      propertyPath: 'spheres.Array.data[8]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[9]
+      propertyPath: 'spheres.Array.data[9]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[10]
+      propertyPath: 'spheres.Array.data[10]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[11]
+      propertyPath: 'spheres.Array.data[11]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[12]
+      propertyPath: 'spheres.Array.data[12]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[13]
+      propertyPath: 'spheres.Array.data[13]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[14]
+      propertyPath: 'spheres.Array.data[14]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[15]
+      propertyPath: 'spheres.Array.data[15]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[16]
+      propertyPath: 'spheres.Array.data[16]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[17]
+      propertyPath: 'spheres.Array.data[17]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[18]
+      propertyPath: 'spheres.Array.data[18]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[19]
+      propertyPath: 'spheres.Array.data[19]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[20]
+      propertyPath: 'spheres.Array.data[20]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[21]
+      propertyPath: 'spheres.Array.data[21]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[22]
+      propertyPath: 'spheres.Array.data[22]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[23]
+      propertyPath: 'spheres.Array.data[23]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[24]
+      propertyPath: 'spheres.Array.data[24]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[25]
+      propertyPath: 'spheres.Array.data[25]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[26]
+      propertyPath: 'spheres.Array.data[26]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[27]
+      propertyPath: 'spheres.Array.data[27]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[28]
+      propertyPath: 'spheres.Array.data[28]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[29]
+      propertyPath: 'spheres.Array.data[29]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[30]
+      propertyPath: 'spheres.Array.data[30]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[31]
+      propertyPath: 'spheres.Array.data[31]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[32]
+      propertyPath: 'spheres.Array.data[32]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[33]
+      propertyPath: 'spheres.Array.data[33]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[34]
+      propertyPath: 'spheres.Array.data[34]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[35]
+      propertyPath: 'spheres.Array.data[35]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[36]
+      propertyPath: 'spheres.Array.data[36]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[37]
+      propertyPath: 'spheres.Array.data[37]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[38]
+      propertyPath: 'spheres.Array.data[38]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: spheres.Array.data[39]
+      propertyPath: 'spheres.Array.data[39]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[0]
+      propertyPath: 'cylinders.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[1]
+      propertyPath: 'cylinders.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[2]
+      propertyPath: 'cylinders.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[3]
+      propertyPath: 'cylinders.Array.data[3]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[4]
+      propertyPath: 'cylinders.Array.data[4]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[5]
+      propertyPath: 'cylinders.Array.data[5]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[6]
+      propertyPath: 'cylinders.Array.data[6]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[7]
+      propertyPath: 'cylinders.Array.data[7]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[8]
+      propertyPath: 'cylinders.Array.data[8]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[9]
+      propertyPath: 'cylinders.Array.data[9]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
@@ -706,79 +704,79 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[10]
+      propertyPath: 'cylinders.Array.data[10]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[11]
+      propertyPath: 'cylinders.Array.data[11]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[12]
+      propertyPath: 'cylinders.Array.data[12]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[13]
+      propertyPath: 'cylinders.Array.data[13]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[14]
+      propertyPath: 'cylinders.Array.data[14]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[15]
+      propertyPath: 'cylinders.Array.data[15]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[16]
+      propertyPath: 'cylinders.Array.data[16]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[17]
+      propertyPath: 'cylinders.Array.data[17]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[18]
+      propertyPath: 'cylinders.Array.data[18]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[19]
+      propertyPath: 'cylinders.Array.data[19]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[20]
+      propertyPath: 'cylinders.Array.data[20]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[21]
+      propertyPath: 'cylinders.Array.data[21]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[22]
+      propertyPath: 'cylinders.Array.data[22]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[23]
+      propertyPath: 'cylinders.Array.data[23]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[24]
+      propertyPath: 'cylinders.Array.data[24]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[25]
+      propertyPath: 'cylinders.Array.data[25]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[26]
+      propertyPath: 'cylinders.Array.data[26]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[27]
+      propertyPath: 'cylinders.Array.data[27]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
-      propertyPath: cylinders.Array.data[28]
+      propertyPath: 'cylinders.Array.data[28]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
@@ -887,8 +885,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c707605c2c762210c80eaafa0905bb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rodElementLength: 10
-  timeStep: 0.01
+  rodElementLength: 5
+  timeStep: 0.1
   zDisplacement: 0
   logFilePath: /home/max/Temp/Praktikum/guidewire-log.txt
   position: {x: 0, y: 0, z: 0}
@@ -931,9 +929,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088602351}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
