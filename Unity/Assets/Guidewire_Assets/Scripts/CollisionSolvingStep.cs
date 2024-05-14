@@ -13,6 +13,8 @@ namespace GuidewireSim
         MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
         CollisionHandler collisionHandler; //!< The component CollisionHandler that tracks all collisions.
 
+        ParameterHandler parameterHandler;
+
         Vector3 deltaPosition = new Vector3(); //!< The correction of @p spherePositionPrediction in method SolveCollisionConstraint().
         Vector3 initialPositionPrediction = new Vector3();
 
@@ -32,6 +34,16 @@ namespace GuidewireSim
 
             collisionHandler = GetComponent<CollisionHandler>();
             Assert.IsNotNull(collisionHandler);
+
+            parameterHandler = GetComponent<ParameterHandler>();
+            Assert.IsNotNull(parameterHandler);
+        }
+
+        private void Start()
+        {
+            sphereRadius = parameterHandler.sphereRadius;
+            collisionMargin = parameterHandler.collisionMargin;
+            collisionStiffness = parameterHandler.collisionStiffness;
         }
 
         /**

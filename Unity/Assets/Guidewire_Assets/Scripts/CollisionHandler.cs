@@ -10,7 +10,8 @@ namespace GuidewireSim
      * This class manages all collisions that should be resolved, i.e. the collisions of the last frame.
      */
     public class CollisionHandler : MonoBehaviour
-    {
+    {   
+        ParameterHandler parameterHandler;
         public List<CollisionPair> registeredCollisions; //!< All collisions that occured between the last and the current frame in OnTriggerEnter.
 
         public SphereCollider[] sphereColliders; /**< Each element stores a reference to the SpherCollider of the respective element in @p spheres
@@ -19,11 +20,18 @@ namespace GuidewireSim
                                                       *   sphere GameObject that is referenced in the second element of @p spheres in SimulationLoop.
                                                       */
 
-        float sphereRadius = 5f; //!< The radius of the sphere elements of the guidewire.
+        float sphereRadius; //!< The radius of the sphere elements of the guidewire.
+
+        private void Awake()
+        {
+            parameterHandler = GetComponent<ParameterHandler>();
+            Assert.IsNotNull(parameterHandler);
+        }
 
         private void Start()
         {
             registeredCollisions = new List<CollisionPair>();    
+            sphereRadius = parameterHandler.sphereRadius;
         }
 
         /**
@@ -54,7 +62,6 @@ namespace GuidewireSim
          * @param spherePositionPredictions The prediction of the position at the current frame of each sphere (in this case of the last frame).
          * @param spherePositions The position at the current frame of each sphere.
          */
-        // TODO: Maybe verlet needs to be here?
         public void SetCollidersToPredictions(int spheresCount, Vector3[] spherePositionPredictions, Vector3[] spherePositions)
         {
             for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)

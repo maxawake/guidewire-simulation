@@ -194,10 +194,9 @@ public class SimulationLoop : MonoBehaviour
         string json = parameterHandler.SaveToString();
         //Debug.Log("HELLO" + json);
         File.WriteAllText(saveFile, json);
+
         rodElementLength = parameterHandler.GetRodElementLength();
-
         Debug.Log("Rod Element Length: " + rodElementLength);
-
 
         Time.fixedDeltaTime = timeStep;
 
@@ -388,8 +387,6 @@ public class SimulationLoop : MonoBehaviour
     {
         sphereVelocities = predictionStep.PredictSphereVelocities(sphereVelocities, sphereInverseMasses, sphereExternalForces);
         spherePositionPredictions = predictionStep.PredictSpherePositions(spherePositionPredictions, SpheresCount, spherePositions, sphereVelocities);
-        // TODO: Further analyze differences
-        //spherePositionPredictions = predictionStep.PredictSpherePositions(spherePositionPredictions, SpheresCount, spherePositions, sphereVelocities, sphereExternalForces, sphereInverseMasses); 
         cylinderAngularVelocities = predictionStep.PredictAngularVelocities(cylinderAngularVelocities, CylinderCount, inertiaTensor, 
         cylinderExternalTorques, inverseInertiaTensor);
         cylinderOrientationPredictions = predictionStep.PredictCylinderOrientations(cylinderOrientationPredictions, CylinderCount, 

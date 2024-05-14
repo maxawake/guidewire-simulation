@@ -12,32 +12,11 @@ namespace GuidewireSim
 public class PredictionStep : MonoBehaviour
 {
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
-    // // TODO: What is this for?
-    // private float zDisplacement = 0.0f;
 
-    // TODO: Do we need this?
-    private bool firstCall = true;  // Add this line to keep track of the first call
-    
     private void Awake()
     {
         mathHelper = GetComponent<MathHelper>();
         Assert.IsNotNull(mathHelper);
-
-        // TODO: Can this be oursourced?
-        // string[] args = System.Environment.GetCommandLineArgs();
-        // for (int i = 0; i < args.Length; i++)   
-        // {
-        //     if (args[i] == "-zDisplacement")
-        //     {
-        //         zDisplacement = float.Parse(args[i + 1]);
-        //     }
-        // }
-    }
-
-    // TODO: Do we need this?
-    public void ResetFirstCall()
-    {
-    	firstCall = true;
     }
 
     /**
@@ -71,51 +50,6 @@ public class PredictionStep : MonoBehaviour
     public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
                                     Vector3[] sphereVelocities)
     {
-        // TODO: What is going on here??
-        // string filePath = "/home/max/Temp/Praktikum/debugPredictPosition"; // File path
-        // for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
-        // {
-        //     // If this is the first call and we are at the first sphere, apply the special offset
-        //     if (firstCall && sphereIndex == 0)
-        //     {
-        //     spherePositionPredictions[0] = spherePositions[0] + new Vector3(0, 0, zDisplacement); // Used zDisplacement here
-        //         using (StreamWriter writer = new StreamWriter(filePath, true))  // 'true' parameter appends to the file
-        //         {
-        //             //writer.WriteLine("First call, first sphere: special offset applied.");
-        //         }
-        //     }
-        //     else
-        //     {
-        //         spherePositionPredictions[sphereIndex] =spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex];
-        //         if (firstCall && sphereIndex == 0) // This condition should never be true, but adding for completeness
-        //         {
-        //             using (StreamWriter writer = new StreamWriter(filePath, true))
-        //             {
-        //                 //writer.WriteLine("First call, first sphere: special offset NOT applied.");
-        //             }
-        //         }
-        //         else
-        //         {
-        //             using (StreamWriter writer = new StreamWriter(filePath, true))
-        //             {
-        //                 //writer.WriteLine($"Subsequent calls or other spheres: regular update applied for sphere {sphereIndex}.");
-        //             }
-        //         }
-        //     }
-        //         using (StreamWriter writer = new StreamWriter("/home/max/Temp/Praktikum/Position#N.txt", true))
-        // {
-        //     //writer.WriteLine("PredictSpherePositions called. firstCall: " + firstCall);
-        //     // Add additional logging if needed
-        // }
-
-        // }
-
-        // // Update the flag so the special case won't be applied again
-        // if (firstCall)
-        // {
-        //     firstCall = false;
-        // }
-
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
             {
                 spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex];

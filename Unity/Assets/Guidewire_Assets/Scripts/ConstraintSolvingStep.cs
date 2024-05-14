@@ -11,11 +11,8 @@ namespace GuidewireSim
  * This class executes and implements various algorithms of the constraint solving step of the algorithm and manages all coherent data.
  */
 public class ConstraintSolvingStep : MonoBehaviour
-{   
-    // TODO: Check if can be outsourced
-    private SimulationLoop simulationLoop; // Declare simulationLoop
-    private float rodElementLength; // Declare rodElementLength
-
+{
+    ParameterHandler parameterHandler;   
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
 
     Vector3 deltaPositionOne = new Vector3(); //!< The correction of @p particlePositionOne in method SolveStretchConstraint().
@@ -35,9 +32,15 @@ public class ConstraintSolvingStep : MonoBehaviour
     {
         mathHelper = GetComponent<MathHelper>();
         Assert.IsNotNull(mathHelper);
-        // TODO: Check if can be outsourced
-        simulationLoop = GetComponent<SimulationLoop>(); // Initialize simulationLoop
-        rodElementLength = simulationLoop.GetRodElementLength(); // Initialize rodElementLength
+
+        parameterHandler = GetComponent<ParameterHandler>();
+        Assert.IsNotNull(parameterHandler);
+    }
+
+    private void Start()
+    {
+        stretchStiffness = parameterHandler.stretchStiffness;
+        bendStiffness = parameterHandler.bendStiffness;
     }
 
     /**
@@ -173,7 +176,6 @@ public class ConstraintSolvingStep : MonoBehaviour
         Assert.IsTrue(spheresCount >= 1);
         Assert.IsTrue(rodElementLength > 0f);
 
-        // TODO: Why only to n-1?
         for (int sphereIndex = 0; sphereIndex < spheresCount - 1; sphereIndex++)
         {
             SolveStretchConstraint(spherePositionPredictions[sphereIndex], spherePositionPredictions[sphereIndex + 1],
@@ -321,11 +323,6 @@ public class ConstraintSolvingStep : MonoBehaviour
         //deltaPositionTwo = - inverseMassTwo * rodElementLength * factor / denominator;
 
         deltaOrientation = quaternionScalarFactor * quaternionProduct;
-
-        // TODO: See if can be oursourced
-        //string debugFilePath = "/home/max/Temp/Praktikum/DebugConstraint.txt";
-    	//string content = $"inverseMassValue: {inverseMassValue}, denominator: {denominator}\n";
-    	//File.AppendAllText(debugFilePath, content);
     }
 
     /**
@@ -386,15 +383,6 @@ private void CorrectStretchPredictions(int sphereIndex, Vector3[] spherePosition
     cylinderOrientationPredictions[sphereIndex].Normalize();
 
     Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(cylinderOrientationPredictions[sphereIndex]), tolerance: 0.01f);
-    // TODO: Check if can be outsourced
-    // string path = "/home/max/Temp/Praktikum/LogConstraints.txt";
-
-    // using (StreamWriter writer = new StreamWriter(path, true)) // true to append data to the file
-    // {
-    //     // Log the deltaPositionOne and deltaPositionTwo to the file
-    //     //writer.WriteLine($"Delta Position One: {1000 * deltaPositionOne}");
-    //     //writer.WriteLine($"Delta Position Two: {1000 * deltaPositionTwo}");
-    // }
 }
 
     /**

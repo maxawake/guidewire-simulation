@@ -16,6 +16,15 @@ namespace GuidewireSim {
 		public Vector3 scale = Vector3.one;
 		public Vector3 rotation = Vector3.zero;
 
+        // Constraint solving step
+        public float bendStiffness = 0.1f;
+        public float stretchStiffness = 0.1f;
+
+        // Collision solving step
+        public float sphereRadius = 5.0f;
+        public float collisionMargin = 0.1f;
+        public float collisionStiffness = 0.001f;
+
         public string SaveToString()
         {
             return JsonUtility.ToJson(this);
