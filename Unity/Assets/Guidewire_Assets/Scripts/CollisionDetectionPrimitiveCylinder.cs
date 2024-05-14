@@ -35,13 +35,15 @@ namespace GuidewireSim
         /**
          * Assigns the unique ID of the object sphere it is attached to to #sphereID.
          */
-        private void AssignCylinderID()
+        public void AssignCylinderID()
         {
             GameObject thisCylinder = this.transform.gameObject;
-            //Debug.Log(simulationLoop.SpheresCount);
+            Debug.Log(simulationLoop.CylinderCount);
 
             for (int cylinderIndex = 0; cylinderIndex < simulationLoop.CylinderCount; cylinderIndex++)
-            {
+            {   
+                Debug.Log(simulationLoop.cylinders[cylinderIndex]);
+                Debug.Log(thisCylinder);
                 if (thisCylinder == simulationLoop.cylinders[cylinderIndex])
                 {
                     cylinderID = cylinderIndex;

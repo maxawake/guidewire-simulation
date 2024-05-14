@@ -23,8 +23,7 @@ namespace GuidewireSim
 
         private void Awake()
         {
-            simulationLoop = FindObjectOfType<SimulationLoop>();
-            Assert.IsNotNull(simulationLoop);
+            
 
             collisionHandler = FindObjectOfType<CollisionHandler>();
             Assert.IsNotNull(collisionHandler);
@@ -32,6 +31,8 @@ namespace GuidewireSim
 
         private void Start()
         {
+            simulationLoop = FindObjectOfType<SimulationLoop>();
+            Assert.IsNotNull(simulationLoop);
             AssignSphereID();
         }
 

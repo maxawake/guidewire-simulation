@@ -133,10 +133,11 @@ public class SimulationLoop : MonoBehaviour
     {        
         //rodElementLength = parameterHandler.GetRodElementLength();
         stopwatch = new Stopwatch();
-
-        if (spheres.Length == 0 || cylinders.Length == 0) {
-            this.GetGuidewireFromScene();
-        }
+        this.GetGuidewireFromScene();
+        
+        // if (spheres.Length == 0 || cylinders.Length == 0) {
+            
+        // }
 
         Assert.IsFalse(spheres.Length == 0);
         Assert.IsFalse(cylinders.Length == 0);
@@ -261,9 +262,6 @@ public class SimulationLoop : MonoBehaviour
 
     private void PerformInitializationStep()
     {   
-        SpheresCount = spheres.Length;
-        CylinderCount = cylinders.Length;
-
         Assert.IsTrue(SpheresCount == CylinderCount + 1);
 
         initializationStep.InitSpherePositions(spheres, SpheresCount, out spherePositions);
@@ -428,6 +426,7 @@ public class SimulationLoop : MonoBehaviour
     public void SetSpheres(GameObject[] spheresArray)
     {
         spheres = spheresArray;
+        SpheresCount = spheres.Length;
     }
 
     /**
@@ -437,6 +436,7 @@ public class SimulationLoop : MonoBehaviour
     public void SetCylinders(GameObject[] cylindersArray)
     {
         cylinders = cylindersArray;
+        CylinderCount = cylinders.Length;
     }
 
     /**
