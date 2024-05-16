@@ -107,7 +107,7 @@ public class SimulationLoop : MonoBehaviour
     //                             *   spheres is #rodElementLength.
     //                             */
 
-    [SerializeField] [Range(1, 1000)] int constraintSolverSteps = 1000; /**< How often the constraint solver iterates over each constraint during
+    [Range(1, 1000)] int constraintSolverSteps = 1000; /**< How often the constraint solver iterates over each constraint during
                                                                                  *   the Constraint Solving Step.
                                                                                  *   @attention This value must be positive.
                                                                                  */
@@ -116,7 +116,7 @@ public class SimulationLoop : MonoBehaviour
 
     // TODO: Why private?
     //private float timeStep;
-    [SerializeField] [Range(0.002f, 0.04f)] float timeStep = 0.01f; /**< The fixed time step in seconds at which the simulation runs.
+    [Range(0.002f, 0.04f)] float timeStep = 0.01f; /**< The fixed time step in seconds at which the simulation runs.
                                                                       *  @note A lower timestep than 0.002 can not be guaranteed by
                                                                       *  the test hardware to be executed in time. Only choose a lower timestep if
                                                                       *  you are certain your hardware can handle it.
@@ -130,7 +130,28 @@ public class SimulationLoop : MonoBehaviour
     * Default constructor.
     */
     private void Awake()
-    {        
+    {   
+        parameterHandler = GetComponent<ParameterHandler>();
+        Assert.IsNotNull(parameterHandler);
+
+        string saveFile = "/home/max/Temp/Praktikum/parameters.json";
+
+        // Read the parameters from a file
+        //string saveFile = cli.GetArg("parameters");
+        // if (File.Exists(saveFile))
+        // {
+        //     string fileContents = File.ReadAllText(saveFile);
+        //     parameterHandler.CreateFromJSON(fileContents);
+        // }
+
+        // Write the parameters to a file
+        string json = parameterHandler.SaveToString();
+        File.WriteAllText(saveFile, json);
+
+        rodElementLength = parameterHandler.rodElementLength;
+        timeStep = parameterHandler.timeStep;
+        constraintSolverSteps = parameterHandler.constraintSolverSteps;
+
         //rodElementLength = parameterHandler.GetRodElementLength();
         stopwatch = new Stopwatch();
         this.GetGuidewireFromScene();
@@ -170,8 +191,8 @@ public class SimulationLoop : MonoBehaviour
         logger = GetComponent<DataLogger>();
         Assert.IsNotNull(logger);
 
-        parameterHandler = GetComponent<ParameterHandler>();
-        Assert.IsNotNull(parameterHandler);
+        // parameterHandler = GetComponent<ParameterHandler>();
+        // Assert.IsNotNull(parameterHandler);
 
         cli = GetComponent<CommandLineHandler>();
         Assert.IsNotNull(cli);
@@ -182,22 +203,6 @@ public class SimulationLoop : MonoBehaviour
      */
     private void Start()
     {   
-         string saveFile = "/home/max/Temp/Praktikum/parameters.json";
-        //string saveFile = cli.GetArg("parameters");
-        // if (File.Exists(saveFile))
-        // {
-        //     // Read the entire file and save its contents.
-        //     string fileContents = File.ReadAllText(saveFile);
-        //     parameterHandler.CreateFromJSON(fileContents);
-        //     rodElementLength = parameterHandler.GetRodElementLength();
-        // }
-        string json = parameterHandler.SaveToString();
-        //Debug.Log("HELLO" + json);
-        File.WriteAllText(saveFile, json);
-
-        rodElementLength = parameterHandler.GetRodElementLength();
-        Debug.Log("Rod Element Length: " + rodElementLength);
-
         Time.fixedDeltaTime = timeStep;
 
         PerformInitializationStep();

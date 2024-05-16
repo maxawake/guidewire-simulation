@@ -18,14 +18,14 @@ namespace GuidewireSim
         Vector3 deltaPosition = new Vector3(); //!< The correction of @p spherePositionPrediction in method SolveCollisionConstraint().
         Vector3 initialPositionPrediction = new Vector3();
 
-        float sphereRadius = 5f; //!< The radius of a sphere of the guidewire.
-        [SerializeField] float collisionMargin = 0.1f; /**< A margin by which a colliding element of the guidewire is set away from the object
+        float sphereRadius; //!< The radius of a sphere of the guidewire.
+        float collisionMargin; /**< A margin by which a colliding element of the guidewire is set away from the object
                                                         *   colliding with in the direction of the normal.
                                                         *   @note Without this margin, the colliding element of the guidewire (e.g. a sphere) is
                                                         *   corrected such that its surface exactly touches the object colliding with, which
                                                         *   results in the guidewire still penetrating the object.
                                                         */
-        [Range(0.00001f, 1f)] float collisionStiffness = 0.001f; //!< The collision constraint stiffness parameter.
+        float collisionStiffness; //!< The collision constraint stiffness parameter.
 
         private void Awake()
         {

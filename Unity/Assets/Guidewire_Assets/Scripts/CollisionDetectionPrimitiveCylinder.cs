@@ -62,7 +62,7 @@ namespace GuidewireSim
             Vector3 collisionNormal = collisionContact.normal;
 
             Debug.Log("Collision Enter");
-            //collisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
+            collisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
         }
 
         /**
@@ -76,7 +76,7 @@ namespace GuidewireSim
             Vector3 collisionNormal = collisionContact.normal;
 
             Debug.Log("Collision Stay");
-            //collisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
+            collisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
         }
     }
 }
