@@ -13,6 +13,9 @@ scopes = {
 	"picker_item_size.075BCD15" = "96"
 	"picker_inspector.075BCD15" = "0"
 	"picker_current_group.075BCD15" = "all"
+	"last_search.5A656512" = "Component1_normals1809_pos"
+	"OpenInspectorPreview.5A656512" = "0"
+	"currentGroup.5A656512" = null
 }
 providers = {
 	packages = {
@@ -69,11 +72,13 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"Component1_normals1809_pos"
+	"ref=\"/Component1_normals1809_pos"
 ]
 searchItemFavorites = [
 ]
 savedSearchesSortOrder = 0
-showSavedSearchPanel = false
+showSavedSearchPanel = true
 hideTabs = false
 expandedQueries = [
 ]
