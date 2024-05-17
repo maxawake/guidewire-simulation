@@ -61,7 +61,7 @@ public class SimulationLoop : MonoBehaviour
     // public float[] sphereInverseMasses; /**< The constant inverse masses  of each sphere.
                                                     *   @note Set to 1 for moving spheres and to 0 for fixed spheres.
                                                     */
-    [HideInInspector] public Vector3[] sphereExternalForces; //!< The sum of all current external forces that are applied per particle/ sphere.
+    public Vector3[] sphereExternalForces; //!< The sum of all current external forces that are applied per particle/ sphere.
     Vector3[] spherePositionPredictions; //!< The prediction of the position at the current frame of each sphere.
     
     [HideInInspector] public Vector3[] cylinderPositions; //!< The center of mass of each cylinder.
@@ -209,6 +209,8 @@ public class SimulationLoop : MonoBehaviour
 
         objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
         objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
+
+        sphereExternalForces[SpheresCount -1] = new Vector3(0, 0, 0);
     }
 
     /**
@@ -294,11 +296,16 @@ public class SimulationLoop : MonoBehaviour
      */
     public void PerformSimulationLoop()
     {
+        //Debug.Log(sphereExternalForces[0]);
+        
+
         PerformConstraintSolvingStep();
         PerformUpdateStep();
         PerformPredictionStep();
         AdaptCalculations();
         SetCollidersStep();
+
+        
 
         // Take screenshot
         ScreenCapture.CaptureScreenshot("/home/max/Temp/Praktikum/screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png");
