@@ -57,7 +57,7 @@ public class PredictionStep : MonoBehaviour
     */
     // TODO: Verlet integration somewhere here
     public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
-                                    Vector3[] sphereVelocities)
+                                    Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
     {
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
@@ -67,7 +67,7 @@ public class PredictionStep : MonoBehaviour
             }
             else
             {
-                spherePositionPredictions[sphereIndex] =spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex];
+                spherePositionPredictions[sphereIndex] =spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex] + 0.5f* Time.deltaTime * Time.deltaTime * sphereExternalForces[sphereIndex] * sphereInverseMasses[sphereIndex];
             }
         }
 
