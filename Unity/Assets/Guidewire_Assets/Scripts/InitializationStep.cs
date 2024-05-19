@@ -16,6 +16,8 @@ public class InitializationStep : MonoBehaviour
 {   
     // TODO: Check if can be outsourced
     private SimulationLoop simulationLoop; // Declare simulationLoop
+
+    ParameterHandler parameterHandler;
     private float rodElementLength; // Declare rodElementLength
 
     CollisionHandler collisionHandler; //!< The component CollisionHandler that solves all collisions.
@@ -32,9 +34,10 @@ public class InitializationStep : MonoBehaviour
 
     private void Awake()
     {   
-        // TODO: Check if can be outsourced
-        simulationLoop = GetComponent<SimulationLoop>(); // Initialize simulationLoop
-        rodElementLength = simulationLoop.GetRodElementLength(); // Initialize rodElementLength
+        parameterHandler = GetComponent<ParameterHandler>(); // Initialize parameterHandler
+        Assert.IsNotNull(parameterHandler);
+
+        rodElementLength = parameterHandler.rodElementLength; // Initialize rodElementLength
 
         collisionHandler = GetComponent<CollisionHandler>();
         Assert.IsNotNull(collisionHandler);

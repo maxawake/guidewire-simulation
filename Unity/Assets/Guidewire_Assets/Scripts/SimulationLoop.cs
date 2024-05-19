@@ -31,6 +31,11 @@ public class SimulationLoop : MonoBehaviour
     ParameterHandler parameterHandler; // The parameter handler
     DataLogger logger;
     CommandLineHandler cli;
+
+    private Vector3 spherePositionInitial; /**< The initial position of the sphere at the beginning of the Constraint Solving Step.
+                                        *   @note This is needed to calculate the deviation of the rod element length to the default
+                                        *   rod element length.
+                                        */
     // OWN STUFF:
 
     InitializationStep initializationStep; //!< The component InitializationStep that is responsible for initializing the simulation.
@@ -53,16 +58,16 @@ public class SimulationLoop : MonoBehaviour
                                         *   two adjacent cylinders are adjacent in the array as well.
                                         */
 
-    [HideInInspector] public Vector3[] spherePositions; //!< The position at the current frame of each sphere.
-    [HideInInspector] public Vector3[] sphereVelocities; //!< The velocity of the current frame of each sphere. Initalized with zero entries.
+    public Vector3[] spherePositions; //!< The position at the current frame of each sphere.
+    public Vector3[] sphereVelocities; //!< The velocity of the current frame of each sphere. Initalized with zero entries.
     // TODO: What is the purpose of this array?
-    [HideInInspector] public float[] sphereInverseMasses; /**< The constant inverse masses  of each sphere.
+    public float[] sphereInverseMasses; /**< The constant inverse masses  of each sphere.
 
     // public float[] sphereInverseMasses; /**< The constant inverse masses  of each sphere.
                                                     *   @note Set to 1 for moving spheres and to 0 for fixed spheres.
                                                     */
     public Vector3[] sphereExternalForces; //!< The sum of all current external forces that are applied per particle/ sphere.
-    Vector3[] spherePositionPredictions; //!< The prediction of the position at the current frame of each sphere.
+    public Vector3[] spherePositionPredictions; //!< The prediction of the position at the current frame of each sphere.
     
     [HideInInspector] public Vector3[] cylinderPositions; //!< The center of mass of each cylinder.
     BSM.Quaternion[] cylinderOrientations; //!< The orientation of each cylinder at its center of mass.
@@ -100,14 +105,14 @@ public class SimulationLoop : MonoBehaviour
     public bool solveBendTwistConstraints = true; //!< Whether or not to perform the constraint solving of the bend twist constraint.
     public bool solveCollisionConstraints = true; //!< Whether or not to perform the constraint solving of collision constraints.
 
-    float rodElementLength = 10f; /**< The distance between two spheres, also the distance between two orientations.
+    private float rodElementLength; /**< The distance between two spheres, also the distance between two orientations.
     //                             *   Also the length of one cylinder.
     //                             *   @note This should be two times the radius of a sphere.
     //                             *   @attention Make sure that the guidewire setup fulfilles that the distance between two adjacent
     //                             *   spheres is #rodElementLength.
     //                             */
 
-    [Range(1, 1000)] int constraintSolverSteps = 1000; /**< How often the constraint solver iterates over each constraint during
+    private int constraintSolverSteps;/** = 1000; /**< How often the constraint solver iterates over each constraint during
                                                                                  *   the Constraint Solving Step.
                                                                                  *   @attention This value must be positive.
                                                                                  */
@@ -116,7 +121,7 @@ public class SimulationLoop : MonoBehaviour
 
     // TODO: Why private?
     //private float timeStep;
-    [Range(0.002f, 0.04f)] float timeStep = 0.01f; /**< The fixed time step in seconds at which the simulation runs.
+    private float timeStep;/** = 0.01f; /**< The fixed time step in seconds at which the simulation runs.
                                                                       *  @note A lower timestep than 0.002 can not be guaranteed by
                                                                       *  the test hardware to be executed in time. Only choose a lower timestep if
                                                                       *  you are certain your hardware can handle it.
@@ -210,7 +215,7 @@ public class SimulationLoop : MonoBehaviour
         objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
         objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
 
-        sphereExternalForces[SpheresCount -1] = new Vector3(0, 0, 0);
+        //sphereExternalForces[SpheresCount -1] = new Vector3(0, 0, 0);
     }
 
     /**
@@ -295,17 +300,12 @@ public class SimulationLoop : MonoBehaviour
      @note In a late version, CollisionDetection and GenerateCollisionConstraints will be added to the algorithm.
      */
     public void PerformSimulationLoop()
-    {
-        //Debug.Log(sphereExternalForces[0]);
-        
-
+    {   
         PerformConstraintSolvingStep();
         PerformUpdateStep();
         PerformPredictionStep();
         AdaptCalculations();
         SetCollidersStep();
-
-        
 
         // Take screenshot
         ScreenCapture.CaptureScreenshot("/home/max/Temp/Praktikum/screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png");
@@ -345,6 +345,8 @@ public class SimulationLoop : MonoBehaviour
         {            
             logger.write($"Start of Constraint Solving - Last sphere position: {spherePositionPredictions[0]}"); 
 
+            spherePositionInitial = spherePositionPredictions[0];
+
             if (solveStretchConstraints)
             {
                 constraintSolvingStep.SolveStretchConstraints(spherePositionPredictions, cylinderOrientationPredictions, SpheresCount, 
@@ -361,6 +363,8 @@ public class SimulationLoop : MonoBehaviour
             {
                 collisionSolvingStep.SolveCollisionConstraints(spherePositionPredictions, solverStep, ConstraintSolverSteps);
             }
+
+            spherePositionPredictions[0] = spherePositionInitial;
         }
 
         if (solveCollisionConstraints)

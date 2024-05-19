@@ -21,7 +21,7 @@ namespace GuidewireSim {
                                                                       */
 
         // For the rod
-        public float zDisplacement = 0.0f;
+        public float displacement = 0.0f;
         public float rodElementLength = 10f;
         
         // For model placement
