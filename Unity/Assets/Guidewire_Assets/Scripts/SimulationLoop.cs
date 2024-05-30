@@ -18,14 +18,9 @@ namespace GuidewireSim
 [RequireComponent(typeof(MathHelper))]
 public class SimulationLoop : MonoBehaviour
 {
-    // TODO: What is going on here?
-    //private bool isFirstCall = true; 
-    //public int count; //hier aus CreationScript
-    //CreationScript creationScript; //hier -""-
     private Stopwatch stopwatch;
     //public Camera followingCamera;  // Drag your camera here in the Unity Editor
-    private Vector3 cameraOffset = new Vector3(0, 781, 0); // The offset of the camera in the y direction is 781
-    //private string logFilePath = "";
+    //private Vector3 cameraOffset = new Vector3(0, 781, 0); // The offset of the camera in the y direction is 781
 
     // OWN STUFF:
     ParameterHandler parameterHandler; // The parameter handler
@@ -60,12 +55,8 @@ public class SimulationLoop : MonoBehaviour
 
     public Vector3[] spherePositions; //!< The position at the current frame of each sphere.
     public Vector3[] sphereVelocities; //!< The velocity of the current frame of each sphere. Initalized with zero entries.
-    // TODO: What is the purpose of this array?
-    public float[] sphereInverseMasses; /**< The constant inverse masses  of each sphere.
+    public float[] sphereInverseMasses; // The constant inverse masses  of each sphere.
 
-    // public float[] sphereInverseMasses; /**< The constant inverse masses  of each sphere.
-                                                    *   @note Set to 1 for moving spheres and to 0 for fixed spheres.
-                                                    */
     public Vector3[] sphereExternalForces; //!< The sum of all current external forces that are applied per particle/ sphere.
     public Vector3[] spherePositionPredictions; //!< The prediction of the position at the current frame of each sphere.
     
@@ -106,11 +97,11 @@ public class SimulationLoop : MonoBehaviour
     public bool solveCollisionConstraints = true; //!< Whether or not to perform the constraint solving of collision constraints.
 
     private float rodElementLength; /**< The distance between two spheres, also the distance between two orientations.
-    //                             *   Also the length of one cylinder.
-    //                             *   @note This should be two times the radius of a sphere.
-    //                             *   @attention Make sure that the guidewire setup fulfilles that the distance between two adjacent
-    //                             *   spheres is #rodElementLength.
-    //                             */
+                                    *   Also the length of one cylinder.
+                                    *   @note This should be two times the radius of a sphere.
+                                    *   @attention Make sure that the guidewire setup fulfilles that the distance between two adjacent
+                                    *   spheres is #rodElementLength.
+                                    */
 
     private int constraintSolverSteps;/** = 1000; /**< How often the constraint solver iterates over each constraint during
                                                                                  *   the Constraint Solving Step.
@@ -119,8 +110,6 @@ public class SimulationLoop : MonoBehaviour
     public int ConstraintSolverSteps { get { return constraintSolverSteps; }
                                        set { constraintSolverSteps = value; } }
 
-    // TODO: Why private?
-    //private float timeStep;
     private float timeStep;/** = 0.01f; /**< The fixed time step in seconds at which the simulation runs.
                                                                       *  @note A lower timestep than 0.002 can not be guaranteed by
                                                                       *  the test hardware to be executed in time. Only choose a lower timestep if
@@ -153,21 +142,17 @@ public class SimulationLoop : MonoBehaviour
         string json = parameterHandler.SaveToString();
         File.WriteAllText(saveFile, json);
 
-        rodElementLength = parameterHandler.rodElementLength;
+        //rodElementLength = parameterHandler.rodElementLength;
         timeStep = parameterHandler.timeStep;
         constraintSolverSteps = parameterHandler.constraintSolverSteps;
 
-        //rodElementLength = parameterHandler.GetRodElementLength();
         stopwatch = new Stopwatch();
-        this.GetGuidewireFromScene();
+        //GetGuidewireFromScene();
         
-        // if (spheres.Length == 0 || cylinders.Length == 0) {
-            
-        // }
 
-        Assert.IsFalse(spheres.Length == 0);
-        Assert.IsFalse(cylinders.Length == 0);
-        Assert.IsTrue(spheres.Length == cylinders.Length + 1);
+        //Assert.IsFalse(spheres.Length == 0);
+        //Assert.IsFalse(cylinders.Length == 0);
+        //Assert.IsTrue(spheres.Length == cylinders.Length + 1);
 
         initializationStep = GetComponent<InitializationStep>();
         Assert.IsNotNull(initializationStep);
@@ -196,9 +181,6 @@ public class SimulationLoop : MonoBehaviour
         logger = GetComponent<DataLogger>();
         Assert.IsNotNull(logger);
 
-        // parameterHandler = GetComponent<ParameterHandler>();
-        // Assert.IsNotNull(parameterHandler);
-
         cli = GetComponent<CommandLineHandler>();
         Assert.IsNotNull(cli);
     }
@@ -214,8 +196,6 @@ public class SimulationLoop : MonoBehaviour
 
         objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
         objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
-
-        //sphereExternalForces[SpheresCount -1] = new Vector3(0, 0, 0);
     }
 
     /**
@@ -241,7 +221,12 @@ public class SimulationLoop : MonoBehaviour
      */
     public float GetRodElementLength()
     {
-        return rodElementLength;//parameterHandler.GetRodElementLength();
+        return rodElementLength;
+    }
+
+    public void SetRodElementLength(float rodElementLength)
+    {
+        this.rodElementLength = rodElementLength;
     }
 
     /**
@@ -254,8 +239,6 @@ public class SimulationLoop : MonoBehaviour
             Vector3 spherePosition = spheres[i].transform.position;
             logger.write("Sphere " + (i + 1) + " Position: " + spherePosition.x + "," + spherePosition.y + "," + spherePosition.z);
         }
-        
-        //fixedUpdateCounter++; // Increment the counter for the next file name
     }
 
     /**
@@ -266,7 +249,7 @@ public class SimulationLoop : MonoBehaviour
         if (spheres != null && spheres.Length > 0)
         {
                 GameObject lastSphere = spheres[spheres.Length-1];
-                Vector3 newCameraPosition = lastSphere.transform.position + cameraOffset;
+                //Vector3 newCameraPosition = lastSphere.transform.position + cameraOffset;
                 //followingCamera.transform.position = newCameraPosition;
         }
     }
@@ -283,7 +266,7 @@ public class SimulationLoop : MonoBehaviour
         initializationStep.InitCylinderOrientations(CylinderCount, out cylinderOrientations);
         initializationStep.InitDiscreteRestDarbouxVectors(CylinderCount, cylinderOrientations, out discreteRestDarbouxVectors, rodElementLength);
         initializationStep.InitCylinderAngularVelocities(CylinderCount, out cylinderAngularVelocities);
-        //initializationStep.InitCylinderScalarWeights(CylinderCount, out cylinderScalarWeights);
+        initializationStep.InitCylinderScalarWeights(CylinderCount, out cylinderScalarWeights);
         initializationStep.InitSphereExternalForces(SpheresCount, out sphereExternalForces);
         initializationStep.InitSpherePositionPredictions(spheres, SpheresCount, out spherePositionPredictions);
         initializationStep.InitInertiaTensor(out inertiaTensor);

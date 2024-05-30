@@ -2,38 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GuidewireSim;
+using UnityEngine.Assertions;
+
 
 // TODO: Check this script
 public class GuidewireCreateManager : MonoBehaviour
 {
     private CreationScript creationScript;
     private SimulationLoop simulationLoop;
+    private ParameterHandler parameterHandler;
+
 
     public GameObject Simulation;
-    public int L_0 = 100;
-    private float REL;
+    private float guidewireLength;
+    private int numberRodElements;
+    private float rodElementLength;
+
+
+    private void Awake() 
+    {
+        simulationLoop = Simulation.GetComponent<SimulationLoop>();
+        Assert.IsNotNull(simulationLoop);
+
+        parameterHandler = Simulation.GetComponent<ParameterHandler>();
+        Assert.IsNotNull(parameterHandler);
+    }
 
     private void Start()
     {
-        // Find the SimulationLoop component from the Simulation GameObject
-        simulationLoop = Simulation.GetComponent<SimulationLoop>();
-
-        if (simulationLoop == null)
-        {
-            Debug.LogError("SimulationLoop component not found in the Simulation GameObject!");
-            return; // Exit if SimulationLoop is not found
-        }
-
         //again we need to get the rod element length from the simulation loop script; 
-        REL = 10.0f;//simulationLoop.GetRodElementLength();
-        int numberOfElements = (int)(L_0 / REL) + 1;//This calculates the number of elements that now make up the discretized guidewire. The number of elements depends on the rod element length 
+        numberRodElements = parameterHandler.numberRodElements;
+        guidewireLength = parameterHandler.guidewireLength;
 
-        //now find the CreationScript component in the scene, to create the guidewire with the wanted number of elements and rod element length.
+        rodElementLength = guidewireLength / numberRodElements;
+
+        simulationLoop.SetRodElementLength(rodElementLength);
+
         //This will cause the total length of the guidewire to stay the same
         creationScript = FindAnyObjectByType<CreationScript>();
         if (creationScript != null)
         {
-            creationScript.CreateGuidewire(numberOfElements);
+            creationScript.CreateGuidewire(numberRodElements);
 
             //Get the created spheres and cylinders from the CreationScript
             GameObject[] createdSpheres = creationScript.GetSpheres();

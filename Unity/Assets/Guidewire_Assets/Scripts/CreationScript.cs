@@ -51,7 +51,7 @@ public class CreationScript : MonoBehaviour
         {
             GameObject sphere = Instantiate(spherePrefab);
             // TODO: What is happening here? 
-            sphere.transform.position = new Vector3(0, 0, 44.5f + i * rEL);    //-444 fuer 1000 lang, -123 fur 2?, 44.5f fur 2!
+            sphere.transform.position = new Vector3(0, 0, -300f+i * rEL);    //-444 fuer 1000 lang, -123 fur 2?, 44.5f fur 2!
             sphere.transform.parent = this.transform;
             spheres[i] = sphere;
 
@@ -60,6 +60,7 @@ public class CreationScript : MonoBehaviour
                 GameObject cylinder = Instantiate(cylinderPrefab);
                 cylinder.layer = 6;
                 cylinder.transform.parent = this.transform;
+                cylinder.transform.localScale = new Vector3(1,1,2.5f);
                 cylinders[i] = cylinder;
             }
 

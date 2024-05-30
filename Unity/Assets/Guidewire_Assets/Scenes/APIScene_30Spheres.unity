@@ -899,7 +899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logFilePath: /home/max/Temp/Praktikum/guidewire-log.txt
   constraintSolverSteps: 100
-  timeStep: 0.01
+  timeStep: 0.1
   displacement: 1
   rodElementLength: 10
   position: {x: 0, y: 0, z: 0}
