@@ -196,6 +196,8 @@ public class SimulationLoop : MonoBehaviour
 
         objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
         objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
+
+        spherePositions[0] = spherePositions[0] + new Vector3(0, 0, -parameterHandler.displacement);
     }
 
     /**

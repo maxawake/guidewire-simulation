@@ -25,6 +25,7 @@ namespace GuidewireSim {
         public float rodElementLength = 10f;
         public float guidewireLength = 100f;
         public int numberRodElements = 10;
+        public float guidewireOffset = -200.0f;
         
         // For model placement
         public Vector3 position = Vector3.zero;

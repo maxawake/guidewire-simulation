@@ -35,7 +35,6 @@ public class PredictionStep : MonoBehaviour
      * @return The predictions of the positions of the spheres, i.e. @p spherePositionPredictions.
      * @note The predictions are again stored in @p sphereVelocities.
      */
-    // TODO: Verlet integration somewhere here
     public Vector3[] PredictSphereVelocities(Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
     {
         for (int sphereIndex = 0; sphereIndex < sphereVelocities.Length; sphereIndex++)
@@ -55,21 +54,17 @@ public class PredictionStep : MonoBehaviour
     * @param sphereVelocities The velocity of the current frame of each sphere.
     * @return The prediction of the position at the current frame of each sphere, i.e. spherePositionPredictions.
     */
-    // TODO: Verlet integration somewhere here
     public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
                                     Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
     {
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
-            if (sphereIndex == 0)
-            {
-                spherePositionPredictions[0] = spherePositions[0] + new Vector3(0, 0, displacement); // Used zDisplacement here
-            }
-            else
-            {
-                spherePositionPredictions[sphereIndex] =spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex] + 0.5f* Time.deltaTime * Time.deltaTime * sphereExternalForces[sphereIndex] * sphereInverseMasses[sphereIndex];
-            }
+            spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex] + 0.5f* Time.deltaTime * Time.deltaTime * sphereExternalForces[sphereIndex] * sphereInverseMasses[sphereIndex];   
         }
+
+        // Vector3 direction = spherePositions[1] - spherePositions[0];
+        // direction.Normalize();
+        // spherePositionPredictions[0] = spherePositions[0] + displacement*direction; // Used zDisplacement here
 
         return spherePositionPredictions;
     }

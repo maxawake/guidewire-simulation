@@ -176,7 +176,7 @@ public class ConstraintSolvingStep : MonoBehaviour
         Assert.IsTrue(spheresCount >= 1);
         Assert.IsTrue(rodElementLength > 0f);
 
-        for (int sphereIndex = 0; sphereIndex < spheresCount - 1; sphereIndex++)
+        for (int sphereIndex = 1; sphereIndex < spheresCount - 1; sphereIndex++)
         {
             SolveStretchConstraint(spherePositionPredictions[sphereIndex], spherePositionPredictions[sphereIndex + 1],
                                    cylinderOrientationPredictions[sphereIndex], e_3, rodElementLength, out deltaPositionOne,

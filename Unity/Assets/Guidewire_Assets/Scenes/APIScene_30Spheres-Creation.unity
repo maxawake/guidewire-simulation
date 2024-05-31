@@ -1145,6 +1145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spherePrefab: {fileID: 8551267917678092658, guid: 71f983e886cdf6b418bb6e5402e7361d, type: 3}
   cylinderPrefab: {fileID: 2996864074033366817, guid: 21245aa63eb67904188b68d3b66312df, type: 3}
+  guidewireOffset: -200
 --- !u!114 &2121225377
 MonoBehaviour:
   m_ObjectHideFlags: 0
