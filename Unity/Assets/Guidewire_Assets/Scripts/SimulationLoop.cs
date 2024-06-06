@@ -209,9 +209,25 @@ public class SimulationLoop : MonoBehaviour
         if (ExecuteSingleLoopTest) return;
 
         stopwatch.Restart();
+
+        float delta = 100f;
+        Vector3[] spherePositionsTemp = new Vector3[SpheresCount];
+        spherePositionsTemp = CopySpherePositions(spherePositionsTemp, SpheresCount, spherePositionPredictions);
+        //spherePositionInitial = spherePositionPredictions[0];
+        
         PerformSimulationLoop();
         stopwatch.Stop();
 
+        delta = calculateDelta(spherePositionsTemp, spherePositionPredictions);
+        //spherePositionPredictions[0] = spherePositionInitial;
+        
+        //Debug.Log("Delta: " + delta);
+        if (delta < 0.01f) {
+            Debug.Log("Delta is less than 0.01");
+
+            //spherePositions[0] = spherePositions[0] + new Vector3(0, 0, -parameterHandler.displacement);
+        }
+        //sphereVelocities[0] = Vector3.zero;
         //UpdateCameraPosition();
 
         long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
@@ -287,11 +303,18 @@ public class SimulationLoop : MonoBehaviour
      */
     public void PerformSimulationLoop()
     {   
+        //spherePositionInitial = spherePositions[0];
+        sphereVelocities[0] = new Vector3(0, 0, 0);
         PerformConstraintSolvingStep();
+        
         PerformUpdateStep();
+        //spherePositions[0] = spherePositionInitial;
         PerformPredictionStep();
+        
+        //
         AdaptCalculations();
         SetCollidersStep();
+        
 
         // Take screenshot
         if (takeScreenshots) {
@@ -331,16 +354,16 @@ public class SimulationLoop : MonoBehaviour
         }
 
         float delta = 100f;
-        Vector3[] spherePositionsTemp = new Vector3[SpheresCount];
+        
         
         //int solverStep = 0;
         for (int solverStep = 0; solverStep < ConstraintSolverSteps; solverStep++)
         //while (delta > 0.01f)
         {            
             logger.write($"Start of Constraint Solving - Last sphere position: {spherePositionPredictions[0]}"); 
-            spherePositionsTemp = CopySpherePositions(spherePositionsTemp, SpheresCount, spherePositionPredictions);
-
             spherePositionInitial = spherePositionPredictions[0];
+
+            
             
             //Debug.Log(spherePositionPredictions[1]);
 
@@ -362,10 +385,10 @@ public class SimulationLoop : MonoBehaviour
             }
 
             spherePositionPredictions[0] = spherePositionInitial;
-            delta = calculateDelta(spherePositionsTemp, spherePositionPredictions);
-            //Debug.Log("Delta: " + delta);
+            
+            Debug.Log("Delta: " + delta);
             //Debug.Log(spherePositionPredictions[1]);
-            //solverStep++;
+            //olverStep++;
         }
         
         //Debug.Log("Solver steps: " + solverStep);
@@ -389,13 +412,8 @@ public class SimulationLoop : MonoBehaviour
     private float calculateDelta(Vector3[] spherePositions1, Vector3[] spherePositions2) {
         float delta = 0.0f;
         for (int i = 0; i < spherePositions1.Length; i++) {
-            //Debug.Log(spherePositions[i] + " " + spherePositionPredictions[i] + " " + Vector3.Distance(spherePositions[i], spherePositionPredictions[i]));
             delta += Vector3.Distance(spherePositions1[i], spherePositions2[i]);
-            // delta += Mathf.Abs(spherePositions1[i].x - spherePositions2[i].x);
-            // delta += Mathf.Abs(spherePositions1[i].y - spherePositions2[i].y);
-            // delta += Mathf.Abs(spherePositions1[i].z - spherePositions2[i].z);
         }
-        //Debug.Log("Inner Delta: " + delta);
         return delta;
     }
     
