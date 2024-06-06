@@ -858,6 +858,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4233146888435007114, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1672042498}
+    - targetCorrespondingSourceObject: {fileID: 4233146888435007114, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1672042513}
   m_SourcePrefab: {fileID: 100100000, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
 --- !u!1 &1672042465 stripped
 GameObject:
@@ -908,6 +911,7 @@ MonoBehaviour:
   rodElementLength: 10
   guidewireLength: 300
   numberRodElements: 10
+  guidewireOffset: -200
   position: {x: 0, y: 0, z: 0}
   scale: {x: 1, y: 1, z: 1}
   rotation: {x: 0, y: 0, z: 0}
@@ -928,6 +932,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7e8ce5090b5760e83894e651cc51b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1672042513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672042465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347e0aa09fb14fa0c91da6630f608b0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cylinderColliders: []
 --- !u!1 &2088602351
 GameObject:
   m_ObjectHideFlags: 0

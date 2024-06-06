@@ -14,22 +14,32 @@ namespace GuidewireSim
     public class CollisionDetectionPrimitiveCylinder : MonoBehaviour
     {
         SimulationLoop simulationLoop; //!< The SimulationLoop component in the Simulation GameObject
-        CollisionHandler collisionHandler; //!< The CollisionHandler component in the Simulation GameObject
+        CylinderCollisionHandler cylinderCollisionHandler; //!< The CollisionHandler component in the Simulation GameObject
+
+        CollisionHandler sphereCollisionHandler;
+
+        Vector3[] spherePositions;
 
         public int cylinderID;
 
         private void Awake()
         {
-            simulationLoop = FindAnyObjectByType<SimulationLoop>();
-            Assert.IsNotNull(simulationLoop);
-
-            collisionHandler = FindAnyObjectByType<CollisionHandler>();
-            Assert.IsNotNull(collisionHandler);
+            
         }
 
         private void Start()
         {
+            simulationLoop = FindAnyObjectByType<SimulationLoop>();
+            Assert.IsNotNull(simulationLoop);
+
+            cylinderCollisionHandler = FindAnyObjectByType<CylinderCollisionHandler>();
+            Assert.IsNotNull(cylinderCollisionHandler);
+
+            sphereCollisionHandler = FindAnyObjectByType<CollisionHandler>();
+            Assert.IsNotNull(sphereCollisionHandler);
+
             AssignCylinderID();
+            spherePositions = simulationLoop.spherePositions;
         }
 
         /**
@@ -62,7 +72,14 @@ namespace GuidewireSim
             Vector3 collisionNormal = collisionContact.normal;
 
             Debug.Log("Collision Enter");
-            collisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
+            Debug.Log(collisionNormal);
+            Debug.Log(contactPoint);
+            cylinderCollisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
+            
+            Vector3 spherePosition1 = spherePositions[cylinderID];
+            Vector3 spherePosition2 = spherePositions[cylinderID+1];
+            sphereCollisionHandler.RegisterCollision(this.transform, cylinderID, spherePosition1, collisionNormal);
+            sphereCollisionHandler.RegisterCollision(this.transform, cylinderID+1, spherePosition2, collisionNormal);
         }
 
         /**
@@ -76,7 +93,12 @@ namespace GuidewireSim
             Vector3 collisionNormal = collisionContact.normal;
 
             Debug.Log("Collision Stay");
-            collisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
+            cylinderCollisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
+
+            Vector3 spherePosition1 = spherePositions[cylinderID];
+            Vector3 spherePosition2 = spherePositions[cylinderID+1];
+            sphereCollisionHandler.RegisterCollision(this.transform, cylinderID, spherePosition1, collisionNormal);
+            sphereCollisionHandler.RegisterCollision(this.transform, cylinderID+1, spherePosition2, collisionNormal);
         }
     }
 }

@@ -62,8 +62,7 @@ namespace GuidewireSim
                 int sphereID = collisionPair.sphereID;
                 Vector3 spherePositionPrediction = spherePositionPredictions[sphereID];
 
-                SolveCollisionConstraint(spherePositionPrediction, collisionPair.contactPoint, collisionPair.collisionNormal,
-                                         solverStep, out deltaPosition);
+                SolveCollisionConstraint(spherePositionPrediction, collisionPair.contactPoint, collisionPair.collisionNormal, solverStep, out deltaPosition);
                 CorrectCollisionPredictions(sphereID, spherePositionPredictions, solverStep, constraintSolverSteps);
             }
         }
@@ -76,8 +75,7 @@ namespace GuidewireSim
          * @param solverStep The current iteration of the constraint solving step.
          * @attention Current calculation of the normal only works for spheres.
          */
-        private void SolveCollisionConstraint(Vector3 spherePositionPrediction, Vector3 contactPoint, Vector3 collisionNormal,
-                                             int solverStep, out Vector3 deltaPosition)
+        private void SolveCollisionConstraint(Vector3 spherePositionPrediction, Vector3 contactPoint, Vector3 collisionNormal, int solverStep, out Vector3 deltaPosition)
         {
             if (solverStep == 0)
             {
