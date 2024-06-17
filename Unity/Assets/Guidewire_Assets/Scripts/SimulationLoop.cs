@@ -44,6 +44,7 @@ public class SimulationLoop : MonoBehaviour
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
     CollisionSolvingStep collisionSolvingStep; //!< The component CollisionSolvingStep that solves all collisions.
     CollisionHandler collisionHandler; //!< The component CollisionHandler that tracks all collisions.
+    CylinderCollisionHandler cylinderCollisionHandler; //!< The component CylinderCollisionHandler that manages all cylinder collisions.
 
     [SerializeField] public GameObject[] spheres; /**< All spheres that are part of the guidewire.
                                 *   @attention The order in which the spheres are assigned matters. Assign them such that
@@ -179,6 +180,9 @@ public class SimulationLoop : MonoBehaviour
         collisionHandler = GetComponent<CollisionHandler>();
         Assert.IsNotNull(collisionHandler);
 
+        cylinderCollisionHandler = GetComponent<CylinderCollisionHandler>();
+        Assert.IsNotNull(cylinderCollisionHandler);
+
         logger = GetComponent<DataLogger>();
         Assert.IsNotNull(logger);
 
@@ -204,73 +208,32 @@ public class SimulationLoop : MonoBehaviour
     /**
      * @req Execute the simulation loop if and only if #ExecuteSingleLoopTest is false.
      */
-    private void FixedUpdate()
+    private void Update()
     {   
         if (ExecuteSingleLoopTest) return;
 
-        stopwatch.Restart();
+        //float delta = 100f;
+        //Vector3[] spherePositionsTemp;
+        //CopySpherePositions(SpheresCount, spherePositionPredictions, out spherePositionsTemp);
 
-        float delta = 100f;
-        Vector3[] spherePositionsTemp = new Vector3[SpheresCount];
-        spherePositionsTemp = CopySpherePositions(spherePositionsTemp, SpheresCount, spherePositionPredictions);
-        //spherePositionInitial = spherePositionPredictions[0];
-        
+        stopwatch.Restart();
         PerformSimulationLoop();
         stopwatch.Stop();
 
-        delta = calculateDelta(spherePositionsTemp, spherePositionPredictions);
-        //spherePositionPredictions[0] = spherePositionInitial;
-        
+        //delta = calculateDelta(spherePositionsTemp, spherePositionPredictions);
+
         //Debug.Log("Delta: " + delta);
-        if (delta < 0.01f) {
-            Debug.Log("Delta is less than 0.01");
-
-            //spherePositions[0] = spherePositions[0] + new Vector3(0, 0, -parameterHandler.displacement);
-        }
-        //sphereVelocities[0] = Vector3.zero;
-        //UpdateCameraPosition();
-
-        long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
-        logger.write($"FixedUpdate took {elapsedMilliseconds} ms");
-        SaveCurrentPositions();
-    }
-
-    /**
-     * Returns the rod element length.
-     */
-    public float GetRodElementLength()
-    {
-        return rodElementLength;
-    }
-
-    public void SetRodElementLength(float rodElementLength)
-    {
-        this.rodElementLength = rodElementLength;
-    }
-
-    /**
-     * Saves the current positions of the spheres to the log file.
-     */
-    public void SaveCurrentPositions()
-    {
-        for (int i = 0; i < spheres.Length; i++)
-        {
-            Vector3 spherePosition = spheres[i].transform.position;
-            logger.write("Sphere " + (i + 1) + " Position: " + spherePosition.x + "," + spherePosition.y + "," + spherePosition.z);
-        }
-    }
-
-    /**
-     * Updates the camera position to the last sphere.
-     */
-    private void UpdateCameraPosition()
-    {
-        if (spheres != null && spheres.Length > 0)
-        {
-                GameObject lastSphere = spheres[spheres.Length-1];
-                //Vector3 newCameraPosition = lastSphere.transform.position + cameraOffset;
-                //followingCamera.transform.position = newCameraPosition;
-        }
+        // if (delta < 0.5f) {
+        //     Debug.Log("Delta is less than 0.01");
+        //     Vector3 direction = spherePositions[1] - spherePositions[0];
+        //     direction.Normalize();
+        //     spherePositions[0] = spherePositions[0] + parameterHandler.displacement*direction; // Used zDisplacement here
+        // }
+        
+        // Logging
+        //long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+        //logger.write($"FixedUpdate took {elapsedMilliseconds} ms");
+        //SaveCurrentPositions();
     }
 
 
@@ -303,19 +266,12 @@ public class SimulationLoop : MonoBehaviour
      */
     public void PerformSimulationLoop()
     {   
-        //spherePositionInitial = spherePositions[0];
-        sphereVelocities[0] = new Vector3(0, 0, 0);
         PerformConstraintSolvingStep();
-        
         PerformUpdateStep();
-        //spherePositions[0] = spherePositionInitial;
         PerformPredictionStep();
-        
-        //
         AdaptCalculations();
         SetCollidersStep();
         
-
         // Take screenshot
         if (takeScreenshots) {
             ScreenCapture.CaptureScreenshot("/home/max/Temp/Praktikum/screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png");
@@ -353,19 +309,10 @@ public class SimulationLoop : MonoBehaviour
             Assert.IsTrue(SpheresCount >= 3);
         }
 
-        float delta = 100f;
-        
-        
-        //int solverStep = 0;
         for (int solverStep = 0; solverStep < ConstraintSolverSteps; solverStep++)
-        //while (delta > 0.01f)
         {            
-            logger.write($"Start of Constraint Solving - Last sphere position: {spherePositionPredictions[0]}"); 
+            //logger.write($"Start of Constraint Solving - Last sphere position: {spherePositionPredictions[0]}"); 
             spherePositionInitial = spherePositionPredictions[0];
-
-            
-            
-            //Debug.Log(spherePositionPredictions[1]);
 
             if (solveStretchConstraints)
             {
@@ -384,31 +331,39 @@ public class SimulationLoop : MonoBehaviour
                 collisionSolvingStep.SolveCollisionConstraints(spherePositionPredictions, solverStep, ConstraintSolverSteps);
             }
 
+            // Save the last sphere position
             spherePositionPredictions[0] = spherePositionInitial;
-            
-            Debug.Log("Delta: " + delta);
-            //Debug.Log(spherePositionPredictions[1]);
-            //olverStep++;
         }
-        
-        //Debug.Log("Solver steps: " + solverStep);
 
         if (solveCollisionConstraints)
         {
             collisionHandler.ResetRegisteredCollisions();
+            cylinderCollisionHandler.ResetRegisteredCollisions();
         }
     }
 
-    public Vector3[] CopySpherePositions(Vector3[] spherePositions, int spheresCount, Vector3[] spherePositionPredictions)
+    /**
+     * Copies the sphere positions from the spherePositionPredictions to the spherePositions.
+     * @param spheresCount The count of all spheres of the guidewire.
+     * @param spherePositionPredictions The prediction of the position at the current frame of each sphere.
+     * @param spherePositions The position at the current frame of each sphere.
+     */
+    public void CopySpherePositions(int spheresCount, Vector3[] spherePositionPredictions, out Vector3[] spherePositions)
     {   
+        spherePositions = new Vector3[spheresCount];
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
-            
             spherePositions[sphereIndex] = spherePositionPredictions[sphereIndex];
         }
-        return spherePositions;
+        //return spherePositions;
     }
 
+    /**
+     * Calculates the delta between two sets of sphere positions.
+     * @param spherePositions1 The first set of sphere positions.
+     * @param spherePositions2 The second set of sphere positions.
+     * @return The delta between the two sets of sphere positions.
+     */
     private float calculateDelta(Vector3[] spherePositions1, Vector3[] spherePositions2) {
         float delta = 0.0f;
         for (int i = 0; i < spherePositions1.Length; i++) {
@@ -528,5 +483,45 @@ public class SimulationLoop : MonoBehaviour
         SetSpheres(spheresList.ToArray());
         SetCylinders(cylindersList.ToArray());
     }
+
+        /**
+     * Saves the current positions of the spheres to the log file.
+     */
+    public void SaveCurrentPositions()
+    {
+        for (int i = 0; i < spheres.Length; i++)
+        {
+            Vector3 spherePosition = spheres[i].transform.position;
+            logger.write("Sphere " + (i + 1) + " Position: " + spherePosition.x + "," + spherePosition.y + "," + spherePosition.z);
+        }
+    }
+
+    /**
+     * Updates the camera position to the last sphere.
+     */
+    private void UpdateCameraPosition()
+    {
+        if (spheres != null && spheres.Length > 0)
+        {
+                GameObject lastSphere = spheres[spheres.Length-1];
+                //Vector3 newCameraPosition = lastSphere.transform.position + cameraOffset;
+                //followingCamera.transform.position = newCameraPosition;
+        }
+    }
+
+        /**
+     * Returns the rod element length.
+     */
+    public float GetRodElementLength()
+    {
+        return rodElementLength;
+    }
+
+    public void SetRodElementLength(float rodElementLength)
+    {
+        this.rodElementLength = rodElementLength;
+    }
+
+
 }
 }

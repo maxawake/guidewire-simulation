@@ -33,7 +33,7 @@ public class UpdateStep : MonoBehaviour
     {   
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
-            sphereVelocities[sphereIndex] = (spherePositionPredictions[sphereIndex] - spherePositions[sphereIndex]) / Time.deltaTime;
+            sphereVelocities[sphereIndex] = (spherePositionPredictions[sphereIndex] - spherePositions[sphereIndex]) / Time.fixedDeltaTime;
         }
 
         return sphereVelocities;
@@ -67,7 +67,7 @@ public class UpdateStep : MonoBehaviour
     public Vector3[] UpdateCylinderAngularVelocities(Vector3[] cylinderAngularVelocities, int cylinderCount, BSM.Quaternion[] cylinderOrientations,
                                                      BSM.Quaternion[] cylinderOrientationPredictions)
     {
-        float factor = 2f / Time.deltaTime;
+        float factor = 2f / Time.fixedDeltaTime;
 
         for (int cylinderIndex = 0; cylinderIndex < cylinderCount; cylinderIndex++)
         {

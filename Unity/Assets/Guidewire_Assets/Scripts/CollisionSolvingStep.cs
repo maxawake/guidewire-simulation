@@ -86,28 +86,15 @@ namespace GuidewireSim
         }
 
         /**
-         * Draws the contact point, collision normal, and displacement corrections into the scene of the collision that occured.
-         * @param spherePositionPrediction The position prediction of the sphere that collided.
-         * @param contactPoint The contact point of the collision.
-         * @param collisionNormal The normal of the collision.
-         */
-        private void DrawCollisionInformation(Vector3 spherePositionPrediction, Vector3 contactPoint, Vector3 collisionNormal)
-        {
-            Debug.DrawLine(contactPoint, contactPoint + 10f * collisionNormal, Color.blue, 2f);
-            DebugExtension.DrawPoint(spherePositionPrediction, Color.white);
-            DebugExtension.DrawPoint(contactPoint, Color.yellow);
-        }
-
-        /**
          * Calculates the displacement of the collision constraint.
          * @param spherePositionPredictions The prediction of the position at the current frame of each sphere (in this case of the last frame).
-         * @param closestSurfacePoint The contact point of the collision.
+         * @param contactPoint The contact point of the collision.
          * @param normalVector The collision normal.
          * @return The delta position, i.e. the calculated displacement.
          */
-        private Vector3 CalculateDeltaPosition(Vector3 spherePositionPrediction, Vector3 closestSurfacePoint, Vector3 normalVector)
+        private Vector3 CalculateDeltaPosition(Vector3 spherePositionPrediction, Vector3 contactPoint, Vector3 normalVector)
         {
-            return - (spherePositionPrediction - sphereRadius * normalVector - closestSurfacePoint - collisionMargin * normalVector);
+            return - (spherePositionPrediction - sphereRadius * normalVector - collisionMargin * normalVector - contactPoint);
         }
 
         /**
@@ -132,6 +119,19 @@ namespace GuidewireSim
             {
                 DebugExtension.DrawPoint(spherePositionPredictions[sphereIndex], Color.red);
             }
+        }
+
+        /**
+         * Draws the contact point, collision normal, and displacement corrections into the scene of the collision that occured.
+         * @param spherePositionPrediction The position prediction of the sphere that collided.
+         * @param contactPoint The contact point of the collision.
+         * @param collisionNormal The normal of the collision.
+         */
+        private void DrawCollisionInformation(Vector3 spherePositionPrediction, Vector3 contactPoint, Vector3 collisionNormal)
+        {
+            Debug.DrawLine(contactPoint, contactPoint + 10f * collisionNormal, Color.blue, 2f);
+            DebugExtension.DrawPoint(spherePositionPrediction, Color.white);
+            DebugExtension.DrawPoint(contactPoint, Color.yellow);
         }
     }
 }

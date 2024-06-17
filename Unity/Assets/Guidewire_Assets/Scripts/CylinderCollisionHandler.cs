@@ -62,13 +62,13 @@ namespace GuidewireSim
          * @param cylinderPositionPredictions The prediction of the position at the current frame of each cylinder (in this case of the last frame).
          * @param cylinderPositions The position at the current frame of each cylinder.
          */
-        public void SetCollidersToPredictions(int cylindersCount, Vector3[] cylinderPositionPredictions, Vector3[] cylinderPositions)
-        {
-            for (int cylinderIndex = 0; cylinderIndex < cylindersCount; cylinderIndex++)
-            {
-                Vector3 centerPosition = (cylinderPositionPredictions[cylinderIndex] - cylinderPositions[cylinderIndex]) / (2 * cylinderRadius);
-                //cylinderColliders[cylinderIndex].attachedRigidbody.transform = centerPosition;
-            }
-        }
+        // public void SetCollidersToPredictions(int cylindersCount, Vector3[] cylinderPositionPredictions, Vector3[] cylinderPositions)
+        // {
+        //     for (int cylinderIndex = 0; cylinderIndex < cylindersCount; cylinderIndex++)
+        //     {
+        //         Vector3 centerPosition = (cylinderPositionPredictions[cylinderIndex] - cylinderPositions[cylinderIndex]) / (2 * cylinderRadius);
+        //         //cylinderColliders[cylinderIndex].attachedRigidbody.transform = centerPosition;
+        //     }
+        // }
     }
 }

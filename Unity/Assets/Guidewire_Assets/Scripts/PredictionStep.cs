@@ -40,7 +40,7 @@ public class PredictionStep : MonoBehaviour
         for (int sphereIndex = 0; sphereIndex < sphereVelocities.Length; sphereIndex++)
         {
             Vector3 acceleration = sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
-            sphereVelocities[sphereIndex] += Time.deltaTime * acceleration;
+            sphereVelocities[sphereIndex] += Time.fixedDeltaTime * acceleration;
         }
 
         return sphereVelocities;
@@ -59,12 +59,12 @@ public class PredictionStep : MonoBehaviour
     {
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
-            spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.deltaTime * sphereVelocities[sphereIndex] + 0.5f* Time.deltaTime * Time.deltaTime * sphereExternalForces[sphereIndex] * sphereInverseMasses[sphereIndex];   
+            spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.fixedDeltaTime * sphereVelocities[sphereIndex]+ 0.5f* Time.fixedDeltaTime * Time.fixedDeltaTime * sphereExternalForces[sphereIndex] * sphereInverseMasses[sphereIndex];   
         }
 
-        // Vector3 direction = spherePositions[1] - spherePositions[0];
-        // direction.Normalize();
-        // spherePositionPredictions[0] = spherePositions[0] + displacement*direction; // Used zDisplacement here
+        Vector3 direction = spherePositions[1] - spherePositions[0];
+        direction.Normalize();
+        spherePositionPredictions[0] = spherePositions[0] + displacement*direction; // Used zDisplacement here
 
         return spherePositionPredictions;
     }
@@ -88,7 +88,7 @@ public class PredictionStep : MonoBehaviour
             Vector3 wXIw = Vector3.Cross(cylinderAngularVelocities[cylinderIndex], Iw);
             Vector3 TauwXIw = cylinderExternalTorques[cylinderIndex] - wXIw;
             Vector3 ITauwXIw = mathHelper.MatrixVectorMultiplication(inverseInertiaTensor, TauwXIw);
-            Vector3 summand = Time.deltaTime * ITauwXIw;
+            Vector3 summand = Time.fixedDeltaTime * ITauwXIw;
             cylinderAngularVelocities[cylinderIndex] += summand;
         }
 
@@ -110,7 +110,7 @@ public class PredictionStep : MonoBehaviour
         {
             BSM.Quaternion embeddedAngularVelocity = mathHelper.EmbeddedVector(cylinderAngularVelocities[cylinderIndex]);
             BSM.Quaternion qw = BSM.Quaternion.Multiply(cylinderOrientations[cylinderIndex], embeddedAngularVelocity);
-            BSM.Quaternion summand = BSM.Quaternion.Multiply(qw, 0.5f * Time.deltaTime);
+            BSM.Quaternion summand = BSM.Quaternion.Multiply(qw, 0.5f * Time.fixedDeltaTime);
             cylinderOrientationPredictions[cylinderIndex] = cylinderOrientations[cylinderIndex] + summand;
             
             cylinderOrientationPredictions[cylinderIndex].Normalize();

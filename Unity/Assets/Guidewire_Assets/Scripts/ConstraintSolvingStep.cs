@@ -24,6 +24,9 @@ public class ConstraintSolvingStep : MonoBehaviour
     // TODO: Check value
     float stretchStiffness = 1.0f;
     float bendStiffness = 1.0f;
+    float inverseMassValue = 1.0f;
+
+    float[] sphereInverseMasses;
 
     [Tooltip("Whether to solve both constraints in bilateral interleaving order. Naive order is used when false.")]
     [SerializeField] bool executeInBilateralOrder = false; //!< Whether to solve both constraints in bilateral interleaving order. Naive order is used when false.
@@ -41,6 +44,18 @@ public class ConstraintSolvingStep : MonoBehaviour
     {
         stretchStiffness = parameterHandler.stretchStiffness;
         bendStiffness = parameterHandler.bendStiffness;
+
+        Assert.IsTrue(parameterHandler.numberRodElements >= 1);
+        Assert.IsTrue(parameterHandler.totalMass > 0f);
+        inverseMassValue = (parameterHandler.numberRodElements + 1) / parameterHandler.totalMass;
+
+        sphereInverseMasses = new float[parameterHandler.numberRodElements + 1];
+        for (int i = 0; i < sphereInverseMasses.Length; i++)
+        {
+            sphereInverseMasses[i] = inverseMassValue;
+        }
+        //infinite mass
+        sphereInverseMasses[0] = 0f;
     }
 
     /**
@@ -131,7 +146,7 @@ public class ConstraintSolvingStep : MonoBehaviour
 
             SolveStretchConstraint(spherePositionPredictions[lastAscendingIndex], spherePositionPredictions[lastAscendingIndex + 1],
                                    cylinderOrientationPredictions[lastAscendingIndex], e_3, rodElementLength, out deltaPositionOne,
-                                   out deltaPositionTwo, out deltaOrientation);
+                                   out deltaPositionTwo, out deltaOrientation, sphereInverseMasses[lastAscendingIndex], sphereInverseMasses[lastAscendingIndex + 1]);
             CorrectStretchPredictions(lastAscendingIndex, spherePositionPredictions, cylinderOrientationPredictions);
         }
         else // spheresCount % 2 == 1, e.g. spheresCount is an odd number
@@ -144,13 +159,13 @@ public class ConstraintSolvingStep : MonoBehaviour
             // upcounting
             SolveStretchConstraint(spherePositionPredictions[upcountingIndex], spherePositionPredictions[upcountingIndex + 1],
                                    cylinderOrientationPredictions[upcountingIndex], e_3, rodElementLength, out deltaPositionOne,
-                                   out deltaPositionTwo, out deltaOrientation);
+                                   out deltaPositionTwo, out deltaOrientation, sphereInverseMasses[lastAscendingIndex], sphereInverseMasses[lastAscendingIndex + 1]);
             CorrectStretchPredictions(upcountingIndex, spherePositionPredictions, cylinderOrientationPredictions);
 
             // downcounting
             SolveStretchConstraint(spherePositionPredictions[downcountingIndex], spherePositionPredictions[downcountingIndex + 1],
                                    cylinderOrientationPredictions[downcountingIndex], e_3, rodElementLength, out deltaPositionOne,
-                                   out deltaPositionTwo, out deltaOrientation);
+                                   out deltaPositionTwo, out deltaOrientation, sphereInverseMasses[lastAscendingIndex], sphereInverseMasses[lastAscendingIndex + 1]);
             CorrectStretchPredictions(downcountingIndex, spherePositionPredictions, cylinderOrientationPredictions);
 
             upcountingIndex += 2;
@@ -176,11 +191,11 @@ public class ConstraintSolvingStep : MonoBehaviour
         Assert.IsTrue(spheresCount >= 1);
         Assert.IsTrue(rodElementLength > 0f);
 
-        for (int sphereIndex = 1; sphereIndex < spheresCount - 1; sphereIndex++)
+        for (int sphereIndex = 0; sphereIndex < spheresCount - 1; sphereIndex++)
         {
             SolveStretchConstraint(spherePositionPredictions[sphereIndex], spherePositionPredictions[sphereIndex + 1],
                                    cylinderOrientationPredictions[sphereIndex], e_3, rodElementLength, out deltaPositionOne,
-                                   out deltaPositionTwo, out deltaOrientation);
+                                   out deltaPositionTwo, out deltaOrientation, sphereInverseMasses[sphereIndex], sphereInverseMasses[sphereIndex + 1]);
             CorrectStretchPredictions(sphereIndex, spherePositionPredictions, cylinderOrientationPredictions);
         }
     }
@@ -295,20 +310,19 @@ public class ConstraintSolvingStep : MonoBehaviour
                                        out Vector3 deltaPositionTwo, out BSM.Quaternion deltaOrientation, float inverseMassOne = 1f,
                                        float inverseMassTwo = 1f, float inertiaWeight = 1f)
     {
-        // TODO: Check if needed
-        float inverseMassValue = ((1000/rodElementLength)+1)/10f; 
-        // TODO: Why is value changed?
+        
+        // Check if the length of the quaternion is approximately equal to one
         Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(orientation), tolerance: 0.01f);
         Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(e_3), tolerance: 0.01f);
         Assert.IsTrue(rodElementLength > 0f);
-        Assert.IsTrue(inverseMassOne >= 0f && inverseMassOne <= 1f);
-        Assert.IsTrue(inverseMassTwo >= 0f && inverseMassTwo <= 1f);
+        //Assert.IsTrue(inverseMassOne >= 0f && inverseMassOne <= 1f);
+        //Assert.IsTrue(inverseMassTwo >= 0f && inverseMassTwo <= 1f);
         Assert.IsTrue(inertiaWeight >= 0f && inertiaWeight <= 1f);
 
         Vector3 thirdDirector = mathHelper.ImaginaryPart(orientation * e_3 * BSM.Quaternion.Conjugate(orientation));
-        // TODO: Why do we need this?
-        float denominator = inverseMassValue + inverseMassValue + 4 * inertiaWeight * rodElementLength * rodElementLength;
-        //float denominator = inverseMassOne + inverseMassTwo + 4 * inertiaWeight * rodElementLength * rodElementLength;
+
+        //float denominator = inverseMassValue + inverseMassValue + 4 * inertiaWeight * rodElementLength * rodElementLength;
+        float denominator = inverseMassOne + inverseMassTwo + 4 * inertiaWeight * rodElementLength * rodElementLength;
 
         Vector3 factor = 1f / rodElementLength * (particlePositionTwo - particlePositionOne) - thirdDirector;
         BSM.Quaternion embeddedFactor = mathHelper.EmbeddedVector(factor);
@@ -316,11 +330,10 @@ public class ConstraintSolvingStep : MonoBehaviour
         float quaternionScalarFactor = 2f * inertiaWeight * rodElementLength * rodElementLength / denominator;
         BSM.Quaternion quaternionProduct = embeddedFactor * orientation * BSM.Quaternion.Conjugate(e_3);
 
-        // TODO: Why is value changed?
-        deltaPositionOne = inverseMassValue * rodElementLength * factor / denominator;
-        deltaPositionTwo = - inverseMassValue * rodElementLength * factor / denominator;
-        //deltaPositionOne = inverseMassOne * rodElementLength * factor / denominator;
-        //deltaPositionTwo = - inverseMassTwo * rodElementLength * factor / denominator;
+        // deltaPositionOne = inverseMassValue * rodElementLength * factor / denominator;
+        // deltaPositionTwo = - inverseMassValue * rodElementLength * factor / denominator;
+        deltaPositionOne = inverseMassOne * rodElementLength * factor / denominator;
+        deltaPositionTwo = - inverseMassTwo * rodElementLength * factor / denominator;
 
         deltaOrientation = quaternionScalarFactor * quaternionProduct;
     }

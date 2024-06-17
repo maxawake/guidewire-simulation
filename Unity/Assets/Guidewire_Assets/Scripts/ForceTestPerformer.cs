@@ -123,7 +123,7 @@ public class ForceTestPerformer : MonoBehaviour
 
         if (simulationLoop.SpheresCount > 2)
         {
-            for (int sphereIndex = 1; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)
+            for (int sphereIndex = 0; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)
             {
                 simulationLoop.sphereExternalForces[sphereIndex] = Vector3.zero;
             }
