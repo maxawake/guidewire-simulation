@@ -909,10 +909,10 @@ MonoBehaviour:
   timeStep: 0.01
   displacement: 1
   rodElementLength: 10
-  guidewireLength: 300
+  guidewireLength: 1000
   numberRodElements: 30
   totalMass: 1
-  guidewireOffset: -200
+  guidewireOffset: -900
   position: {x: 0, y: 0, z: 0}
   scale: {x: 1, y: 1, z: 1}
   rotation: {x: 0, y: 0, z: 0}
