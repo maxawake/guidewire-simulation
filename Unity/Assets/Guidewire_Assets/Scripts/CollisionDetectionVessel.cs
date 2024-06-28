@@ -46,7 +46,7 @@ namespace GuidewireSim
         {
             GameObject sphereGO = sphereTransform.gameObject;
 
-            for (int sphereIndex = 0; sphereIndex < simulationLoop.SpheresCount; sphereIndex++)
+            for (int sphereIndex = 0; sphereIndex < simulationLoop.spheresCount; sphereIndex++)
             {
                 if (sphereGO == simulationLoop.spheres[sphereIndex])
                 {

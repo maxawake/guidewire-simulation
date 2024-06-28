@@ -63,7 +63,7 @@ public class ForceTestPerformer : MonoBehaviour
     {
         Vector3 gravity = new Vector3(0f, -9.81f, 0f);
 
-        for (int sphereIndex = 0; sphereIndex < simulationLoop.SpheresCount; sphereIndex++)
+        for (int sphereIndex = 0; sphereIndex < simulationLoop.spheresCount; sphereIndex++)
         {
             simulationLoop.sphereExternalForces[sphereIndex] = gravity;
         }
@@ -78,12 +78,12 @@ public class ForceTestPerformer : MonoBehaviour
         //Vector3 pullForce = new Vector3(0f, 0f, 15f);
         Vector3 pullForce = new Vector3(0f, 0.3f, 0f);
 
-        for (int sphereIndex = 0; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)
+        for (int sphereIndex = 0; sphereIndex < (simulationLoop.spheresCount - 1); sphereIndex++)
         {
             simulationLoop.sphereExternalForces[sphereIndex] = Vector3.zero;
         }
 
-        simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = pullForce;
+        simulationLoop.sphereExternalForces[simulationLoop.spheresCount - 1] = pullForce;
     }
 
     /**
@@ -93,20 +93,20 @@ public class ForceTestPerformer : MonoBehaviour
      */
     private IEnumerator PerformForceTestThree(Vector3 pullForce, float applyForceTime = 1f)
     {
-        for (int sphereIndex = 0; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)
+        for (int sphereIndex = 0; sphereIndex < (simulationLoop.spheresCount - 1); sphereIndex++)
         {
             simulationLoop.sphereExternalForces[sphereIndex] = Vector3.zero;
         }
 
-        simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = pullForce;
+        simulationLoop.sphereExternalForces[simulationLoop.spheresCount - 1] = pullForce;
 
         yield return new WaitForSeconds(applyForceTime);
 
-        simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = -pullForce;
+        simulationLoop.sphereExternalForces[simulationLoop.spheresCount - 1] = -pullForce;
 
         yield return new WaitForSeconds(applyForceTime);
 
-        simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = Vector3.zero;
+        simulationLoop.sphereExternalForces[simulationLoop.spheresCount - 1] = Vector3.zero;
 
         Debug.Log("End of Force Test Three");
     }
@@ -121,15 +121,15 @@ public class ForceTestPerformer : MonoBehaviour
 
         simulationLoop.sphereExternalForces[0] = -pullForce;
 
-        if (simulationLoop.SpheresCount > 2)
+        if (simulationLoop.spheresCount > 2)
         {
-            for (int sphereIndex = 0; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)
+            for (int sphereIndex = 0; sphereIndex < (simulationLoop.spheresCount - 1); sphereIndex++)
             {
                 simulationLoop.sphereExternalForces[sphereIndex] = Vector3.zero;
             }
         }
 
-        simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = pullForce;
+        simulationLoop.sphereExternalForces[simulationLoop.spheresCount - 1] = pullForce;
     }
 
     /**
@@ -145,21 +145,21 @@ public class ForceTestPerformer : MonoBehaviour
         // ARRANGE
         simulationLoop.ExecuteSingleLoopTest = true;
         simulationLoop.ConstraintSolverSteps = 1000;
-        simulationLoop.sphereVelocities[simulationLoop.SpheresCount - 1] = new Vector3(0f, 100f, 0f);
+        simulationLoop.sphereVelocities[simulationLoop.spheresCount - 1] = new Vector3(0f, 100f, 0f);
 
         Debug.Log("Executing Single Loop Test.");
         Debug.Log("Constraint Solving Steps: " + simulationLoop.ConstraintSolverSteps);
-        Debug.Log("The last sphere is displaced by velocity " + simulationLoop.sphereVelocities[simulationLoop.SpheresCount - 1]);
+        Debug.Log("The last sphere is displaced by velocity " + simulationLoop.sphereVelocities[simulationLoop.spheresCount - 1]);
         Debug.Log("The distance between both spheres at rest state is "
-                  + Vector3.Distance(simulationLoop.spherePositions[0], simulationLoop.spherePositions[simulationLoop.SpheresCount - 1]));
+                  + Vector3.Distance(simulationLoop.spherePositions[0], simulationLoop.spherePositions[simulationLoop.spheresCount - 1]));
 
         // ACT
         simulationLoop.PerformSimulationLoop();
 
         // ASSERT
-        Debug.Log("Sphere Positions after Update Step: " + simulationLoop.spherePositions[0] + simulationLoop.spherePositions[simulationLoop.SpheresCount - 1]);
+        Debug.Log("Sphere Positions after Update Step: " + simulationLoop.spherePositions[0] + simulationLoop.spherePositions[simulationLoop.spheresCount - 1]);
         Debug.Log("The distance between both spheres after the update step is "
-                  + Vector3.Distance(simulationLoop.spherePositions[0], simulationLoop.spherePositions[simulationLoop.SpheresCount - 1]));
+                  + Vector3.Distance(simulationLoop.spherePositions[0], simulationLoop.spherePositions[simulationLoop.spheresCount - 1]));
     }
 }
 }

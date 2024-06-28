@@ -58,20 +58,20 @@ public class StressTestPerformer : MonoBehaviour
 
         Vector3 pullForce = new Vector3(0f, 2f, 0f);
 
-        for (int sphereIndex = 0; sphereIndex < (simulationLoop.SpheresCount - 1); sphereIndex++)
+        for (int sphereIndex = 0; sphereIndex < (simulationLoop.spheresCount - 1); sphereIndex++)
         {
             simulationLoop.sphereExternalForces[sphereIndex] = Vector3.zero;
         }
 
-        simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = pullForce;
+        simulationLoop.sphereExternalForces[simulationLoop.spheresCount - 1] = pullForce;
 
         yield return new WaitForSeconds(applyForceTime);
 
-        simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = -pullForce;
+        simulationLoop.sphereExternalForces[simulationLoop.spheresCount - 1] = -pullForce;
 
         yield return new WaitForSeconds(applyForceTime);
 
-        simulationLoop.sphereExternalForces[simulationLoop.SpheresCount - 1] = Vector3.zero;
+        simulationLoop.sphereExternalForces[simulationLoop.spheresCount - 1] = Vector3.zero;
 
         Debug.Log("End of Stress Test One");
     }
