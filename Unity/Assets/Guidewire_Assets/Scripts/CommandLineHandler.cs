@@ -18,7 +18,8 @@ namespace GuidewireSim
         {
             var args = System.Environment.GetCommandLineArgs();
             for (int i = 0; i < args.Length; i++)
-            {
+            {   
+                Debug.Log("Command Line Arguments:" + args[i]);
                 if (args[i] == name && args.Length > i + 1)
                 {
                     return args[i + 1];

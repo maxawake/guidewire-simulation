@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using System.IO;
-
+using UnityEngine.Assertions;
 
 namespace GuidewireSim
 {
@@ -11,33 +11,21 @@ namespace GuidewireSim
     [Serializable]
     public class DataLogger : MonoBehaviour
     {
-        // TODO: Get the path from the parameters file
-        private string filePath = "/home/max/Temp/Praktikum/guidewire-log.txt";
-        string jsonPath = "/home/max/Temp/Praktikum/positions.json";
+        ParameterHandler parameterHandler;
+        string jsonPath;
         string json = "{}";
 
         private void Awake()
         {
             Debug.Log("Logger Awake");
 
-            File.WriteAllText(jsonPath, json);
+            parameterHandler = GetComponent<ParameterHandler>();
+            Assert.IsNotNull(parameterHandler);
         }
 
         private void Start()
         {
             Debug.Log("Logger Start");
-        }
-
-        /**
-         * Writes a message to the log file.
-         * @param message The message that should be written to the log file.
-         */
-        public void write(string message)
-        {
-            using (StreamWriter writer = new StreamWriter(filePath, true))
-            {
-                writer.WriteLine(message);
-            }
         }
 
         /**
@@ -97,8 +85,10 @@ namespace GuidewireSim
             }
 
             // Remove the last comma if the json is empty
-            if (totalTime == 0)
-            {
+            if (simulationStep == 0)
+            {   
+                jsonPath = parameterHandler.logFilePath + "positions.json";
+                File.WriteAllText(jsonPath, json);
                 json = json.Substring(0, json.Length - 1);
             }
 

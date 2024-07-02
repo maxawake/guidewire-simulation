@@ -1,14 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using BSM = BulletSharp.Math;
 using System.IO;
 using System.Diagnostics;
-using Debug = UnityEngine.Debug;
-using log4net.Core;
-using Codice.CM.Client.Differences.Graphic;
 
 namespace GuidewireSim
 {
@@ -130,7 +126,7 @@ namespace GuidewireSim
         public bool Logging = true; /**< Whether or not to log the positions of the spheres. */
 
         private float totalTime = 0.0f; /**< The total time the simulation has been running. */
-        public bool readFile = false; /**< Whether or not to use a file to read the parameters from. */
+        public bool readFile = true; /**< Whether or not to use a file to read the parameters from. */
         private int simulationStep = 0; /**< The current simulation step. */
 
         /**
@@ -141,10 +137,14 @@ namespace GuidewireSim
             parameterHandler = GetComponent<ParameterHandler>();
             Assert.IsNotNull(parameterHandler);
 
+            cli = GetComponent<CommandLineHandler>();
+            Assert.IsNotNull(cli);
+
             if (readFile)
-            {
-                // Read the parameters from a file
-                string saveFile = cli.GetArg("parameters");
+            {   
+                UnityEngine.Debug.Log("Read the parameters from a file");
+                string saveFile = cli.GetArg("-parameters");
+                UnityEngine.Debug.Log("Save file: " + saveFile);
                 if (File.Exists(saveFile))
                 {
                     string jsonString = File.ReadAllText(saveFile);
@@ -152,11 +152,24 @@ namespace GuidewireSim
                 }
             }
             else
-            {
-                // Write the parameters to a file
-                string saveFile = "/home/max/Temp/Praktikum/parameters.json";
+            {   
+                UnityEngine.Debug.Log("Write the parameters to a file");
+                string saveFile = parameterHandler.logFilePath + "parameters.json";
                 string jsonString = parameterHandler.SaveToString();
                 File.WriteAllText(saveFile, jsonString);
+            }
+
+            // print the parameters
+            parameterHandler.printParameters();
+
+            // create screenshot folder if not exits
+            if (Screenshots)
+            {
+                string screenshotPath = parameterHandler.logFilePath + "screenshots/";
+                if (!Directory.Exists(screenshotPath))
+                {
+                    Directory.CreateDirectory(screenshotPath);
+                }
             }
 
             // Get the parameters from the parameter handler
@@ -237,8 +250,9 @@ namespace GuidewireSim
 
             // Take screenshot
             if (Screenshots)
-            {
-                ScreenCapture.CaptureScreenshot("/home/max/Temp/Praktikum/screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png");
+            {   
+                string screenshotPath = parameterHandler.logFilePath + "screenshots/"  + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png";
+                ScreenCapture.CaptureScreenshot(screenshotPath);
             }
 
             // Save state to log file
@@ -251,6 +265,16 @@ namespace GuidewireSim
 
             totalTime += Time.fixedDeltaTime;
             simulationStep++;
+
+            if (simulationStep > 1000) {
+                UnityEngine.Debug.Log("Simulation step: " + simulationStep);
+                Quit();
+            }
+
+            if (Input.GetKey("escape"))
+            {
+                Quit();
+            }
         }
 
 
@@ -503,14 +527,14 @@ namespace GuidewireSim
         /**
      * Saves the current positions of the spheres to the log file.
      */
-        public void SaveCurrentPositions()
-        {
-            for (int i = 0; i < spheres.Length; i++)
-            {
-                Vector3 spherePosition = spheres[i].transform.position;
-                logger.write("Sphere " + (i + 1) + " Position: " + spherePosition.x + "," + spherePosition.y + "," + spherePosition.z);
-            }
-        }
+        // public void SaveCurrentPositions()
+        // {
+        //     for (int i = 0; i < spheres.Length; i++)
+        //     {
+        //         Vector3 spherePosition = spheres[i].transform.position;
+        //         logger.write("Sphere " + (i + 1) + " Position: " + spherePosition.x + "," + spherePosition.y + "," + spherePosition.z);
+        //     }
+        // }
 
         /**
          * Updates the camera position to the last sphere.
@@ -537,7 +561,15 @@ namespace GuidewireSim
         {
             this.rodElementLength = rodElementLength;
         }
-
+        
+        public void Quit() {
+        #if UNITY_STANDALONE
+            Application.Quit();
+        #endif
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        }
 
     }
 }

@@ -496,8 +496,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
+      propertyPath: readFile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: timeStep
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
+      propertyPath: Screenshots
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: spheres.Array.size
@@ -904,7 +912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c707605c2c762210c80eaafa0905bb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logFilePath: /home/max/Temp/Praktikum/guidewire-log.txt
+  logFilePath: /home/max/Temp/Praktikum/experiments/
   constraintSolverSteps: 300
   timeStep: 0.01
   displacement: 1

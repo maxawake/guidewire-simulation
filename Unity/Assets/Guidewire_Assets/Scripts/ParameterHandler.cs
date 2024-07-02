@@ -8,7 +8,7 @@ namespace GuidewireSim {
     [Serializable]
     public class ParameterHandler: MonoBehaviour
     {   
-        public string logFilePath = "/home/max/Temp/Praktikum/guidewire-log.txt";
+        public string logFilePath = "/home/max/Temp/Praktikum/experiments/";
 
         public int constraintSolverSteps = 100; /**< How often the constraint solver iterates over each constraint during
                                                                                  *   the Constraint Solving Step.
@@ -55,6 +55,27 @@ namespace GuidewireSim {
         public float GetRodElementLength()
         {
             return rodElementLength;
+        }
+
+        public void printParameters() 
+        {
+            Debug.Log("logFilePath: " + logFilePath);
+            Debug.Log("constraintSolverSteps: " + constraintSolverSteps);
+            Debug.Log("timeStep: " + timeStep);
+            Debug.Log("displacement: " + displacement);
+            Debug.Log("rodElementLength: " + rodElementLength);
+            Debug.Log("guidewireLength: " + guidewireLength);
+            Debug.Log("numberRodElements: " + numberRodElements);
+            Debug.Log("totalMass: " + totalMass);
+            Debug.Log("guidewireOffset: " + guidewireOffset);
+            Debug.Log("position: " + position);
+            Debug.Log("scale: " + scale);
+            Debug.Log("rotation: " + rotation);
+            Debug.Log("bendStiffness: " + bendStiffness);
+            Debug.Log("stretchStiffness: " + stretchStiffness);
+            Debug.Log("sphereRadius: " + sphereRadius);
+            Debug.Log("collisionMargin: " + collisionMargin);
+            Debug.Log("collisionStiffness: " + collisionStiffness);
         }
     }
 }
