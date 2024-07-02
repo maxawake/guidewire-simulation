@@ -224,6 +224,10 @@ namespace GuidewireSim
 
             objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
             objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
+
+            Vector3 direction = spherePositions[1] - spherePositions[0];
+            direction.Normalize();
+            spherePositionPredictions[0] = spherePositions[0] + parameterHandler.displacement*direction;
         }
 
         /**

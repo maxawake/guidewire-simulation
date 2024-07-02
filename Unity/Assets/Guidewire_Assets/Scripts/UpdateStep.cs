@@ -31,7 +31,7 @@ public class UpdateStep : MonoBehaviour
     public Vector3[] UpdateSphereVelocities(Vector3[] sphereVelocities, int spheresCount, Vector3[] spherePositionPredictions, 
     Vector3[] spherePositions)
     {   
-        for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
+        for (int sphereIndex = 1; sphereIndex < spheresCount; sphereIndex++)
         {
             sphereVelocities[sphereIndex] = (spherePositionPredictions[sphereIndex] - spherePositions[sphereIndex]) / Time.fixedDeltaTime;
         }

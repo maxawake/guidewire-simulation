@@ -62,10 +62,9 @@ public class PredictionStep : MonoBehaviour
             spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.fixedDeltaTime * sphereVelocities[sphereIndex]+ 0.5f* Time.fixedDeltaTime * Time.fixedDeltaTime * sphereExternalForces[sphereIndex] * sphereInverseMasses[sphereIndex];   
         }
 
-        Vector3 direction = spherePositions[1] - spherePositions[0];
-        direction.Normalize();
-        spherePositionPredictions[0] = spherePositions[0] + displacement*direction; // Used zDisplacement here
-
+        // Vector3 direction = spherePositions[1] - spherePositions[0];
+        // direction.Normalize();
+        // spherePositionPredictions[0] = spherePositions[0] + displacement*direction;
         return spherePositionPredictions;
     }
 
