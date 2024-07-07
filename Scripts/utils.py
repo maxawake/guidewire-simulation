@@ -37,7 +37,7 @@ def save_json_file(file_path, data):
         json.dump(data, f)
 
 
-def run_unity(parameters: str, log_file_path: str):
+def run_unity(parameters: str, log_file_path: str, headless: bool = False, verbose: bool = False):
     """Function to run the Unity application for a given OBJ file and parameters.
 
     Parameters
@@ -63,6 +63,18 @@ def run_unity(parameters: str, log_file_path: str):
     unity_app_path = "/home/max/Documents/Unity/guidewire-simulation-static.x86_64"
 
     command_args = [unity_app_path, "-parameters", parameters, "-logFile", log_file_path]
+    
+    if headless:
+        command_args.append("-batchmode")
+        command_args.append("-nographics")
+        
+    if not verbose:
+        stdout = subprocess.DEVNULL
+    else:
+        stdout = None
 
-    proc = subprocess.run(command_args)
+    print("Running Unity with the following command:")
+    print(" ".join(command_args))
+    proc = subprocess.run(command_args, stdout=stdout)
+    print("Unity process finished with exit code:", proc.returncode)
     return proc
