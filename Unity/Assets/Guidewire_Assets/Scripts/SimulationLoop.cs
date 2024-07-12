@@ -270,7 +270,7 @@ namespace GuidewireSim
             totalTime += Time.fixedDeltaTime;
             simulationStep++;
 
-            if (simulationStep > 100) {
+            if (simulationStep > 1000) {
                 UnityEngine.Debug.Log("Simulation step: " + simulationStep);
                 Quit();
             }
