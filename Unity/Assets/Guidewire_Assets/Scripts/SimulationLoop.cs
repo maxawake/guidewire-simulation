@@ -57,6 +57,7 @@ namespace GuidewireSim
         public Vector3[] sphereVelocities; //!< The velocity of the current frame of each sphere. Initalized with zero entries.
         public float[] sphereInverseMasses; // The constant inverse masses  of each sphere.
 
+        public Vector3[] spherePositionsTemp;
         public Vector3[] sphereExternalForces; //!< The sum of all current external forces that are applied per particle/ sphere.
         public Vector3[] spherePositionPredictions; //!< The prediction of the position at the current frame of each sphere.
 
@@ -128,6 +129,7 @@ namespace GuidewireSim
         private float totalTime = 0.0f; /**< The total time the simulation has been running. */
         public bool readFile = true; /**< Whether or not to use a file to read the parameters from. */
         private int simulationStep = 0; /**< The current simulation step. */
+        public float epsilon = 0.001f; /**< The epsilon value for the delta calculation. */
 
         /**
         * Default constructor.
@@ -140,27 +142,7 @@ namespace GuidewireSim
             cli = GetComponent<CommandLineHandler>();
             Assert.IsNotNull(cli);
 
-            if (readFile)
-            {   
-                UnityEngine.Debug.Log("Read the parameters from a file");
-                string saveFile = cli.GetArg("-parameters");
-                UnityEngine.Debug.Log("Save file: " + saveFile);
-                if (File.Exists(saveFile))
-                {
-                    string jsonString = File.ReadAllText(saveFile);
-                    parameterHandler.CreateFromJSON(jsonString);
-                }
-            }
-            else
-            {   
-                UnityEngine.Debug.Log("Write the parameters to a file");
-                string saveFile = parameterHandler.logFilePath + "parameters.json";
-                string jsonString = parameterHandler.SaveToString();
-                File.WriteAllText(saveFile, jsonString);
-            }
-
-            // print the parameters
-            parameterHandler.printParameters();
+            GetParameterHandler();
 
             // create screenshot folder if not exits
             if (Screenshots)
@@ -225,9 +207,7 @@ namespace GuidewireSim
             objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
             objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
 
-            Vector3 direction = spherePositions[1] - spherePositions[0];
-            direction.Normalize();
-            spherePositionPredictions[0] = spherePositions[0] + parameterHandler.displacement*direction;
+            PerformOffsetting();
         }
 
         /**
@@ -237,7 +217,6 @@ namespace GuidewireSim
         {
             if (ExecuteSingleLoopTest) return;
 
-            Vector3[] spherePositionsTemp;
             CopySpherePositions(spheresCount, spherePositionPredictions, out spherePositionsTemp);
 
             stopwatch.Restart();
@@ -252,33 +231,53 @@ namespace GuidewireSim
             //     spherePositions[0] = spherePositions[0] + parameterHandler.displacement*direction; // Used zDisplacement here
             // }
 
-            // Take screenshot
-            if (Screenshots)
-            {   
-                string screenshotPath = parameterHandler.logFilePath + "screenshots/"  + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png";
-                ScreenCapture.CaptureScreenshot(screenshotPath);
-            }
-
             // Save state to log file
             if (Logging)
             {
-                long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
-                float delta = calculateDelta(spherePositionsTemp, spherePositionPredictions);
-                logger.savePositionsAsJson(spherePositions, sphereVelocities, spheresCount, simulationStep, totalTime, elapsedMilliseconds, delta);
+                PerformLogging();
             }
 
             totalTime += Time.fixedDeltaTime;
             simulationStep++;
 
-            if (simulationStep > 1000) {
-                UnityEngine.Debug.Log("Simulation step: " + simulationStep);
-                Quit();
-            }
-
             if (Input.GetKey("escape"))
             {
                 Quit();
             }
+        }
+
+        /**
+         * Performs the logging of the positions of the spheres.
+         */
+        private void PerformLogging()
+        {
+            long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+            float delta = CalculateDelta(spherePositionsTemp, spherePositionPredictions);
+            logger.savePositionsAsJson(spherePositions, sphereVelocities, spheresCount, simulationStep, totalTime, elapsedMilliseconds, delta);
+
+            // Take screenshot
+            if (Screenshots)
+            {
+                string screenshotPath = parameterHandler.logFilePath + "screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png";
+                ScreenCapture.CaptureScreenshot(screenshotPath);
+            }
+
+            //if (simulationStep > 1000) {
+            if (delta < epsilon)
+            {
+                UnityEngine.Debug.Log("Simulation step: " + simulationStep);
+                Quit();
+            }
+        }
+
+        /**
+         * Performs the offsetting of the guidewire.
+         */
+        private void PerformOffsetting()
+        {
+            Vector3 direction = spherePositions[1] - spherePositions[0];
+            direction.Normalize();
+            spherePositionPredictions[0] = spherePositions[0] + parameterHandler.displacement * direction;
         }
 
 
@@ -403,7 +402,7 @@ namespace GuidewireSim
          * @param spherePositions2 The second set of sphere positions.
          * @return The delta between the two sets of sphere positions.
          */
-        private float calculateDelta(Vector3[] spherePositions1, Vector3[] spherePositions2)
+        private float CalculateDelta(Vector3[] spherePositions1, Vector3[] spherePositions2)
         {
             float delta = 0.0f;
             for (int i = 0; i < spherePositions1.Length; i++)
@@ -553,9 +552,34 @@ namespace GuidewireSim
             }
         }
 
+        private void GetParameterHandler()
+        {
+            if (readFile)
+            {
+                UnityEngine.Debug.Log("Read the parameters from a file");
+                string saveFile = cli.GetArg("-parameters");
+                UnityEngine.Debug.Log("Save file: " + saveFile);
+                if (File.Exists(saveFile))
+                {
+                    string jsonString = File.ReadAllText(saveFile);
+                    parameterHandler.CreateFromJSON(jsonString);
+                }
+            }
+            else
+            {
+                UnityEngine.Debug.Log("Write the parameters to a file");
+                string saveFile = parameterHandler.logFilePath + "parameters.json";
+                string jsonString = parameterHandler.SaveToString();
+                File.WriteAllText(saveFile, jsonString);
+            }
+
+            // print the parameters
+            parameterHandler.printParameters();
+        }
+
         /**
-     * Returns the rod element length.
-     */
+        * Returns the rod element length.
+        */
         public float GetRodElementLength()
         {
             return rodElementLength;
@@ -565,14 +589,15 @@ namespace GuidewireSim
         {
             this.rodElementLength = rodElementLength;
         }
-        
-        public void Quit() {
-        #if UNITY_STANDALONE
+
+        public void Quit()
+        {
+#if UNITY_STANDALONE
             Application.Quit();
-        #endif
-        #if UNITY_EDITOR
+#endif
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#endif
         }
 
     }

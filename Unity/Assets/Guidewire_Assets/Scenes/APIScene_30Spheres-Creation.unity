@@ -496,6 +496,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
+      propertyPath: epsilon
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: readFile
       value: 1
       objectReference: {fileID: 0}
@@ -920,7 +924,7 @@ MonoBehaviour:
   guidewireLength: 1000
   numberRodElements: 30
   totalMass: 1
-  guidewireOffset: -800
+  guidewireOffset: -900
   position: {x: 0, y: 0, z: 0}
   scale: {x: 1, y: 1, z: 1}
   rotation: {x: 0, y: 0, z: 0}
