@@ -275,7 +275,7 @@ namespace GuidewireSim
          */
         private void PerformOffsetting()
         {
-            Vector3 direction = spherePositions[1] - spherePositions[0];
+            Vector3 direction = new Vector3(0,1,0);//spherePositions[1] - spherePositions[0];
             direction.Normalize();
             spherePositionPredictions[0] = spherePositions[0] + parameterHandler.displacement * direction;
         }
@@ -405,7 +405,7 @@ namespace GuidewireSim
         private float CalculateDelta(Vector3[] spherePositions1, Vector3[] spherePositions2)
         {
             float delta = 0.0f;
-            for (int i = 0; i < spherePositions1.Length; i++)
+            for (int i = 1; i < spherePositions1.Length; i++)
             {
                 delta += Vector3.Distance(spherePositions1[i], spherePositions2[i]);
             }

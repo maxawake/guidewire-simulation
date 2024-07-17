@@ -258,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ba2d24f9b9b0b4601b443430a6b55a6a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: ba2d24f9b9b0b4601b443430a6b55a6a, type: 3}
       propertyPath: m_Layer
@@ -497,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: epsilon
-      value: 0.005
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: readFile
@@ -919,7 +919,7 @@ MonoBehaviour:
   logFilePath: /home/max/Temp/Praktikum/experiments/
   constraintSolverSteps: 300
   timeStep: 0.01
-  displacement: 3
+  displacement: 10
   rodElementLength: 10
   guidewireLength: 1000
   numberRodElements: 30
@@ -928,7 +928,7 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   scale: {x: 1, y: 1, z: 1}
   rotation: {x: 0, y: 0, z: 0}
-  bendStiffness: 1
+  bendStiffness: 0.1
   stretchStiffness: 1
   sphereRadius: 5
   collisionMargin: 0.01
