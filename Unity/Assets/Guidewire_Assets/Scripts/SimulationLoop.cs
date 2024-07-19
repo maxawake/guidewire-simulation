@@ -129,7 +129,8 @@ namespace GuidewireSim
         private float totalTime = 0.0f; /**< The total time the simulation has been running. */
         public bool readFile = true; /**< Whether or not to use a file to read the parameters from. */
         private int simulationStep = 0; /**< The current simulation step. */
-        public float epsilon = 0.001f; /**< The theshold for the delta criterion. */
+        
+        public float deltaThreshold = 0.1f;
 
         /**
         * Default constructor.
@@ -207,7 +208,16 @@ namespace GuidewireSim
             objectSetter.SetCylinderPositions(cylinders, CylinderCount, cylinderPositions);
             objectSetter.SetCylinderOrientations(cylinders, CylinderCount, cylinderOrientations, directors);
 
+            // Save the initial positions
+            if (Logging)
+            {
+                PerformLogging(false);
+                simulationStep++;
+            }
+
             PerformOffsetting();
+
+
         }
 
         /**
@@ -249,21 +259,21 @@ namespace GuidewireSim
         /**
          * Performs the logging of the positions of the spheres.
          */
-        private void PerformLogging()
+        private void PerformLogging(bool insideLoop = true)
         {
             long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
             float delta = CalculateDelta(spherePositionsTemp, spherePositionPredictions);
             logger.savePositionsAsJson(spherePositions, sphereVelocities, spheresCount, simulationStep, totalTime, elapsedMilliseconds, delta);
 
             // Take screenshot
-            if (Screenshots)
+            if (Screenshots && simulationStep % 100 == 0)
             {
                 string screenshotPath = parameterHandler.logFilePath + "screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".jpg";
                 ScreenCapture.CaptureScreenshot(screenshotPath);
             }
 
             //if (simulationStep > 1000) {
-            if (delta < epsilon)
+            if (delta < parameterHandler.deltaThreshold && insideLoop)
             {
                 UnityEngine.Debug.Log("Simulation step: " + simulationStep);
                 Quit();

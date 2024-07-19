@@ -42,6 +42,8 @@ namespace GuidewireSim {
         public float collisionMargin = 5.0f;
         public float collisionStiffness = 0.001f;
 
+        public float deltaThreshold = 0.001f; /**< The theshold for the delta criterion. */
+
         public string SaveToString()
         {
             return JsonUtility.ToJson(this);
@@ -76,6 +78,7 @@ namespace GuidewireSim {
             Debug.Log("sphereRadius: " + sphereRadius);
             Debug.Log("collisionMargin: " + collisionMargin);
             Debug.Log("collisionStiffness: " + collisionStiffness);
+            Debug.Log("deltaThreshold: " + deltaThreshold);
         }
     }
 }

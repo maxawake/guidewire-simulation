@@ -37,7 +37,7 @@ def save_json_file(file_path, data):
         json.dump(data, f)
 
 
-def run_unity(parameters: str, log_file_path: str, headless: bool = False, verbose: bool = False):
+def run_unity(unity_app_path: str, parameters: str, log_file_path: str, headless: bool = False, verbose: bool = False):
     """Function to run the Unity application for a given OBJ file and parameters.
 
     Parameters
@@ -60,7 +60,6 @@ def run_unity(parameters: str, log_file_path: str, headless: bool = False, verbo
     subprocess.Popen
         Unity process.
     """
-    unity_app_path = "/home/max/Documents/Unity/guidewire-simulation-static-collision.x86_64"
 
     command_args = [unity_app_path, "-parameters", parameters, "-logFile", log_file_path]
     

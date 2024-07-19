@@ -22,7 +22,7 @@ namespace GuidewireSim
 
         public int cylinderID;
 
-        float factor = 0.01f;
+        float factor = 0.1f;
 
         private void Awake()
         {

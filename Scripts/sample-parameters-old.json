@@ -1,13 +1,13 @@
 {
     "logFilePath": "/home/max/Temp/Praktikum/experiments/",
-    "constraintSolverSteps": 1000,
-    "timeStep": 0.01,
+    "constraintSolverSteps": 300,
+    "timeStep": 0.1,
     "displacement": 1.0,
     "rodElementLength": 10.0,
-    "guidewireLength": 300.0,
-    "numberRodElements": 10,
+    "guidewireLength": 1000.0,
+    "numberRodElements": 30,
     "totalMass": 1.0,
-    "guidewireOffset": -100.0,
+    "guidewireOffset": -900.0,
     "position": {
         "x": 0.0,
         "y": 0.0,
@@ -26,7 +26,6 @@
     "bendStiffness": 1.0,
     "stretchStiffness": 1.0,
     "sphereRadius": 5.0,
-    "collisionMargin": 5,
-    "collisionStiffness": 0.00001,
-    "deltaThreshold": 0.0005
+    "collisionMargin": 0.01,
+    "collisionStiffness": 0.0001
 }
