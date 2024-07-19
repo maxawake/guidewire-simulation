@@ -60,7 +60,7 @@ def run_unity(parameters: str, log_file_path: str, headless: bool = False, verbo
     subprocess.Popen
         Unity process.
     """
-    unity_app_path = "/home/max/Documents/Unity/guidewire-simulation-static-transversal.x86_64"
+    unity_app_path = "/home/max/Documents/Unity/guidewire-simulation-static-collision.x86_64"
 
     command_args = [unity_app_path, "-parameters", parameters, "-logFile", log_file_path]
     

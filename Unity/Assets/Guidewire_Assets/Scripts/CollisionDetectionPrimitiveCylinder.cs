@@ -22,6 +22,8 @@ namespace GuidewireSim
 
         public int cylinderID;
 
+        float factor = 0.01f;
+
         private void Awake()
         {
             
@@ -74,12 +76,23 @@ namespace GuidewireSim
             Debug.Log("Collision Enter");
             Debug.Log(collisionNormal);
             Debug.Log(contactPoint);
-            cylinderCollisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
+            
+            //cylinderCollisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
             
             Vector3 spherePosition1 = spherePositions[cylinderID];
             Vector3 spherePosition2 = spherePositions[cylinderID+1];
-            sphereCollisionHandler.RegisterCollision(this.transform, cylinderID, spherePosition1, collisionNormal);
-            sphereCollisionHandler.RegisterCollision(this.transform, cylinderID+1, spherePosition2, collisionNormal);
+            Vector3 rodLine = spherePosition2 - spherePosition1;
+            Vector3 toContactPoint = contactPoint - spherePosition1;
+            float distance = Vector3.Dot(toContactPoint, rodLine) / rodLine.sqrMagnitude;
+            if (distance < 0.5) {
+                sphereCollisionHandler.RegisterCollision(this.transform, cylinderID, spherePosition1, factor*(1-distance)*collisionNormal);
+                sphereCollisionHandler.RegisterCollision(this.transform, cylinderID+1, spherePosition2, factor*distance*collisionNormal);
+            } else {
+                sphereCollisionHandler.RegisterCollision(this.transform, cylinderID, spherePosition1,factor*distance*collisionNormal);
+                sphereCollisionHandler.RegisterCollision(this.transform, cylinderID+1, spherePosition2, factor*(1-distance)*collisionNormal);
+            }
+            Debug.Log("distance: " + distance);
+            
         }
 
         /**
@@ -93,12 +106,22 @@ namespace GuidewireSim
             Vector3 collisionNormal = collisionContact.normal;
 
             Debug.Log("Collision Stay");
-            cylinderCollisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
+            //cylinderCollisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
 
             Vector3 spherePosition1 = spherePositions[cylinderID];
             Vector3 spherePosition2 = spherePositions[cylinderID+1];
-            sphereCollisionHandler.RegisterCollision(this.transform, cylinderID, spherePosition1, collisionNormal);
-            sphereCollisionHandler.RegisterCollision(this.transform, cylinderID+1, spherePosition2, collisionNormal);
+            Vector3 rodLine = spherePosition2 - spherePosition1;
+            Vector3 toContactPoint = contactPoint - spherePosition1;
+            float distance = Vector3.Dot(toContactPoint, rodLine) / rodLine.sqrMagnitude;
+            if (distance < 0.5) {
+                sphereCollisionHandler.RegisterCollision(this.transform, cylinderID, spherePosition1, factor*(1-distance)*collisionNormal);
+                sphereCollisionHandler.RegisterCollision(this.transform, cylinderID+1, spherePosition2, factor*distance*collisionNormal);
+            } else {
+                sphereCollisionHandler.RegisterCollision(this.transform, cylinderID, spherePosition1, factor*distance*collisionNormal);
+                sphereCollisionHandler.RegisterCollision(this.transform, cylinderID+1, spherePosition2, factor*(1-distance)*collisionNormal);
+            }
+            Debug.Log("distance: " + distance);
+            
         }
     }
 }

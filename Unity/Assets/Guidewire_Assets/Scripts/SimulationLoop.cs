@@ -129,7 +129,7 @@ namespace GuidewireSim
         private float totalTime = 0.0f; /**< The total time the simulation has been running. */
         public bool readFile = true; /**< Whether or not to use a file to read the parameters from. */
         private int simulationStep = 0; /**< The current simulation step. */
-        public float epsilon = 0.001f; /**< The epsilon value for the delta calculation. */
+        public float epsilon = 0.001f; /**< The theshold for the delta criterion. */
 
         /**
         * Default constructor.
@@ -258,7 +258,7 @@ namespace GuidewireSim
             // Take screenshot
             if (Screenshots)
             {
-                string screenshotPath = parameterHandler.logFilePath + "screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png";
+                string screenshotPath = parameterHandler.logFilePath + "screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".jpg";
                 ScreenCapture.CaptureScreenshot(screenshotPath);
             }
 
@@ -275,7 +275,7 @@ namespace GuidewireSim
          */
         private void PerformOffsetting()
         {
-            Vector3 direction = new Vector3(0,1,0);//spherePositions[1] - spherePositions[0];
+            Vector3 direction = spherePositions[1] - spherePositions[0];
             direction.Normalize();
             spherePositionPredictions[0] = spherePositions[0] + parameterHandler.displacement * direction;
         }
