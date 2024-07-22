@@ -10,8 +10,8 @@ NullGfxDevice:
     Renderer: Null Device
     Vendor:   Unity Technologies
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.044 seconds
-- Finished resetting the current domain, in  0.002 seconds
+- Loaded All Assemblies, in  0.042 seconds
+- Finished resetting the current domain, in  0.001 seconds
 ERROR: Shader Sprites/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
 ERROR: Shader Sprites/Mask shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
 ERROR: Shader Legacy Shaders/VertexLit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
@@ -22,7 +22,7 @@ ERROR: Shader Standard shader is not supported on this GPU (none of subshaders/f
 WARNING: Shader Unsupported: 'Standard' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-UnloadTime: 0.590943 ms
+UnloadTime: 0.396897 ms
 Logger Awake
 CommandLineHandler Awake
 Read the parameters from a file
@@ -59,7 +59,7 @@ Memory Statistics:
       Current Block Size 4.0 MB
       Peak Allocated Bytes 2.1 MB
       Overflow Count 0
-    [ALLOC_TEMP_Background Job.worker 11]
+    [ALLOC_TEMP_Background Job.worker 4]
       Initial Block Size 32.0 KB
       Current Block Size 32.0 KB
       Peak Allocated Bytes 0 B
@@ -74,7 +74,7 @@ Memory Statistics:
       Current Block Size 32.0 KB
       Peak Allocated Bytes 0 B
       Overflow Count 0
-    [ALLOC_TEMP_Background Job.worker 4]
+    [ALLOC_TEMP_Background Job.worker 11]
       Initial Block Size 32.0 KB
       Current Block Size 32.0 KB
       Peak Allocated Bytes 0 B
