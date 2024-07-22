@@ -16,6 +16,8 @@ public class PredictionStep : MonoBehaviour
     ParameterHandler parameterHandler;
     private float displacement; 
 
+    private Vector3[] oldSpherePositions;
+
     private void Awake()
     {
         mathHelper = GetComponent<MathHelper>();
@@ -56,10 +58,11 @@ public class PredictionStep : MonoBehaviour
     */
     public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions,
                                     Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
-    {
+    {   
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
             spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.fixedDeltaTime * sphereVelocities[sphereIndex]+ 0.5f* Time.fixedDeltaTime * Time.fixedDeltaTime * sphereExternalForces[sphereIndex] * sphereInverseMasses[sphereIndex];   
+            //spherePositionPredictions[sphereIndex] = 2*spherePositions[sphereIndex] - oldSpherePositions[sphereIndex] + Time.fixedDeltaTime * Time.fixedDeltaTime * sphereVelocities[sphereIndex];
         }
 
         // Vector3 direction = spherePositions[1] - spherePositions[0];

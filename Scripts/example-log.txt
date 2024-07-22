@@ -10,8 +10,8 @@ NullGfxDevice:
     Renderer: Null Device
     Vendor:   Unity Technologies
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.042 seconds
-- Finished resetting the current domain, in  0.001 seconds
+- Loaded All Assemblies, in  0.054 seconds
+- Finished resetting the current domain, in  0.002 seconds
 ERROR: Shader Sprites/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
 ERROR: Shader Sprites/Mask shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
 ERROR: Shader Legacy Shaders/VertexLit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
@@ -22,7 +22,7 @@ ERROR: Shader Standard shader is not supported on this GPU (none of subshaders/f
 WARNING: Shader Unsupported: 'Standard' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-UnloadTime: 0.396897 ms
+UnloadTime: 0.664890 ms
 Logger Awake
 CommandLineHandler Awake
 Read the parameters from a file
@@ -119,12 +119,12 @@ Memory Statistics:
       Current Block Size 32.0 KB
       Peak Allocated Bytes 0 B
       Overflow Count 0
-    [ALLOC_TEMP_Job.worker 5]
+    [ALLOC_TEMP_Job.worker 20]
       Initial Block Size 256.0 KB
       Current Block Size 256.0 KB
       Peak Allocated Bytes 0 B
       Overflow Count 0
-    [ALLOC_TEMP_Job.worker 20]
+    [ALLOC_TEMP_Job.worker 5]
       Initial Block Size 256.0 KB
       Current Block Size 256.0 KB
       Peak Allocated Bytes 0 B
@@ -259,12 +259,12 @@ Memory Statistics:
       Current Block Size 256.0 KB
       Peak Allocated Bytes 0 B
       Overflow Count 0
-    [ALLOC_TEMP_Job.worker 17]
+    [ALLOC_TEMP_Job.worker 7]
       Initial Block Size 256.0 KB
       Current Block Size 256.0 KB
       Peak Allocated Bytes 0 B
       Overflow Count 0
-    [ALLOC_TEMP_Job.worker 7]
+    [ALLOC_TEMP_Job.worker 17]
       Initial Block Size 256.0 KB
       Current Block Size 256.0 KB
       Peak Allocated Bytes 0 B
@@ -297,7 +297,7 @@ Memory Statistics:
       Peak Allocated memory 30.4 MB
       Peak Large allocation bytes 16.0 MB
     [ALLOC_DEFAULT_THREAD]
-      Peak usage frame count: [1.0 MB-2.0 MB]: 106 frames, [2.0 MB-4.0 MB]: 4 frames, [4.0 MB-8.0 MB]: 1 frames
+      Peak usage frame count: [1.0 MB-2.0 MB]: 107 frames, [2.0 MB-4.0 MB]: 3 frames, [4.0 MB-8.0 MB]: 1 frames
       Requested Block Size 16.0 MB
       Peak Block count 1
       Peak Allocated memory 7.2 MB

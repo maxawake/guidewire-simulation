@@ -69,7 +69,7 @@ public class UpdateStep : MonoBehaviour
     {
         float factor = 2f / Time.fixedDeltaTime;
 
-        for (int cylinderIndex = 1; cylinderIndex < cylinderCount; cylinderIndex++)
+        for (int cylinderIndex = 0; cylinderIndex < cylinderCount; cylinderIndex++)
         {
             BSM.Quaternion qu = BSM.Quaternion.Conjugate(cylinderOrientations[cylinderIndex]) * cylinderOrientationPredictions[cylinderIndex];
             BSM.Quaternion quaternionResult = factor * qu;
@@ -90,7 +90,7 @@ public class UpdateStep : MonoBehaviour
                                                      BSM.Quaternion[] cylinderOrientationPredictions)
     {   
         // TODO: Why is the first cylinder not updated? Was 1 before
-        for (int cylinderIndex = 1; cylinderIndex < cylinderCount; cylinderIndex++)
+        for (int cylinderIndex = 0; cylinderIndex < cylinderCount; cylinderIndex++)
         {
             cylinderOrientations[cylinderIndex] = cylinderOrientationPredictions[cylinderIndex];
         }

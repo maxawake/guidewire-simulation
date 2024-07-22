@@ -61,11 +61,12 @@ def run_unity(unity_app_path: str, parameters: str, log_file_path: str, headless
         Unity process.
     """
 
-    command_args = [unity_app_path, "-parameters", parameters, "-logFile", log_file_path]
+    command_args = [unity_app_path, "-parameters", parameters, "-logFile", log_file_path, "-monitor", "2"]
     
     if headless:
         command_args.append("-batchmode")
         command_args.append("-nographics")
+        
         
     if not verbose:
         stdout = subprocess.DEVNULL

@@ -609,6 +609,5 @@ namespace GuidewireSim
             UnityEditor.EditorApplication.isPlaying = false;
 #endif
         }
-
     }
 }
