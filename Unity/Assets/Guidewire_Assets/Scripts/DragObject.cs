@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using GuidewireSim;
 using NUnit.Framework;
 using UnityEngine;
+
+/**
+ * This class implements the drag object script, following this tutorial https://www.youtube.com/watch?v=0yHBDZHLRbQ
+ */
 public class DragObject : MonoBehaviour
 {
     private Vector3 mOffset;

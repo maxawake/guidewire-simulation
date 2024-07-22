@@ -3,8 +3,12 @@ using GuidewireSim;
 using UnityEngine;
 using NUnit.Framework;
 using UnityEngine.UIElements;
-public class CameraController : MonoBehaviour {
 
+
+/**
+ * This class implements the camera controller, following this tutorial https://www.youtube.com/watch?v=pJQndtJ2rk0
+ */
+public class CameraController : MonoBehaviour {
     public float moveSpeed = 100f;
     public float rotationSpeed = 100.0f;
 

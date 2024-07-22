@@ -29,6 +29,7 @@ namespace GuidewireSim
                                         *   @note This is needed to calculate the deviation of the rod element length to the default
                                         *   rod element length.
                                         */
+        private Vector3[] oldSpherePositions; /**< The old positions of the spheres for Verlet Integration */
         public bool Screenshots = false; /**< Whether or not to take screenshots of the simulation. */
         // OWN STUFF:
 
@@ -214,8 +215,10 @@ namespace GuidewireSim
                 PerformLogging(false);
                 simulationStep++;
             }
+            
+            CopyArray(spheresCount, spherePositions, out oldSpherePositions);
 
-            PerformOffsetting();
+            //PerformOffsetting();
 
 
         }
@@ -227,7 +230,7 @@ namespace GuidewireSim
         {
             if (ExecuteSingleLoopTest) return;
 
-            CopySpherePositions(spheresCount, spherePositionPredictions, out spherePositionsTemp);
+            CopyArray(spheresCount, spherePositionPredictions, out spherePositionsTemp);
 
             stopwatch.Restart();
             PerformSimulationLoop();
@@ -396,12 +399,12 @@ namespace GuidewireSim
          * @param spherePositionPredictions The prediction of the position at the current frame of each sphere.
          * @param spherePositions The position at the current frame of each sphere.
          */
-        public void CopySpherePositions(int spheresCount, Vector3[] spherePositionPredictions, out Vector3[] spherePositions)
+        public void CopyArray(int Count, Vector3[] ArrayIn, out Vector3[] ArrayOut)
         {
-            spherePositions = new Vector3[spheresCount];
-            for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
+            ArrayOut = new Vector3[Count];
+            for (int sphereIndex = 0; sphereIndex < Count; sphereIndex++)
             {
-                spherePositions[sphereIndex] = spherePositionPredictions[sphereIndex];
+                ArrayOut[sphereIndex] = ArrayIn[sphereIndex];
             }
             //return spherePositions;
         }
@@ -434,9 +437,9 @@ namespace GuidewireSim
         private void PerformUpdateStep()
         {
             sphereVelocities = updateStep.UpdateSphereVelocities(sphereVelocities, spheresCount, spherePositionPredictions, spherePositions);
+            CopyArray(spheresCount, spherePositions, out oldSpherePositions);
             spherePositions = updateStep.UpdateSpherePositions(spherePositions, spheresCount, spherePositionPredictions);
-            cylinderAngularVelocities = updateStep.UpdateCylinderAngularVelocities(cylinderAngularVelocities, CylinderCount, cylinderOrientations,
-            cylinderOrientationPredictions);
+            cylinderAngularVelocities = updateStep.UpdateCylinderAngularVelocities(cylinderAngularVelocities, CylinderCount, cylinderOrientations, cylinderOrientationPredictions);
             cylinderOrientations = updateStep.UpdateCylinderOrientations(cylinderOrientations, CylinderCount, cylinderOrientationPredictions);
             directors = mathHelper.UpdateDirectors(CylinderCount, cylinderOrientations, directors, worldSpaceBasis);
         }
@@ -450,7 +453,7 @@ namespace GuidewireSim
         */
         private void PerformPredictionStep()
         {
-            spherePositionPredictions = predictionStep.PredictSpherePositions(spherePositionPredictions, spheresCount, spherePositions, sphereVelocities, sphereInverseMasses, sphereExternalForces);
+            spherePositionPredictions = predictionStep.PredictSpherePositions(spherePositionPredictions, spheresCount, spherePositions, oldSpherePositions, sphereVelocities, sphereInverseMasses, sphereExternalForces);
             sphereVelocities = predictionStep.PredictSphereVelocities(sphereVelocities, sphereInverseMasses, sphereExternalForces);
             cylinderAngularVelocities = predictionStep.PredictAngularVelocities(cylinderAngularVelocities, CylinderCount, inertiaTensor,
             cylinderExternalTorques, inverseInertiaTensor);
