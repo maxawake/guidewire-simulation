@@ -497,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: Logging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: epsilon
@@ -505,7 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: readFile
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: timeStep
@@ -921,25 +921,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logFilePath: /home/max/Temp/Praktikum/experiments/
-  constraintSolverSteps: 1000
-  timeStep: 0.01
+  constraintSolverSteps: 700
+  timeStep: 0.1
   displacement: 3
-  rodElementLength: 10
-  guidewireLength: 1000
-  numberRodElements: 100
+  rodElementLength: 30
+  guidewireLength: 300
+  numberRodElements: 30
   totalMass: 1
-  guidewireOffset: -900
+  guidewireOffset: -150
   position: {x: 0, y: 0, z: 0}
   scale: {x: 1, y: 1, z: 1}
   rotation: {x: 0, y: 0, z: 0}
-  bendStiffness: 2
+  bendStiffness: 3
   stretchStiffness: 1
   sphereRadius: 5
   collisionMargin: 5
   collisionStiffness: 0.01
   deltaThreshold: 0.001
-  VerletIntegration: 0
-  SteadyState: 0
+  VerletIntegration: 1
+  SteadyState: 1
 --- !u!114 &1672042498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094616760}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdfbd732f3280afa189c8cd2d349f199, type: 3}
   m_Name: 

@@ -517,7 +517,6 @@ namespace GuidewireSim
             {
                 ArrayOut[sphereIndex] = ArrayIn[sphereIndex];
             }
-            //return spherePositions;
         }
 
         /**
