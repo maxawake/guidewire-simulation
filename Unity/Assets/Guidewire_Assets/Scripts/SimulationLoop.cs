@@ -218,7 +218,7 @@ namespace GuidewireSim
             
             CopyArray(spheresCount, spherePositions, out oldSpherePositions);
 
-            //PerformOffsetting();
+            PerformOffsetting();
 
 
         }

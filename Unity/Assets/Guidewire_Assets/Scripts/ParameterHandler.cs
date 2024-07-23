@@ -28,7 +28,7 @@ namespace GuidewireSim {
         public float totalMass = 100.0f;
         public float guidewireOffset = -200.0f;
         
-        // For model placement
+        // For model placement (not used right now)
         public Vector3 position = Vector3.zero;
 		public Vector3 scale = Vector3.one;
 		public Vector3 rotation = Vector3.zero;
@@ -43,6 +43,9 @@ namespace GuidewireSim {
         public float collisionStiffness = 0.001f;
 
         public float deltaThreshold = 0.001f; /**< The theshold for the delta criterion. */
+
+        public bool VerletIntegration = true; /**< If true, Verlet integration is used for the prediction step. If false, Euler integration is used. */
+        public bool SteadyState = false; /**< If true, the simulation runs until the steady state is reached. */
 
         public string SaveToString()
         {
@@ -79,6 +82,8 @@ namespace GuidewireSim {
             Debug.Log("collisionMargin: " + collisionMargin);
             Debug.Log("collisionStiffness: " + collisionStiffness);
             Debug.Log("deltaThreshold: " + deltaThreshold);
+            Debug.Log("VerletIntegration: " + VerletIntegration);
+            Debug.Log("SteadyState: " + SteadyState);
         }
     }
 }

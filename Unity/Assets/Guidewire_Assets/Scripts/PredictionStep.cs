@@ -57,15 +57,31 @@ public class PredictionStep : MonoBehaviour
     */
     public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions, Vector3[] oldSpherePositions, Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
     {   
-        for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
-        {
-            //spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.fixedDeltaTime * sphereVelocities[sphereIndex];  
-            spherePositionPredictions[sphereIndex] = 2*spherePositions[sphereIndex] - oldSpherePositions[sphereIndex] + Time.fixedDeltaTime * Time.fixedDeltaTime * sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
+        if (parameterHandler.VerletIntegration)
+        {   
+            // For steady state, the first sphere needs to be fixed
+            for (int sphereIndex = 1; sphereIndex < spheresCount; sphereIndex++)
+            {
+                spherePositionPredictions[sphereIndex] = 2*spherePositions[sphereIndex] - oldSpherePositions[sphereIndex] + Time.fixedDeltaTime * Time.fixedDeltaTime * sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
+            }
         }
-
-        // Vector3 direction = spherePositions[1] - spherePositions[0];
-        // direction.Normalize();
-        // spherePositionPredictions[0] = spherePositions[0] + displacement*direction;
+        else // Euler Integration
+        {
+            for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
+            {
+                spherePositionPredictions[sphereIndex] = spherePositions[sphereIndex] + Time.fixedDeltaTime * sphereVelocities[sphereIndex];  
+            }
+            return spherePositionPredictions;
+        }
+        
+        // Push the guidewire by displacement of the first sphere
+        if (!parameterHandler.SteadyState)
+        {
+            Vector3 direction = spherePositions[1] - spherePositions[0];
+            direction.Normalize();
+            spherePositionPredictions[0] = spherePositions[0] + displacement*direction;
+        }
+        
         return spherePositionPredictions;
     }
 
