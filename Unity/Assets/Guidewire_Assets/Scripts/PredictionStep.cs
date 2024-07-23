@@ -74,13 +74,7 @@ public class PredictionStep : MonoBehaviour
             return spherePositionPredictions;
         }
         
-        // Push the guidewire by displacement of the first sphere
-        if (!parameterHandler.SteadyState)
-        {
-            Vector3 direction = spherePositions[1] - spherePositions[0];
-            direction.Normalize();
-            spherePositionPredictions[0] = spherePositions[0] + displacement*direction;
-        }
+        
         
         return spherePositionPredictions;
     }

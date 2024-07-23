@@ -11,7 +11,6 @@ namespace GuidewireSim
     /**
      * This class executes the outer simuluation loop of the algorithm and calls the implementations of each algorithm step and manages all coherent data.
      */
-    // TODO: Do we need these RequireComponent attributes?
     [RequireComponent(typeof(InitializationStep))]
     [RequireComponent(typeof(MathHelper))]
     public class SimulationLoop : MonoBehaviour
@@ -120,7 +119,6 @@ namespace GuidewireSim
                                                                       *  the test hardware to be executed in time. Only choose a lower timestep if
                                                                       *  you are certain your hardware can handle it.
                                                                       */
-        public float TimeStep { get { return timeStep; } }
 
         public int spheresCount { get; private set; } //!< The count of all #spheres of the guidewire.
         public int CylinderCount { get; private set; } //!< The count of all #cylinders of the guidewire.
@@ -130,8 +128,6 @@ namespace GuidewireSim
         private float totalTime = 0.0f; /**< The total time the simulation has been running. */
         public bool readFile = true; /**< Whether or not to use a file to read the parameters from. */
         private int simulationStep = 0; /**< The current simulation step. */
-        
-        public float deltaThreshold = 0.1f;
 
         /**
         * Default constructor.
@@ -215,12 +211,12 @@ namespace GuidewireSim
                 PerformLogging(false);
                 simulationStep++;
             }
-            
+
+            // Save the initial positions for Verlet Integration
             CopyArray(spheresCount, spherePositions, out oldSpherePositions);
 
+            // Perform the initial offsetting of the guidewire
             PerformOffsetting();
-
-
         }
 
         /**
@@ -236,13 +232,11 @@ namespace GuidewireSim
             PerformSimulationLoop();
             stopwatch.Stop();
 
-            //Debug.Log("Delta: " + delta);
-            // if (delta < 0.01f) {
-            //     Debug.Log("Delta is less than 0.01");
-            //     Vector3 direction = spherePositions[1] - spherePositions[0];
-            //     direction.Normalize();
-            //     spherePositions[0] = spherePositions[0] + parameterHandler.displacement*direction; // Used zDisplacement here
-            // }
+            // Push the guidewire by displacement of the first sphere
+            if (!parameterHandler.SteadyState)
+            {
+                PerformOffsetting();
+            }
 
             // Save state to log file
             if (Logging)
@@ -258,41 +252,6 @@ namespace GuidewireSim
                 Quit();
             }
         }
-
-        /**
-         * Performs the logging of the positions of the spheres.
-         */
-        private void PerformLogging(bool insideLoop = true)
-        {
-            long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
-            float delta = CalculateDelta(spherePositionsTemp, spherePositionPredictions);
-            logger.savePositionsAsJson(spherePositions, sphereVelocities, spheresCount, simulationStep, totalTime, elapsedMilliseconds, delta);
-
-            // Take screenshot
-            if (Screenshots && simulationStep % 100 == 0)
-            {
-                string screenshotPath = parameterHandler.logFilePath + "screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".jpg";
-                ScreenCapture.CaptureScreenshot(screenshotPath);
-            }
-
-            //if (simulationStep > 1000) {
-            if (delta < parameterHandler.deltaThreshold && insideLoop)
-            {
-                UnityEngine.Debug.Log("Simulation step: " + simulationStep);
-                Quit();
-            }
-        }
-
-        /**
-         * Performs the offsetting of the guidewire.
-         */
-        private void PerformOffsetting()
-        {
-            Vector3 direction = spherePositions[1] - spherePositions[0];
-            direction.Normalize();
-            spherePositionPredictions[0] = spherePositions[0] + parameterHandler.displacement * direction;
-        }
-
 
         private void PerformInitializationStep()
         {
@@ -392,39 +351,6 @@ namespace GuidewireSim
                 cylinderCollisionHandler.ResetRegisteredCollisions();
             }
         }
-
-        /**
-         * Copies the sphere positions from the spherePositionPredictions to the spherePositions.
-         * @param spheresCount The count of all spheres of the guidewire.
-         * @param spherePositionPredictions The prediction of the position at the current frame of each sphere.
-         * @param spherePositions The position at the current frame of each sphere.
-         */
-        public void CopyArray(int Count, Vector3[] ArrayIn, out Vector3[] ArrayOut)
-        {
-            ArrayOut = new Vector3[Count];
-            for (int sphereIndex = 0; sphereIndex < Count; sphereIndex++)
-            {
-                ArrayOut[sphereIndex] = ArrayIn[sphereIndex];
-            }
-            //return spherePositions;
-        }
-
-        /**
-         * Calculates the delta between two sets of sphere positions.
-         * @param spherePositions1 The first set of sphere positions.
-         * @param spherePositions2 The second set of sphere positions.
-         * @return The delta between the two sets of sphere positions.
-         */
-        private float CalculateDelta(Vector3[] spherePositions1, Vector3[] spherePositions2)
-        {
-            float delta = 0.0f;
-            for (int i = 1; i < spherePositions1.Length; i++)
-            {
-                delta += Vector3.Distance(spherePositions1[i], spherePositions2[i]);
-            }
-            return delta;
-        }
-
 
         /**
          * Performs the update step of the algorithm.
@@ -541,18 +467,6 @@ namespace GuidewireSim
         }
 
         /**
-     * Saves the current positions of the spheres to the log file.
-     */
-        // public void SaveCurrentPositions()
-        // {
-        //     for (int i = 0; i < spheres.Length; i++)
-        //     {
-        //         Vector3 spherePosition = spheres[i].transform.position;
-        //         logger.write("Sphere " + (i + 1) + " Position: " + spherePosition.x + "," + spherePosition.y + "," + spherePosition.z);
-        //     }
-        // }
-
-        /**
          * Updates the camera position to the last sphere.
          */
         private void UpdateCameraPosition()
@@ -588,6 +502,72 @@ namespace GuidewireSim
 
             // print the parameters
             parameterHandler.printParameters();
+        }
+
+        /**
+         * Copies the sphere positions from the spherePositionPredictions to the spherePositions.
+         * @param spheresCount The count of all spheres of the guidewire.
+         * @param spherePositionPredictions The prediction of the position at the current frame of each sphere.
+         * @param spherePositions The position at the current frame of each sphere.
+         */
+        public void CopyArray(int Count, Vector3[] ArrayIn, out Vector3[] ArrayOut)
+        {
+            ArrayOut = new Vector3[Count];
+            for (int sphereIndex = 0; sphereIndex < Count; sphereIndex++)
+            {
+                ArrayOut[sphereIndex] = ArrayIn[sphereIndex];
+            }
+            //return spherePositions;
+        }
+
+        /**
+         * Calculates the delta between two sets of sphere positions.
+         * @param spherePositions1 The first set of sphere positions.
+         * @param spherePositions2 The second set of sphere positions.
+         * @return The delta between the two sets of sphere positions.
+         */
+        private float CalculateDelta(Vector3[] spherePositions1, Vector3[] spherePositions2)
+        {
+            float delta = 0.0f;
+            for (int i = 1; i < spherePositions1.Length; i++)
+            {
+                delta += Vector3.Distance(spherePositions1[i], spherePositions2[i]);
+            }
+            return delta;
+        }
+
+        /**
+         * Performs the logging of the positions of the spheres.
+         */
+        private void PerformLogging(bool insideLoop = true)
+        {
+            long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+            float delta = CalculateDelta(spherePositionsTemp, spherePositionPredictions);
+            logger.savePositionsAsJson(spherePositions, sphereVelocities, spheresCount, simulationStep, totalTime, elapsedMilliseconds, delta);
+
+            // Take screenshot
+            if (Screenshots && simulationStep % 100 == 0)
+            {
+                string screenshotPath = parameterHandler.logFilePath + "screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".jpg";
+                ScreenCapture.CaptureScreenshot(screenshotPath);
+            }
+
+            //if (simulationStep > 1000) {
+            if (delta < parameterHandler.deltaThreshold && insideLoop)
+            {
+                UnityEngine.Debug.Log("Simulation step: " + simulationStep);
+                Quit();
+            }
+        }
+
+        /**
+         * Performs the offsetting of the guidewire.
+         */
+        private void PerformOffsetting()
+        {
+            Vector3 direction = spherePositions[1] - spherePositions[0];
+            direction.Normalize();
+            spherePositionPredictions[0] = spherePositions[0] + parameterHandler.displacement * direction;
         }
 
         /**

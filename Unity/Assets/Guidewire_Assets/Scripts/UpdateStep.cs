@@ -14,10 +14,15 @@ public class UpdateStep : MonoBehaviour
 {
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
 
+    ParameterHandler parameterHandler;
+
     private void Awake()
     {
         mathHelper = GetComponent<MathHelper>();
         Assert.IsNotNull(mathHelper);
+
+        parameterHandler = GetComponent<ParameterHandler>();
+        Assert.IsNotNull(parameterHandler);
     }
 
     /**
@@ -31,7 +36,13 @@ public class UpdateStep : MonoBehaviour
     public Vector3[] UpdateSphereVelocities(Vector3[] sphereVelocities, int spheresCount, Vector3[] spherePositionPredictions, 
     Vector3[] spherePositions)
     {   
-        for (int sphereIndex = 1; sphereIndex < spheresCount; sphereIndex++)
+        int steadyState = 0;
+        if (parameterHandler.SteadyState)
+        {
+            steadyState = 1;
+        
+        }
+        for (int sphereIndex = steadyState; sphereIndex < spheresCount; sphereIndex++)
         {
             sphereVelocities[sphereIndex] = (spherePositionPredictions[sphereIndex] - spherePositions[sphereIndex]) / Time.fixedDeltaTime;
         }
