@@ -61,7 +61,6 @@ public class UpdateStep : MonoBehaviour
     {
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
-            
             spherePositions[sphereIndex] = spherePositionPredictions[sphereIndex];
         }
         return spherePositions;

@@ -1,6 +1,6 @@
 {
     "logFilePath": "/home/max/Temp/Praktikum/experiments/",
-    "constraintSolverSteps": 1000,
+    "constraintSolverSteps": 500,
     "timeStep": 0.01,
     "displacement": 1.0,
     "rodElementLength": 10.0,
@@ -28,5 +28,7 @@
     "sphereRadius": 5.0,
     "collisionMargin": 5,
     "collisionStiffness": 0.00001,
-    "deltaThreshold": 0.0005
+    "deltaThreshold": 0.0005,
+    "VerletIntegration": true,
+    "SteadyState": true
 }
