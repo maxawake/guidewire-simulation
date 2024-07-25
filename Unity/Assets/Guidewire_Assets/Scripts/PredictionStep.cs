@@ -56,13 +56,15 @@ public class PredictionStep : MonoBehaviour
     * @return The prediction of the position at the current frame of each sphere, i.e. spherePositionPredictions.
     */
     public Vector3[] PredictSpherePositions(Vector3[] spherePositionPredictions, int spheresCount, Vector3[] spherePositions, Vector3[] oldSpherePositions, Vector3[] sphereVelocities, float[] sphereInverseMasses, Vector3[] sphereExternalForces)
-    {   
+    {       
+        float damping = 0.1f; //f;
         if (parameterHandler.VerletIntegration)
         {   
             // For steady state, the first sphere needs to be fixed
             for (int sphereIndex = 1; sphereIndex < spheresCount; sphereIndex++)
             {
-                spherePositionPredictions[sphereIndex] = 2*spherePositions[sphereIndex] - oldSpherePositions[sphereIndex] + Time.fixedDeltaTime * Time.fixedDeltaTime * sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
+                // spherePositionPredictions[sphereIndex] = 2*spherePositions[sphereIndex] - oldSpherePositions[sphereIndex] + Time.fixedDeltaTime * Time.fixedDeltaTime * sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
+                spherePositionPredictions[sphereIndex] = (2.0f-damping)*spherePositions[sphereIndex] - (1.0f-damping)*oldSpherePositions[sphereIndex] + Time.fixedDeltaTime * Time.fixedDeltaTime * sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
             }
         }
         else // Euler Integration

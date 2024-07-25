@@ -552,7 +552,7 @@ namespace GuidewireSim
             }
 
             //if (simulationStep > 1000) {
-            if (delta < parameterHandler.deltaThreshold && insideLoop)
+            if (delta < parameterHandler.deltaThreshold && insideLoop || simulationStep > 2000)
             {
                 UnityEngine.Debug.Log("Simulation step: " + simulationStep);
                 Quit();
@@ -563,7 +563,8 @@ namespace GuidewireSim
          * Performs the offsetting of the guidewire.
          */
         private void PerformOffsetting()
-        {
+        {   
+            // Vector3 direction = new Vector3(0.0f,1.0f,0.0f);
             Vector3 direction = spherePositions[1] - spherePositions[0];
             direction.Normalize();
             spherePositionPredictions[0] = spherePositions[0] + parameterHandler.displacement * direction;

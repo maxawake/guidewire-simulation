@@ -13,7 +13,7 @@ namespace GuidewireSim {
         SimulationLoop simulationLoop; 
         private void Awake()
         {
-            simulationLoop = GetComponent<SimulationLoop>();
+            simulationLoop = FindAnyObjectByType<SimulationLoop>();
             Assert.IsNotNull(simulationLoop);
         }
         void OnMouseDown()
