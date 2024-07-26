@@ -43,6 +43,7 @@ namespace GuidewireSim {
         public float collisionStiffness = 0.001f;
 
         public float deltaThreshold = 0.001f; /**< The theshold for the delta criterion. */
+        public float damping = 0.01f; /**< The damping factor for the Verlet integration. */
 
         public bool VerletIntegration = true; /**< If true, Verlet integration is used for the prediction step. If false, Euler integration is used. */
         public bool SteadyState = false; /**< If true, the simulation runs until the steady state is reached. */
@@ -82,6 +83,7 @@ namespace GuidewireSim {
             Debug.Log("collisionMargin: " + collisionMargin);
             Debug.Log("collisionStiffness: " + collisionStiffness);
             Debug.Log("deltaThreshold: " + deltaThreshold);
+            Debug.Log("damping: " + damping);
             Debug.Log("VerletIntegration: " + VerletIntegration);
             Debug.Log("SteadyState: " + SteadyState);
         }
