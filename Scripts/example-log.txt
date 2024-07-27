@@ -1,11 +1,13 @@
 The selected window backend is x11 
-Mono path[0] = '/home/max/Documents/Unity/guidewire-simulation-verlet_Data/Managed'
-Mono config path = '/home/max/Documents/Unity/guidewire-simulation-verlet_Data/MonoBleedingEdge/etc'
+Mono path[0] = '/home/max/Documents/Unity/guidewire-simulation-transversal-verlet_Data/Managed'
+Mono config path = '/home/max/Documents/Unity/guidewire-simulation-transversal-verlet_Data/MonoBleedingEdge/etc'
 Display 0 'DP-3 27"': 3840x2160 (primary device).
 Display 1 'DP-1 22"': 1080x1920 (secondary device).
+Display 2 'DP-2 32"': 2160x3840 (secondary device).
+Display 3 'HDMI-1 7"': 1920x1080 (secondary device).
 Desktop is 1080 x 1920 @ 60 Hz
 Initialize engine version: 6000.0.11f1 (fa01dd6b76d5)
-[Subsystems] Discovering subsystems at path /home/max/Documents/Unity/guidewire-simulation-verlet_Data/UnitySubsystems
+[Subsystems] Discovering subsystems at path /home/max/Documents/Unity/guidewire-simulation-transversal-verlet_Data/UnitySubsystems
 kGfxThreadingModeClientWorkerNativeJobs is not supported on OpenGL Core. Reverting to kGfxThreadingModeClientWorkerJobs instead.
 GfxDevice: creating device client; kGfxThreadingModeClientWorkerJobs
 Renderer: NVIDIA GeForce RTX 4070 Ti/PCIe/SSE2
@@ -23,9 +25,9 @@ blend_equation_advanced_coherent GL_NVX_blend_equation_advanced_multi_draw_buffe
 der_passthrough GL_NV_gpu_program4 GL_NV_internalformat_sample_query GL_NV_gpu_program4_1 GL_NV_gpu_program5 GL_NV_gpu_program5_mem_extended GL_NV_gpu_program_fp64 GL_NV_gpu_program_multiview GL_NV_gpu_shader5 GL_NV_half_float GL_NV_light_max_exponent GL_NV_memory_attachment GL_NV_mesh_shader GL_NV_multisample_coverage GL_NV_multisample_filter_hint GL_NV_occlusion_query GL_NV_packed_depth_stencil GL_NV_parameter_buffer_object GL_NV_parameter_buffer_object2 GL_NV_path_rendering GL_NV_path_rendering_shared_edge GL_NV_pixel_data_range GL_NV_point_sprite GL_NV_primitive_restart GL_NV_primitive_shading_rate GL_NV_query_resource GL_NV_query_resource_tag GL_NV_register_combiners GL_NV_register_combiners2 GL_NV_representative_fragment_test GL_NV_sample_locations GL_NV_sample_mask_override_coverage GL_NV_scissor_exclusive GL_NV_shader_atomic_counters GL_NV_shader_atomic_float GL_NV_shader_atomic_float64 GL_NV_shader_atomic_fp16_vector GL_NV_shader_atomic_int64 GL_NV_shader_buffer_load GL_NV_shader_storage_buffer_obje
 ct GL_NV_shader_subgroup_partitioned GL_NV_shader_texture_footprint GL_NV_shading_rate_image GL_NV_stereo_view_rendering GL_NV_texgen_reflection GL_NV_texture_barrier GL_NV_texture_compression_vtc GL_NV_texture_dirty_tile_map GL_NV_texture_env_combine4 GL_NV_texture_multisample GL_NV_texture_rectangle GL_NV_texture_rectangle_compressed GL_NV_texture_shader GL_NV_texture_shader2 GL_NV_texture_shader3 GL_NV_transform_feedback GL_NV_transform_feedback2 GL_NV_uniform_buffer_unified_memory GL_NV_uniform_buffer_std430_layout GL_NV_vdpau_interop GL_NV_vdpau_interop2 GL_NV_vertex_array_range GL_NV_vertex_array_range2 GL_NV_vertex_attrib_integer_64bit GL_NV_vertex_buffer_unified_memory GL_NV_vertex_program GL_NV_vertex_program1_1 GL_NV_vertex_program2 GL_NV_vertex_program2_option GL_NV_vertex_program3 GL_NV_viewport_array2 GL_NV_viewport_swizzle GL_NVX_conditional_render GL_NV_gpu_multicast GL_NVX_progress_fence GL_NVX_gpu_memory_info GL_NVX_nvenc_interop GL_NV_shader_thread_group GL_NV_shader_thread_shuffle GL_KHR_b
 lend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_OVR_multiview GL_OVR_multiview2 GL_SGIS_generate_mipmap GL_SGIS_texture_lod GL_SGIX_depth_texture GL_SGIX_shadow GL_SUN_slice_accum
-OPENGL LOG: Creating OpenGL 4.5 graphics device ; Context level  <OpenGL 4.5> ; Context handle 646539736
+OPENGL LOG: Creating OpenGL 4.5 graphics device ; Context level  <OpenGL 4.5> ; Context handle 615550008
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.042 seconds
+- Loaded All Assemblies, in  0.039 seconds
 - Finished resetting the current domain, in  0.001 seconds
 [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
 Default vsync count 1
@@ -33,32 +35,32 @@ requesting resize 1080 x 1080
 requesting fullscreen 1080 x 1080 at 0/1 Hz
 Setting up downscaled viewport at 1080 x 1080
 Desktop is 1080 x 1920 @ 60 Hz
-UnloadTime: 0.262337 ms
+UnloadTime: 0.528615 ms
 Logger Awake
 CommandLineHandler Awake
 Read the parameters from a file
-Command Line Arguments:/home/max/Documents/Unity/guidewire-simulation-verlet.x86_64
+Command Line Arguments:/home/max/Documents/Unity/guidewire-simulation-transversal-verlet.x86_64
 Command Line Arguments:-parameters
 Save file: /home/max/Github/guidewire-simulation/Scripts/sample-parameters.json
 logFilePath: /home/max/Temp/Praktikum/experiments/
-constraintSolverSteps: 1000
-timeStep: 0.01
+constraintSolverSteps: 500
+timeStep: 0.001
 displacement: 1
 rodElementLength: 10
 guidewireLength: 300
-numberRodElements: 10
+numberRodElements: 30
 totalMass: 1
 guidewireOffset: -100
 position: (0.00, 0.00, 0.00)
 scale: (1.00, 1.00, 1.00)
 rotation: (0.00, 0.00, 0.00)
-bendStiffness: 1
-stretchStiffness: 1
+bendStiffness: 0.1
+stretchStiffness: 0.1
 sphereRadius: 5
 collisionMargin: 5
 collisionStiffness: 1E-05
-deltaThreshold: 0.0005
+deltaThreshold: 0
 VerletIntegration: True
 SteadyState: True
 Logger Start
-Simulation step: 111
+Simulation step: 2001

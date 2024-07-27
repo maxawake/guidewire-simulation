@@ -78,3 +78,65 @@ def run_unity(unity_app_path: str, parameters: str, log_file_path: str, headless
     proc = subprocess.run(command_args, stdout=stdout)
     print("Unity process finished with exit code:", proc.returncode)
     return proc
+
+
+def set_nice(niceness):
+    """Function to set the niceness of the process.
+
+    Parameters
+    ----------
+    niceness : int
+        Niceness value. 
+    """
+    val = os.nice(niceness)
+    print("Set niceness to: ", val, "\n")
+    
+
+def run_expriment(unity_path, path, name, parameters):
+    """Function to run an expriment.
+
+    Parameters
+    ----------
+    unity_path : str
+        Path to the Unity application.
+    path : str
+        Path to the folder where the experiment will be saved.
+    name : str
+        Name of the experiment.
+    parameters : dict
+        Dictionary containing the parameters of the experiment.
+    """
+    current_folder = os.path.join(path, name)
+    parameter_path = os.path.join(current_folder, "parameters.json")
+    log_path = os.path.join(current_folder, "log.txt")
+    
+    # create a new folder for each experiment
+    os.makedirs(current_folder, exist_ok=True)
+    
+    # save the parameters to a JSON file
+    parameters["logFilePath"] = current_folder + "/"
+    save_json_file(parameter_path, parameters)
+    
+    # run the Unity application
+    run_unity(unity_path, parameter_path, log_path)
+
+def prepare_experiment(name, path):
+    """Function to prepare an experiment.
+
+    Parameters
+    ----------
+    name : str
+        Name of the experiment.
+    path : str
+        Path to the folder where the experiment will be saved.
+    
+    Returns
+    -------
+    str
+        Path to the experiment folder.
+    str
+        Name of the experiment.
+    """
+    experiment_folder = os.path.join(path, name)
+    os.makedirs(experiment_folder, exist_ok=True)
+    return experiment_folder, name

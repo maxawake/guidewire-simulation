@@ -128,6 +128,7 @@ namespace GuidewireSim
         private float totalTime = 0.0f; /**< The total time the simulation has been running. */
         public bool readFile = true; /**< Whether or not to use a file to read the parameters from. */
         private int simulationStep = 0; /**< The current simulation step. */
+        public bool transversal = false; /**< Whether or not to push the guidewire in the transversal direction. */
 
         /**
         * Default constructor.
@@ -552,7 +553,7 @@ namespace GuidewireSim
             }
 
             //if (simulationStep > 1000) {
-            if (delta < parameterHandler.deltaThreshold && insideLoop || simulationStep > 2000)
+            if (delta < parameterHandler.deltaThreshold && insideLoop || simulationStep > 1000)
             {
                 UnityEngine.Debug.Log("Simulation step: " + simulationStep);
                 Quit();
@@ -564,8 +565,10 @@ namespace GuidewireSim
          */
         private void PerformOffsetting()
         {   
-            // Vector3 direction = new Vector3(0.0f,1.0f,0.0f);
-            Vector3 direction = spherePositions[1] - spherePositions[0];
+            Vector3 direction = spherePositions[1] - spherePositions[0];;
+            if (transversal) {
+                direction = new Vector3(0.0f,1.0f,0.0f);    
+            }
             direction.Normalize();
             spherePositionPredictions[0] = spherePositions[0] + parameterHandler.displacement * direction;
         }
