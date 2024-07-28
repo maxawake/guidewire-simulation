@@ -36,13 +36,13 @@ public class GuidewireCreateManager : MonoBehaviour
 
         rodElementLength = guidewireLength / numberRodElements;
 
-        simulationLoop.SetRodElementLength(rodElementLength);
+        //simulationLoop.rodElementLength(rodElementLength);
 
         //This will cause the total length of the guidewire to stay the same
         creationScript = FindAnyObjectByType<CreationScript>();
         if (creationScript != null)
         {
-            creationScript.CreateGuidewire(numberRodElements);
+            creationScript.CreateGuidewire(numberRodElements+1);
 
             //Get the created spheres and cylinders from the CreationScript
             GameObject[] createdSpheres = creationScript.GetSpheres();

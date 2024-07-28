@@ -143,6 +143,8 @@ namespace GuidewireSim
 
             GetParameterHandler();
 
+            rodElementLength = parameterHandler.guidewireLength / parameterHandler.numberRodElements;
+
             // create screenshot folder if not exits
             if (Screenshots)
             {
@@ -233,6 +235,8 @@ namespace GuidewireSim
             PerformSimulationLoop();
             stopwatch.Stop();
 
+            UnityEngine.Debug.Log("Delta: " + CalculateDelta(spherePositionsTemp, spherePositionPredictions));
+
             // Push the guidewire by displacement of the first sphere
             if (!parameterHandler.SteadyState)
             {
@@ -242,7 +246,7 @@ namespace GuidewireSim
             // Save state to log file
             if (Logging)
             {
-                PerformLogging();
+                PerformLogging(true);
             }
 
             totalTime += Time.fixedDeltaTime;
@@ -331,11 +335,16 @@ namespace GuidewireSim
                     worldSpaceBasis, rodElementLength);
                 }
 
+                spherePositionPredictions[0] = spherePositionInitial;
+
+
                 if (solveBendTwistConstraints)
                 {
                     constraintSolvingStep.SolveBendTwistConstraints(cylinderOrientationPredictions, CylinderCount, discreteRestDarbouxVectors,
                     rodElementLength);
                 }
+
+                spherePositionPredictions[0] = spherePositionInitial;
 
                 if (solveCollisionConstraints)
                 {
@@ -432,7 +441,7 @@ namespace GuidewireSim
         }
 
         /**
-         * Get the guidewire from the scene
+         * Get the guidewire from the scene if it is not initialized in script. This is only needed if a guidewire prefab is used and not registered in the simulation loop script correctly.
         */
         public void GetGuidewireFromScene()
         {
@@ -539,7 +548,7 @@ namespace GuidewireSim
         /**
          * Performs the logging of the positions of the spheres.
          */
-        private void PerformLogging(bool insideLoop = true)
+        private void PerformLogging(bool insideLoop)
         {
             long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
             float delta = CalculateDelta(spherePositionsTemp, spherePositionPredictions);
@@ -553,7 +562,7 @@ namespace GuidewireSim
             }
 
             //if (simulationStep > 1000) {
-            if (delta < parameterHandler.deltaThreshold && insideLoop || simulationStep > 1000)
+            if ((delta <= parameterHandler.deltaThreshold && insideLoop) || simulationStep > 1000)
             {
                 UnityEngine.Debug.Log("Simulation step: " + simulationStep);
                 Quit();
@@ -571,19 +580,6 @@ namespace GuidewireSim
             }
             direction.Normalize();
             spherePositionPredictions[0] = spherePositions[0] + parameterHandler.displacement * direction;
-        }
-
-        /**
-        * Returns the rod element length.
-        */
-        public float GetRodElementLength()
-        {
-            return rodElementLength;
-        }
-
-        public void SetRodElementLength(float rodElementLength)
-        {
-            this.rodElementLength = rodElementLength;
         }
 
         public void Quit()

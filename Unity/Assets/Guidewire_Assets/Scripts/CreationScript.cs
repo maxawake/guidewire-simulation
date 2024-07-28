@@ -34,7 +34,7 @@ public class CreationScript : MonoBehaviour
     {
         spheres = new GameObject[numberElements];
         cylinders = new GameObject[numberElements - 1];
-        rodElementLength = simulationLoop.GetRodElementLength();
+        rodElementLength = parameterHandler.guidewireLength / parameterHandler.numberRodElements;
         guidewireOffset = parameterHandler.guidewireOffset;
         lastSpherePositions = new Vector3[numberElements];
         

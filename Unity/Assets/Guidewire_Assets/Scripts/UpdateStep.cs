@@ -42,7 +42,7 @@ public class UpdateStep : MonoBehaviour
             steadyState = 1;
         
         }
-        for (int sphereIndex = steadyState; sphereIndex < spheresCount; sphereIndex++)
+        for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
             sphereVelocities[sphereIndex] = (spherePositionPredictions[sphereIndex] - spherePositions[sphereIndex]) / Time.fixedDeltaTime;
         }

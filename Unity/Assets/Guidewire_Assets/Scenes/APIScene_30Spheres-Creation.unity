@@ -517,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: transversal
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: spheres.Array.size
@@ -837,7 +837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007115, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: doForceTestFour
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007115, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: doForceTestThree
@@ -927,21 +927,17 @@ MonoBehaviour:
   logFilePath: /home/max/Temp/Praktikum/experiments/
   constraintSolverSteps: 500
   timeStep: 0.001
-  displacement: 3
-  rodElementLength: 30
+  displacement: 10
   guidewireLength: 300
-  numberRodElements: 30
-  totalMass: 1
+  numberRodElements: 10
+  totalMass: 0.01
   guidewireOffset: -120
-  position: {x: 0, y: 0, z: 0}
-  scale: {x: 1, y: 1, z: 1}
-  rotation: {x: 0, y: 0, z: 0}
-  bendStiffness: 1
-  stretchStiffness: 1
+  bendStiffness: 0.1
+  stretchStiffness: 0.1
   sphereRadius: 5
   collisionMargin: 5
-  collisionStiffness: 0.1
-  deltaThreshold: 0.0001
+  collisionStiffness: 0.001
+  deltaThreshold: 0
   damping: 0
   VerletIntegration: 1
   SteadyState: 1

@@ -120,7 +120,7 @@ def run_expriment(unity_path, path, name, parameters):
     # run the Unity application
     run_unity(unity_path, parameter_path, log_path)
 
-def prepare_experiment(name, path):
+def prepare_experiment(path, name):
     """Function to prepare an experiment.
 
     Parameters

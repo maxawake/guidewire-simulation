@@ -13,6 +13,9 @@ namespace GuidewireSim
 public class ConstraintSolvingStep : MonoBehaviour
 {
     ParameterHandler parameterHandler;   
+
+    SimulationLoop simulationLoop;
+
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
 
     Vector3 deltaPositionOne = new Vector3(); //!< The correction of @p particlePositionOne in method SolveStretchConstraint().
@@ -24,15 +27,16 @@ public class ConstraintSolvingStep : MonoBehaviour
     // TODO: Check value
     float stretchStiffness = 1.0f;
     float bendStiffness = 1.0f;
-    float inverseMassValue = 1.0f;
 
-    float[] sphereInverseMasses;
 
     [Tooltip("Whether to solve both constraints in bilateral interleaving order. Naive order is used when false.")]
     [SerializeField] bool executeInBilateralOrder = false; //!< Whether to solve both constraints in bilateral interleaving order. Naive order is used when false.
 
     private void Awake()
     {
+        simulationLoop = GetComponent<SimulationLoop>();
+        Assert.IsNotNull(simulationLoop);
+
         mathHelper = GetComponent<MathHelper>();
         Assert.IsNotNull(mathHelper);
 
@@ -47,15 +51,15 @@ public class ConstraintSolvingStep : MonoBehaviour
 
         Assert.IsTrue(parameterHandler.numberRodElements >= 1);
         Assert.IsTrue(parameterHandler.totalMass > 0f);
-        inverseMassValue = (parameterHandler.numberRodElements + 1) / parameterHandler.totalMass;
+        // inverseMassValue = (parameterHandler.numberRodElements + 1) / parameterHandler.totalMass;
 
-        sphereInverseMasses = new float[parameterHandler.numberRodElements + 1];
-        for (int i = 0; i < sphereInverseMasses.Length; i++)
-        {
-            sphereInverseMasses[i] = inverseMassValue;
-        }
-        //infinite mass
-        sphereInverseMasses[0] = 0f;
+        // sphereInverseMasses = new float[parameterHandler.numberRodElements + 1];
+        // for (int i = 0; i < sphereInverseMasses.Length; i++)
+        // {
+        //     sphereInverseMasses[i] = inverseMassValue;
+        // }
+        // //infinite mass
+        // sphereInverseMasses[0] = 0f;
     }
 
     /**
@@ -146,7 +150,7 @@ public class ConstraintSolvingStep : MonoBehaviour
 
             SolveStretchConstraint(spherePositionPredictions[lastAscendingIndex], spherePositionPredictions[lastAscendingIndex + 1],
                                    cylinderOrientationPredictions[lastAscendingIndex], e_3, rodElementLength, out deltaPositionOne,
-                                   out deltaPositionTwo, out deltaOrientation, sphereInverseMasses[lastAscendingIndex], sphereInverseMasses[lastAscendingIndex + 1]);
+                                   out deltaPositionTwo, out deltaOrientation, simulationLoop.sphereInverseMasses[lastAscendingIndex], simulationLoop.sphereInverseMasses[lastAscendingIndex + 1]);
             CorrectStretchPredictions(lastAscendingIndex, spherePositionPredictions, cylinderOrientationPredictions);
         }
         else // spheresCount % 2 == 1, e.g. spheresCount is an odd number
@@ -159,13 +163,13 @@ public class ConstraintSolvingStep : MonoBehaviour
             // upcounting
             SolveStretchConstraint(spherePositionPredictions[upcountingIndex], spherePositionPredictions[upcountingIndex + 1],
                                    cylinderOrientationPredictions[upcountingIndex], e_3, rodElementLength, out deltaPositionOne,
-                                   out deltaPositionTwo, out deltaOrientation, sphereInverseMasses[lastAscendingIndex], sphereInverseMasses[lastAscendingIndex + 1]);
+                                   out deltaPositionTwo, out deltaOrientation, simulationLoop.sphereInverseMasses[lastAscendingIndex], simulationLoop.sphereInverseMasses[lastAscendingIndex + 1]);
             CorrectStretchPredictions(upcountingIndex, spherePositionPredictions, cylinderOrientationPredictions);
 
             // downcounting
             SolveStretchConstraint(spherePositionPredictions[downcountingIndex], spherePositionPredictions[downcountingIndex + 1],
                                    cylinderOrientationPredictions[downcountingIndex], e_3, rodElementLength, out deltaPositionOne,
-                                   out deltaPositionTwo, out deltaOrientation, sphereInverseMasses[lastAscendingIndex], sphereInverseMasses[lastAscendingIndex + 1]);
+                                   out deltaPositionTwo, out deltaOrientation, simulationLoop.sphereInverseMasses[lastAscendingIndex], simulationLoop.sphereInverseMasses[lastAscendingIndex + 1]);
             CorrectStretchPredictions(downcountingIndex, spherePositionPredictions, cylinderOrientationPredictions);
 
             upcountingIndex += 2;
@@ -195,7 +199,7 @@ public class ConstraintSolvingStep : MonoBehaviour
         {
             SolveStretchConstraint(spherePositionPredictions[sphereIndex], spherePositionPredictions[sphereIndex + 1],
                                    cylinderOrientationPredictions[sphereIndex], e_3, rodElementLength, out deltaPositionOne,
-                                   out deltaPositionTwo, out deltaOrientation, sphereInverseMasses[sphereIndex], sphereInverseMasses[sphereIndex + 1]);
+                                   out deltaPositionTwo, out deltaOrientation, simulationLoop.sphereInverseMasses[sphereIndex], simulationLoop.sphereInverseMasses[sphereIndex + 1]);
             CorrectStretchPredictions(sphereIndex, spherePositionPredictions, cylinderOrientationPredictions);
         }
     }
@@ -356,7 +360,7 @@ public class ConstraintSolvingStep : MonoBehaviour
      */
     public void SolveBendTwistConstraint(BSM.Quaternion orientationOne, BSM.Quaternion orientationTwo, Vector3 discreteRestDarbouxVector,
                                          float rodElementLength, out BSM.Quaternion deltaOrientationOne,
-                                         out BSM.Quaternion deltaOrientationTwo, float inertiaWeightOne = 1f, float inertiaWeightTwo = 1f)
+                                         out BSM.Quaternion deltaOrientationTwo, float inertiaWeightOne = 0.1f, float inertiaWeightTwo = 0.1f)
     {
         Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(orientationOne), tolerance: 0.01f);
         Assert.AreApproximatelyEqual(1f, mathHelper.QuaternionLength(orientationTwo), tolerance: 0.01f);

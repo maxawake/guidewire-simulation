@@ -105,6 +105,7 @@ class GuidewireExperiment:
         ax[1].set_xlabel("In-Game Time $t$ [s]")
 
         ax[2].plot(time_array, self.get_delta())
+        ax[2].set_yscale("log")
         ax[2].set_title("(c) Internal prediction Error")
         ax[2].set_ylabel("Error $\Delta_p$ [units]")
         ax[2].set_xlabel("In-Game Time $t$ [s]")
@@ -113,7 +114,7 @@ class GuidewireExperiment:
         # plt.show()
 
 
-def plot_confidence_interval(ax, x, y, xlabel, ylabel):
+def plot_confidence_interval(ax, x, y):
     # fig = plt.figure(figsize=(12, 5), dpi=300)
 
     # Get percentiles for the confidence interval
@@ -128,8 +129,7 @@ def plot_confidence_interval(ax, x, y, xlabel, ylabel):
     ax.plot(x, np.mean(y, axis=0)[:], "o-", color="black", label="Mean")
 
     # Labels
-    ax.set_xlabel(xlabel)
-    ax.set_ylabel(ylabel)
+    
     ax.legend(prop={"size": 10})
     # return fig
 
@@ -145,7 +145,7 @@ def get_decay_rate(experiment, p0, offset, debug=False, save=False):
     sph = experiment.get_all_spheres()
     sph = sph - sph[:, 0, np.newaxis]
     data = sph[-1, :, 2]  # - data[0]
-    error = sph[:, -1, 2] - offset
+    
     data = np.abs(data - offset)
 
     # Find the upper peaks of the damped oscillation
@@ -153,6 +153,8 @@ def get_decay_rate(experiment, p0, offset, debug=False, save=False):
 
     peaks_positions = xs[peak_idxs]
     peaks_values = data[peak_idxs]
+    
+    error = sph[:, peak_idxs[-1], 2] - offset
 
     p0 = [peaks_values[0], xs[peak_idxs[1]] - xs[peak_idxs[0]]]
 
@@ -164,20 +166,21 @@ def get_decay_rate(experiment, p0, offset, debug=False, save=False):
         plt.title(f"Relaxation time: {popt[1]:.2f} $s^{-1}$")
         plt.plot(xs, data, label="Data", color="black")
         plt.plot(xs, func(xs, *popt), label="Fitted Curve")
-        plt.plot(xs[peak_idxs], data[peak_idxs], "o", color="red", label="Peaks")
+        plt.plot(xs[peak_idxs], data[peak_idxs], ".", color="red", label="Peaks")
         # plt.hlines(p0[-1], xs[0], xs[-1], linestyle="--", label="Expected offset", color="darkgray")
         plt.xlabel("In-Game Time [s]")
-        plt.ylabel("Displacement Error $\Delta_{z,n+1}$ [units]")
-        plt.legend()
+        plt.ylabel("Displacement Error $\Delta_{\mathbf{x},n+1}$ [units]")
+        #plt.yscale("log")
+        plt.legend(prop={"size": 10})
         if save:
             plt.savefig("/home/max/Nextcloud/Praktikum/Report/figures/experiment1_3.pdf", dpi=300, bbox_inches="tight")
         plt.show()
 
         plt.figure(figsize=(4, 3))
-        plt.title(f"Final Error $\Delta_z$: {np.sum(error):.4f} units")
+        plt.title(f"Final Error $\Delta_z$: {np.mean(np.abs(error)):.4f} units")
         plt.plot(error, "-o")
         plt.xlabel("Sphere Index $i$")
-        plt.ylabel("Displacement Error $\Delta_{z_i}$ [units]")
+        plt.ylabel("Displacement Error $\Delta_{\mathbf{x},i}$ [units]")
         if save:
             plt.savefig("/home/max/Nextcloud/Praktikum/Report/figures/experiment1_4.pdf", dpi=300, bbox_inches="tight")
         plt.show()
@@ -202,8 +205,9 @@ def get_all_data(name, parameters, repeat, path, debug=False):
         for p in parameters:
             positions = read_json_file(path + f"{name}_{run}/{name}_{run}_{p}/positions.json")
             params = read_json_file(path + f"{name}_{run}/{name}_{run}_{p}/parameters.json")
+            print(path + f"{name}_{run}/{name}_{run}_{p}")
             experiment = GuidewireExperiment(positions)
-
+            print("Timesteps: ", experiment.timesteps)
             popt, error = get_decay_rate(experiment, debug=debug, p0=[1.2, 0.01], offset=params["displacement"])  # , params["displacement"]])
             decay_rate, omega = popt[1], popt[0]
             times = experiment.get_total_time()[-1]  # np.diff(experiment.get_total_time())
@@ -212,7 +216,7 @@ def get_all_data(name, parameters, repeat, path, debug=False):
             loop_time.append(np.mean(times))
             relaxation_time.append(decay_rate)
             offset.append(omega)
-            error_.append(np.sum(np.abs(error)))
+            error_.append(np.mean(np.abs(error)))
             param.append(params)
 
         relaxation_times.append(relaxation_time)
@@ -229,3 +233,16 @@ def plot_data(x, y, xlabel, ylabel):
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     # return fig
+
+def set_labels(ax, xlabel):
+    ax[0].set_title("(a)")
+    ax[1].set_title("(b)")
+    ax[2].set_title("(c)")
+
+    ax[0].set_xlabel(xlabel)
+    ax[1].set_xlabel(xlabel)
+    ax[2].set_xlabel(xlabel)
+
+    ax[0].set_ylabel("Average Execution Time [ms]")
+    ax[1].set_ylabel("Relaxation Time $\\tau$ $\left[s^{-1}\\right]$")
+    ax[2].set_ylabel("Total Error $\Delta$ [units]")

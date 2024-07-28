@@ -19,6 +19,7 @@ public class InitializationStep : MonoBehaviour
 
     ParameterHandler parameterHandler;
     private float rodElementLength; // Declare rodElementLength
+    private float inverseMassValue; // Declare inverseMassValue
 
     CollisionHandler collisionHandler; //!< The component CollisionHandler that solves all collisions.
     MathHelper mathHelper; //!< The component MathHelper that provides math related helper functions.
@@ -37,13 +38,17 @@ public class InitializationStep : MonoBehaviour
         parameterHandler = GetComponent<ParameterHandler>(); // Initialize parameterHandler
         Assert.IsNotNull(parameterHandler);
 
-        rodElementLength = parameterHandler.rodElementLength; // Initialize rodElementLength
-
         collisionHandler = GetComponent<CollisionHandler>();
         Assert.IsNotNull(collisionHandler);
 
         mathHelper = GetComponent<MathHelper>();
         Assert.IsNotNull(mathHelper);
+    }
+
+    private void Start()
+    {
+        rodElementLength = parameterHandler.guidewireLength/parameterHandler.numberRodElements; 
+        inverseMassValue = (parameterHandler.numberRodElements+1)/parameterHandler.totalMass; 
     }
 
     /**
@@ -84,14 +89,14 @@ public class InitializationStep : MonoBehaviour
     public void InitSphereInverseMasses(int spheresCount, out float[] sphereInverseMasses)
     {
         sphereInverseMasses = new float[spheresCount];
-        // TODO: Why is this calculation done?
-        float inverseMassValue = ((100/rodElementLength)+1)/10f; 
-
+        
         for (int sphereIndex = 0; sphereIndex < spheresCount; sphereIndex++)
         {
-            //TODO: Why ? sphereInverseMasses[sphereIndex] = inverseMassValue;
-            sphereInverseMasses[sphereIndex] = inverseMassValue; //1.0f
+            sphereInverseMasses[sphereIndex] = inverseMassValue; 
         }
+        
+        // TODO: DONT FORGET THIS
+        sphereInverseMasses[0] = 0; // Set the inverse mass of the first sphere to zero
     }
 
     /**
