@@ -2,7 +2,7 @@
     "logFilePath": "/home/max/Temp/Praktikum/experiments/",
     "constraintSolverSteps": 500,
     "timeStep": 0.001,
-    "displacement": 10.0,
+    "displacement": 1.0,
     "guidewireLength": 300.0,
     "numberRodElements": 10,
     "totalMass": 0.01,
@@ -15,5 +15,6 @@
     "deltaThreshold": 0.0,
     "damping": 0.0,
     "VerletIntegration": true,
-    "SteadyState": true
+    "SteadyState": true,
+    "maxSimulationSteps": 4000
 }

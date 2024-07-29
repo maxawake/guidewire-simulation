@@ -561,8 +561,8 @@ namespace GuidewireSim
                 ScreenCapture.CaptureScreenshot(screenshotPath);
             }
 
-            //if (simulationStep > 1000) {
-            if ((delta <= parameterHandler.deltaThreshold && insideLoop) || simulationStep > 1000)
+            // Stop the simulation if converged or reached max steps
+            if ((delta <= parameterHandler.deltaThreshold && insideLoop) || simulationStep > parameterHandler.maxSimulationSteps)
             {
                 UnityEngine.Debug.Log("Simulation step: " + simulationStep);
                 Quit();

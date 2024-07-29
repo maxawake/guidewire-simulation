@@ -47,6 +47,7 @@ namespace GuidewireSim {
 
         public bool VerletIntegration = true; /**< If true, Verlet integration is used for the prediction step. If false, Euler integration is used. */
         public bool SteadyState = false; /**< If true, the simulation runs until the steady state is reached. */
+        public int maxSimulationSteps = 4000; /**< The maximum number of simulation steps until simulation is stopped. */
 
         public string SaveToString()
         {
@@ -81,6 +82,7 @@ namespace GuidewireSim {
             Debug.Log("damping: " + damping);
             Debug.Log("VerletIntegration: " + VerletIntegration);
             Debug.Log("SteadyState: " + SteadyState);
+            Debug.Log("maxSimulationSteps: " + maxSimulationSteps);
         }
     }
 }

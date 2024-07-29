@@ -10,7 +10,7 @@ NullGfxDevice:
     Renderer: Null Device
     Vendor:   Unity Technologies
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.041 seconds
+- Loaded All Assemblies, in  0.047 seconds
 - Finished resetting the current domain, in  0.001 seconds
 [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
 ERROR: Shader Sprites/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
@@ -23,7 +23,7 @@ ERROR: Shader Standard shader is not supported on this GPU (none of subshaders/f
 WARNING: Shader Unsupported: 'Standard' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-UnloadTime: 0.231122 ms
+UnloadTime: 0.295412 ms
 Logger Awake
 CommandLineHandler Awake
 Read the parameters from a file

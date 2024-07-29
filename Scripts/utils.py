@@ -3,7 +3,7 @@ import os
 import subprocess
 
 
-def read_json_file(file_path):
+def read_json_file(file_path, verbose=True):
     """Function to read a JSON file.
 
     Parameters
@@ -19,6 +19,10 @@ def read_json_file(file_path):
 
     with open(file_path, "r") as f:
         data = json.load(f)
+    
+    if verbose:
+        for key in data.keys():
+            print(f"{key}: {data[key]}")
     return data
 
 

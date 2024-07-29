@@ -65,7 +65,7 @@ class GuidewireExperiment:
         # sphere_matrix -= np.min(sphere_matrix)
 
         plt.figure(figsize=(5, 4))
-        plt.imshow(sphere_matrix, aspect="auto", cmap="cmr.redshift", extent=[0, self.get_total_time()[-1], self.n_spheres, 0])
+        plt.imshow(sphere_matrix, aspect="auto", cmap="cmr.viola", origin="lower", extent=[0, self.get_total_time()[-1], 0, self.n_spheres], vmin=0, vmax=20)
         plt.xlabel("In-Game Time [s]")
         plt.ylabel("Sphere Index")
         plt.colorbar(label="Displacement [units]")
@@ -114,24 +114,6 @@ class GuidewireExperiment:
         # plt.show()
 
 
-def plot_confidence_interval(ax, x, y):
-    # fig = plt.figure(figsize=(12, 5), dpi=300)
-
-    # Get percentiles for the confidence interval
-    p10 = np.percentile(y, axis=0, q=[10]).ravel()[:]
-    p90 = np.percentile(y, axis=0, q=[90]).ravel()[:]
-    p25 = np.percentile(y, axis=0, q=[25]).ravel()[:]
-    p75 = np.percentile(y, axis=0, q=[75]).ravel()[:]
-
-    # Plot mean and confidence
-    ax.fill_between(x, p10, p90, alpha=0.1, color="b", label="$90\%$ CI")
-    ax.fill_between(x, p25, p75, alpha=0.25, color="b", label="$75\%$ CI")
-    ax.plot(x, np.mean(y, axis=0)[:], "o-", color="black", label="Mean")
-
-    # Labels
-    
-    ax.legend(prop={"size": 10})
-    # return fig
 
 
 def func(x, a, b):
@@ -173,19 +155,19 @@ def get_decay_rate(experiment, p0, offset, debug=False, save=False):
         #plt.yscale("log")
         plt.legend(prop={"size": 10})
         if save:
-            plt.savefig("/home/max/Nextcloud/Praktikum/Report/figures/experiment1_3.pdf", dpi=300, bbox_inches="tight")
+            plt.savefig("/home/max/Nextcloud/Praktikum/Report/figures/longitudinal/experiment1_3.pdf", dpi=300, bbox_inches="tight")
         plt.show()
 
         plt.figure(figsize=(4, 3))
-        plt.title(f"Final Error $\Delta_z$: {np.mean(np.abs(error)):.4f} units")
+        plt.title(f"Final Error $\Delta_{{\mathbf{{x}}}}$: {np.mean(np.abs(error)):.4f} units")
         plt.plot(error, "-o")
         plt.xlabel("Sphere Index $i$")
         plt.ylabel("Displacement Error $\Delta_{\mathbf{x},i}$ [units]")
         if save:
-            plt.savefig("/home/max/Nextcloud/Praktikum/Report/figures/experiment1_4.pdf", dpi=300, bbox_inches="tight")
+            plt.savefig("/home/max/Nextcloud/Praktikum/Report/figures/longitudinal/experiment1_4.pdf", dpi=300, bbox_inches="tight")
         plt.show()
 
-    return popt, error
+    return popt, peak_idxs#error
 
 
 def get_all_data(name, parameters, repeat, path, debug=False):
@@ -203,12 +185,12 @@ def get_all_data(name, parameters, repeat, path, debug=False):
         param = []
 
         for p in parameters:
-            positions = read_json_file(path + f"{name}_{run}/{name}_{run}_{p}/positions.json")
-            params = read_json_file(path + f"{name}_{run}/{name}_{run}_{p}/parameters.json")
-            print(path + f"{name}_{run}/{name}_{run}_{p}")
+            positions = read_json_file(path + f"{name}_{run}/{name}_{run}_{p}/positions.json", verbose=False)
+            params = read_json_file(path + f"{name}_{run}/{name}_{run}_{p}/parameters.json", verbose=False)
+            #print(path + f"{name}_{run}/{name}_{run}_{p}")
             experiment = GuidewireExperiment(positions)
-            print("Timesteps: ", experiment.timesteps)
-            popt, error = get_decay_rate(experiment, debug=debug, p0=[1.2, 0.01], offset=params["displacement"])  # , params["displacement"]])
+            #print("Timesteps: ", experiment.timesteps)
+            popt, peak_idxs = get_decay_rate(experiment, debug=debug, p0=[1.2, 0.01], offset=params["displacement"])  # , params["displacement"]])
             decay_rate, omega = popt[1], popt[0]
             times = experiment.get_total_time()[-1]  # np.diff(experiment.get_total_time())
             times = np.diff(experiment.get_elapsed_time())
@@ -216,7 +198,10 @@ def get_all_data(name, parameters, repeat, path, debug=False):
             loop_time.append(np.mean(times))
             relaxation_time.append(decay_rate)
             offset.append(omega)
-            error_.append(np.mean(np.abs(error)))
+            if experiment.get_elapsed_time().shape[0] > 1000:
+                print("Not converged")
+
+            error_.append([experiment.get_elapsed_time()[peak_idxs[-1]]/1000, experiment.get_total_time()[peak_idxs[-1]]])#np.mean(np.abs(error)))
             param.append(params)
 
         relaxation_times.append(relaxation_time)
@@ -243,6 +228,88 @@ def set_labels(ax, xlabel):
     ax[1].set_xlabel(xlabel)
     ax[2].set_xlabel(xlabel)
 
-    ax[0].set_ylabel("Average Execution Time [ms]")
-    ax[1].set_ylabel("Relaxation Time $\\tau$ $\left[s^{-1}\\right]$")
-    ax[2].set_ylabel("Total Error $\Delta$ [units]")
+    ax[0].set_ylabel("Average Step Time [ms]")
+    #ax[2].set_ylabel("Total Error $\Delta_{{\mathbf{{x}}}}$ [units]")
+    ax[1].set_ylabel("Computation Time [s]")
+    ax[2].set_ylabel("In-Game Time [s]")
+    
+def plot_confidence_interval(ax, x, y):
+    # fig = plt.figure(figsize=(12, 5), dpi=300)
+
+    # Get percentiles for the confidence interval
+    p10 = np.percentile(y, axis=0, q=[10]).ravel()[:]
+    p90 = np.percentile(y, axis=0, q=[90]).ravel()[:]
+    p25 = np.percentile(y, axis=0, q=[25]).ravel()[:]
+    p75 = np.percentile(y, axis=0, q=[75]).ravel()[:]
+
+    # Plot mean and confidence
+    ax.fill_between(x, p10, p90, alpha=0.1, color="b", label="$90\%$ CI")
+    ax.fill_between(x, p25, p75, alpha=0.25, color="b", label="$75\%$ CI")
+    ax.plot(x, np.mean(y, axis=0)[:], "o-", color="black", label="Mean")
+
+    # Labels
+    
+    ax.legend(prop={"size": 10})
+    # return fig
+
+
+COLORS = ["#9e0142", "#d53e4f", "#f46d43", "#fdae61", "#fee08b", "#ffffbf", "#e6f598", "#abdda4", "#66c2a5", "#3288bd", "#5e4fa2"]
+
+def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=False, format="int", log=False):
+    total_error = []
+
+    plt.figure(figsize=(4,3))
+
+    for i,param in enumerate(params):
+        try:
+            positions = read_json_file(PATH + f"{name}_0/{name}_0_{param}/positions.json", verbose=False)
+
+            experiment = GuidewireExperiment(positions)
+
+            # Get distance to reference
+            pos_ref = reference.get_all_spheres()[::(reference.n_spheres-1)//(experiment.n_spheres-1)]
+            pos = experiment.get_all_spheres()
+            
+            dist = np.linalg.norm(pos_ref - pos, axis=2)
+            
+            # Save average distance
+            total_error.append(np.mean(dist[:,-1]))
+
+            if format == "int":
+                plt.plot(dist[:,-1], "o-", label=f"{int(param)}", color=COLORS[i])
+            if format == "sci":
+                plt.plot(dist[:,-1], "o-", label=f"{param:.2e}", color=COLORS[i])
+            if format == "float":
+                plt.plot(dist[:,-1], "o-", label=f"{param:.2f}", color=COLORS[i])
+            plt.title(xlabel)
+            plt.ylabel("Distance [units]")
+            plt.xlabel("Sphere Index $i$")
+        except Exception as e:
+            print(f"Error in {param}")
+            print(e)
+        
+    plt.legend(prop={"size": 8})
+    if save:
+        plt.savefig(SAVE_PATH + f"{name}_distance.pdf", bbox_inches="tight", dpi=300)
+    plt.show()
+    
+    plt.figure(figsize=(4,3))
+    plt.imshow(dist, aspect="auto", cmap=cmr.lavender, extent=[0, experiment.get_total_time()[-1], experiment.n_spheres, 0], interpolation="bicubic")
+    #plt.title("Time-Evolution of Distance to Reference")
+    plt.xlabel("In-Game Time [s]")
+    plt.ylabel("Sphere Index $i$")
+    plt.colorbar(label="Distance [units]")
+    if save:
+        plt.savefig(SAVE_PATH + f"{name}_heatmap.pdf", bbox_inches="tight", dpi=300)
+    plt.show()
+    
+    plt.figure(figsize=(4,3))
+    plt.plot(params, total_error, "o-")
+    plt.title("Average Distance to Reference")
+    plt.ylabel("Distance [units]")
+    plt.xlabel(xlabel)
+    if log:
+        plt.xscale("log")
+    if save:
+        plt.savefig(SAVE_PATH + f"{name}_error.pdf", bbox_inches="tight", dpi=300)
+    plt.show()
