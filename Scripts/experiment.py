@@ -276,11 +276,11 @@ def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=Fal
             total_error.append(np.mean(dist[:,-1]))
 
             if format == "int":
-                plt.plot(dist[:,-1], "o-", label=f"{int(param)}", color=COLORS[i])
+                plt.plot(dist[:,-1], ".-", label=f"{int(param)}", color=COLORS[i])
             if format == "sci":
-                plt.plot(dist[:,-1], "o-", label=f"{param:.2e}", color=COLORS[i])
+                plt.plot(dist[:,-1], ".-", label=f"{param:.2e}", color=COLORS[i])
             if format == "float":
-                plt.plot(dist[:,-1], "o-", label=f"{param:.2f}", color=COLORS[i])
+                plt.plot(dist[:,-1], ".-", label=f"{param:.2f}", color=COLORS[i])
             plt.title(xlabel)
             plt.ylabel("Distance [units]")
             plt.xlabel("Sphere Index $i$")
