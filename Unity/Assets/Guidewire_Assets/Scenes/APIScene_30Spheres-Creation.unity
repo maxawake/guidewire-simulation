@@ -517,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: transversal
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: spheres.Array.size
@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logFilePath: /home/max/Temp/Praktikum/experiments/
-  constraintSolverSteps: 1000
+  constraintSolverSteps: 500
   timeStep: 0.001
   displacement: 10
   guidewireLength: 300
@@ -937,7 +937,7 @@ MonoBehaviour:
   sphereRadius: 5
   collisionMargin: 5
   collisionStiffness: 0.001
-  deltaThreshold: 0
+  deltaThreshold: 0.001
   damping: 0
   VerletIntegration: 1
   SteadyState: 1

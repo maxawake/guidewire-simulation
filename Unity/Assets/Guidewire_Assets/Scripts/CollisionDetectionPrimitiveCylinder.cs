@@ -77,22 +77,24 @@ namespace GuidewireSim
             Debug.Log(collisionNormal);
             Debug.Log(contactPoint);
             
-            //cylinderCollisionHandler.RegisterCollision(this.transform, cylinderID, contactPoint, collisionNormal);
-            
             Vector3 spherePosition1 = spherePositions[cylinderID];
             Vector3 spherePosition2 = spherePositions[cylinderID+1];
             Vector3 rodLine = spherePosition2 - spherePosition1;
             Vector3 toContactPoint = contactPoint - spherePosition1;
+            
             float distance = Vector3.Dot(toContactPoint, rodLine) / rodLine.sqrMagnitude;
-            if (distance < 0.5) {
+
+            if (distance < 0.5) 
+            {
                 sphereCollisionHandler.RegisterCollision(this.transform, cylinderID, spherePosition1, factor*(1-distance)*collisionNormal);
                 sphereCollisionHandler.RegisterCollision(this.transform, cylinderID+1, spherePosition2, factor*distance*collisionNormal);
-            } else {
+            } 
+            else 
+            {
                 sphereCollisionHandler.RegisterCollision(this.transform, cylinderID, spherePosition1,factor*distance*collisionNormal);
                 sphereCollisionHandler.RegisterCollision(this.transform, cylinderID+1, spherePosition2, factor*(1-distance)*collisionNormal);
             }
-            Debug.Log("distance: " + distance);
-            
+            Debug.Log("distance: " + distance);   
         }
 
         /**

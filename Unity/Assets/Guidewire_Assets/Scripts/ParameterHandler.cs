@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace GuidewireSim {
     [Serializable]
@@ -22,16 +19,10 @@ namespace GuidewireSim {
 
         // For the rod
         public float displacement = 0.0f;
-        //public float rodElementLength = 10f;
         public float guidewireLength = 100f;
         public int numberRodElements = 10;
         public float totalMass = 100.0f;
         public float guidewireOffset = -200.0f;
-        
-        // For model placement (not used right now)
-        // public Vector3 position = Vector3.zero;
-		// public Vector3 scale = Vector3.one;
-		// public Vector3 rotation = Vector3.zero;
 
         // Constraint solving step
         public float bendStiffness = 1.0f;
@@ -65,14 +56,10 @@ namespace GuidewireSim {
             Debug.Log("constraintSolverSteps: " + constraintSolverSteps);
             Debug.Log("timeStep: " + timeStep);
             Debug.Log("displacement: " + displacement);
-            //Debug.Log("rodElementLength: " + rodElementLength);
             Debug.Log("guidewireLength: " + guidewireLength);
             Debug.Log("numberRodElements: " + numberRodElements);
             Debug.Log("totalMass: " + totalMass);
             Debug.Log("guidewireOffset: " + guidewireOffset);
-            // Debug.Log("position: " + position);
-            // Debug.Log("scale: " + scale);
-            // Debug.Log("rotation: " + rotation);
             Debug.Log("bendStiffness: " + bendStiffness);
             Debug.Log("stretchStiffness: " + stretchStiffness);
             Debug.Log("sphereRadius: " + sphereRadius);

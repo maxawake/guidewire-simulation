@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using BSM = BulletSharp.Math;
 using System.IO;
+//using System.Numerics;
 
 namespace GuidewireSim
 {
@@ -61,9 +62,10 @@ public class PredictionStep : MonoBehaviour
         {   
             // For steady state, the first sphere needs to be fixed
             for (int sphereIndex = 1; sphereIndex < spheresCount; sphereIndex++)
-            {
-                // spherePositionPredictions[sphereIndex] = 2*spherePositions[sphereIndex] - oldSpherePositions[sphereIndex] + Time.fixedDeltaTime * Time.fixedDeltaTime * sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
-                spherePositionPredictions[sphereIndex] = (2.0f-parameterHandler.damping)*spherePositions[sphereIndex] - (1.0f-parameterHandler.damping)*oldSpherePositions[sphereIndex] + Time.fixedDeltaTime * Time.fixedDeltaTime * sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
+            {   
+                Vector3 acceleration = Time.fixedDeltaTime * Time.fixedDeltaTime *sphereInverseMasses[sphereIndex] * sphereExternalForces[sphereIndex];
+
+                spherePositionPredictions[sphereIndex] = (2.0f-parameterHandler.damping)*spherePositions[sphereIndex] - (1.0f-parameterHandler.damping)*oldSpherePositions[sphereIndex] + acceleration;
             }
         }
         else // Euler Integration

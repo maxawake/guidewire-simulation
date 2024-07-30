@@ -198,7 +198,7 @@ def get_all_data(name, parameters, repeat, path, debug=False):
             loop_time.append(np.mean(times))
             relaxation_time.append(decay_rate)
             offset.append(omega)
-            if experiment.get_elapsed_time().shape[0] > 1000:
+            if experiment.get_elapsed_time().shape[0] > 4000:
                 print("Not converged")
 
             error_.append([experiment.get_elapsed_time()[peak_idxs[-1]]/1000, experiment.get_total_time()[peak_idxs[-1]]])#np.mean(np.abs(error)))
@@ -220,18 +220,19 @@ def plot_data(x, y, xlabel, ylabel):
     # return fig
 
 def set_labels(ax, xlabel):
-    ax[0].set_title("(a)")
-    ax[1].set_title("(b)")
-    ax[2].set_title("(c)")
+    ax[0,0].set_title("(a)")
+    ax[0,1].set_title("(b)")
+    ax[1,0].set_title("(c)")
+    ax[1,1].set_title("(d)")
 
-    ax[0].set_xlabel(xlabel)
-    ax[1].set_xlabel(xlabel)
-    ax[2].set_xlabel(xlabel)
+    ax[0,1].set_xlabel(xlabel)
+    ax[1,1].set_xlabel(xlabel)
+    ax[1,0].set_xlabel(xlabel)
 
-    ax[0].set_ylabel("Average Step Time [ms]")
+    ax[0,1].set_ylabel("Average Step Time [ms]")
     #ax[2].set_ylabel("Total Error $\Delta_{{\mathbf{{x}}}}$ [units]")
-    ax[1].set_ylabel("Computation Time [s]")
-    ax[2].set_ylabel("In-Game Time [s]")
+    ax[1,1].set_ylabel("Computation Time [s]")
+    ax[1,0].set_ylabel("In-Game Time [s]")
     
 def plot_confidence_interval(ax, x, y):
     # fig = plt.figure(figsize=(12, 5), dpi=300)
@@ -258,7 +259,7 @@ COLORS = ["#9e0142", "#d53e4f", "#f46d43", "#fdae61", "#fee08b", "#ffffbf", "#e6
 def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=False, format="int", log=False):
     total_error = []
 
-    fig, ax = plt.subplots(1,2,figsize=(8,3))# plt.figure(figsize=(4,3))
+    fig, ax = plt.subplots(1,3,figsize=(10,3))# plt.figure(figsize=(4,3))
 
     for i,param in enumerate(params):
         try:
@@ -270,33 +271,50 @@ def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=Fal
             pos_ref = reference.get_all_spheres()[::(reference.n_spheres-1)//(experiment.n_spheres-1)]
             pos = experiment.get_all_spheres()
             
+            initial_positions = pos[:,0,2].copy()
+            final_pos = pos[:,-1,:].copy()
+            
             dist = np.linalg.norm(pos_ref - pos, axis=2)
             
             # Save average distance
             total_error.append(np.mean(dist[:,-1]))
 
             if format == "int":
-                ax[0].plot(dist[:,-1], ".-", label=f"{int(param)}", color=COLORS[i])
+                ax[1].plot(initial_positions, dist[:,-1], ".-", label=f"{int(param)}", color=COLORS[i])
+                ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", label=f"{int(param)}", color=COLORS[i])
             if format == "sci":
-                ax[0].plot(dist[:,-1], ".-", label=f"{param:.2e}", color=COLORS[i])
+                ax[1].plot(initial_positions, dist[:,-1], ".-", label=f"{param:.2e}", color=COLORS[i])
+                ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", label=f"{param:.2e}", color=COLORS[i])
             if format == "float":
-                ax[0].plot(dist[:,-1], ".-", label=f"{param:.2f}", color=COLORS[i])
-            ax[0].set_title(xlabel)
-            ax[0].set_ylabel("Distance [units]")
-            ax[0].set_xlabel("Sphere Index $i$")
+                ax[1].plot(initial_positions, dist[:,-1], ".-", label=f"{param:.2f}", color=COLORS[i])
+                ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", label=f"{param:.2f}", color=COLORS[i])
+                
+            
+
+            ax[1].set_title("(b) " + xlabel)
+            ax[1].set_ylabel("Distance [units]")
+            ax[1].set_xlabel("Position $z$ [units]")
         except Exception as e:
             print(f"Error in {param}")
             print(e)
         
-    ax[0].legend(prop={"size": 8})
+    ax[1].legend(prop={"size": 6})
     
-    ax[1].plot(params, total_error, "o-", color="black")
-    ax[1].set_title("Average Distance to Reference")
-    ax[1].set_ylabel("Distance [units]")
-    ax[1].set_xlabel(xlabel)
-    
+    ax[2].plot(params, total_error, "o-", color="black")
+    ax[2].set_title("(c) Average Distance to Reference")
+    ax[2].set_ylabel("Distance [units]")
+    ax[2].set_xlabel(xlabel)
+
     if log:
-        ax[1].set_xscale("log")
+        ax[2].set_xscale("log")
+
+    final_pos = pos_ref[:,-1,:]
+    ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", color="black", label="Reference")
+    ax[0].legend(prop={"size": 6})
+    ax[0].set_title("(a) Final Sphere Position")
+    ax[0].set_xlabel("Position $z$ [units]")
+    ax[0].set_ylabel("Position $y$ [units]")
+        
     plt.tight_layout()
     
     if save:

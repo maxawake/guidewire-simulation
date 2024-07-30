@@ -12,7 +12,7 @@
     "sphereRadius": 5.0,
     "collisionMargin": 5,
     "collisionStiffness": 0.001,
-    "deltaThreshold": 0.0,
+    "deltaThreshold": 0.001,
     "damping": 0.0,
     "VerletIntegration": true,
     "SteadyState": true,

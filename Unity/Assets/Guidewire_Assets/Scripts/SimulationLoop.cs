@@ -555,7 +555,7 @@ namespace GuidewireSim
             logger.savePositionsAsJson(spherePositions, sphereVelocities, spheresCount, simulationStep, totalTime, elapsedMilliseconds, delta);
 
             // Take screenshot
-            if (Screenshots && simulationStep % 100 == 0)
+            if (Screenshots && simulationStep % 1 == 0)
             {
                 string screenshotPath = parameterHandler.logFilePath + "screenshots/" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".jpg";
                 ScreenCapture.CaptureScreenshot(screenshotPath);
