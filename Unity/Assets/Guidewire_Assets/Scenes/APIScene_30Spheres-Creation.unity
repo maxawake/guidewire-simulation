@@ -257,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ba2d24f9b9b0b4601b443430a6b55a6a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: ba2d24f9b9b0b4601b443430a6b55a6a, type: 3}
       propertyPath: m_Layer
@@ -497,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: Logging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: epsilon
@@ -505,7 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: readFile
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4233146888435007091, guid: 0e128b35dc3ea6746b6de609560d672d, type: 3}
       propertyPath: timeStep
@@ -927,7 +927,7 @@ MonoBehaviour:
   logFilePath: /home/max/Temp/Praktikum/experiments/
   constraintSolverSteps: 500
   timeStep: 0.001
-  displacement: 10
+  displacement: 1
   guidewireLength: 300
   numberRodElements: 30
   totalMass: 0.01
