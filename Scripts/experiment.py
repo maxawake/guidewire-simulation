@@ -258,7 +258,7 @@ COLORS = ["#9e0142", "#d53e4f", "#f46d43", "#fdae61", "#fee08b", "#ffffbf", "#e6
 def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=False, format="int", log=False):
     total_error = []
 
-    plt.figure(figsize=(4,3))
+    fig, ax = plt.subplots(1,2,figsize=(8,3))# plt.figure(figsize=(4,3))
 
     for i,param in enumerate(params):
         try:
@@ -276,24 +276,35 @@ def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=Fal
             total_error.append(np.mean(dist[:,-1]))
 
             if format == "int":
-                plt.plot(dist[:,-1], ".-", label=f"{int(param)}", color=COLORS[i])
+                ax[0].plot(dist[:,-1], ".-", label=f"{int(param)}", color=COLORS[i])
             if format == "sci":
-                plt.plot(dist[:,-1], ".-", label=f"{param:.2e}", color=COLORS[i])
+                ax[0].plot(dist[:,-1], ".-", label=f"{param:.2e}", color=COLORS[i])
             if format == "float":
-                plt.plot(dist[:,-1], ".-", label=f"{param:.2f}", color=COLORS[i])
-            plt.title(xlabel)
-            plt.ylabel("Distance [units]")
-            plt.xlabel("Sphere Index $i$")
+                ax[0].plot(dist[:,-1], ".-", label=f"{param:.2f}", color=COLORS[i])
+            ax[0].set_title(xlabel)
+            ax[0].set_ylabel("Distance [units]")
+            ax[0].set_xlabel("Sphere Index $i$")
         except Exception as e:
             print(f"Error in {param}")
             print(e)
         
-    plt.legend(prop={"size": 8})
+    ax[0].legend(prop={"size": 8})
+    
+    ax[1].plot(params, total_error, "o-", color="black")
+    ax[1].set_title("Average Distance to Reference")
+    ax[1].set_ylabel("Distance [units]")
+    ax[1].set_xlabel(xlabel)
+    
+    if log:
+        ax[1].set_xscale("log")
+    plt.tight_layout()
+    
     if save:
-        plt.savefig(SAVE_PATH + f"{name}_distance.pdf", bbox_inches="tight", dpi=300)
+        plt.savefig(SAVE_PATH + f"{name}.pdf", bbox_inches="tight", dpi=300)
     plt.show()
     
     plt.figure(figsize=(4,3))
+    print(dist.max(),dist.min())
     plt.imshow(dist, aspect="auto", cmap=cmr.lavender, extent=[0, experiment.get_total_time()[-1], experiment.n_spheres, 0], interpolation="bicubic")
     #plt.title("Time-Evolution of Distance to Reference")
     plt.xlabel("In-Game Time [s]")
@@ -301,15 +312,4 @@ def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=Fal
     plt.colorbar(label="Distance [units]")
     if save:
         plt.savefig(SAVE_PATH + f"{name}_heatmap.pdf", bbox_inches="tight", dpi=300)
-    plt.show()
-    
-    plt.figure(figsize=(4,3))
-    plt.plot(params, total_error, "o-")
-    plt.title("Average Distance to Reference")
-    plt.ylabel("Distance [units]")
-    plt.xlabel(xlabel)
-    if log:
-        plt.xscale("log")
-    if save:
-        plt.savefig(SAVE_PATH + f"{name}_error.pdf", bbox_inches="tight", dpi=300)
     plt.show()
