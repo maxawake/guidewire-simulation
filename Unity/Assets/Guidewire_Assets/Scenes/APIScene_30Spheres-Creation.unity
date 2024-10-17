@@ -925,11 +925,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logFilePath: /home/max/Temp/Praktikum/experiments/
-  constraintSolverSteps: 500
+  constraintSolverSteps: 300
   timeStep: 0.001
   displacement: 1
   guidewireLength: 300
-  numberRodElements: 30
+  numberRodElements: 10
   totalMass: 0.01
   guidewireOffset: -130
   bendStiffness: 0.1
@@ -938,7 +938,7 @@ MonoBehaviour:
   collisionMargin: 5
   collisionStiffness: 0.001
   deltaThreshold: 0.001
-  damping: 0
+  damping: 0.1
   VerletIntegration: 1
   SteadyState: 1
   maxSimulationSteps: 4000

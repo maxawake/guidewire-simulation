@@ -263,7 +263,7 @@ def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=Fal
 
     for i,param in enumerate(params):
         try:
-            positions = read_json_file(PATH + f"{name}_0/{name}_0_{param}/positions.json", verbose=False)
+            positions = read_json_file(PATH + f"{name}_0/{name}_0_{param[0]}/positions.json", verbose=False)
 
             experiment = GuidewireExperiment(positions)
 
@@ -280,14 +280,14 @@ def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=Fal
             total_error.append(np.mean(dist[:,-1]))
 
             if format == "int":
-                ax[1].plot(initial_positions, dist[:,-1], ".-", label=f"{int(param)}", color=COLORS[i])
-                ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", label=f"{int(param)}", color=COLORS[i])
+                ax[1].plot(initial_positions, dist[:,-1], ".-", label=f"{int(param[0])}{param[1]}", color=COLORS[i])
+                ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", label=f"{int(param[0])}{param[1]}", color=COLORS[i])
             if format == "sci":
-                ax[1].plot(initial_positions, dist[:,-1], ".-", label=f"{param:.2e}", color=COLORS[i])
-                ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", label=f"{param:.2e}", color=COLORS[i])
+                ax[1].plot(initial_positions, dist[:,-1], ".-", label=f"{param[0]:.2e}{param[1]}", color=COLORS[i])
+                ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", label=f"{param[0]:.2e}{param[1]}", color=COLORS[i])
             if format == "float":
-                ax[1].plot(initial_positions, dist[:,-1], ".-", label=f"{param:.2f}", color=COLORS[i])
-                ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", label=f"{param:.2f}", color=COLORS[i])
+                ax[1].plot(initial_positions, dist[:,-1], ".-", label=f"{param[0]:.2f}{param[1]}", color=COLORS[i])
+                ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", label=f"{param[0]:.2f}{param[1]}", color=COLORS[i])
                 
             
 
@@ -295,12 +295,13 @@ def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=Fal
             ax[1].set_ylabel("Distance [units]")
             ax[1].set_xlabel("Position $z$ [units]")
         except Exception as e:
-            print(f"Error in {param}")
+            print(f"Error in {param[0]}")
             print(e)
         
     ax[1].legend(prop={"size": 6})
     
-    ax[2].plot(params, total_error, "o-", color="black")
+    tmp = np.array(params)[:,0].copy().astype("float")
+    ax[2].plot(tmp, total_error, "o-", color="black")
     ax[2].set_title("(c) Average Distance to Reference")
     ax[2].set_ylabel("Distance [units]")
     ax[2].set_xlabel(xlabel)
@@ -309,7 +310,7 @@ def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=Fal
         ax[2].set_xscale("log")
 
     final_pos = pos_ref[:,-1,:]
-    ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", color="black", label="Reference")
+    #ax[0].plot(final_pos[:,2], final_pos[:,1], ".-", color="black", label="Reference")
     ax[0].legend(prop={"size": 6})
     ax[0].set_title("(a) Final Sphere Position")
     ax[0].set_xlabel("Position $z$ [units]")
@@ -331,3 +332,12 @@ def plot_transversal( PATH, SAVE_PATH, name, params, reference, xlabel, save=Fal
     if save:
         plt.savefig(SAVE_PATH + f"{name}_heatmap.pdf", bbox_inches="tight", dpi=300)
     plt.show()
+    
+def make_params(params, idx):
+    new_params = []
+    for i,p in enumerate(params):
+        if i == idx:
+            new_params.append((p, ", Reference"))
+        else:
+            new_params.append((p, " "))
+    return new_params
